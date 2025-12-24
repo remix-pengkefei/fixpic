@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import './App.css'
 
-type Tool = 'remove-bg' | 'compress'
+type Tool = 'remove-bg' | 'compress' | 'resize'
 
 interface PendingFile {
   file: File
@@ -26,8 +26,14 @@ function App() {
 
   // 压缩选项
   const [quality, setQuality] = useState(85)
-  const [maxWidth, setMaxWidth] = useState<number | null>(null)
   const [outputFormat, setOutputFormat] = useState<'webp' | 'png' | 'jpeg'>('webp')
+
+  // 尺寸调整选项
+  const [resizeWidth, setResizeWidth] = useState<number | null>(null)
+  const [resizeHeight, setResizeHeight] = useState<number | null>(null)
+  const [keepAspectRatio, setKeepAspectRatio] = useState(true)
+  const [resizeFormat, setResizeFormat] = useState<'webp' | 'png' | 'jpeg'>('png')
+  const [resizeQuality, setResizeQuality] = useState(100) // 100 表示最高质量
 
   // 清理预览 URL
   useEffect(() => {
@@ -105,19 +111,11 @@ function App() {
     return new Promise((resolve, reject) => {
       const img = new Image()
       img.onload = () => {
-        let width = img.width
-        let height = img.height
-
-        if (maxWidth && width > maxWidth) {
-          height = Math.round(height * (maxWidth / width))
-          width = maxWidth
-        }
-
         const canvas = document.createElement('canvas')
-        canvas.width = width
-        canvas.height = height
+        canvas.width = img.width
+        canvas.height = img.height
         const ctx = canvas.getContext('2d')!
-        ctx.drawImage(img, 0, 0, width, height)
+        ctx.drawImage(img, 0, 0)
 
         const mimeType = outputFormat === 'webp' ? 'image/webp'
           : outputFormat === 'png' ? 'image/png' : 'image/jpeg'
@@ -131,7 +129,47 @@ function App() {
       img.onerror = reject
       img.src = URL.createObjectURL(file)
     })
-  }, [quality, maxWidth, outputFormat])
+  }, [quality, outputFormat])
+
+  // 调整尺寸
+  const resizeImage = useCallback(async (file: File): Promise<Blob> => {
+    return new Promise((resolve, reject) => {
+      const img = new Image()
+      img.onload = () => {
+        let width = resizeWidth || img.width
+        let height = resizeHeight || img.height
+
+        if (keepAspectRatio) {
+          if (resizeWidth && !resizeHeight) {
+            height = Math.round(img.height * (resizeWidth / img.width))
+          } else if (resizeHeight && !resizeWidth) {
+            width = Math.round(img.width * (resizeHeight / img.height))
+          } else if (resizeWidth && resizeHeight) {
+            const ratio = Math.min(resizeWidth / img.width, resizeHeight / img.height)
+            width = Math.round(img.width * ratio)
+            height = Math.round(img.height * ratio)
+          }
+        }
+
+        const canvas = document.createElement('canvas')
+        canvas.width = width
+        canvas.height = height
+        const ctx = canvas.getContext('2d')!
+        ctx.drawImage(img, 0, 0, width, height)
+
+        const mimeType = resizeFormat === 'webp' ? 'image/webp'
+          : resizeFormat === 'png' ? 'image/png' : 'image/jpeg'
+        const q = resizeFormat === 'png' ? undefined : resizeQuality / 100
+
+        canvas.toBlob(blob => {
+          if (blob) resolve(blob)
+          else reject(new Error('Failed to create blob'))
+        }, mimeType, q)
+      }
+      img.onerror = reject
+      img.src = URL.createObjectURL(file)
+    })
+  }, [resizeWidth, resizeHeight, keepAspectRatio, resizeFormat, resizeQuality])
 
   // 添加文件到待处理列表
   const addFiles = useCallback((files: FileList | File[]) => {
@@ -155,6 +193,8 @@ function App() {
     try {
       const result = activeTool === 'remove-bg'
         ? await removeFakeTransparency(pending.file)
+        : activeTool === 'resize'
+        ? await resizeImage(pending.file)
         : await compressImage(pending.file)
 
       setResults(prev => [...prev, {
@@ -171,7 +211,7 @@ function App() {
       console.error('处理失败:', pending.file.name, err)
     }
     setProcessingIndex(null)
-  }, [pendingFiles, activeTool, removeFakeTransparency, compressImage])
+  }, [pendingFiles, activeTool, removeFakeTransparency, compressImage, resizeImage])
 
   // 批量处理所有文件
   const processAllFiles = useCallback(async () => {
@@ -184,6 +224,8 @@ function App() {
       try {
         const result = activeTool === 'remove-bg'
           ? await removeFakeTransparency(pending.file)
+          : activeTool === 'resize'
+          ? await resizeImage(pending.file)
           : await compressImage(pending.file)
 
         newResults.push({
@@ -202,7 +244,7 @@ function App() {
     setPendingFiles([])
     setProcessingIndex(null)
     setProcessing(false)
-  }, [pendingFiles, activeTool, removeFakeTransparency, compressImage])
+  }, [pendingFiles, activeTool, removeFakeTransparency, compressImage, resizeImage])
 
   // 移除待处理文件
   const removePendingFile = useCallback((index: number) => {
@@ -247,12 +289,14 @@ function App() {
   // 下载单个文件
   const downloadFile = useCallback((result: ProcessedImage) => {
     const link = document.createElement('a')
-    const ext = activeTool === 'remove-bg' ? 'png' : outputFormat
+    const ext = activeTool === 'remove-bg' ? 'png'
+      : activeTool === 'resize' ? resizeFormat
+      : outputFormat
     const baseName = result.original.name.replace(/\.[^.]+$/, '')
     link.download = `${baseName}_processed.${ext}`
     link.href = result.preview
     link.click()
-  }, [activeTool, outputFormat])
+  }, [activeTool, outputFormat, resizeFormat])
 
   // 下载全部
   const downloadAll = useCallback(() => {
@@ -291,7 +335,14 @@ function App() {
           onClick={() => { setActiveTool('compress'); setResults([]); clearPendingFiles() }}
         >
           <span className="tool-icon">📦</span>
-          <span>图片压缩转换</span>
+          <span>图片压缩</span>
+        </button>
+        <button
+          className={`tool-btn ${activeTool === 'resize' ? 'active' : ''}`}
+          onClick={() => { setActiveTool('resize'); setResults([]); clearPendingFiles() }}
+        >
+          <span className="tool-icon">📐</span>
+          <span>调整尺寸</span>
         </button>
       </div>
 
@@ -299,8 +350,10 @@ function App() {
       <div className="tool-description">
         {activeTool === 'remove-bg' ? (
           <p>将 Lovart、Midjourney 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG</p>
+        ) : activeTool === 'resize' ? (
+          <p>精确调整图片尺寸，支持保持宽高比</p>
         ) : (
-          <p>压缩图片并转换格式，支持 WebP、PNG、JPEG，可自定义质量和尺寸</p>
+          <p>压缩图片并转换格式，支持 WebP、PNG、JPEG</p>
         )}
       </div>
 
@@ -310,7 +363,7 @@ function App() {
           <div className="option-group">
             <label>输出格式</label>
             <div className="format-btns">
-              {(['webp', 'png', 'jpeg'] as const).map(fmt => (
+              {(['webp', 'jpeg', 'png'] as const).map(fmt => (
                 <button
                   key={fmt}
                   className={outputFormat === fmt ? 'active' : ''}
@@ -322,9 +375,15 @@ function App() {
             </div>
           </div>
 
-          {outputFormat !== 'png' && (
-            <div className="option-group">
-              <label>质量 {quality}%</label>
+          <div className="option-group">
+            <label>
+              图片压缩 {outputFormat === 'png'
+                ? ''
+                : `${quality}%${quality >= 80 ? ' (高质量)' : quality >= 50 ? ' (轻微损失)' : ' (画质较差)'}`}
+            </label>
+            {outputFormat === 'png' ? (
+              <div style={{ fontSize: '12px', color: '#999' }}>PNG 无损，无需压缩</div>
+            ) : (
               <input
                 type="range"
                 min="10"
@@ -332,20 +391,93 @@ function App() {
                 value={quality}
                 onChange={e => setQuality(Number(e.target.value))}
               />
-            </div>
-          )}
+            )}
+          </div>
+        </div>
+      )}
 
+      {/* Options for resize tool */}
+      {activeTool === 'resize' && (
+        <div className="options">
           <div className="option-group">
-            <label>最大宽度</label>
+            <label>宽度</label>
             <div className="width-input">
               <input
                 type="number"
-                placeholder="不限制"
-                value={maxWidth || ''}
-                onChange={e => setMaxWidth(e.target.value ? Number(e.target.value) : null)}
+                placeholder="自动"
+                value={resizeWidth || ''}
+                onChange={e => setResizeWidth(e.target.value ? Number(e.target.value) : null)}
               />
               <span>px</span>
             </div>
+          </div>
+
+          <div className="option-group">
+            <label>高度</label>
+            <div className="width-input">
+              <input
+                type="number"
+                placeholder="自动"
+                value={resizeHeight || ''}
+                onChange={e => setResizeHeight(e.target.value ? Number(e.target.value) : null)}
+              />
+              <span>px</span>
+            </div>
+          </div>
+
+          <div className="option-group">
+            <label>保持比例</label>
+            <div className="format-btns">
+              <button
+                className={keepAspectRatio ? 'active' : ''}
+                onClick={() => setKeepAspectRatio(true)}
+              >
+                是
+              </button>
+              <button
+                className={!keepAspectRatio ? 'active' : ''}
+                onClick={() => setKeepAspectRatio(false)}
+              >
+                否
+              </button>
+            </div>
+            <div style={{ fontSize: '12px', color: '#999', marginTop: '4px' }}>
+              {keepAspectRatio ? '等比缩放，不变形' : '强制拉伸，可能变形'}
+            </div>
+          </div>
+
+          <div className="option-group">
+            <label>输出格式</label>
+            <div className="format-btns">
+              {(['png', 'webp', 'jpeg'] as const).map(fmt => (
+                <button
+                  key={fmt}
+                  className={resizeFormat === fmt ? 'active' : ''}
+                  onClick={() => setResizeFormat(fmt)}
+                >
+                  {fmt.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="option-group" style={{ marginLeft: '16px', minWidth: '160px' }}>
+            <label>
+              图片压缩 {resizeFormat === 'png'
+                ? ''
+                : `${resizeQuality}%${resizeQuality >= 80 ? ' (高质量)' : resizeQuality >= 50 ? ' (轻微损失)' : ' (画质较差)'}`}
+            </label>
+            {resizeFormat === 'png' ? (
+              <div style={{ fontSize: '12px', color: '#999' }}>PNG 无损，无需压缩</div>
+            ) : (
+              <input
+                type="range"
+                min="10"
+                max="100"
+                value={resizeQuality}
+                onChange={e => setResizeQuality(Number(e.target.value))}
+              />
+            )}
           </div>
         </div>
       )}
@@ -367,7 +499,7 @@ function App() {
           style={{ display: 'none' }}
         />
         <div className="drop-icon">
-          {activeTool === 'remove-bg' ? '🖼️' : '📁'}
+          {activeTool === 'remove-bg' ? '🖼️' : activeTool === 'resize' ? '📐' : '📁'}
         </div>
         <p className="drop-text">拖拽图片到这里，或点击选择</p>
         <p className="drop-hint">支持 PNG、JPG、WebP，可批量处理</p>
