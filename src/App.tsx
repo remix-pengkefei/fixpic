@@ -316,7 +316,7 @@ function App() {
       <header className="header">
         <div className="logo">
           <span className="logo-icon">F</span>
-          <span className="logo-text">ixPic</span>
+          <span className="logo-text">ix-Pic</span>
         </div>
         <p className="tagline">AI 开发者的图片工具箱</p>
       </header>
