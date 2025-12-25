@@ -1,7 +1,9 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import './App.css'
+import * as api from './api'
 
-type Tool = 'remove-bg' | 'compress' | 'resize'
+type Tool = 'remove-bg' | 'compress' | 'resize' | 'cutout'
+type CutoutMode = 'auto' | 'click' | 'clothes'
 
 interface PendingFile {
   file: File
@@ -14,6 +16,19 @@ interface ProcessedImage {
   originalSize: number
   resultSize: number
   preview: string
+}
+
+interface ClickPoint {
+  x: number
+  y: number
+  label: number // 1=前景, 0=背景
+}
+
+interface ClothesCategory {
+  id: number
+  name: string
+  name_cn: string
+  pixels: number
 }
 
 function App() {
@@ -34,6 +49,30 @@ function App() {
   const [keepAspectRatio, setKeepAspectRatio] = useState(true)
   const [resizeFormat, setResizeFormat] = useState<'webp' | 'png' | 'jpeg'>('png')
   const [resizeQuality, setResizeQuality] = useState(100) // 100 表示最高质量
+
+  // 抠图模式和状态
+  const [cutoutMode, setCutoutMode] = useState<CutoutMode>('auto')
+  const [cutoutImage, setCutoutImage] = useState<File | null>(null)
+  const [cutoutImagePreview, setCutoutImagePreview] = useState<string | null>(null)
+  const [cutoutResult, setCutoutResult] = useState<string | null>(null)
+  const [cutoutProcessing, setCutoutProcessing] = useState(false)
+
+  // 自动抠图选项
+  const [bgColor, setBgColor] = useState('#ffffff')
+  const [bgImage, setBgImage] = useState<File | null>(null)
+  const [bgImagePreview, setBgImagePreview] = useState<string | null>(null)
+  const [bgType, setBgType] = useState<'transparent' | 'color' | 'image'>('transparent')
+
+  // 点击抠图 (SAM)
+  const [samPoints, setSamPoints] = useState<ClickPoint[]>([])
+  const [imageSize, setImageSize] = useState<{ width: number; height: number } | null>(null)
+  const [displaySize, setDisplaySize] = useState<{ width: number; height: number } | null>(null)
+  const samImageRef = useRef<HTMLImageElement>(null)
+
+  // 服装分割
+  const [clothesCategories, setClothesCategories] = useState<ClothesCategory[]>([])
+  const [selectedCategories, setSelectedCategories] = useState<number[]>([])
+  const [clothesParsing, setClothesParsing] = useState(false)
 
   // 清理预览 URL
   useEffect(() => {
@@ -170,6 +209,141 @@ function App() {
       img.src = URL.createObjectURL(file)
     })
   }, [resizeWidth, resizeHeight, keepAspectRatio, resizeFormat, resizeQuality])
+
+  // 上传抠图图片
+  const uploadCutoutImage = useCallback((file: File) => {
+    if (cutoutImagePreview) URL.revokeObjectURL(cutoutImagePreview)
+    setCutoutImage(file)
+    setCutoutImagePreview(URL.createObjectURL(file))
+    setCutoutResult(null)
+    setSamPoints([])
+    setClothesCategories([])
+    setSelectedCategories([])
+
+    // 如果是服装模式，自动解析
+    if (cutoutMode === 'clothes') {
+      parseClothesCategories(file)
+    }
+  }, [cutoutImagePreview, cutoutMode])
+
+  // 解析服装类别
+  const parseClothesCategories = useCallback(async (file: File) => {
+    setClothesParsing(true)
+    setClothesCategories([])
+    try {
+      const data = await api.clothesParse({ image: file })
+      if (!data.success) {
+        throw new Error(data.error || '解析失败')
+      }
+      setClothesCategories(data.categories || [])
+    } catch (err) {
+      console.error('服装解析失败:', err)
+    }
+    setClothesParsing(false)
+  }, [])
+
+  // 处理抠图（根据当前模式）
+  const processCutout = useCallback(async () => {
+    if (!cutoutImage) return
+
+    setCutoutProcessing(true)
+    try {
+      let data
+
+      if (cutoutMode === 'auto') {
+        if (bgType === 'transparent') {
+          data = await api.removeBg({ image: cutoutImage })
+        } else {
+          data = await api.changeBg({
+            image: cutoutImage,
+            bgType,
+            bgColor,
+            bgImage: bgImage || undefined
+          })
+        }
+      } else if (cutoutMode === 'click') {
+        if (samPoints.length === 0) {
+          alert('请先点击选择要抠出的区域')
+          setCutoutProcessing(false)
+          return
+        }
+        data = await api.samSegment({ image: cutoutImage, points: samPoints })
+      } else if (cutoutMode === 'clothes') {
+        if (selectedCategories.length === 0) {
+          alert('请先选择要抠出的部位')
+          setCutoutProcessing(false)
+          return
+        }
+        data = await api.clothesSegment({ image: cutoutImage, categories: selectedCategories })
+      }
+
+      if (!data?.success) {
+        throw new Error(data?.error || '抠图失败')
+      }
+
+      setCutoutResult(data.image || null)
+    } catch (err) {
+      console.error('抠图失败:', err)
+      alert(err instanceof Error ? err.message : '抠图失败')
+    }
+    setCutoutProcessing(false)
+  }, [cutoutImage, cutoutMode, bgType, bgColor, bgImage, samPoints, selectedCategories])
+
+  // SAM 图片点击处理
+  const handleSamImageClick = useCallback((e: React.MouseEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    const rect = img.getBoundingClientRect()
+    const scaleX = img.naturalWidth / rect.width
+    const scaleY = img.naturalHeight / rect.height
+    const x = Math.round((e.clientX - rect.left) * scaleX)
+    const y = Math.round((e.clientY - rect.top) * scaleY)
+    const label = e.button === 2 ? 0 : 1
+    setDisplaySize({ width: rect.width, height: rect.height })
+    setSamPoints(prev => [...prev, { x, y, label }])
+  }, [])
+
+  // 清除抠图状态
+  const clearCutoutState = useCallback(() => {
+    if (cutoutImagePreview) URL.revokeObjectURL(cutoutImagePreview)
+    setCutoutImage(null)
+    setCutoutImagePreview(null)
+    setCutoutResult(null)
+    setSamPoints([])
+    setImageSize(null)
+    setDisplaySize(null)
+    setClothesCategories([])
+    setSelectedCategories([])
+  }, [cutoutImagePreview])
+
+  // 下载抠图结果
+  const downloadCutoutResult = useCallback(() => {
+    if (!cutoutResult || !cutoutImage) return
+    const link = document.createElement('a')
+    link.download = `${cutoutImage.name.replace(/\.[^.]+$/, '')}_cutout.png`
+    link.href = cutoutResult
+    link.click()
+  }, [cutoutResult, cutoutImage])
+
+  // 切换抠图模式
+  const switchCutoutMode = useCallback((mode: CutoutMode) => {
+    setCutoutMode(mode)
+    setCutoutResult(null)
+    setSamPoints([])
+    setSelectedCategories([])
+    // 如果切换到服装模式且已有图片，自动解析
+    if (mode === 'clothes' && cutoutImage) {
+      parseClothesCategories(cutoutImage)
+    }
+  }, [cutoutImage, parseClothesCategories])
+
+  // 切换类别选择
+  const toggleCategory = useCallback((categoryId: number) => {
+    setSelectedCategories(prev =>
+      prev.includes(categoryId)
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId]
+    )
+  }, [])
 
   // 添加文件到待处理列表
   const addFiles = useCallback((files: FileList | File[]) => {
@@ -344,6 +518,13 @@ function App() {
           <span className="tool-icon">📐</span>
           <span>调整尺寸</span>
         </button>
+        <button
+          className={`tool-btn ${activeTool === 'cutout' ? 'active' : ''}`}
+          onClick={() => { setActiveTool('cutout'); setResults([]); clearPendingFiles(); clearCutoutState() }}
+        >
+          <span className="tool-icon">✂️</span>
+          <span>AI 抠图</span>
+        </button>
       </div>
 
       {/* Tool Description */}
@@ -352,6 +533,8 @@ function App() {
           <p>将 Lovart、Midjourney 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG</p>
         ) : activeTool === 'resize' ? (
           <p>精确调整图片尺寸，支持保持宽高比</p>
+        ) : activeTool === 'cutout' ? (
+          <p>智能抠图：自动抠图 / 点击选区 / 服装分割，三种模式可选</p>
         ) : (
           <p>压缩图片并转换格式，支持 WebP、PNG、JPEG</p>
         )}
@@ -482,28 +665,313 @@ function App() {
         </div>
       )}
 
-      {/* Drop Zone */}
-      <div
-        className={`drop-zone ${isDragging ? 'dragging' : ''}`}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-        onClick={() => document.getElementById('file-input')?.click()}
-      >
-        <input
-          id="file-input"
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={handleFileSelect}
-          style={{ display: 'none' }}
-        />
-        <div className="drop-icon">
-          {activeTool === 'remove-bg' ? '🖼️' : activeTool === 'resize' ? '📐' : '📁'}
+      {/* AI 抠图工具 */}
+      {activeTool === 'cutout' && (
+        <div className="cutout-container">
+          {/* 模式选择器 */}
+          <div className="cutout-mode-selector">
+            <button
+              className={`mode-btn ${cutoutMode === 'auto' ? 'active' : ''}`}
+              onClick={() => switchCutoutMode('auto')}
+            >
+              <span className="mode-icon">🎯</span>
+              <span>自动抠图</span>
+            </button>
+            <button
+              className={`mode-btn ${cutoutMode === 'click' ? 'active' : ''}`}
+              onClick={() => switchCutoutMode('click')}
+            >
+              <span className="mode-icon">👆</span>
+              <span>点击选区</span>
+            </button>
+            <button
+              className={`mode-btn ${cutoutMode === 'clothes' ? 'active' : ''}`}
+              onClick={() => switchCutoutMode('clothes')}
+            >
+              <span className="mode-icon">👔</span>
+              <span>服装分割</span>
+            </button>
+          </div>
+
+          {/* 模式说明 */}
+          <div className="cutout-mode-hint">
+            {cutoutMode === 'auto' && '自动识别并抠出图片主体，支持换背景'}
+            {cutoutMode === 'click' && '点击图片选择要保留的区域，AI 智能识别边界'}
+            {cutoutMode === 'clothes' && '自动识别人物服装部位，选择要抠出的部分'}
+          </div>
+
+          {/* 自动抠图选项 */}
+          {cutoutMode === 'auto' && (
+            <div className="options cutout-options">
+              <div className="option-group">
+                <label>背景类型</label>
+                <div className="format-btns">
+                  <button
+                    className={bgType === 'transparent' ? 'active' : ''}
+                    onClick={() => setBgType('transparent')}
+                  >
+                    透明
+                  </button>
+                  <button
+                    className={bgType === 'color' ? 'active' : ''}
+                    onClick={() => setBgType('color')}
+                  >
+                    纯色
+                  </button>
+                  <button
+                    className={bgType === 'image' ? 'active' : ''}
+                    onClick={() => setBgType('image')}
+                  >
+                    图片
+                  </button>
+                </div>
+              </div>
+
+              {bgType === 'color' && (
+                <div className="option-group">
+                  <label>背景颜色</label>
+                  <div className="color-picker-row">
+                    <input
+                      type="color"
+                      value={bgColor}
+                      onChange={e => setBgColor(e.target.value)}
+                      className="color-input"
+                    />
+                    <input
+                      type="text"
+                      value={bgColor}
+                      onChange={e => setBgColor(e.target.value)}
+                      className="color-text"
+                      placeholder="#ffffff"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {bgType === 'image' && (
+                <div className="option-group">
+                  <label>背景图片</label>
+                  <div className="bg-image-upload">
+                    {bgImagePreview ? (
+                      <div className="bg-image-preview">
+                        <img src={bgImagePreview} alt="背景预览" />
+                        <button
+                          className="bg-image-remove"
+                          onClick={() => {
+                            setBgImage(null)
+                            setBgImagePreview(null)
+                          }}
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ) : (
+                      <label className="bg-image-btn">
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={e => {
+                            const file = e.target.files?.[0]
+                            if (file) {
+                              setBgImage(file)
+                              setBgImagePreview(URL.createObjectURL(file))
+                            }
+                          }}
+                          style={{ display: 'none' }}
+                        />
+                        <span>选择背景图</span>
+                      </label>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* 图片上传区域 */}
+          {!cutoutImagePreview ? (
+            <div
+              className={`drop-zone ${isDragging ? 'dragging' : ''}`}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={(e) => {
+                e.preventDefault()
+                setIsDragging(false)
+                const file = e.dataTransfer.files[0]
+                if (file && file.type.startsWith('image/')) {
+                  uploadCutoutImage(file)
+                }
+              }}
+              onClick={() => document.getElementById('cutout-file-input')?.click()}
+            >
+              <input
+                id="cutout-file-input"
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0]
+                  if (file) {
+                    uploadCutoutImage(file)
+                  }
+                }}
+                style={{ display: 'none' }}
+              />
+              <div className="drop-icon">
+                {cutoutMode === 'auto' ? '✂️' : cutoutMode === 'click' ? '👆' : '👔'}
+              </div>
+              <p className="drop-text">
+                {cutoutMode === 'auto' && '拖拽图片到这里，或点击选择'}
+                {cutoutMode === 'click' && '上传图片后点击选择要抠出的区域'}
+                {cutoutMode === 'clothes' && '上传人物图片，自动识别服装部位'}
+              </p>
+              <p className="drop-hint">支持 PNG、JPG、WebP</p>
+            </div>
+          ) : (
+            <div className="cutout-workspace">
+              {/* 工作区头部 */}
+              <div className="cutout-header">
+                <h3>
+                  {cutoutMode === 'auto' && '自动抠图'}
+                  {cutoutMode === 'click' && '点击选择要抠出的区域'}
+                  {cutoutMode === 'clothes' && '选择要抠出的部位'}
+                </h3>
+                <div className="cutout-actions">
+                  {cutoutMode === 'click' && (
+                    <button className="clear-btn" onClick={() => setSamPoints([])}>
+                      清除标记 ({samPoints.length})
+                    </button>
+                  )}
+                  <button className="clear-btn" onClick={clearCutoutState}>
+                    重新选图
+                  </button>
+                  <button
+                    className="process-all-btn"
+                    onClick={processCutout}
+                    disabled={cutoutProcessing || (cutoutMode === 'click' && samPoints.length === 0) || (cutoutMode === 'clothes' && selectedCategories.length === 0)}
+                  >
+                    {cutoutProcessing ? '处理中...' : '开始抠图'}
+                  </button>
+                </div>
+              </div>
+
+              {/* 点击模式提示 */}
+              {cutoutMode === 'click' && (
+                <div className="sam-hint">
+                  <span>左键点击：选择要保留的区域</span>
+                  <span>右键点击：标记要排除的区域</span>
+                </div>
+              )}
+
+              {/* 主内容区 */}
+              <div className={`cutout-content ${cutoutMode === 'clothes' ? 'with-sidebar' : ''}`}>
+                {/* 图片区域 */}
+                <div className="cutout-image-wrapper">
+                  <img
+                    ref={samImageRef}
+                    src={cutoutImagePreview}
+                    alt="待处理图片"
+                    onClick={cutoutMode === 'click' ? handleSamImageClick : undefined}
+                    onContextMenu={cutoutMode === 'click' ? (e) => {
+                      e.preventDefault()
+                      handleSamImageClick(e)
+                    } : undefined}
+                    onLoad={(e) => {
+                      const img = e.currentTarget
+                      setImageSize({ width: img.naturalWidth, height: img.naturalHeight })
+                      setDisplaySize({ width: img.clientWidth, height: img.clientHeight })
+                    }}
+                    style={{ cursor: cutoutMode === 'click' ? 'crosshair' : 'default' }}
+                  />
+                  {/* 点击模式：显示标记点 */}
+                  {cutoutMode === 'click' && imageSize && displaySize && samPoints.map((point, i) => {
+                    const scaleX = displaySize.width / imageSize.width
+                    const scaleY = displaySize.height / imageSize.height
+                    return (
+                      <div
+                        key={i}
+                        className={`sam-point ${point.label === 1 ? 'foreground' : 'background'}`}
+                        style={{
+                          left: point.x * scaleX,
+                          top: point.y * scaleY
+                        }}
+                      />
+                    )
+                  })}
+                  {/* 处理中遮罩 */}
+                  {(cutoutProcessing || clothesParsing) && (
+                    <div className="cutout-loading">
+                      <div className="spinner"></div>
+                      <p>
+                        {clothesParsing ? 'AI 正在识别服装...' : 'AI 正在处理...'}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* 服装模式：类别选择侧边栏 */}
+                {cutoutMode === 'clothes' && (
+                  <div className="clothes-categories">
+                    <h4>检测到的部位</h4>
+                    {clothesParsing ? (
+                      <p className="clothes-hint">正在识别...</p>
+                    ) : clothesCategories.length === 0 ? (
+                      <p className="clothes-hint">未检测到服装部位</p>
+                    ) : (
+                      <div className="category-list">
+                        {clothesCategories.map((cat) => (
+                          <label key={cat.id} className="category-item">
+                            <input
+                              type="checkbox"
+                              checked={selectedCategories.includes(cat.id)}
+                              onChange={() => toggleCategory(cat.id)}
+                            />
+                            <span className="category-name">{cat.name_cn}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* 结果展示 */}
+                {cutoutResult && (
+                  <div className="cutout-result-wrapper">
+                    <img src={cutoutResult} alt="抠图结果" />
+                    <button className="download-btn cutout-download" onClick={downloadCutoutResult}>
+                      下载结果
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
-        <p className="drop-text">拖拽图片到这里，或点击选择</p>
-        <p className="drop-hint">支持 PNG、JPG、WebP，可批量处理</p>
-      </div>
+      )}
+
+      {/* Drop Zone (非抠图工具) */}
+      {activeTool !== 'cutout' && (
+        <div
+          className={`drop-zone ${isDragging ? 'dragging' : ''}`}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          onClick={() => document.getElementById('file-input')?.click()}
+        >
+          <input
+            id="file-input"
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleFileSelect}
+            style={{ display: 'none' }}
+          />
+          <div className="drop-icon">
+            {activeTool === 'remove-bg' ? '🖼️' : activeTool === 'resize' ? '📐' : '📁'}
+          </div>
+          <p className="drop-text">拖拽图片到这里，或点击选择</p>
+          <p className="drop-hint">支持 PNG、JPG、WebP，可批量处理</p>
+        </div>
+      )}
 
       {/* Pending Files */}
       {pendingFiles.length > 0 && (
