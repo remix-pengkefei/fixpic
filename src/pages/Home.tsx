@@ -1,9 +1,20 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
+import { StructuredData } from '../components/StructuredData'
+import { languages } from '../i18n'
 
 export function Home() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const location = useLocation()
+
+  // Get current language from URL
+  const pathParts = location.pathname.split('/').filter(Boolean)
+  const validLangCodes = languages.map(l => l.code)
+  const urlLang = pathParts[0] && validLangCodes.includes(pathParts[0]) ? pathParts[0] : null
+  const currentLang = urlLang || i18n.language || 'en'
+
+  const langLink = (path: string) => `/${currentLang}${path}`
 
   return (
     <>
@@ -11,8 +22,9 @@ export function Home() {
         title={t('home.seo.title')}
         description={t('home.seo.description')}
         keywords={t('home.seo.keywords')}
-        canonicalUrl="https://fix-pic.com/"
+        canonicalUrl={`https://fix-pic.com/${currentLang}`}
       />
+      <StructuredData type="home" />
 
       <div className="home-page">
         <section className="hero">
@@ -21,21 +33,21 @@ export function Home() {
         </section>
 
         <section className="tools-grid">
-          <Link to="/remove-fake-transparency" className="tool-card">
+          <Link to={langLink('/remove-fake-transparency')} className="tool-card">
             <div className="tool-card-icon">🔲</div>
             <h2>{t('home.tools.removeFakeTransparency.title')}</h2>
             <p>{t('home.tools.removeFakeTransparency.desc')}</p>
             <span className="tool-card-btn">{t('common.useNow')}</span>
           </Link>
 
-          <Link to="/compress" className="tool-card">
+          <Link to={langLink('/compress')} className="tool-card">
             <div className="tool-card-icon">📦</div>
             <h2>{t('home.tools.compress.title')}</h2>
             <p>{t('home.tools.compress.desc')}</p>
             <span className="tool-card-btn">{t('common.useNow')}</span>
           </Link>
 
-          <Link to="/resize" className="tool-card">
+          <Link to={langLink('/resize')} className="tool-card">
             <div className="tool-card-icon">📐</div>
             <h2>{t('home.tools.resize.title')}</h2>
             <p>{t('home.tools.resize.desc')}</p>

@@ -1,6 +1,9 @@
 import { useState, useCallback, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
+import { StructuredData } from '../components/StructuredData'
+import { languages } from '../i18n'
 
 interface PendingFile {
   file: File
@@ -16,7 +19,14 @@ interface ProcessedImage {
 }
 
 export function RemoveFakeTransparency() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const location = useLocation()
+
+  // Get current language from URL
+  const pathParts = location.pathname.split('/').filter(Boolean)
+  const validLangCodes = languages.map(l => l.code)
+  const urlLang = pathParts[0] && validLangCodes.includes(pathParts[0]) ? pathParts[0] : null
+  const currentLang = urlLang || i18n.language || 'en'
   const [isDragging, setIsDragging] = useState(false)
   const [processing, setProcessing] = useState(false)
   const [processingIndex, setProcessingIndex] = useState<number | null>(null)
@@ -212,8 +222,9 @@ export function RemoveFakeTransparency() {
         title={t('removeFakeTransparency.seo.title')}
         description={t('removeFakeTransparency.seo.description')}
         keywords={t('removeFakeTransparency.seo.keywords')}
-        canonicalUrl="https://fix-pic.com/remove-fake-transparency"
+        canonicalUrl={`https://fix-pic.com/${currentLang}/remove-fake-transparency`}
       />
+      <StructuredData type="removeFakeTransparency" />
 
       <div className="tool-page">
         <div className="tool-header">

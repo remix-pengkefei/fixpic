@@ -1,4 +1,42 @@
+# FixPic - Free Online Image Tools
+# https://fix-pic.com
+
 User-agent: *
 Allow: /
 
+# Allow all language versions
+Allow: /en/
+Allow: /de/
+Allow: /es/
+Allow: /fr/
+Allow: /it/
+Allow: /ja/
+Allow: /ko/
+Allow: /pt/
+Allow: /ru/
+Allow: /th/
+Allow: /tr/
+Allow: /vi/
+Allow: /id/
+Allow: /zh-CN/
+Allow: /zh-TW/
+
+# Disallow internal/admin paths (if any)
+Disallow: /api/
+Disallow: /_/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://fix-pic.com/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

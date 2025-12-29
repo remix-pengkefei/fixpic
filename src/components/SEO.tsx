@@ -111,21 +111,24 @@ export function SEO({ title, description, keywords, canonicalUrl }: SEOProps) {
 
     // Add hreflang links for all languages
     if (canonicalUrl) {
-      const baseUrl = canonicalUrl.replace(/\/$/, '')
+      // Extract the page path from canonical URL (e.g., /en/compress -> /compress)
+      const urlObj = new URL(canonicalUrl)
+      const pathParts = urlObj.pathname.split('/').filter(Boolean)
+      const pagePath = pathParts.length > 1 ? '/' + pathParts.slice(1).join('/') : ''
 
       languages.forEach(lang => {
         const link = document.createElement('link')
         link.setAttribute('rel', 'alternate')
         link.setAttribute('hreflang', lang.code)
-        link.setAttribute('href', `${baseUrl}?lang=${lang.code}`)
+        link.setAttribute('href', `https://fix-pic.com/${lang.code}${pagePath}`)
         document.head.appendChild(link)
       })
 
-      // Add x-default hreflang
+      // Add x-default hreflang (defaults to English)
       const defaultLink = document.createElement('link')
       defaultLink.setAttribute('rel', 'alternate')
       defaultLink.setAttribute('hreflang', 'x-default')
-      defaultLink.setAttribute('href', baseUrl)
+      defaultLink.setAttribute('href', `https://fix-pic.com/en${pagePath}`)
       document.head.appendChild(defaultLink)
     }
 

@@ -9,12 +9,26 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const location = useLocation()
-  const isHome = location.pathname === '/'
   const { t, i18n } = useTranslation()
   const [showLangMenu, setShowLangMenu] = useState(false)
   const langMenuRef = useRef<HTMLDivElement>(null)
 
-  const currentLang = languages.find(l => l.code === i18n.language) || languages[2] // default to English
+  // Get current language from URL or i18n
+  const pathParts = location.pathname.split('/').filter(Boolean)
+  const validLangCodes = languages.map(l => l.code)
+  const urlLang = pathParts[0] && validLangCodes.includes(pathParts[0]) ? pathParts[0] : null
+  const currentLangCode = urlLang || i18n.language || 'en'
+
+  // Helper to create language-prefixed links
+  const langLink = (path: string) => `/${currentLangCode}${path}`
+
+  // Check if current page is home
+  const isHome = pathParts.length <= 1 || (pathParts.length === 1 && validLangCodes.includes(pathParts[0]))
+
+  // Get current page path without language prefix
+  const currentPage = urlLang ? '/' + pathParts.slice(1).join('/') : location.pathname
+
+  const currentLang = languages.find(l => l.code === currentLangCode) || languages.find(l => l.code === 'en')!
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -35,7 +49,7 @@ export function Layout({ children }: LayoutProps) {
     <div className="app">
       {/* Header */}
       <header className="header">
-        <Link to="/" className="logo-link">
+        <Link to={langLink('')} className="logo-link">
           <div className="logo">
             <span className="logo-icon">F</span>
             <span className="logo-text">ix-Pic</span>
@@ -58,7 +72,7 @@ export function Layout({ children }: LayoutProps) {
               {languages.map(lang => (
                 <button
                   key={lang.code}
-                  className={`lang-option ${lang.code === i18n.language ? 'active' : ''}`}
+                  className={`lang-option ${lang.code === currentLangCode ? 'active' : ''}`}
                   onClick={() => changeLanguage(lang.code)}
                 >
                   <span className="lang-flag">{lang.flag}</span>
@@ -74,20 +88,20 @@ export function Layout({ children }: LayoutProps) {
       {!isHome && (
         <nav className="tool-nav">
           <Link
-            to="/remove-fake-transparency"
-            className={location.pathname === '/remove-fake-transparency' ? 'active' : ''}
+            to={langLink('/remove-fake-transparency')}
+            className={currentPage === '/remove-fake-transparency' ? 'active' : ''}
           >
             {t('nav.removeFakeTransparency')}
           </Link>
           <Link
-            to="/compress"
-            className={location.pathname === '/compress' ? 'active' : ''}
+            to={langLink('/compress')}
+            className={currentPage === '/compress' ? 'active' : ''}
           >
             {t('nav.compress')}
           </Link>
           <Link
-            to="/resize"
-            className={location.pathname === '/resize' ? 'active' : ''}
+            to={langLink('/resize')}
+            className={currentPage === '/resize' ? 'active' : ''}
           >
             {t('nav.resize')}
           </Link>
@@ -102,9 +116,9 @@ export function Layout({ children }: LayoutProps) {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-links">
-          <Link to="/remove-fake-transparency">{t('nav.removeFakeTransparency')}</Link>
-          <Link to="/compress">{t('nav.compress')}</Link>
-          <Link to="/resize">{t('nav.resize')}</Link>
+          <Link to={langLink('/remove-fake-transparency')}>{t('nav.removeFakeTransparency')}</Link>
+          <Link to={langLink('/compress')}>{t('nav.compress')}</Link>
+          <Link to={langLink('/resize')}>{t('nav.resize')}</Link>
         </div>
         <p>{t('footer.description')}</p>
       </footer>

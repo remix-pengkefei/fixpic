@@ -1,44 +1,66 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
-    <!-- Google Analytics -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+    <!-- Basic SEO -->
+    <title>FixPic - Free Online Image Tools | Remove Fake Transparency, Compress, Resize</title>
+    <meta name="description" content="FixPic offers free online image processing tools. Remove fake transparent backgrounds from AI-generated images, compress and convert images, resize with ease. All processing done locally in your browser." />
+    <meta name="keywords" content="image processing,remove fake transparency,image compression,resize image,Midjourney transparent background,Lovart transparent background,online tools,free" />
+    <meta name="author" content="FixPic" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://fix-pic.com/" />
+
+    <!-- Mobile optimization -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="FixPic" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FixPic" />
+    <meta property="og:title" content="FixPic - Free Online Image Tools" />
+    <meta property="og:description" content="Free online image processing: remove fake transparency, compress, resize. Local processing, privacy safe." />
+    <meta property="og:url" content="https://fix-pic.com/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://fix-pic.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FixPic - Free Online Image Tools" />
+    <meta name="twitter:description" content="Free online image processing: remove fake transparency, compress, resize. Local processing, privacy safe." />
+    <meta name="twitter:image" content="https://fix-pic.com/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="msapplication-TileColor" content="#4f46e5" />
+
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Google Analytics - loaded async for performance -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GK9T6FE75"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-6GK9T6FE75');
+      gtag('config', 'G-6GK9T6FE75', { 'anonymize_ip': true });
     </script>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Basic SEO -->
-    <title>FixPic - 免费在线图片处理工具 | 去假透明、压缩、调整尺寸</title>
-    <meta name="description" content="FixPic 提供免费在线图片处理工具，支持去除 AI 生图假透明背景、图片压缩转换、尺寸调整。本地浏览器处理，无需上传，保护隐私。" />
-    <meta name="keywords" content="图片处理,去假透明,图片压缩,调整尺寸,Midjourney透明背景,Lovart透明背景,在线工具,免费" />
-    <meta name="author" content="FixPic" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://fix-pic.com/" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="FixPic" />
-    <meta property="og:title" content="FixPic - 免费在线图片处理工具" />
-    <meta property="og:description" content="免费在线图片处理：去假透明背景、压缩转换、调整尺寸。本地处理，保护隐私。" />
-    <meta property="og:url" content="https://fix-pic.com/" />
-    <meta property="og:locale" content="zh_CN" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="FixPic - 免费在线图片处理工具" />
-    <meta name="twitter:description" content="免费在线图片处理：去假透明背景、压缩转换、调整尺寸。本地处理，保护隐私。" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>" />
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#4f46e5" />
   </head>
   <body>
     <div id="root"></div>
