@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "Proses",
+    "processAll": "Proses Semua",
+    "processing": "Memproses...",
+    "download": "Unduh",
+    "downloadAll": "Unduh Semua",
+    "clear": "Hapus",
+    "pending": "File Menunggu",
+    "completed": "Selesai",
+    "dragDropText": "Seret gambar ke sini atau klik untuk memilih",
+    "dragDropHint": "Mendukung PNG, JPG, WebP. Pemrosesan batch tersedia",
+    "useNow": "Gunakan Sekarang",
+    "instructions": "Petunjuk",
+    "privacy": "Pemrosesan lokal, privasi aman",
+    "free": "Gratis"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "Alat Pemrosesan Gambar Online Gratis"
+  },
+  "footer": {
+    "description": "FixPic - Alat Pemrosesan Gambar Online Gratis | Pemrosesan Lokal, Privasi Aman"
+  },
+  "nav": {
+    "removeFakeTransparency": "Hapus Transparansi Palsu",
+    "compress": "Kompres",
+    "resize": "Ubah Ukuran"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - Alat Gambar Gratis | Hapus Transparansi Palsu, Kompres, Ubah Ukuran",
+      "description": "FixPic menawarkan alat pemrosesan gambar online gratis. Hapus latar belakang transparan palsu dari gambar AI, kompres dan konversi gambar, ubah ukuran dengan mudah. Semua pemrosesan dilakukan secara lokal di browser Anda.",
+      "keywords": "pemrosesan gambar,hapus transparansi palsu,kompres gambar,ubah ukuran gambar,latar transparan Midjourney,latar transparan Lovart,alat online,gratis"
+    },
+    "hero": {
+      "title": "Alat Pemrosesan Gambar Online Gratis",
+      "desc": "Semua pemrosesan dilakukan secara lokal di browser Anda. Tanpa unggahan, privasi lengkap."
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "Hapus Transparansi Palsu",
+        "desc": "Konversi latar belakang transparan palsu (kotak-kotak abu-putih) dari Midjourney, Lovart, Stable Diffusion dan alat AI lainnya menjadi PNG transparan asli"
+      },
+      "compress": {
+        "title": "Kompres dan Konversi",
+        "desc": "Kurangi ukuran file gambar, konversi ke format WebP, PNG, atau JPEG dengan pengaturan kualitas yang dapat disesuaikan"
+      },
+      "resize": {
+        "title": "Ubah Ukuran Gambar",
+        "desc": "Sesuaikan dimensi gambar dengan presisi, pertahankan rasio aspek dengan penskalaan proporsional, proses banyak gambar sekaligus"
+      }
+    },
+    "features": {
+      "title": "Mengapa Memilih FixPic?",
+      "privacy": {
+        "title": "Privasi Aman",
+        "desc": "Semua pemrosesan terjadi secara lokal di browser Anda. Gambar tidak pernah meninggalkan perangkat Anda."
+      },
+      "fast": {
+        "title": "Cepat dan Efisien",
+        "desc": "Tidak perlu menunggu unggahan atau unduhan. Pemrosesan lokal sangat cepat."
+      },
+      "free": {
+        "title": "Sepenuhnya Gratis",
+        "desc": "Semua fitur gratis. Tidak perlu registrasi atau login."
+      },
+      "crossPlatform": {
+        "title": "Lintas Platform",
+        "desc": "Bekerja di desktop, ponsel, dan tablet. Browser modern apa pun bisa digunakan."
+      }
+    },
+    "faq": {
+      "title": "Pertanyaan Umum",
+      "q1": {
+        "question": "Apa itu \"latar belakang transparan palsu\"?",
+        "answer": "Alat pembuatan gambar AI seperti Midjourney, Lovart, dan Stable Diffusion terkadang menghasilkan apa yang tampak seperti latar belakang transparan (pola kotak-kotak abu-putih), tetapi sebenarnya itu dilukis pada gambar bukan benar-benar transparan. Ini disebut \"transparansi palsu\". Alat kami mengkonversi pola ini menjadi transparansi asli."
+      },
+      "q2": {
+        "question": "Apakah gambar diunggah ke server?",
+        "answer": "Tidak. Semua pemrosesan gambar FixPic terjadi sepenuhnya di browser Anda. Gambar Anda tidak pernah diunggah ke server mana pun, menjamin privasi lengkap."
+      },
+      "q3": {
+        "question": "Format gambar apa yang didukung?",
+        "answer": "Kami mendukung format umum termasuk PNG, JPG/JPEG, dan WebP. Anda dapat memilih untuk mengekspor dalam salah satu format ini setelah pemrosesan."
+      },
+      "q4": {
+        "question": "Bisakah saya memproses banyak gambar sekaligus?",
+        "answer": "Ya. Anda dapat memilih beberapa gambar sekaligus. Alat akan memprosesnya satu per satu, dan Anda dapat mengunduhnya secara individual atau semuanya sekaligus."
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "Hapus Transparansi Palsu - Konversi Kotak-kotak Gambar AI ke Transparan Asli | FixPic",
+      "description": "Alat online gratis untuk menghapus latar belakang transparan palsu (kotak-kotak abu-putih) dari gambar Midjourney, Lovart, Stable Diffusion. Konversi ke PNG transparan asli. Pemrosesan lokal, privasi aman.",
+      "keywords": "hapus transparansi palsu,latar transparan palsu,Midjourney transparan,Lovart transparan,Stable Diffusion transparan,latar transparan gambar AI,pola kotak-kotak,PNG transparan"
+    },
+    "title": "Hapus Transparansi Palsu",
+    "desc": "Konversi latar belakang transparan palsu (kotak-kotak abu-putih) dari Midjourney, Lovart, Stable Diffusion dan alat AI lainnya menjadi PNG transparan asli",
+    "instructions": {
+      "step1": "Unggah gambar dengan latar belakang transparan palsu (pola kotak-kotak abu-putih)",
+      "step2": "Klik tombol \"Proses\" atau \"Proses Semua\"",
+      "step3": "Unduh gambar PNG transparan asli"
+    },
+    "useCases": {
+      "title": "Kasus Penggunaan",
+      "case1": "Gambar \"latar transparan\" Midjourney",
+      "case2": "Ekspor Lovart dengan latar kotak-kotak",
+      "case3": "Output transparansi palsu Stable Diffusion",
+      "case4": "Gambar serupa dari alat AI lainnya"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "Kompres Gambar Online - Kompres dan Konversi ke WebP/PNG/JPEG Gratis | FixPic",
+      "description": "Alat kompres gambar online gratis. Konversi ke format WebP, PNG, JPEG dengan kualitas yang dapat disesuaikan. Pemrosesan berbasis browser, tanpa unggahan, privasi aman. Kompres batch.",
+      "keywords": "kompres gambar,kompres online,konversi WebP,kompres PNG,kompres JPEG,konversi format gambar,kompres batch,kompres gratis"
+    },
+    "title": "Kompres dan Konversi",
+    "desc": "Kurangi ukuran file gambar, konversi ke format WebP, PNG, atau JPEG dengan pengaturan kualitas yang dapat disesuaikan",
+    "options": {
+      "format": "Format Output",
+      "quality": "Kompresi",
+      "qualityHigh": "Kualitas Tinggi",
+      "qualityMedium": "Kehilangan Ringan",
+      "qualityLow": "Kualitas Rendah",
+      "pngNote": "PNG lossless, tidak perlu kompresi"
+    },
+    "instructions": {
+      "step1": "Pilih format output (WebP direkomendasikan untuk ukuran terkecil)",
+      "step2": "Sesuaikan kualitas kompresi (untuk format non-PNG)",
+      "step3": "Unggah gambar untuk dikompres",
+      "step4": "Proses dan unduh gambar yang dikompres"
+    },
+    "formatComparison": {
+      "title": "Perbandingan Format",
+      "webp": "WebP: Format modern, rasio kompresi terbaik, kompatibilitas baik",
+      "jpeg": "JPEG: Format universal, bagus untuk foto, tidak mendukung transparansi",
+      "png": "PNG: Format lossless, mendukung transparansi, ukuran file lebih besar"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "Ubah Ukuran Gambar Online - Ubah Dimensi Gambar Gratis | FixPic",
+      "description": "Alat ubah ukuran gambar online gratis. Atur lebar dan tinggi yang tepat, pertahankan rasio aspek dengan penskalaan proporsional. Pemrosesan berbasis browser, tanpa unggahan, privasi aman. Ubah ukuran batch.",
+      "keywords": "ubah ukuran gambar,ubah dimensi gambar,skala gambar,penskalaan proporsional,ubah ukuran batch,ubah ukuran online,alat gratis"
+    },
+    "title": "Ubah Ukuran Gambar",
+    "desc": "Sesuaikan dimensi gambar dengan presisi, pertahankan rasio aspek dengan penskalaan proporsional, proses banyak gambar sekaligus",
+    "options": {
+      "width": "Lebar",
+      "height": "Tinggi",
+      "auto": "Otomatis",
+      "keepAspectRatio": "Pertahankan Rasio",
+      "yes": "Ya",
+      "no": "Tidak",
+      "keepRatioHint": "Penskalaan proporsional, tanpa distorsi",
+      "noKeepRatioHint": "Peregangan paksa, mungkin terdistorsi",
+      "format": "Format Output",
+      "quality": "Kualitas Gambar",
+      "qualityHigh": "Kualitas Tinggi",
+      "qualityMedium": "Kehilangan Ringan",
+      "qualityLow": "Kualitas Rendah",
+      "pngNote": "PNG lossless, tidak perlu kompresi"
+    },
+    "instructions": {
+      "step1": "Masukkan lebar dan/atau tinggi target (kosongkan untuk mempertahankan asli)",
+      "step2": "Pilih apakah mempertahankan rasio aspek (direkomendasikan untuk menghindari distorsi)",
+      "step3": "Pilih format output dan kualitas",
+      "step4": "Unggah dan proses gambar"
+    },
+    "sizeReference": {
+      "title": "Referensi Ukuran Umum",
+      "avatar": "Avatar media sosial: 400×400 atau 800×800",
+      "wechat": "Cover WeChat: 900×383",
+      "ecommerce": "Produk e-commerce: 800×800 atau 1000×1000",
+      "banner": "Banner web: 1920×600"
+    }
+  }
+}

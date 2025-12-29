@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "处理",
+    "processAll": "全部处理",
+    "processing": "处理中...",
+    "download": "下载",
+    "downloadAll": "全部下载",
+    "clear": "清空",
+    "pending": "待处理文件",
+    "completed": "处理完成",
+    "dragDropText": "拖拽图片到这里，或点击选择",
+    "dragDropHint": "支持 PNG、JPG、WebP，可批量处理",
+    "useNow": "立即使用",
+    "instructions": "使用说明",
+    "privacy": "本地处理，隐私安全",
+    "free": "免费"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "免费在线图片处理工具"
+  },
+  "footer": {
+    "description": "FixPic - 免费在线图片处理工具 | 本地处理，隐私安全"
+  },
+  "nav": {
+    "removeFakeTransparency": "去假透明",
+    "compress": "压缩图片",
+    "resize": "调整尺寸"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - 免费在线图片处理工具 | 去假透明、压缩、调整尺寸",
+      "description": "FixPic 提供免费在线图片处理工具，支持去除 AI 生图假透明背景、图片压缩转换、尺寸调整。本地浏览器处理，无需上传，保护隐私。",
+      "keywords": "图片处理,去假透明,图片压缩,调整尺寸,Midjourney透明背景,Lovart透明背景,在线工具,免费"
+    },
+    "hero": {
+      "title": "免费在线图片处理工具",
+      "desc": "本地浏览器处理，无需上传服务器，保护您的隐私"
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "去假透明背景",
+        "desc": "将 Midjourney、Lovart、Stable Diffusion 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG"
+      },
+      "compress": {
+        "title": "图片压缩转换",
+        "desc": "压缩图片文件大小，支持转换为 WebP、PNG、JPEG 格式，可调节压缩质量"
+      },
+      "resize": {
+        "title": "调整图片尺寸",
+        "desc": "精确调整图片宽高尺寸，支持保持宽高比等比缩放，批量处理多张图片"
+      }
+    },
+    "features": {
+      "title": "为什么选择 FixPic？",
+      "privacy": {
+        "title": "隐私安全",
+        "desc": "所有处理在本地浏览器完成，图片不会上传到服务器"
+      },
+      "fast": {
+        "title": "快速高效",
+        "desc": "无需等待上传下载，本地处理速度快"
+      },
+      "free": {
+        "title": "完全免费",
+        "desc": "所有功能免费使用，无需注册登录"
+      },
+      "crossPlatform": {
+        "title": "跨平台",
+        "desc": "支持电脑、手机、平板，任何现代浏览器都能用"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": {
+        "question": "什么是「假透明背景」？",
+        "answer": "Midjourney、Lovart、Stable Diffusion 等 AI 图像生成工具在生成「透明背景」图片时，有时会生成一个看起来像透明的灰白棋盘格背景，但实际上这个背景并不是真正的透明，而是被画上去的图案。这种情况被称为「假透明」。使用我们的去假透明工具可以将这种背景转换为真正的透明。"
+      },
+      "q2": {
+        "question": "图片会上传到服务器吗？",
+        "answer": "不会。FixPic 的所有图片处理功能都在您的浏览器本地完成，图片不会上传到任何服务器，完全保护您的隐私。"
+      },
+      "q3": {
+        "question": "支持哪些图片格式？",
+        "answer": "支持常见的 PNG、JPG/JPEG、WebP 格式。处理后可以选择输出为这些格式中的任意一种。"
+      },
+      "q4": {
+        "question": "可以批量处理吗？",
+        "answer": "可以。您可以一次选择多张图片，工具会逐一处理，处理完成后可以单独下载或批量下载。"
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "去假透明背景 - 将 AI 生图的灰白棋盘格转为真透明 | FixPic",
+      "description": "免费在线去除 Midjourney、Lovart、Stable Diffusion 等 AI 工具生成图片的假透明背景（灰白棋盘格），转换为真正的透明 PNG。本地处理，保护隐私。",
+      "keywords": "去假透明,假透明背景,Midjourney透明背景,Lovart透明背景,Stable Diffusion透明,AI生图透明背景,灰白棋盘格,PNG透明"
+    },
+    "title": "去假透明背景",
+    "desc": "将 Midjourney、Lovart、Stable Diffusion 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG",
+    "instructions": {
+      "step1": "上传带有假透明背景（灰白棋盘格图案）的图片",
+      "step2": "点击「处理」或「全部处理」按钮",
+      "step3": "下载处理后的真透明 PNG 图片"
+    },
+    "useCases": {
+      "title": "适用场景",
+      "case1": "Midjourney 生成的「透明背景」图片",
+      "case2": "Lovart 导出的带棋盘格背景的图片",
+      "case3": "Stable Diffusion 输出的假透明图片",
+      "case4": "其他 AI 工具生成的类似图片"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "在线图片压缩 - 免费压缩图片、转换 WebP/PNG/JPEG | FixPic",
+      "description": "免费在线图片压缩工具，支持转换为 WebP、PNG、JPEG 格式，可调节压缩质量。本地浏览器处理，无需上传，保护隐私，批量压缩多张图片。",
+      "keywords": "图片压缩,在线压缩,WebP转换,PNG压缩,JPEG压缩,图片格式转换,批量压缩,免费压缩"
+    },
+    "title": "图片压缩转换",
+    "desc": "压缩图片文件大小，支持转换为 WebP、PNG、JPEG 格式，可调节压缩质量",
+    "options": {
+      "format": "输出格式",
+      "quality": "图片压缩",
+      "qualityHigh": "高质量",
+      "qualityMedium": "轻微损失",
+      "qualityLow": "画质较差",
+      "pngNote": "PNG 无损，无需压缩"
+    },
+    "instructions": {
+      "step1": "选择输出格式（推荐 WebP，体积最小）",
+      "step2": "调节压缩质量（非 PNG 格式）",
+      "step3": "上传需要压缩的图片",
+      "step4": "点击处理后下载压缩后的图片"
+    },
+    "formatComparison": {
+      "title": "格式对比",
+      "webp": "WebP：现代格式，压缩率最高，兼容性好",
+      "jpeg": "JPEG：通用格式，适合照片，不支持透明",
+      "png": "PNG：无损格式，支持透明，文件较大"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "在线调整图片尺寸 - 免费修改图片宽高大小 | FixPic",
+      "description": "免费在线调整图片尺寸工具，精确设置图片宽度和高度，支持保持宽高比等比缩放。本地浏览器处理，无需上传，保护隐私，批量调整多张图片。",
+      "keywords": "调整图片尺寸,修改图片大小,图片缩放,等比缩放,批量调整尺寸,在线调整,免费工具"
+    },
+    "title": "调整图片尺寸",
+    "desc": "精确调整图片宽高尺寸，支持保持宽高比等比缩放，批量处理多张图片",
+    "options": {
+      "width": "宽度",
+      "height": "高度",
+      "auto": "自动",
+      "keepAspectRatio": "保持比例",
+      "yes": "是",
+      "no": "否",
+      "keepRatioHint": "等比缩放，不变形",
+      "noKeepRatioHint": "强制拉伸，可能变形",
+      "format": "输出格式",
+      "quality": "图片质量",
+      "qualityHigh": "高质量",
+      "qualityMedium": "轻微损失",
+      "qualityLow": "画质较差",
+      "pngNote": "PNG 无损，无需压缩"
+    },
+    "instructions": {
+      "step1": "输入目标宽度和/或高度（留空则保持原尺寸）",
+      "step2": "选择是否保持宽高比（推荐开启，避免图片变形）",
+      "step3": "选择输出格式和质量",
+      "step4": "上传图片并处理"
+    },
+    "sizeReference": {
+      "title": "常用尺寸参考",
+      "avatar": "社交媒体头像：400×400 或 800×800",
+      "wechat": "微信公众号封面：900×383",
+      "ecommerce": "电商主图：800×800 或 1000×1000",
+      "banner": "网页横幅：1920×600"
+    }
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "solid": [
+    {
+      "id": "white",
+      "label": "纯白",
+      "color": "#FFFFFF",
+      "file": "solid/white.svg",
+      "type": "solid"
+    },
+    {
+      "id": "light-gray",
+      "label": "浅灰",
+      "color": "#F5F5F5",
+      "file": "solid/light-gray.svg",
+      "type": "solid"
+    },
+    {
+      "id": "gray",
+      "label": "灰色",
+      "color": "#E0E0E0",
+      "file": "solid/gray.svg",
+      "type": "solid"
+    },
+    {
+      "id": "dark-gray",
+      "label": "深灰",
+      "color": "#424242",
+      "file": "solid/dark-gray.svg",
+      "type": "solid"
+    },
+    {
+      "id": "black",
+      "label": "纯黑",
+      "color": "#000000",
+      "file": "solid/black.svg",
+      "type": "solid"
+    },
+    {
+      "id": "cream",
+      "label": "米白",
+      "color": "#FFF8E7",
+      "file": "solid/cream.svg",
+      "type": "solid"
+    },
+    {
+      "id": "light-pink",
+      "label": "浅粉",
+      "color": "#FFE4E6",
+      "file": "solid/light-pink.svg",
+      "type": "solid"
+    },
+    {
+      "id": "light-blue",
+      "label": "浅蓝",
+      "color": "#E0F2FE",
+      "file": "solid/light-blue.svg",
+      "type": "solid"
+    },
+    {
+      "id": "light-green",
+      "label": "浅绿",
+      "color": "#DCFCE7",
+      "file": "solid/light-green.svg",
+      "type": "solid"
+    },
+    {
+      "id": "light-yellow",
+      "label": "浅黄",
+      "color": "#FEF9C3",
+      "file": "solid/light-yellow.svg",
+      "type": "solid"
+    },
+    {
+      "id": "light-purple",
+      "label": "浅紫",
+      "color": "#F3E8FF",
+      "file": "solid/light-purple.svg",
+      "type": "solid"
+    },
+    {
+      "id": "beige",
+      "label": "米色",
+      "color": "#F5F5DC",
+      "file": "solid/beige.svg",
+      "type": "solid"
+    }
+  ],
+  "gradient": [
+    {
+      "id": "gray-fade",
+      "label": "灰白渐变",
+      "colors": [
+        "#FFFFFF",
+        "#E5E5E5"
+      ],
+      "direction": "180",
+      "file": "gradient/gray-fade.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "warm-fade",
+      "label": "暖色渐变",
+      "colors": [
+        "#FFF7ED",
+        "#FFEDD5"
+      ],
+      "direction": "180",
+      "file": "gradient/warm-fade.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "cool-fade",
+      "label": "冷色渐变",
+      "colors": [
+        "#F0F9FF",
+        "#E0F2FE"
+      ],
+      "direction": "180",
+      "file": "gradient/cool-fade.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "pink-fade",
+      "label": "粉色渐变",
+      "colors": [
+        "#FFF1F2",
+        "#FFE4E6"
+      ],
+      "direction": "180",
+      "file": "gradient/pink-fade.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "green-fade",
+      "label": "绿色渐变",
+      "colors": [
+        "#F0FDF4",
+        "#DCFCE7"
+      ],
+      "direction": "180",
+      "file": "gradient/green-fade.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "purple-fade",
+      "label": "紫色渐变",
+      "colors": [
+        "#FAF5FF",
+        "#F3E8FF"
+      ],
+      "direction": "180",
+      "file": "gradient/purple-fade.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "sunset",
+      "label": "日落",
+      "colors": [
+        "#FEF3C7",
+        "#FDE68A",
+        "#FCD34D"
+      ],
+      "direction": "135",
+      "file": "gradient/sunset.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "ocean",
+      "label": "海洋",
+      "colors": [
+        "#E0F2FE",
+        "#BAE6FD",
+        "#7DD3FC"
+      ],
+      "direction": "135",
+      "file": "gradient/ocean.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "rose",
+      "label": "玫瑰",
+      "colors": [
+        "#FFE4E6",
+        "#FECDD3",
+        "#FDA4AF"
+      ],
+      "direction": "135",
+      "file": "gradient/rose.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "mint",
+      "label": "薄荷",
+      "colors": [
+        "#D1FAE5",
+        "#A7F3D0",
+        "#6EE7B7"
+      ],
+      "direction": "135",
+      "file": "gradient/mint.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "radial-light",
+      "label": "径向浅色",
+      "colors": [
+        "#FFFFFF",
+        "#F3F4F6"
+      ],
+      "direction": "radial",
+      "file": "gradient/radial-light.svg",
+      "type": "gradient"
+    },
+    {
+      "id": "radial-warm",
+      "label": "径向暖色",
+      "colors": [
+        "#FFFBEB",
+        "#FEF3C7"
+      ],
+      "direction": "radial",
+      "file": "gradient/radial-warm.svg",
+      "type": "gradient"
+    }
+  ],
+  "pattern": [
+    {
+      "id": "dots-light",
+      "label": "浅色波点",
+      "file": "pattern/dots-light.svg",
+      "type": "pattern"
+    },
+    {
+      "id": "dots-gray",
+      "label": "灰色波点",
+      "file": "pattern/dots-gray.svg",
+      "type": "pattern"
+    },
+    {
+      "id": "grid-light",
+      "label": "浅色网格",
+      "file": "pattern/grid-light.svg",
+      "type": "pattern"
+    },
+    {
+      "id": "grid-blue",
+      "label": "蓝色网格",
+      "file": "pattern/grid-blue.svg",
+      "type": "pattern"
+    },
+    {
+      "id": "stripes-light",
+      "label": "浅色条纹",
+      "file": "pattern/stripes-light.svg",
+      "type": "pattern"
+    },
+    {
+      "id": "stripes-warm",
+      "label": "暖色条纹",
+      "file": "pattern/stripes-warm.svg",
+      "type": "pattern"
+    },
+    {
+      "id": "diagonal-light",
+      "label": "浅色斜纹",
+      "file": "pattern/diagonal-light.svg",
+      "type": "pattern"
+    },
+    {
+      "id": "diagonal-pink",
+      "label": "粉色斜纹",
+      "file": "pattern/diagonal-pink.svg",
+      "type": "pattern"
+    }
+  ]
+}

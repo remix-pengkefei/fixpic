@@ -6,6 +6,8 @@ FixPic 后端 - Modal 部署配置
 import modal
 import io
 import base64
+from typing import List, Optional
+from pydantic import BaseModel
 
 # 定义 Modal 镜像
 image = (
@@ -21,6 +23,7 @@ image = (
         "torchvision",
         "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git",
         "transformers",
+        "pydantic",
     )
     .run_commands(
         # 预下载 rembg 模型
@@ -49,6 +52,38 @@ CLOTHES_LABELS = {
     10: 'Right-shoe', 11: 'Face', 12: 'Left-leg', 13: 'Right-leg', 14: 'Left-arm',
     15: 'Right-arm', 16: 'Bag', 17: 'Scarf'
 }
+
+
+# ====== Pydantic 请求模型 ======
+class RemoveBgRequest(BaseModel):
+    image_base64: str
+
+
+class ChangeBgRequest(BaseModel):
+    image_base64: str
+    bg_type: str = "transparent"
+    bg_color: str = "#ffffff"
+    bg_image_base64: Optional[str] = None
+
+
+class PointData(BaseModel):
+    x: int
+    y: int
+    label: int = 1
+
+
+class SamSegmentRequest(BaseModel):
+    image_base64: str
+    points: List[PointData]
+
+
+class ClothesParseRequest(BaseModel):
+    image_base64: str
+
+
+class ClothesSegmentRequest(BaseModel):
+    image_base64: str
+    categories: List[int]
 
 
 @app.cls(
@@ -116,13 +151,13 @@ class FixPicAPI:
         return self.clothes_processor, self.clothes_model
 
     @modal.fastapi_endpoint(method="POST")
-    def remove_bg(self, image_base64: str):
+    def remove_bg(self, request: RemoveBgRequest):
         """自动抠图 - 去除背景"""
         from PIL import Image
         from rembg import remove
 
         # 解码图片
-        image_data = base64.b64decode(image_base64)
+        image_data = base64.b64decode(request.image_base64)
         input_image = Image.open(io.BytesIO(image_data))
 
         # 去除背景
@@ -141,23 +176,23 @@ class FixPicAPI:
         }
 
     @modal.fastapi_endpoint(method="POST")
-    def change_bg(self, image_base64: str, bg_type: str = "transparent",
-                  bg_color: str = "#ffffff", bg_image_base64: str = None):
+    def change_bg(self, request: ChangeBgRequest):
         """换背景"""
         from PIL import Image
         from rembg import remove
 
         # 解码原图
-        image_data = base64.b64decode(image_base64)
+        image_data = base64.b64decode(request.image_base64)
         input_image = Image.open(io.BytesIO(image_data))
 
         # 去除背景
         fg_image = remove(input_image)
 
-        if bg_type == "transparent":
+        if request.bg_type == "transparent":
             output_image = fg_image
-        elif bg_type == "color":
+        elif request.bg_type == "color":
             # 纯色背景
+            bg_color = request.bg_color
             if bg_color.startswith('#'):
                 r = int(bg_color[1:3], 16)
                 g = int(bg_color[3:5], 16)
@@ -166,9 +201,9 @@ class FixPicAPI:
                 r, g, b = 255, 255, 255
             bg_image = Image.new('RGBA', fg_image.size, (r, g, b, 255))
             output_image = Image.alpha_composite(bg_image, fg_image)
-        elif bg_type == "image" and bg_image_base64:
+        elif request.bg_type == "image" and request.bg_image_base64:
             # 图片背景
-            bg_data = base64.b64decode(bg_image_base64)
+            bg_data = base64.b64decode(request.bg_image_base64)
             bg_image = Image.open(io.BytesIO(bg_data)).convert('RGBA')
             bg_image = bg_image.resize(fg_image.size, Image.Resampling.LANCZOS)
             output_image = Image.alpha_composite(bg_image, fg_image)
@@ -188,13 +223,13 @@ class FixPicAPI:
         }
 
     @modal.fastapi_endpoint(method="POST")
-    def sam_segment(self, image_base64: str, points: list):
+    def sam_segment(self, request: SamSegmentRequest):
         """SAM 点击分割"""
         import numpy as np
         from PIL import Image
 
         # 解码图片
-        image_data = base64.b64decode(image_base64)
+        image_data = base64.b64decode(request.image_base64)
         input_image = Image.open(io.BytesIO(image_data)).convert('RGB')
         image_array = np.array(input_image)
 
@@ -203,8 +238,8 @@ class FixPicAPI:
         predictor.set_image(image_array)
 
         # 准备点击点和标签
-        input_points = np.array([[p['x'], p['y']] for p in points])
-        input_labels = np.array([p.get('label', 1) for p in points])
+        input_points = np.array([[p.x, p.y] for p in request.points])
+        input_labels = np.array([p.label for p in request.points])
 
         # 预测分割掩码
         masks, scores, _ = predictor.predict(
@@ -237,7 +272,7 @@ class FixPicAPI:
         }
 
     @modal.fastapi_endpoint(method="POST")
-    def clothes_parse(self, image_base64: str):
+    def clothes_parse(self, request: ClothesParseRequest):
         """服装解析 - 返回检测到的类别"""
         import numpy as np
         import torch
@@ -245,7 +280,7 @@ class FixPicAPI:
         from PIL import Image
 
         # 解码图片
-        image_data = base64.b64decode(image_base64)
+        image_data = base64.b64decode(request.image_base64)
         input_image = Image.open(io.BytesIO(image_data)).convert('RGB')
 
         # 获取模型
@@ -294,7 +329,7 @@ class FixPicAPI:
         }
 
     @modal.fastapi_endpoint(method="POST")
-    def clothes_segment(self, image_base64: str, categories: list):
+    def clothes_segment(self, request: ClothesSegmentRequest):
         """服装分割 - 根据选择的类别抠图"""
         import numpy as np
         import torch
@@ -302,7 +337,7 @@ class FixPicAPI:
         from PIL import Image
 
         # 解码图片
-        image_data = base64.b64decode(image_base64)
+        image_data = base64.b64decode(request.image_base64)
         input_image = Image.open(io.BytesIO(image_data)).convert('RGB')
 
         # 获取模型
@@ -328,7 +363,7 @@ class FixPicAPI:
 
         # 创建掩码
         mask = np.zeros(pred_seg.shape, dtype=bool)
-        for cat_id in categories:
+        for cat_id in request.categories:
             mask |= (pred_seg == cat_id)
 
         # 应用掩码

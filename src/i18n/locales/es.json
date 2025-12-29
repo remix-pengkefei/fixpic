@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "Procesar",
+    "processAll": "Procesar Todo",
+    "processing": "Procesando...",
+    "download": "Descargar",
+    "downloadAll": "Descargar Todo",
+    "clear": "Limpiar",
+    "pending": "Archivos Pendientes",
+    "completed": "Completado",
+    "dragDropText": "Arrastra imágenes aquí o haz clic para seleccionar",
+    "dragDropHint": "Soporta PNG, JPG, WebP. Procesamiento por lotes disponible",
+    "useNow": "Usar Ahora",
+    "instructions": "Instrucciones",
+    "privacy": "Procesamiento local, privacidad segura",
+    "free": "Gratis"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "Herramientas Gratuitas de Procesamiento de Imágenes"
+  },
+  "footer": {
+    "description": "FixPic - Herramientas Gratuitas de Procesamiento de Imágenes | Procesamiento Local, Privacidad Segura"
+  },
+  "nav": {
+    "removeFakeTransparency": "Eliminar Falsa Transparencia",
+    "compress": "Comprimir",
+    "resize": "Redimensionar"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - Herramientas Gratuitas de Imágenes | Eliminar Falsa Transparencia, Comprimir, Redimensionar",
+      "description": "FixPic ofrece herramientas gratuitas de procesamiento de imágenes en línea. Elimina fondos falsos transparentes de imágenes generadas por IA, comprime y convierte imágenes, redimensiona con facilidad. Todo el procesamiento se realiza localmente en tu navegador.",
+      "keywords": "procesamiento de imágenes,eliminar falsa transparencia,comprimir imagen,redimensionar imagen,fondo transparente Midjourney,fondo transparente Lovart,herramientas en línea,gratis"
+    },
+    "hero": {
+      "title": "Herramientas Gratuitas de Procesamiento de Imágenes",
+      "desc": "Todo el procesamiento se realiza localmente en tu navegador. Sin subidas, privacidad completa."
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "Eliminar Falsa Transparencia",
+        "desc": "Convierte fondos falsos transparentes (cuadrícula gris-blanca) de Midjourney, Lovart, Stable Diffusion y otras herramientas de IA en PNG realmente transparente"
+      },
+      "compress": {
+        "title": "Comprimir y Convertir",
+        "desc": "Reduce el tamaño de archivo de imagen, convierte a formato WebP, PNG o JPEG con ajustes de calidad personalizables"
+      },
+      "resize": {
+        "title": "Redimensionar Imágenes",
+        "desc": "Ajusta las dimensiones de imagen con precisión, mantén la relación de aspecto con escalado proporcional, procesa múltiples imágenes por lotes"
+      }
+    },
+    "features": {
+      "title": "¿Por qué elegir FixPic?",
+      "privacy": {
+        "title": "Privacidad Segura",
+        "desc": "Todo el procesamiento ocurre localmente en tu navegador. Las imágenes nunca salen de tu dispositivo."
+      },
+      "fast": {
+        "title": "Rápido y Eficiente",
+        "desc": "Sin esperas por subidas o descargas. El procesamiento local es ultrarrápido."
+      },
+      "free": {
+        "title": "Completamente Gratis",
+        "desc": "Todas las funciones son gratuitas. No se requiere registro ni inicio de sesión."
+      },
+      "crossPlatform": {
+        "title": "Multiplataforma",
+        "desc": "Funciona en escritorio, móvil y tablet. Cualquier navegador moderno sirve."
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": {
+        "question": "¿Qué es un \"fondo falso transparente\"?",
+        "answer": "Herramientas de generación de imágenes con IA como Midjourney, Lovart y Stable Diffusion a veces generan lo que parece ser un fondo transparente (patrón de cuadrícula gris-blanca), pero en realidad está pintado en la imagen en lugar de ser verdaderamente transparente. Esto se llama \"falsa transparencia\". Nuestra herramienta convierte este patrón en transparencia real."
+      },
+      "q2": {
+        "question": "¿Se suben las imágenes a un servidor?",
+        "answer": "No. Todo el procesamiento de imágenes de FixPic ocurre completamente en tu navegador. Tus imágenes nunca se suben a ningún servidor, garantizando completa privacidad."
+      },
+      "q3": {
+        "question": "¿Qué formatos de imagen son compatibles?",
+        "answer": "Soportamos formatos comunes incluyendo PNG, JPG/JPEG y WebP. Puedes elegir exportar en cualquiera de estos formatos después del procesamiento."
+      },
+      "q4": {
+        "question": "¿Puedo procesar múltiples imágenes a la vez?",
+        "answer": "Sí. Puedes seleccionar múltiples imágenes a la vez. La herramienta las procesará una por una, y puedes descargarlas individualmente o todas juntas."
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "Eliminar Falsa Transparencia - Convertir Cuadrícula de Imagen IA a Transparente Real | FixPic",
+      "description": "Herramienta gratuita en línea para eliminar fondos falsos transparentes (cuadrícula gris-blanca) de imágenes generadas por Midjourney, Lovart, Stable Diffusion. Convierte a PNG realmente transparente. Procesamiento local, privacidad segura.",
+      "keywords": "eliminar falsa transparencia,fondo falso transparente,Midjourney transparente,Lovart transparente,Stable Diffusion transparente,fondo transparente imagen IA,patrón cuadrícula,PNG transparente"
+    },
+    "title": "Eliminar Falsa Transparencia",
+    "desc": "Convierte fondos falsos transparentes (cuadrícula gris-blanca) de Midjourney, Lovart, Stable Diffusion y otras herramientas de IA en PNG realmente transparente",
+    "instructions": {
+      "step1": "Sube imágenes con fondos falsos transparentes (patrón de cuadrícula gris-blanca)",
+      "step2": "Haz clic en el botón \"Procesar\" o \"Procesar Todo\"",
+      "step3": "Descarga las imágenes PNG realmente transparentes"
+    },
+    "useCases": {
+      "title": "Casos de Uso",
+      "case1": "Imágenes de \"fondo transparente\" de Midjourney",
+      "case2": "Exportaciones de Lovart con fondos de cuadrícula",
+      "case3": "Salidas de falsa transparencia de Stable Diffusion",
+      "case4": "Imágenes similares de otras herramientas de IA"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "Compresión de Imágenes en Línea - Comprimir y Convertir a WebP/PNG/JPEG Gratis | FixPic",
+      "description": "Herramienta gratuita de compresión de imágenes en línea. Convierte a formatos WebP, PNG, JPEG con calidad ajustable. Procesamiento en navegador, sin subidas, privacidad segura. Compresión por lotes.",
+      "keywords": "compresión de imagen,comprimir en línea,convertir WebP,comprimir PNG,comprimir JPEG,convertir formato imagen,compresión por lotes,compresión gratis"
+    },
+    "title": "Comprimir y Convertir",
+    "desc": "Reduce el tamaño de archivo de imagen, convierte a formato WebP, PNG o JPEG con ajustes de calidad personalizables",
+    "options": {
+      "format": "Formato de Salida",
+      "quality": "Compresión",
+      "qualityHigh": "Alta Calidad",
+      "qualityMedium": "Pérdida Leve",
+      "qualityLow": "Calidad Baja",
+      "pngNote": "PNG es sin pérdida, no necesita compresión"
+    },
+    "instructions": {
+      "step1": "Selecciona formato de salida (WebP recomendado para menor tamaño)",
+      "step2": "Ajusta la calidad de compresión (para formatos no-PNG)",
+      "step3": "Sube las imágenes a comprimir",
+      "step4": "Procesa y descarga las imágenes comprimidas"
+    },
+    "formatComparison": {
+      "title": "Comparación de Formatos",
+      "webp": "WebP: Formato moderno, mejor ratio de compresión, buena compatibilidad",
+      "jpeg": "JPEG: Formato universal, ideal para fotos, sin soporte de transparencia",
+      "png": "PNG: Formato sin pérdida, soporta transparencia, mayor tamaño de archivo"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "Redimensionar Imágenes en Línea - Cambiar Tamaño de Imagen Gratis | FixPic",
+      "description": "Herramienta gratuita de redimensionamiento de imágenes en línea. Establece ancho y alto precisos, mantén la relación de aspecto con escalado proporcional. Procesamiento en navegador, sin subidas, privacidad segura. Redimensionamiento por lotes.",
+      "keywords": "redimensionar imagen,cambiar tamaño imagen,escalar imagen,escalado proporcional,redimensionar por lotes,redimensionar en línea,herramienta gratis"
+    },
+    "title": "Redimensionar Imágenes",
+    "desc": "Ajusta las dimensiones de imagen con precisión, mantén la relación de aspecto con escalado proporcional, procesa múltiples imágenes por lotes",
+    "options": {
+      "width": "Ancho",
+      "height": "Alto",
+      "auto": "Auto",
+      "keepAspectRatio": "Mantener Proporción",
+      "yes": "Sí",
+      "no": "No",
+      "keepRatioHint": "Escalado proporcional, sin distorsión",
+      "noKeepRatioHint": "Estiramiento forzado, puede distorsionar",
+      "format": "Formato de Salida",
+      "quality": "Calidad de Imagen",
+      "qualityHigh": "Alta Calidad",
+      "qualityMedium": "Pérdida Leve",
+      "qualityLow": "Calidad Baja",
+      "pngNote": "PNG es sin pérdida, no necesita compresión"
+    },
+    "instructions": {
+      "step1": "Ingresa ancho y/o alto objetivo (deja vacío para mantener original)",
+      "step2": "Elige si mantener la relación de aspecto (recomendado para evitar distorsión)",
+      "step3": "Selecciona formato de salida y calidad",
+      "step4": "Sube y procesa las imágenes"
+    },
+    "sizeReference": {
+      "title": "Referencia de Tamaños Comunes",
+      "avatar": "Avatar de redes sociales: 400×400 o 800×800",
+      "wechat": "Portada de WeChat: 900×383",
+      "ecommerce": "Producto de e-commerce: 800×800 o 1000×1000",
+      "banner": "Banner web: 1920×600"
+    }
+  }
+}

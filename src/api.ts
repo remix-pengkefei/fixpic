@@ -6,7 +6,8 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001'
 
 // 检测是否为 Modal API（通过 URL 判断）
-const isModalAPI = API_URL.includes('modal.run')
+// Modal URL 格式: https://remix-pengkefei--fixpic-api-fixpicapi
+const isModalAPI = API_URL.includes('modal.run') || API_URL.includes('--fixpic-api')
 
 /**
  * 获取 Modal endpoint URL

@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "Process",
+    "processAll": "Process All",
+    "processing": "Processing...",
+    "download": "Download",
+    "downloadAll": "Download All",
+    "clear": "Clear",
+    "pending": "Pending Files",
+    "completed": "Completed",
+    "dragDropText": "Drag and drop images here, or click to select",
+    "dragDropHint": "Supports PNG, JPG, WebP. Batch processing available",
+    "useNow": "Use Now",
+    "instructions": "Instructions",
+    "privacy": "Local processing, privacy safe",
+    "free": "Free"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "Free Online Image Processing Tools"
+  },
+  "footer": {
+    "description": "FixPic - Free Online Image Processing Tools | Local Processing, Privacy Safe"
+  },
+  "nav": {
+    "removeFakeTransparency": "Remove Fake Transparency",
+    "compress": "Compress",
+    "resize": "Resize"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - Free Online Image Tools | Remove Fake Transparency, Compress, Resize",
+      "description": "FixPic offers free online image processing tools. Remove fake transparent backgrounds from AI-generated images, compress and convert images, resize with ease. All processing done locally in your browser.",
+      "keywords": "image processing,remove fake transparency,image compression,resize image,Midjourney transparent background,Lovart transparent background,online tools,free"
+    },
+    "hero": {
+      "title": "Free Online Image Processing Tools",
+      "desc": "All processing done locally in your browser. No uploads, complete privacy."
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "Remove Fake Transparency",
+        "desc": "Convert fake transparent backgrounds (gray-white checkerboard) from Midjourney, Lovart, Stable Diffusion and other AI tools into real transparent PNG"
+      },
+      "compress": {
+        "title": "Compress & Convert",
+        "desc": "Reduce image file size, convert to WebP, PNG, or JPEG format with adjustable quality settings"
+      },
+      "resize": {
+        "title": "Resize Images",
+        "desc": "Precisely adjust image dimensions, maintain aspect ratio with proportional scaling, batch process multiple images"
+      }
+    },
+    "features": {
+      "title": "Why Choose FixPic?",
+      "privacy": {
+        "title": "Privacy Safe",
+        "desc": "All processing happens locally in your browser. Images never leave your device."
+      },
+      "fast": {
+        "title": "Fast & Efficient",
+        "desc": "No waiting for uploads or downloads. Local processing is lightning fast."
+      },
+      "free": {
+        "title": "Completely Free",
+        "desc": "All features are free to use. No registration or login required."
+      },
+      "crossPlatform": {
+        "title": "Cross-Platform",
+        "desc": "Works on desktop, mobile, and tablet. Any modern browser will do."
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "What is a \"fake transparent background\"?",
+        "answer": "AI image generation tools like Midjourney, Lovart, and Stable Diffusion sometimes generate what appears to be a transparent background (gray-white checkerboard pattern), but it's actually painted onto the image rather than being truly transparent. This is called \"fake transparency\". Our tool converts this pattern into real transparency."
+      },
+      "q2": {
+        "question": "Are images uploaded to a server?",
+        "answer": "No. All FixPic image processing happens entirely in your browser. Your images are never uploaded to any server, ensuring complete privacy."
+      },
+      "q3": {
+        "question": "Which image formats are supported?",
+        "answer": "We support common formats including PNG, JPG/JPEG, and WebP. You can choose to output in any of these formats after processing."
+      },
+      "q4": {
+        "question": "Can I batch process multiple images?",
+        "answer": "Yes. You can select multiple images at once. The tool will process them one by one, and you can download them individually or all at once."
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "Remove Fake Transparency - Convert AI Image Checkerboard to Real Transparent | FixPic",
+      "description": "Free online tool to remove fake transparent backgrounds (gray-white checkerboard) from Midjourney, Lovart, Stable Diffusion AI-generated images. Convert to real transparent PNG. Local processing, privacy safe.",
+      "keywords": "remove fake transparency,fake transparent background,Midjourney transparent,Lovart transparent,Stable Diffusion transparent,AI image transparent background,checkerboard pattern,PNG transparent"
+    },
+    "title": "Remove Fake Transparency",
+    "desc": "Convert fake transparent backgrounds (gray-white checkerboard) from Midjourney, Lovart, Stable Diffusion and other AI tools into real transparent PNG",
+    "instructions": {
+      "step1": "Upload images with fake transparent backgrounds (gray-white checkerboard pattern)",
+      "step2": "Click \"Process\" or \"Process All\" button",
+      "step3": "Download the processed truly transparent PNG images"
+    },
+    "useCases": {
+      "title": "Use Cases",
+      "case1": "Midjourney \"transparent background\" images",
+      "case2": "Lovart exports with checkerboard backgrounds",
+      "case3": "Stable Diffusion fake transparent outputs",
+      "case4": "Similar images from other AI tools"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "Online Image Compression - Free Compress & Convert to WebP/PNG/JPEG | FixPic",
+      "description": "Free online image compression tool. Convert to WebP, PNG, JPEG formats with adjustable quality. Browser-based processing, no uploads needed, privacy safe. Batch compress multiple images.",
+      "keywords": "image compression,online compress,WebP convert,PNG compress,JPEG compress,image format convert,batch compress,free compression"
+    },
+    "title": "Compress & Convert",
+    "desc": "Reduce image file size, convert to WebP, PNG, or JPEG format with adjustable quality settings",
+    "options": {
+      "format": "Output Format",
+      "quality": "Compression",
+      "qualityHigh": "High Quality",
+      "qualityMedium": "Slight Loss",
+      "qualityLow": "Lower Quality",
+      "pngNote": "PNG is lossless, no compression needed"
+    },
+    "instructions": {
+      "step1": "Select output format (WebP recommended for smallest size)",
+      "step2": "Adjust compression quality (for non-PNG formats)",
+      "step3": "Upload images to compress",
+      "step4": "Process and download compressed images"
+    },
+    "formatComparison": {
+      "title": "Format Comparison",
+      "webp": "WebP: Modern format, best compression ratio, good compatibility",
+      "jpeg": "JPEG: Universal format, great for photos, no transparency support",
+      "png": "PNG: Lossless format, supports transparency, larger file size"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "Online Image Resizer - Free Resize Image Dimensions | FixPic",
+      "description": "Free online image resizing tool. Set precise width and height, maintain aspect ratio with proportional scaling. Browser-based processing, no uploads needed, privacy safe. Batch resize multiple images.",
+      "keywords": "resize image,change image size,image scaling,proportional scaling,batch resize,online resize,free tool"
+    },
+    "title": "Resize Images",
+    "desc": "Precisely adjust image dimensions, maintain aspect ratio with proportional scaling, batch process multiple images",
+    "options": {
+      "width": "Width",
+      "height": "Height",
+      "auto": "Auto",
+      "keepAspectRatio": "Keep Aspect Ratio",
+      "yes": "Yes",
+      "no": "No",
+      "keepRatioHint": "Proportional scaling, no distortion",
+      "noKeepRatioHint": "Force stretch, may distort",
+      "format": "Output Format",
+      "quality": "Image Quality",
+      "qualityHigh": "High Quality",
+      "qualityMedium": "Slight Loss",
+      "qualityLow": "Lower Quality",
+      "pngNote": "PNG is lossless, no compression needed"
+    },
+    "instructions": {
+      "step1": "Enter target width and/or height (leave empty to keep original)",
+      "step2": "Choose whether to maintain aspect ratio (recommended to avoid distortion)",
+      "step3": "Select output format and quality",
+      "step4": "Upload and process images"
+    },
+    "sizeReference": {
+      "title": "Common Size Reference",
+      "avatar": "Social media avatar: 400×400 or 800×800",
+      "wechat": "WeChat cover: 900×383",
+      "ecommerce": "E-commerce product: 800×800 or 1000×1000",
+      "banner": "Web banner: 1920×600"
+    }
+  }
+}

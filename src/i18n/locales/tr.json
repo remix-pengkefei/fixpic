@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "İşle",
+    "processAll": "Tümünü İşle",
+    "processing": "İşleniyor...",
+    "download": "İndir",
+    "downloadAll": "Tümünü İndir",
+    "clear": "Temizle",
+    "pending": "Bekleyen Dosyalar",
+    "completed": "Tamamlandı",
+    "dragDropText": "Resimleri buraya sürükleyin veya seçmek için tıklayın",
+    "dragDropHint": "PNG, JPG, WebP desteklenir. Toplu işlem mevcut",
+    "useNow": "Şimdi Kullan",
+    "instructions": "Talimatlar",
+    "privacy": "Yerel işlem, gizlilik güvende",
+    "free": "Ücretsiz"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "Ücretsiz Çevrimiçi Resim İşleme Araçları"
+  },
+  "footer": {
+    "description": "FixPic - Ücretsiz Çevrimiçi Resim İşleme Araçları | Yerel İşlem, Gizlilik Güvende"
+  },
+  "nav": {
+    "removeFakeTransparency": "Sahte Şeffaflığı Kaldır",
+    "compress": "Sıkıştır",
+    "resize": "Yeniden Boyutlandır"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - Ücretsiz Resim Araçları | Sahte Şeffaflığı Kaldır, Sıkıştır, Yeniden Boyutlandır",
+      "description": "FixPic ücretsiz çevrimiçi resim işleme araçları sunar. AI görüntülerinden sahte şeffaf arka planları kaldırın, resimleri sıkıştırın ve dönüştürün, kolayca yeniden boyutlandırın. Tüm işlemler tarayıcınızda yerel olarak yapılır.",
+      "keywords": "resim işleme,sahte şeffaflığı kaldır,resim sıkıştırma,resim yeniden boyutlandırma,Midjourney şeffaf arka plan,Lovart şeffaf arka plan,çevrimiçi araçlar,ücretsiz"
+    },
+    "hero": {
+      "title": "Ücretsiz Çevrimiçi Resim İşleme Araçları",
+      "desc": "Tüm işlemler tarayıcınızda yerel olarak yapılır. Yükleme yok, tam gizlilik."
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "Sahte Şeffaflığı Kaldır",
+        "desc": "Midjourney, Lovart, Stable Diffusion ve diğer AI araçlarından sahte şeffaf arka planları (gri-beyaz dama tahtası) gerçek şeffaf PNG'ye dönüştürün"
+      },
+      "compress": {
+        "title": "Sıkıştır ve Dönüştür",
+        "desc": "Resim dosya boyutunu azaltın, ayarlanabilir kalite ayarlarıyla WebP, PNG veya JPEG formatına dönüştürün"
+      },
+      "resize": {
+        "title": "Resimleri Yeniden Boyutlandır",
+        "desc": "Resim boyutlarını hassas şekilde ayarlayın, orantılı ölçekleme ile en boy oranını koruyun, birden fazla resmi toplu işleyin"
+      }
+    },
+    "features": {
+      "title": "Neden FixPic'i Seçmelisiniz?",
+      "privacy": {
+        "title": "Gizlilik Güvende",
+        "desc": "Tüm işlemler tarayıcınızda yerel olarak gerçekleşir. Resimler cihazınızı asla terk etmez."
+      },
+      "fast": {
+        "title": "Hızlı ve Verimli",
+        "desc": "Yükleme veya indirme beklemenize gerek yok. Yerel işlem çok hızlı."
+      },
+      "free": {
+        "title": "Tamamen Ücretsiz",
+        "desc": "Tüm özellikler ücretsiz. Kayıt veya giriş gerekmiyor."
+      },
+      "crossPlatform": {
+        "title": "Çapraz Platform",
+        "desc": "Masaüstü, mobil ve tablette çalışır. Herhangi bir modern tarayıcı yeterli."
+      }
+    },
+    "faq": {
+      "title": "Sık Sorulan Sorular",
+      "q1": {
+        "question": "\"Sahte şeffaf arka plan\" nedir?",
+        "answer": "Midjourney, Lovart ve Stable Diffusion gibi AI görüntü oluşturma araçları bazen şeffaf arka plan gibi görünen (gri-beyaz dama tahtası deseni) ancak aslında gerçekten şeffaf olmayan, resmin üzerine çizilmiş bir desen üretir. Buna \"sahte şeffaflık\" denir. Aracımız bu deseni gerçek şeffaflığa dönüştürür."
+      },
+      "q2": {
+        "question": "Resimler bir sunucuya yükleniyor mu?",
+        "answer": "Hayır. FixPic'in tüm resim işlemleri tamamen tarayıcınızda gerçekleşir. Resimleriniz hiçbir sunucuya yüklenmez, tam gizlilik garanti edilir."
+      },
+      "q3": {
+        "question": "Hangi resim formatları destekleniyor?",
+        "answer": "PNG, JPG/JPEG ve WebP dahil yaygın formatları destekliyoruz. İşlemden sonra bu formatlardan herhangi birine dışa aktarmayı seçebilirsiniz."
+      },
+      "q4": {
+        "question": "Birden fazla resmi aynı anda işleyebilir miyim?",
+        "answer": "Evet. Aynı anda birden fazla resim seçebilirsiniz. Araç bunları birer birer işleyecek ve tek tek veya hepsini birden indirebilirsiniz."
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "Sahte Şeffaflığı Kaldır - AI Görüntü Dama Tahtasını Gerçek Şeffafa Dönüştür | FixPic",
+      "description": "Midjourney, Lovart, Stable Diffusion görüntülerinden sahte şeffaf arka planları (gri-beyaz dama tahtası) kaldırmak için ücretsiz çevrimiçi araç. Gerçek şeffaf PNG'ye dönüştürün. Yerel işlem, gizlilik güvende.",
+      "keywords": "sahte şeffaflığı kaldır,sahte şeffaf arka plan,Midjourney şeffaf,Lovart şeffaf,Stable Diffusion şeffaf,AI görüntü şeffaf arka plan,dama tahtası deseni,PNG şeffaf"
+    },
+    "title": "Sahte Şeffaflığı Kaldır",
+    "desc": "Midjourney, Lovart, Stable Diffusion ve diğer AI araçlarından sahte şeffaf arka planları (gri-beyaz dama tahtası) gerçek şeffaf PNG'ye dönüştürün",
+    "instructions": {
+      "step1": "Sahte şeffaf arka planlı (gri-beyaz dama tahtası deseni) resimleri yükleyin",
+      "step2": "\"İşle\" veya \"Tümünü İşle\" düğmesine tıklayın",
+      "step3": "Gerçek şeffaf PNG resimlerini indirin"
+    },
+    "useCases": {
+      "title": "Kullanım Örnekleri",
+      "case1": "Midjourney \"şeffaf arka plan\" görüntüleri",
+      "case2": "Dama tahtası arka planlı Lovart dışa aktarmaları",
+      "case3": "Stable Diffusion sahte şeffaflık çıktıları",
+      "case4": "Diğer AI araçlarından benzer görüntüler"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "Çevrimiçi Resim Sıkıştırma - Ücretsiz WebP/PNG/JPEG'e Sıkıştır ve Dönüştür | FixPic",
+      "description": "Ücretsiz çevrimiçi resim sıkıştırma aracı. Ayarlanabilir kaliteyle WebP, PNG, JPEG formatlarına dönüştürün. Tarayıcı tabanlı işlem, yükleme gerekmiyor, gizlilik güvende. Toplu sıkıştırma.",
+      "keywords": "resim sıkıştırma,çevrimiçi sıkıştırma,WebP dönüştürme,PNG sıkıştırma,JPEG sıkıştırma,resim format dönüştürme,toplu sıkıştırma,ücretsiz sıkıştırma"
+    },
+    "title": "Sıkıştır ve Dönüştür",
+    "desc": "Resim dosya boyutunu azaltın, ayarlanabilir kalite ayarlarıyla WebP, PNG veya JPEG formatına dönüştürün",
+    "options": {
+      "format": "Çıktı Formatı",
+      "quality": "Sıkıştırma",
+      "qualityHigh": "Yüksek Kalite",
+      "qualityMedium": "Hafif Kayıp",
+      "qualityLow": "Düşük Kalite",
+      "pngNote": "PNG kayıpsızdır, sıkıştırma gerekmez"
+    },
+    "instructions": {
+      "step1": "Çıktı formatını seçin (En küçük boyut için WebP önerilir)",
+      "step2": "Sıkıştırma kalitesini ayarlayın (PNG olmayan formatlar için)",
+      "step3": "Sıkıştırılacak resimleri yükleyin",
+      "step4": "İşleyin ve sıkıştırılmış resimleri indirin"
+    },
+    "formatComparison": {
+      "title": "Format Karşılaştırması",
+      "webp": "WebP: Modern format, en iyi sıkıştırma oranı, iyi uyumluluk",
+      "jpeg": "JPEG: Evrensel format, fotoğraflar için harika, şeffaflık desteği yok",
+      "png": "PNG: Kayıpsız format, şeffaflığı destekler, daha büyük dosya boyutu"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "Çevrimiçi Resim Yeniden Boyutlandırma - Ücretsiz Resim Boyutu Değiştir | FixPic",
+      "description": "Ücretsiz çevrimiçi resim yeniden boyutlandırma aracı. Hassas genişlik ve yükseklik ayarlayın, orantılı ölçekleme ile en boy oranını koruyun. Tarayıcı tabanlı işlem, yükleme gerekmiyor, gizlilik güvende. Toplu yeniden boyutlandırma.",
+      "keywords": "resim yeniden boyutlandırma,resim boyutu değiştirme,resim ölçekleme,orantılı ölçekleme,toplu yeniden boyutlandırma,çevrimiçi yeniden boyutlandırma,ücretsiz araç"
+    },
+    "title": "Resimleri Yeniden Boyutlandır",
+    "desc": "Resim boyutlarını hassas şekilde ayarlayın, orantılı ölçekleme ile en boy oranını koruyun, birden fazla resmi toplu işleyin",
+    "options": {
+      "width": "Genişlik",
+      "height": "Yükseklik",
+      "auto": "Otomatik",
+      "keepAspectRatio": "Oranı Koru",
+      "yes": "Evet",
+      "no": "Hayır",
+      "keepRatioHint": "Orantılı ölçekleme, bozulma yok",
+      "noKeepRatioHint": "Zorla germe, bozulabilir",
+      "format": "Çıktı Formatı",
+      "quality": "Resim Kalitesi",
+      "qualityHigh": "Yüksek Kalite",
+      "qualityMedium": "Hafif Kayıp",
+      "qualityLow": "Düşük Kalite",
+      "pngNote": "PNG kayıpsızdır, sıkıştırma gerekmez"
+    },
+    "instructions": {
+      "step1": "Hedef genişlik ve/veya yükseklik girin (orijinali korumak için boş bırakın)",
+      "step2": "En boy oranını koruyup korumayacağınızı seçin (bozulmayı önlemek için önerilir)",
+      "step3": "Çıktı formatı ve kalitesini seçin",
+      "step4": "Resimleri yükleyin ve işleyin"
+    },
+    "sizeReference": {
+      "title": "Yaygın Boyut Referansı",
+      "avatar": "Sosyal medya avatarı: 400×400 veya 800×800",
+      "wechat": "WeChat kapağı: 900×383",
+      "ecommerce": "E-ticaret ürünü: 800×800 veya 1000×1000",
+      "banner": "Web banner: 1920×600"
+    }
+  }
+}

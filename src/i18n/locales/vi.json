@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "Xử lý",
+    "processAll": "Xử lý Tất cả",
+    "processing": "Đang xử lý...",
+    "download": "Tải xuống",
+    "downloadAll": "Tải tất cả",
+    "clear": "Xóa",
+    "pending": "Tệp Đang chờ",
+    "completed": "Hoàn thành",
+    "dragDropText": "Kéo thả hình ảnh vào đây hoặc nhấp để chọn",
+    "dragDropHint": "Hỗ trợ PNG, JPG, WebP. Xử lý hàng loạt có sẵn",
+    "useNow": "Sử dụng Ngay",
+    "instructions": "Hướng dẫn",
+    "privacy": "Xử lý cục bộ, bảo mật riêng tư",
+    "free": "Miễn phí"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "Công cụ Xử lý Hình ảnh Trực tuyến Miễn phí"
+  },
+  "footer": {
+    "description": "FixPic - Công cụ Xử lý Hình ảnh Trực tuyến Miễn phí | Xử lý Cục bộ, Bảo mật Riêng tư"
+  },
+  "nav": {
+    "removeFakeTransparency": "Xóa Trong suốt Giả",
+    "compress": "Nén",
+    "resize": "Thay đổi Kích thước"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - Công cụ Hình ảnh Miễn phí | Xóa Trong suốt Giả, Nén, Thay đổi Kích thước",
+      "description": "FixPic cung cấp công cụ xử lý hình ảnh trực tuyến miễn phí. Xóa nền trong suốt giả từ hình ảnh AI, nén và chuyển đổi hình ảnh, thay đổi kích thước dễ dàng. Tất cả xử lý được thực hiện cục bộ trong trình duyệt của bạn.",
+      "keywords": "xử lý hình ảnh,xóa trong suốt giả,nén hình ảnh,thay đổi kích thước,nền trong suốt Midjourney,nền trong suốt Lovart,công cụ trực tuyến,miễn phí"
+    },
+    "hero": {
+      "title": "Công cụ Xử lý Hình ảnh Trực tuyến Miễn phí",
+      "desc": "Tất cả xử lý được thực hiện cục bộ trong trình duyệt của bạn. Không tải lên, bảo mật hoàn toàn."
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "Xóa Trong suốt Giả",
+        "desc": "Chuyển đổi nền trong suốt giả (ô vuông xám-trắng) từ Midjourney, Lovart, Stable Diffusion và các công cụ AI khác thành PNG trong suốt thật"
+      },
+      "compress": {
+        "title": "Nén và Chuyển đổi",
+        "desc": "Giảm kích thước tệp hình ảnh, chuyển đổi sang định dạng WebP, PNG hoặc JPEG với cài đặt chất lượng tùy chỉnh"
+      },
+      "resize": {
+        "title": "Thay đổi Kích thước Hình ảnh",
+        "desc": "Điều chỉnh kích thước hình ảnh chính xác, duy trì tỷ lệ khung hình với tỷ lệ tương ứng, xử lý nhiều hình ảnh hàng loạt"
+      }
+    },
+    "features": {
+      "title": "Tại sao Chọn FixPic?",
+      "privacy": {
+        "title": "Bảo mật Riêng tư",
+        "desc": "Tất cả xử lý diễn ra cục bộ trong trình duyệt của bạn. Hình ảnh không bao giờ rời khỏi thiết bị của bạn."
+      },
+      "fast": {
+        "title": "Nhanh và Hiệu quả",
+        "desc": "Không cần chờ tải lên hoặc tải xuống. Xử lý cục bộ cực nhanh."
+      },
+      "free": {
+        "title": "Hoàn toàn Miễn phí",
+        "desc": "Tất cả tính năng đều miễn phí. Không cần đăng ký hoặc đăng nhập."
+      },
+      "crossPlatform": {
+        "title": "Đa nền tảng",
+        "desc": "Hoạt động trên máy tính, điện thoại và máy tính bảng. Bất kỳ trình duyệt hiện đại nào đều hoạt động."
+      }
+    },
+    "faq": {
+      "title": "Câu hỏi Thường gặp",
+      "q1": {
+        "question": "\"Nền trong suốt giả\" là gì?",
+        "answer": "Các công cụ tạo hình ảnh AI như Midjourney, Lovart và Stable Diffusion đôi khi tạo ra thứ trông giống như nền trong suốt (mẫu ô vuông xám-trắng), nhưng thực tế nó được vẽ lên hình ảnh thay vì thực sự trong suốt. Điều này được gọi là \"trong suốt giả\". Công cụ của chúng tôi chuyển đổi mẫu này thành trong suốt thật."
+      },
+      "q2": {
+        "question": "Hình ảnh có được tải lên máy chủ không?",
+        "answer": "Không. Tất cả xử lý hình ảnh của FixPic diễn ra hoàn toàn trong trình duyệt của bạn. Hình ảnh của bạn không bao giờ được tải lên bất kỳ máy chủ nào, đảm bảo bảo mật hoàn toàn."
+      },
+      "q3": {
+        "question": "Những định dạng hình ảnh nào được hỗ trợ?",
+        "answer": "Chúng tôi hỗ trợ các định dạng phổ biến bao gồm PNG, JPG/JPEG và WebP. Bạn có thể chọn xuất ra bất kỳ định dạng nào sau khi xử lý."
+      },
+      "q4": {
+        "question": "Tôi có thể xử lý nhiều hình ảnh cùng lúc không?",
+        "answer": "Có. Bạn có thể chọn nhiều hình ảnh cùng lúc. Công cụ sẽ xử lý từng cái một, và bạn có thể tải xuống riêng lẻ hoặc tất cả cùng lúc."
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "Xóa Trong suốt Giả - Chuyển đổi Ô vuông Hình ảnh AI thành Trong suốt Thật | FixPic",
+      "description": "Công cụ trực tuyến miễn phí để xóa nền trong suốt giả (ô vuông xám-trắng) từ hình ảnh Midjourney, Lovart, Stable Diffusion. Chuyển đổi thành PNG trong suốt thật. Xử lý cục bộ, bảo mật riêng tư.",
+      "keywords": "xóa trong suốt giả,nền trong suốt giả,Midjourney trong suốt,Lovart trong suốt,Stable Diffusion trong suốt,nền trong suốt hình ảnh AI,mẫu ô vuông,PNG trong suốt"
+    },
+    "title": "Xóa Trong suốt Giả",
+    "desc": "Chuyển đổi nền trong suốt giả (ô vuông xám-trắng) từ Midjourney, Lovart, Stable Diffusion và các công cụ AI khác thành PNG trong suốt thật",
+    "instructions": {
+      "step1": "Tải lên hình ảnh có nền trong suốt giả (mẫu ô vuông xám-trắng)",
+      "step2": "Nhấp vào nút \"Xử lý\" hoặc \"Xử lý Tất cả\"",
+      "step3": "Tải xuống hình ảnh PNG trong suốt thật"
+    },
+    "useCases": {
+      "title": "Trường hợp Sử dụng",
+      "case1": "Hình ảnh \"nền trong suốt\" của Midjourney",
+      "case2": "Xuất Lovart với nền ô vuông",
+      "case3": "Đầu ra trong suốt giả của Stable Diffusion",
+      "case4": "Hình ảnh tương tự từ các công cụ AI khác"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "Nén Hình ảnh Trực tuyến - Nén và Chuyển đổi sang WebP/PNG/JPEG Miễn phí | FixPic",
+      "description": "Công cụ nén hình ảnh trực tuyến miễn phí. Chuyển đổi sang định dạng WebP, PNG, JPEG với chất lượng tùy chỉnh. Xử lý dựa trên trình duyệt, không cần tải lên, bảo mật riêng tư. Nén hàng loạt.",
+      "keywords": "nén hình ảnh,nén trực tuyến,chuyển đổi WebP,nén PNG,nén JPEG,chuyển đổi định dạng hình ảnh,nén hàng loạt,nén miễn phí"
+    },
+    "title": "Nén và Chuyển đổi",
+    "desc": "Giảm kích thước tệp hình ảnh, chuyển đổi sang định dạng WebP, PNG hoặc JPEG với cài đặt chất lượng tùy chỉnh",
+    "options": {
+      "format": "Định dạng Đầu ra",
+      "quality": "Nén",
+      "qualityHigh": "Chất lượng Cao",
+      "qualityMedium": "Mất Nhẹ",
+      "qualityLow": "Chất lượng Thấp",
+      "pngNote": "PNG không mất dữ liệu, không cần nén"
+    },
+    "instructions": {
+      "step1": "Chọn định dạng đầu ra (khuyến nghị WebP cho kích thước nhỏ nhất)",
+      "step2": "Điều chỉnh chất lượng nén (cho định dạng không phải PNG)",
+      "step3": "Tải lên hình ảnh cần nén",
+      "step4": "Xử lý và tải xuống hình ảnh đã nén"
+    },
+    "formatComparison": {
+      "title": "So sánh Định dạng",
+      "webp": "WebP: Định dạng hiện đại, tỷ lệ nén tốt nhất, tương thích tốt",
+      "jpeg": "JPEG: Định dạng phổ biến, tuyệt vời cho ảnh, không hỗ trợ trong suốt",
+      "png": "PNG: Định dạng không mất dữ liệu, hỗ trợ trong suốt, kích thước tệp lớn hơn"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "Thay đổi Kích thước Hình ảnh Trực tuyến - Thay đổi Kích thước Hình ảnh Miễn phí | FixPic",
+      "description": "Công cụ thay đổi kích thước hình ảnh trực tuyến miễn phí. Đặt chiều rộng và chiều cao chính xác, duy trì tỷ lệ khung hình với tỷ lệ tương ứng. Xử lý dựa trên trình duyệt, không cần tải lên, bảo mật riêng tư. Thay đổi kích thước hàng loạt.",
+      "keywords": "thay đổi kích thước hình ảnh,thay đổi kích thước,co giãn hình ảnh,tỷ lệ tương ứng,thay đổi kích thước hàng loạt,thay đổi kích thước trực tuyến,công cụ miễn phí"
+    },
+    "title": "Thay đổi Kích thước Hình ảnh",
+    "desc": "Điều chỉnh kích thước hình ảnh chính xác, duy trì tỷ lệ khung hình với tỷ lệ tương ứng, xử lý nhiều hình ảnh hàng loạt",
+    "options": {
+      "width": "Chiều rộng",
+      "height": "Chiều cao",
+      "auto": "Tự động",
+      "keepAspectRatio": "Giữ Tỷ lệ",
+      "yes": "Có",
+      "no": "Không",
+      "keepRatioHint": "Tỷ lệ tương ứng, không biến dạng",
+      "noKeepRatioHint": "Kéo giãn cưỡng bức, có thể biến dạng",
+      "format": "Định dạng Đầu ra",
+      "quality": "Chất lượng Hình ảnh",
+      "qualityHigh": "Chất lượng Cao",
+      "qualityMedium": "Mất Nhẹ",
+      "qualityLow": "Chất lượng Thấp",
+      "pngNote": "PNG không mất dữ liệu, không cần nén"
+    },
+    "instructions": {
+      "step1": "Nhập chiều rộng và/hoặc chiều cao mục tiêu (để trống để giữ nguyên gốc)",
+      "step2": "Chọn có giữ tỷ lệ khung hình hay không (khuyến nghị để tránh biến dạng)",
+      "step3": "Chọn định dạng đầu ra và chất lượng",
+      "step4": "Tải lên và xử lý hình ảnh"
+    },
+    "sizeReference": {
+      "title": "Tham khảo Kích thước Phổ biến",
+      "avatar": "Ảnh đại diện mạng xã hội: 400×400 hoặc 800×800",
+      "wechat": "Ảnh bìa WeChat: 900×383",
+      "ecommerce": "Sản phẩm thương mại điện tử: 800×800 hoặc 1000×1000",
+      "banner": "Banner web: 1920×600"
+    }
+  }
+}

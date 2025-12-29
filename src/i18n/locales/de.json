@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "Verarbeiten",
+    "processAll": "Alle Verarbeiten",
+    "processing": "Verarbeitung...",
+    "download": "Herunterladen",
+    "downloadAll": "Alle Herunterladen",
+    "clear": "Leeren",
+    "pending": "Ausstehende Dateien",
+    "completed": "Abgeschlossen",
+    "dragDropText": "Bilder hierher ziehen oder klicken zum Auswählen",
+    "dragDropHint": "Unterstützt PNG, JPG, WebP. Stapelverarbeitung verfügbar",
+    "useNow": "Jetzt Verwenden",
+    "instructions": "Anleitung",
+    "privacy": "Lokale Verarbeitung, Datenschutz gewährleistet",
+    "free": "Kostenlos"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "Kostenlose Online-Bildverarbeitungswerkzeuge"
+  },
+  "footer": {
+    "description": "FixPic - Kostenlose Online-Bildverarbeitungswerkzeuge | Lokale Verarbeitung, Datenschutz gewährleistet"
+  },
+  "nav": {
+    "removeFakeTransparency": "Falsche Transparenz Entfernen",
+    "compress": "Komprimieren",
+    "resize": "Größe Ändern"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - Kostenlose Bildwerkzeuge | Falsche Transparenz Entfernen, Komprimieren, Größe Ändern",
+      "description": "FixPic bietet kostenlose Online-Bildverarbeitungswerkzeuge. Entfernen Sie falsche transparente Hintergründe aus KI-generierten Bildern, komprimieren und konvertieren Sie Bilder, ändern Sie die Größe mit Leichtigkeit. Alle Verarbeitung erfolgt lokal in Ihrem Browser.",
+      "keywords": "Bildverarbeitung,falsche Transparenz entfernen,Bildkomprimierung,Bildgröße ändern,Midjourney transparenter Hintergrund,Lovart transparenter Hintergrund,Online-Werkzeuge,kostenlos"
+    },
+    "hero": {
+      "title": "Kostenlose Online-Bildverarbeitungswerkzeuge",
+      "desc": "Alle Verarbeitung erfolgt lokal in Ihrem Browser. Keine Uploads, vollständiger Datenschutz."
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "Falsche Transparenz Entfernen",
+        "desc": "Konvertieren Sie falsche transparente Hintergründe (grau-weißes Schachbrettmuster) von Midjourney, Lovart, Stable Diffusion und anderen KI-Werkzeugen in echtes transparentes PNG"
+      },
+      "compress": {
+        "title": "Komprimieren und Konvertieren",
+        "desc": "Reduzieren Sie die Bilddateigröße, konvertieren Sie in WebP-, PNG- oder JPEG-Format mit anpassbaren Qualitätseinstellungen"
+      },
+      "resize": {
+        "title": "Bildgröße Ändern",
+        "desc": "Passen Sie Bildabmessungen präzise an, behalten Sie das Seitenverhältnis mit proportionaler Skalierung bei, verarbeiten Sie mehrere Bilder im Stapel"
+      }
+    },
+    "features": {
+      "title": "Warum FixPic Wählen?",
+      "privacy": {
+        "title": "Datenschutz Gewährleistet",
+        "desc": "Alle Verarbeitung erfolgt lokal in Ihrem Browser. Bilder verlassen nie Ihr Gerät."
+      },
+      "fast": {
+        "title": "Schnell und Effizient",
+        "desc": "Kein Warten auf Up- oder Downloads. Lokale Verarbeitung ist blitzschnell."
+      },
+      "free": {
+        "title": "Vollständig Kostenlos",
+        "desc": "Alle Funktionen sind kostenlos. Keine Registrierung erforderlich."
+      },
+      "crossPlatform": {
+        "title": "Plattformübergreifend",
+        "desc": "Funktioniert auf Desktop, Handy und Tablet. Jeder moderne Browser funktioniert."
+      }
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "q1": {
+        "question": "Was ist ein \"falscher transparenter Hintergrund\"?",
+        "answer": "KI-Bildgenerierungswerkzeuge wie Midjourney, Lovart und Stable Diffusion erzeugen manchmal etwas, das wie ein transparenter Hintergrund aussieht (grau-weißes Schachbrettmuster), aber tatsächlich auf das Bild gemalt ist, anstatt wirklich transparent zu sein. Dies wird \"falsche Transparenz\" genannt. Unser Werkzeug konvertiert dieses Muster in echte Transparenz."
+      },
+      "q2": {
+        "question": "Werden Bilder auf einen Server hochgeladen?",
+        "answer": "Nein. Alle Bildverarbeitung von FixPic erfolgt vollständig in Ihrem Browser. Ihre Bilder werden nie auf irgendeinen Server hochgeladen, was vollständigen Datenschutz gewährleistet."
+      },
+      "q3": {
+        "question": "Welche Bildformate werden unterstützt?",
+        "answer": "Wir unterstützen gängige Formate einschließlich PNG, JPG/JPEG und WebP. Sie können nach der Verarbeitung in einem dieser Formate exportieren."
+      },
+      "q4": {
+        "question": "Kann ich mehrere Bilder gleichzeitig verarbeiten?",
+        "answer": "Ja. Sie können mehrere Bilder auf einmal auswählen. Das Werkzeug verarbeitet sie nacheinander, und Sie können sie einzeln oder alle zusammen herunterladen."
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "Falsche Transparenz Entfernen - KI-Bild-Schachbrett in Echte Transparenz Konvertieren | FixPic",
+      "description": "Kostenloses Online-Werkzeug zum Entfernen falscher transparenter Hintergründe (grau-weißes Schachbrettmuster) aus von Midjourney, Lovart, Stable Diffusion generierten Bildern. Konvertieren Sie zu echtem transparentem PNG. Lokale Verarbeitung, Datenschutz gewährleistet.",
+      "keywords": "falsche Transparenz entfernen,falscher transparenter Hintergrund,Midjourney transparent,Lovart transparent,Stable Diffusion transparent,KI-Bild transparenter Hintergrund,Schachbrettmuster,PNG transparent"
+    },
+    "title": "Falsche Transparenz Entfernen",
+    "desc": "Konvertieren Sie falsche transparente Hintergründe (grau-weißes Schachbrettmuster) von Midjourney, Lovart, Stable Diffusion und anderen KI-Werkzeugen in echtes transparentes PNG",
+    "instructions": {
+      "step1": "Laden Sie Bilder mit falschen transparenten Hintergründen (grau-weißes Schachbrettmuster) hoch",
+      "step2": "Klicken Sie auf \"Verarbeiten\" oder \"Alle Verarbeiten\"",
+      "step3": "Laden Sie die echt transparenten PNG-Bilder herunter"
+    },
+    "useCases": {
+      "title": "Anwendungsfälle",
+      "case1": "Midjourney \"transparenter Hintergrund\"-Bilder",
+      "case2": "Lovart-Exporte mit Schachbretthintergründen",
+      "case3": "Stable Diffusion falsche Transparenz-Ausgaben",
+      "case4": "Ähnliche Bilder von anderen KI-Werkzeugen"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "Online-Bildkomprimierung - Kostenlos zu WebP/PNG/JPEG Komprimieren und Konvertieren | FixPic",
+      "description": "Kostenloses Online-Bildkomprimierungswerkzeug. Konvertieren Sie zu WebP-, PNG-, JPEG-Formaten mit anpassbarer Qualität. Browser-basierte Verarbeitung, keine Uploads nötig, Datenschutz gewährleistet. Stapelkomprimierung.",
+      "keywords": "Bildkomprimierung,online komprimieren,WebP konvertieren,PNG komprimieren,JPEG komprimieren,Bildformat konvertieren,Stapelkomprimierung,kostenlose Komprimierung"
+    },
+    "title": "Komprimieren und Konvertieren",
+    "desc": "Reduzieren Sie die Bilddateigröße, konvertieren Sie in WebP-, PNG- oder JPEG-Format mit anpassbaren Qualitätseinstellungen",
+    "options": {
+      "format": "Ausgabeformat",
+      "quality": "Komprimierung",
+      "qualityHigh": "Hohe Qualität",
+      "qualityMedium": "Leichter Verlust",
+      "qualityLow": "Niedrige Qualität",
+      "pngNote": "PNG ist verlustfrei, keine Komprimierung nötig"
+    },
+    "instructions": {
+      "step1": "Wählen Sie das Ausgabeformat (WebP empfohlen für kleinste Größe)",
+      "step2": "Passen Sie die Komprimierungsqualität an (für Nicht-PNG-Formate)",
+      "step3": "Laden Sie zu komprimierende Bilder hoch",
+      "step4": "Verarbeiten und komprimierte Bilder herunterladen"
+    },
+    "formatComparison": {
+      "title": "Formatvergleich",
+      "webp": "WebP: Modernes Format, beste Kompressionsrate, gute Kompatibilität",
+      "jpeg": "JPEG: Universelles Format, ideal für Fotos, keine Transparenzunterstützung",
+      "png": "PNG: Verlustfreies Format, unterstützt Transparenz, größere Dateigröße"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "Online Bildgröße Ändern - Kostenlos Bildabmessungen Ändern | FixPic",
+      "description": "Kostenloses Online-Werkzeug zur Größenänderung von Bildern. Stellen Sie präzise Breite und Höhe ein, behalten Sie das Seitenverhältnis mit proportionaler Skalierung bei. Browser-basierte Verarbeitung, keine Uploads nötig, Datenschutz gewährleistet. Stapelgrößenänderung.",
+      "keywords": "Bildgröße ändern,Bildabmessungen ändern,Bildskalierung,proportionale Skalierung,Stapelgrößenänderung,online Größe ändern,kostenloses Werkzeug"
+    },
+    "title": "Bildgröße Ändern",
+    "desc": "Passen Sie Bildabmessungen präzise an, behalten Sie das Seitenverhältnis mit proportionaler Skalierung bei, verarbeiten Sie mehrere Bilder im Stapel",
+    "options": {
+      "width": "Breite",
+      "height": "Höhe",
+      "auto": "Auto",
+      "keepAspectRatio": "Seitenverhältnis Beibehalten",
+      "yes": "Ja",
+      "no": "Nein",
+      "keepRatioHint": "Proportionale Skalierung, keine Verzerrung",
+      "noKeepRatioHint": "Erzwungene Dehnung, kann verzerren",
+      "format": "Ausgabeformat",
+      "quality": "Bildqualität",
+      "qualityHigh": "Hohe Qualität",
+      "qualityMedium": "Leichter Verlust",
+      "qualityLow": "Niedrige Qualität",
+      "pngNote": "PNG ist verlustfrei, keine Komprimierung nötig"
+    },
+    "instructions": {
+      "step1": "Geben Sie Zielbreite und/oder -höhe ein (leer lassen für Original)",
+      "step2": "Wählen Sie, ob das Seitenverhältnis beibehalten werden soll (empfohlen zur Vermeidung von Verzerrung)",
+      "step3": "Wählen Sie Ausgabeformat und Qualität",
+      "step4": "Laden Sie Bilder hoch und verarbeiten Sie sie"
+    },
+    "sizeReference": {
+      "title": "Gängige Größenreferenz",
+      "avatar": "Social-Media-Avatar: 400×400 oder 800×800",
+      "wechat": "WeChat-Cover: 900×383",
+      "ecommerce": "E-Commerce-Produkt: 800×800 oder 1000×1000",
+      "banner": "Web-Banner: 1920×600"
+    }
+  }
+}

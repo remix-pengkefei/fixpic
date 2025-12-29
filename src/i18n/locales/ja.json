@@ -1,0 +1,181 @@
+{
+  "common": {
+    "process": "処理",
+    "processAll": "すべて処理",
+    "processing": "処理中...",
+    "download": "ダウンロード",
+    "downloadAll": "すべてダウンロード",
+    "clear": "クリア",
+    "pending": "処理待ちファイル",
+    "completed": "処理完了",
+    "dragDropText": "画像をここにドラッグ＆ドロップ、またはクリックして選択",
+    "dragDropHint": "PNG、JPG、WebP対応。一括処理可能",
+    "useNow": "今すぐ使う",
+    "instructions": "使い方",
+    "privacy": "ローカル処理、プライバシー保護",
+    "free": "無料"
+  },
+  "header": {
+    "title": "Fix-Pic",
+    "tagline": "無料オンライン画像処理ツール"
+  },
+  "footer": {
+    "description": "FixPic - 無料オンライン画像処理ツール | ローカル処理、プライバシー保護"
+  },
+  "nav": {
+    "removeFakeTransparency": "偽透明除去",
+    "compress": "圧縮",
+    "resize": "リサイズ"
+  },
+  "home": {
+    "seo": {
+      "title": "FixPic - 無料オンライン画像ツール | 偽透明除去、圧縮、リサイズ",
+      "description": "FixPicは無料のオンライン画像処理ツールを提供。AI生成画像の偽透明背景を除去、画像圧縮・変換、リサイズが可能。ブラウザ内でローカル処理、アップロード不要、プライバシー保護。",
+      "keywords": "画像処理,偽透明除去,画像圧縮,リサイズ,Midjourney透明背景,Lovart透明背景,オンラインツール,無料"
+    },
+    "hero": {
+      "title": "無料オンライン画像処理ツール",
+      "desc": "すべての処理はブラウザ内で完結。アップロード不要、プライバシー完全保護。"
+    },
+    "tools": {
+      "removeFakeTransparency": {
+        "title": "偽透明背景を除去",
+        "desc": "Midjourney、Lovart、Stable Diffusion等のAIツールが出力する偽透明背景（グレー白チェッカーパターン）を本物の透明PNGに変換"
+      },
+      "compress": {
+        "title": "圧縮・変換",
+        "desc": "画像ファイルサイズを縮小、WebP、PNG、JPEG形式に変換、品質調整可能"
+      },
+      "resize": {
+        "title": "画像リサイズ",
+        "desc": "画像サイズを正確に調整、アスペクト比維持で比例拡大縮小、一括処理対応"
+      }
+    },
+    "features": {
+      "title": "なぜFixPicを選ぶ？",
+      "privacy": {
+        "title": "プライバシー保護",
+        "desc": "すべての処理はブラウザ内で完結。画像はサーバーにアップロードされません。"
+      },
+      "fast": {
+        "title": "高速・効率的",
+        "desc": "アップロード・ダウンロード待ち時間なし。ローカル処理で超高速。"
+      },
+      "free": {
+        "title": "完全無料",
+        "desc": "すべての機能が無料。登録・ログイン不要。"
+      },
+      "crossPlatform": {
+        "title": "クロスプラットフォーム",
+        "desc": "PC、スマートフォン、タブレット対応。モダンブラウザならどれでもOK。"
+      }
+    },
+    "faq": {
+      "title": "よくある質問",
+      "q1": {
+        "question": "「偽透明背景」とは？",
+        "answer": "Midjourney、Lovart、Stable Diffusion等のAI画像生成ツールは、「透明背景」画像を生成する際、実際には透明ではなくグレー白のチェッカーパターンを描画することがあります。これを「偽透明」と呼びます。当ツールでこのパターンを本物の透明に変換できます。"
+      },
+      "q2": {
+        "question": "画像はサーバーにアップロードされますか？",
+        "answer": "いいえ。FixPicの画像処理はすべてブラウザ内で完結します。画像はどのサーバーにもアップロードされず、プライバシーは完全に保護されます。"
+      },
+      "q3": {
+        "question": "対応画像形式は？",
+        "answer": "PNG、JPG/JPEG、WebP形式に対応。処理後はこれらの形式から選んで出力できます。"
+      },
+      "q4": {
+        "question": "一括処理はできますか？",
+        "answer": "はい。複数の画像を一度に選択でき、順次処理されます。個別または一括でダウンロード可能です。"
+      }
+    }
+  },
+  "removeFakeTransparency": {
+    "seo": {
+      "title": "偽透明背景を除去 - AI画像のチェッカーパターンを本物の透明に | FixPic",
+      "description": "無料オンラインツールでMidjourney、Lovart、Stable Diffusion等のAI生成画像から偽透明背景（グレー白チェッカーパターン）を除去。本物の透明PNGに変換。ローカル処理、プライバシー保護。",
+      "keywords": "偽透明除去,偽透明背景,Midjourney透明,Lovart透明,Stable Diffusion透明,AI画像透明背景,チェッカーパターン,PNG透明"
+    },
+    "title": "偽透明背景を除去",
+    "desc": "Midjourney、Lovart、Stable Diffusion等のAIツールが出力する偽透明背景（グレー白チェッカーパターン）を本物の透明PNGに変換",
+    "instructions": {
+      "step1": "偽透明背景（グレー白チェッカーパターン）のある画像をアップロード",
+      "step2": "「処理」または「すべて処理」ボタンをクリック",
+      "step3": "本物の透明PNG画像をダウンロード"
+    },
+    "useCases": {
+      "title": "使用例",
+      "case1": "Midjourneyの「透明背景」画像",
+      "case2": "Lovartのチェッカー背景付き出力",
+      "case3": "Stable Diffusionの偽透明出力",
+      "case4": "他のAIツールの類似画像"
+    }
+  },
+  "compress": {
+    "seo": {
+      "title": "オンライン画像圧縮 - 無料でWebP/PNG/JPEGに圧縮・変換 | FixPic",
+      "description": "無料オンライン画像圧縮ツール。WebP、PNG、JPEG形式に変換、品質調整可能。ブラウザ内処理、アップロード不要、プライバシー保護。一括圧縮対応。",
+      "keywords": "画像圧縮,オンライン圧縮,WebP変換,PNG圧縮,JPEG圧縮,画像形式変換,一括圧縮,無料圧縮"
+    },
+    "title": "圧縮・変換",
+    "desc": "画像ファイルサイズを縮小、WebP、PNG、JPEG形式に変換、品質調整可能",
+    "options": {
+      "format": "出力形式",
+      "quality": "圧縮率",
+      "qualityHigh": "高品質",
+      "qualityMedium": "やや劣化",
+      "qualityLow": "低品質",
+      "pngNote": "PNGは無劣化、圧縮不要"
+    },
+    "instructions": {
+      "step1": "出力形式を選択（WebP推奨、最小サイズ）",
+      "step2": "圧縮品質を調整（PNG以外）",
+      "step3": "圧縮する画像をアップロード",
+      "step4": "処理して圧縮画像をダウンロード"
+    },
+    "formatComparison": {
+      "title": "形式比較",
+      "webp": "WebP：モダン形式、最高の圧縮率、互換性良好",
+      "jpeg": "JPEG：汎用形式、写真に最適、透明非対応",
+      "png": "PNG：無劣化形式、透明対応、ファイルサイズ大"
+    }
+  },
+  "resize": {
+    "seo": {
+      "title": "オンライン画像リサイズ - 無料で画像サイズ変更 | FixPic",
+      "description": "無料オンライン画像リサイズツール。幅と高さを正確に設定、アスペクト比維持で比例拡大縮小。ブラウザ内処理、アップロード不要、プライバシー保護。一括リサイズ対応。",
+      "keywords": "画像リサイズ,画像サイズ変更,画像拡大縮小,比例拡大縮小,一括リサイズ,オンラインリサイズ,無料ツール"
+    },
+    "title": "画像リサイズ",
+    "desc": "画像サイズを正確に調整、アスペクト比維持で比例拡大縮小、一括処理対応",
+    "options": {
+      "width": "幅",
+      "height": "高さ",
+      "auto": "自動",
+      "keepAspectRatio": "アスペクト比維持",
+      "yes": "はい",
+      "no": "いいえ",
+      "keepRatioHint": "比例拡大縮小、歪みなし",
+      "noKeepRatioHint": "強制引き伸ばし、歪む可能性あり",
+      "format": "出力形式",
+      "quality": "画像品質",
+      "qualityHigh": "高品質",
+      "qualityMedium": "やや劣化",
+      "qualityLow": "低品質",
+      "pngNote": "PNGは無劣化、圧縮不要"
+    },
+    "instructions": {
+      "step1": "目標の幅や高さを入力（空欄で元サイズ維持）",
+      "step2": "アスペクト比維持を選択（歪み防止に推奨）",
+      "step3": "出力形式と品質を選択",
+      "step4": "画像をアップロードして処理"
+    },
+    "sizeReference": {
+      "title": "よく使うサイズ",
+      "avatar": "SNSアバター：400×400 または 800×800",
+      "wechat": "WeChatカバー：900×383",
+      "ecommerce": "ECサイト商品画像：800×800 または 1000×1000",
+      "banner": "Webバナー：1920×600"
+    }
+  }
+}
