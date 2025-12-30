@@ -26,6 +26,8 @@ image = (
         "pydantic",
         "simple-lama-inpainting",  # LaMa inpainting
         "opencv-python-headless",
+        "einops",  # Florence-2 依赖
+        "timm",    # Florence-2 依赖
     )
     .run_commands(
         # 预下载 rembg 模型（不需要GPU）
@@ -93,6 +95,10 @@ class InpaintRequest(BaseModel):
     mask_base64: str
 
 
+class AutoRemoveWatermarkRequest(BaseModel):
+    image_base64: str
+
+
 @app.cls(
     gpu="T4",  # 使用 T4 GPU，性价比高
     volumes={MODEL_DIR: volume},
@@ -114,6 +120,8 @@ class FixPicAPI:
         self.clothes_processor = None
         self.clothes_model = None
         self.lama_model = None
+        self.florence_model = None
+        self.florence_processor = None
 
     def _get_sam_predictor(self):
         """延迟加载 SAM 模型"""
@@ -168,6 +176,122 @@ class FixPicAPI:
             print("LaMa model loaded!")
 
         return self.lama_model
+
+    def _get_florence_model(self):
+        """延迟加载 Florence-2 模型用于水印检测"""
+        if self.florence_model is None:
+            import torch
+            from transformers import AutoProcessor, AutoModelForCausalLM
+
+            print("Loading Florence-2-large model...")
+            model_id = "microsoft/Florence-2-large"
+
+            self.florence_processor = AutoProcessor.from_pretrained(
+                model_id,
+                trust_remote_code=True
+            )
+            self.florence_model = AutoModelForCausalLM.from_pretrained(
+                model_id,
+                torch_dtype=torch.float16,
+                trust_remote_code=True
+            ).to(self.device)
+            print("Florence-2-large model loaded!")
+
+        return self.florence_processor, self.florence_model
+
+    def _detect_watermark_mask(self, image):
+        """使用 Florence-2 检测水印并生成 mask"""
+        import torch
+        import numpy as np
+        from PIL import Image, ImageDraw
+
+        processor, model = self._get_florence_model()
+
+        # 使用 phrase grounding 来检测水印
+        prompt = "<CAPTION_TO_PHRASE_GROUNDING>"
+        text_input = "watermark, text overlay, logo"
+
+        inputs = processor(
+            text=prompt,
+            images=image,
+            return_tensors="pt"
+        ).to(self.device, torch.float16)
+
+        generated_ids = model.generate(
+            input_ids=inputs["input_ids"],
+            pixel_values=inputs["pixel_values"],
+            max_new_tokens=1024,
+            num_beams=3,
+            do_sample=False
+        )
+
+        generated_text = processor.batch_decode(
+            generated_ids,
+            skip_special_tokens=False
+        )[0]
+
+        # 解析结果获取边界框
+        parsed = processor.post_process_generation(
+            generated_text,
+            task=prompt,
+            image_size=(image.width, image.height)
+        )
+
+        # 创建 mask
+        mask = Image.new('L', image.size, 0)
+        draw = ImageDraw.Draw(mask)
+
+        # 检查是否有检测到的区域
+        if prompt in parsed and 'bboxes' in parsed[prompt]:
+            bboxes = parsed[prompt]['bboxes']
+            for bbox in bboxes:
+                # bbox 格式: [x1, y1, x2, y2]
+                x1, y1, x2, y2 = bbox
+                # 稍微扩大边界框以确保完全覆盖水印
+                padding = 5
+                x1 = max(0, x1 - padding)
+                y1 = max(0, y1 - padding)
+                x2 = min(image.width, x2 + padding)
+                y2 = min(image.height, y2 + padding)
+                draw.rectangle([x1, y1, x2, y2], fill=255)
+
+        # 如果没检测到，尝试用 OD (Object Detection) 任务
+        if np.array(mask).max() == 0:
+            print("Phrase grounding found nothing, trying OCR for text detection...")
+            # 用 OCR 检测文字区域
+            prompt_ocr = "<OCR_WITH_REGION>"
+            inputs_ocr = processor(
+                text=prompt_ocr,
+                images=image,
+                return_tensors="pt"
+            ).to(self.device, torch.float16)
+
+            generated_ids_ocr = model.generate(
+                input_ids=inputs_ocr["input_ids"],
+                pixel_values=inputs_ocr["pixel_values"],
+                max_new_tokens=1024,
+                num_beams=3,
+                do_sample=False
+            )
+
+            generated_text_ocr = processor.batch_decode(
+                generated_ids_ocr,
+                skip_special_tokens=False
+            )[0]
+
+            parsed_ocr = processor.post_process_generation(
+                generated_text_ocr,
+                task=prompt_ocr,
+                image_size=(image.width, image.height)
+            )
+
+            if prompt_ocr in parsed_ocr and 'quad_boxes' in parsed_ocr[prompt_ocr]:
+                quad_boxes = parsed_ocr[prompt_ocr]['quad_boxes']
+                for quad in quad_boxes:
+                    # quad 是 4 个点的坐标
+                    draw.polygon(quad, fill=255)
+
+        return mask
 
     @modal.fastapi_endpoint(method="POST")
     def remove_bg(self, request: RemoveBgRequest):
@@ -437,6 +561,66 @@ class FixPicAPI:
             'image': f'data:image/png;base64,{img_base64}',
             'width': result.width,
             'height': result.height
+        }
+
+    @modal.fastapi_endpoint(method="POST")
+    def auto_remove_watermark(self, request: AutoRemoveWatermarkRequest):
+        """自动检测并去除水印"""
+        import numpy as np
+        from PIL import Image
+
+        # 解码图片
+        image_data = base64.b64decode(request.image_base64)
+        input_image = Image.open(io.BytesIO(image_data)).convert('RGB')
+
+        print(f"Processing image: {input_image.size}")
+
+        # Step 1: 使用 Florence-2 检测水印区域
+        print("Step 1: Detecting watermarks with Florence-2...")
+        mask = self._detect_watermark_mask(input_image)
+
+        # 检查是否检测到水印
+        mask_array = np.array(mask)
+        watermark_pixels = np.sum(mask_array > 0)
+        print(f"Detected watermark pixels: {watermark_pixels}")
+
+        if watermark_pixels == 0:
+            # 没有检测到水印，返回原图
+            buffered = io.BytesIO()
+            input_image.save(buffered, format='PNG')
+            img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+            return {
+                'success': True,
+                'image': f'data:image/png;base64,{img_base64}',
+                'width': input_image.width,
+                'height': input_image.height,
+                'watermark_detected': False,
+                'message': 'No watermark detected'
+            }
+
+        # Step 2: 使用 LaMa 修复水印区域
+        print("Step 2: Inpainting with LaMa...")
+        lama = self._get_lama_model()
+        result = lama(input_image, mask)
+
+        # 编码结果
+        buffered = io.BytesIO()
+        result.save(buffered, format='PNG')
+        img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+
+        # 同时返回 mask 用于调试
+        mask_buffered = io.BytesIO()
+        mask.save(mask_buffered, format='PNG')
+        mask_base64 = base64.b64encode(mask_buffered.getvalue()).decode('utf-8')
+
+        return {
+            'success': True,
+            'image': f'data:image/png;base64,{img_base64}',
+            'mask': f'data:image/png;base64,{mask_base64}',
+            'width': result.width,
+            'height': result.height,
+            'watermark_detected': True,
+            'watermark_pixels': int(watermark_pixels)
         }
 
     @modal.fastapi_endpoint(method="GET")

@@ -66,6 +66,22 @@ interface InpaintOptions {
   maskBase64: string
 }
 
+interface AutoRemoveWatermarkOptions {
+  image: File
+}
+
+interface AutoRemoveWatermarkResponse {
+  success: boolean
+  image?: string
+  mask?: string
+  width?: number
+  height?: number
+  watermark_detected?: boolean
+  watermark_pixels?: number
+  message?: string
+  error?: string
+}
+
 interface ApiResponse {
   success: boolean
   image?: string
@@ -222,7 +238,7 @@ export async function clothesSegment(options: ClothesSegmentOptions): Promise<Ap
 }
 
 /**
- * 图像修复 - 去水印
+ * 图像修复 - 去水印 (手动)
  */
 export async function inpaint(options: InpaintOptions): Promise<ApiResponse> {
   if (isModalAPI) {
@@ -243,6 +259,30 @@ export async function inpaint(options: InpaintOptions): Promise<ApiResponse> {
         image_base64: options.imageBase64,
         mask_base64: options.maskBase64
       })
+    })
+    return response.json()
+  }
+}
+
+/**
+ * 自动检测并去除水印
+ */
+export async function autoRemoveWatermark(options: AutoRemoveWatermarkOptions): Promise<AutoRemoveWatermarkResponse> {
+  const imageBase64 = await fileToBase64(options.image)
+
+  if (isModalAPI) {
+    const response = await fetch(getModalEndpoint('auto-remove-watermark'), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image_base64: imageBase64 })
+    })
+    return response.json()
+  } else {
+    // 本地 API fallback
+    const response = await fetch(`${API_URL}/api/auto-remove-watermark`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image_base64: imageBase64 })
     })
     return response.json()
   }

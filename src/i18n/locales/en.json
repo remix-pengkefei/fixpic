@@ -219,34 +219,27 @@
   },
   "watermark": {
     "seo": {
-      "title": "Remove Watermark from Image Online Free - AI Inpainting Tool | FixPic",
-      "description": "Free online watermark removal tool using AI inpainting. Remove text, logos, and watermarks from images. Paint over the watermark and let AI fill it in. Local processing, privacy safe.",
-      "keywords": "remove watermark,watermark remover,image inpainting,remove text from image,remove logo,photo watermark removal,AI inpainting,OpenCV"
+      "title": "Remove Watermark from Image Online Free - AI Auto Detection | FixPic",
+      "description": "Free online AI watermark removal tool. Automatically detect and remove watermarks, text, logos from images. Powered by Florence-2 and LaMa AI models.",
+      "keywords": "remove watermark,watermark remover,AI watermark removal,auto detect watermark,remove text from image,remove logo,photo watermark removal,AI inpainting"
     },
     "title": "Remove Watermark",
-    "desc": "Remove watermarks, text, logos and unwanted objects from images using AI-powered inpainting",
-    "loadingCV": "Loading image processing engine...",
+    "desc": "AI automatically detects and removes watermarks, text, logos from images - no manual selection needed",
+    "detecting": "AI detecting watermarks...",
     "error": "Processing failed. Please try again.",
-    "dropText": "Upload an image with a watermark",
-    "dropHint": "Supports PNG, JPG, WebP formats",
-    "brushSize": "Brush Size",
-    "inpaintRadius": "Inpaint Radius",
-    "undo": "Undo",
-    "clearMask": "Clear Mask",
-    "removeWatermark": "Remove Watermark",
-    "newImage": "New Image",
-    "canvasHint": "Paint over the watermark area with your mouse or finger",
+    "dropText": "Upload images with watermarks",
+    "dropHint": "Supports PNG, JPG, WebP. Batch processing available.",
+    "noWatermark": "No watermark detected",
     "instructions": {
-      "step1": "Upload an image with a watermark you want to remove",
-      "step2": "Use the brush to paint over the watermark area (red overlay)",
-      "step3": "Adjust brush size and inpaint radius as needed",
-      "step4": "Click 'Remove Watermark' and download the result"
+      "step1": "Upload images with watermarks you want to remove",
+      "step2": "Click 'Process All' - AI will automatically detect watermarks",
+      "step3": "Download the cleaned images"
     },
     "tips": {
       "title": "Tips for Best Results",
-      "tip1": "Paint slightly beyond the watermark edges for better blending",
-      "tip2": "Use a smaller brush for detailed areas and larger brush for big watermarks",
-      "tip3": "Increase inpaint radius for smoother results on uniform backgrounds"
+      "tip1": "Works best with text watermarks and logos",
+      "tip2": "Repeated/tiled watermarks are automatically detected",
+      "tip3": "For complex watermarks, results may vary"
     }
   },
   "guides": {

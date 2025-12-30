@@ -219,34 +219,27 @@
   },
   "watermark": {
     "seo": {
-      "title": "在线去水印工具 - AI 智能修复图片水印 | FixPic",
-      "description": "免费在线图片去水印工具，使用 AI 智能修复技术。涂抹水印区域即可自动填充。支持去除文字、Logo、水印等。本地处理，隐私安全。",
-      "keywords": "去水印,图片去水印,在线去水印,去除Logo,去除文字,AI修复,图片修复,OpenCV"
+      "title": "在线去水印工具 - AI 自动检测去除图片水印 | FixPic",
+      "description": "免费在线 AI 去水印工具，自动检测并去除图片中的水印、文字、Logo。基于 Florence-2 和 LaMa 模型，一键处理。",
+      "keywords": "去水印,图片去水印,AI去水印,自动去水印,去除Logo,去除文字,AI修复,智能去水印"
     },
     "title": "图片去水印",
-    "desc": "使用 AI 智能修复技术，去除图片中的水印、文字、Logo 等不需要的内容",
-    "loadingCV": "正在加载图像处理引擎...",
+    "desc": "AI 自动检测并去除图片中的水印、文字、Logo，无需手动选择",
+    "detecting": "AI 正在检测水印...",
     "error": "处理失败，请重试。",
     "dropText": "上传带水印的图片",
-    "dropHint": "支持 PNG、JPG、WebP 格式",
-    "brushSize": "画笔大小",
-    "inpaintRadius": "修复半径",
-    "undo": "撤销",
-    "clearMask": "清除涂抹",
-    "removeWatermark": "去除水印",
-    "newImage": "换一张图",
-    "canvasHint": "用鼠标或手指涂抹水印区域",
+    "dropHint": "支持 PNG、JPG、WebP，可批量处理",
+    "noWatermark": "未检测到水印",
     "instructions": {
       "step1": "上传需要去水印的图片",
-      "step2": "用画笔涂抹水印区域（红色覆盖层）",
-      "step3": "根据需要调整画笔大小和修复半径",
-      "step4": "点击「去除水印」并下载结果"
+      "step2": "点击「全部处理」，AI 将自动检测水印",
+      "step3": "下载处理后的干净图片"
     },
     "tips": {
       "title": "获得最佳效果的技巧",
-      "tip1": "涂抹时稍微超出水印边缘，效果更好",
-      "tip2": "细节区域用小画笔，大水印用大画笔",
-      "tip3": "背景均匀时增大修复半径可获得更平滑的效果"
+      "tip1": "对文字水印和 Logo 效果最好",
+      "tip2": "重复平铺的水印可以自动检测",
+      "tip3": "复杂水印的效果可能有所不同"
     }
   },
   "guides": {
