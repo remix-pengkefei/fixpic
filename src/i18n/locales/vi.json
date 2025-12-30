@@ -13,7 +13,10 @@
     "useNow": "Sử dụng Ngay",
     "instructions": "Hướng dẫn",
     "privacy": "Xử lý cục bộ, bảo mật riêng tư",
-    "free": "Miễn phí"
+    "free": "Miễn phí",
+    "relatedTools": "Công cụ liên quan",
+    "relatedGuides": "Hướng dẫn liên quan",
+    "learnMore": "Tìm hiểu thêm"
   },
   "header": {
     "title": "Fix-Pic",
@@ -176,6 +179,158 @@
       "wechat": "Ảnh bìa WeChat: 900×383",
       "ecommerce": "Sản phẩm thương mại điện tử: 800×800 hoặc 1000×1000",
       "banner": "Banner web: 1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "Cách Xóa Nền Ô Vuông từ Hình ảnh AI | Hướng dẫn FixPic",
+        "description": "Hướng dẫn đầy đủ để xóa nền trong suốt giả (ô vuông xám-trắng) từ hình ảnh Midjourney, Lovart, Stable Diffusion. Chuyển đổi thành PNG trong suốt thật miễn phí.",
+        "keywords": "nền ô vuông AI,xóa ô vuông Midjourney,trong suốt giả Lovart,trong suốt thật Stable Diffusion,xóa nền AI"
+      },
+      "title": "Cách Xóa Nền Ô Vuông từ Hình ảnh AI",
+      "intro": "Các công cụ tạo hình ảnh AI như Midjourney, Lovart và Stable Diffusion thường tạo ra \"nền trong suốt giả\" với mẫu ô vuông xám-trắng thực chất là một phần của hình ảnh. Hướng dẫn này sẽ chỉ bạn cách chuyển đổi thành trong suốt thật.",
+      "whatIs": {
+        "title": "Nền Trong suốt Giả là gì?",
+        "content": "Khi các công cụ AI tạo hình ảnh có \"nền trong suốt\", mẫu ô vuông xám-trắng thực sự được vẽ lên hình ảnh thay vì là trong suốt thật. Điều này có nghĩa là khi bạn sử dụng hình ảnh trong dự án, nền ô vuông sẽ xuất hiện thay vì trong suốt."
+      },
+      "whyHappens": {
+        "title": "Tại sao Điều này Xảy ra?",
+        "content": "Các mô hình AI được huấn luyện từ hàng triệu hình ảnh, nhiều hình hiển thị độ trong suốt bằng mẫu ô vuông. AI học cách tạo mẫu này như một phần của hình ảnh, nghĩ rằng nó đại diện cho độ trong suốt, thay vì tạo ra độ trong suốt thật."
+      },
+      "howToFix": {
+        "title": "Cách Sửa với FixPic",
+        "step1": "Mở công cụ Xóa Trong suốt Giả của FixPic",
+        "step2": "Tải lên hình ảnh AI có nền ô vuông",
+        "step3": "Nhấp \"Xử lý\" để tự động phát hiện và xóa mẫu ô vuông",
+        "step4": "Tải xuống hình ảnh PNG trong suốt thật"
+      },
+      "tools": {
+        "title": "Công cụ AI được Hỗ trợ",
+        "content": "Công cụ của chúng tôi hoạt động với hình ảnh từ Midjourney, Lovart, Stable Diffusion, DALL-E, Leonardo AI và các trình tạo hình ảnh AI khác tạo ra mẫu ô vuông giả."
+      },
+      "cta": "Thử Công cụ Xóa Trong suốt Giả Miễn phí →"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "Cách Nén Hình ảnh Mà Không Mất Chất lượng | Hướng dẫn FixPic",
+        "description": "Tìm hiểu cách giảm kích thước file hình ảnh trong khi vẫn giữ chất lượng. Mẹo chuyên gia về cài đặt nén tối ưu và lựa chọn định dạng cho WebP, PNG và JPEG.",
+        "keywords": "nén hình ảnh không mất chất lượng,cài đặt nén tốt nhất,tối ưu hóa hình ảnh,chuyển đổi WebP,nén cho web"
+      },
+      "title": "Cách Nén Hình ảnh Mà Không Mất Chất lượng",
+      "intro": "Nén hình ảnh không nhất thiết phải đồng nghĩa với mất chất lượng. Hướng dẫn này chỉ bạn cách chọn cài đặt và định dạng đúng để giảm đáng kể kích thước file trong khi vẫn duy trì độ sắc nét của hình ảnh.",
+      "understanding": {
+        "title": "Hiểu về Các Loại Nén",
+        "lossless": "Nén không mất dữ liệu (PNG): Giữ lại tất cả dữ liệu điểm ảnh, tốt nhất cho đồ họa và ảnh chụp màn hình",
+        "lossy": "Nén có mất dữ liệu (JPEG, WebP): Giảm file đáng kể với mất chất lượng tối thiểu, tốt nhất cho ảnh chụp"
+      },
+      "bestPractices": {
+        "title": "Thực hành Tốt nhất",
+        "tip1": "Sử dụng WebP để có hiệu suất web tốt nhất - hỗ trợ cả có mất và không mất dữ liệu",
+        "tip2": "Đối với ảnh chụp, sử dụng cài đặt chất lượng 80-90% để cân bằng tối ưu",
+        "tip3": "Giữ PNG cho hình ảnh cần trong suốt",
+        "tip4": "Tránh nén lại - luôn nén từ bản gốc"
+      },
+      "comparison": {
+        "title": "So sánh Định dạng",
+        "webp": "WebP: Kích thước nhỏ nhất, nhỏ hơn JPEG 30%, hỗ trợ trong suốt, khuyến nghị cho web",
+        "jpeg": "JPEG: Hỗ trợ phổ quát, tuyệt vời cho ảnh chụp, không có trong suốt",
+        "png": "PNG: Chất lượng hoàn hảo, hỗ trợ trong suốt, file lớn nhất"
+      },
+      "cta": "Nén Hình ảnh Miễn phí →"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "Cách Chuyển đổi Hình ảnh sang WebP - Hướng dẫn Đầy đủ | FixPic",
+        "description": "Tìm hiểu tại sao WebP là định dạng hình ảnh tốt nhất cho web, cách chuyển đổi từ PNG và JPEG, ưu điểm và các cân nhắc về tương thích.",
+        "keywords": "chuyển đổi sang WebP,định dạng WebP,PNG sang WebP,JPEG sang WebP,tối ưu hóa hình ảnh web,hình ảnh WebP"
+      },
+      "title": "Cách Chuyển đổi Hình ảnh sang WebP",
+      "intro": "WebP là định dạng hình ảnh hiện đại được phát triển bởi Google, cung cấp kích thước file nhỏ hơn đáng kể so với JPEG và PNG. Tìm hiểu tại sao và cách sử dụng nó cho dự án của bạn.",
+      "benefits": {
+        "title": "Tại sao Sử dụng WebP?",
+        "benefit1": "File nhỏ hơn: Nhỏ hơn JPEG 25-34% và nhỏ hơn PNG 26% ở chất lượng tương đương",
+        "benefit2": "Hỗ trợ trong suốt: Không giống JPEG, WebP hỗ trợ trong suốt như PNG",
+        "benefit3": "Hỗ trợ animation: Có thể thay thế GIF với kích thước file nhỏ hơn nhiều",
+        "benefit4": "Hỗ trợ trình duyệt rộng: Tất cả trình duyệt hiện đại đều hỗ trợ WebP"
+      },
+      "howTo": {
+        "title": "Cách Chuyển đổi với FixPic",
+        "step1": "Mở công cụ Nén và Chuyển đổi của FixPic",
+        "step2": "Chọn \"WebP\" làm định dạng đầu ra",
+        "step3": "Điều chỉnh chất lượng (85-90% được khuyến nghị để có chất lượng tốt)",
+        "step4": "Tải lên hình ảnh PNG hoặc JPEG của bạn",
+        "step5": "Tải xuống file WebP đã chuyển đổi"
+      },
+      "compatibility": {
+        "title": "Tương thích Trình duyệt",
+        "content": "WebP được hỗ trợ bởi Chrome, Firefox, Edge, Safari (14+) và tất cả các trình duyệt hiện đại khác. Đối với trình duyệt cũ, sử dụng thẻ <picture> với JPEG/PNG làm dự phòng."
+      },
+      "cta": "Chuyển đổi Hình ảnh sang WebP Miễn phí →"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "Nén Hình ảnh Hàng loạt - Nén Nhiều Hình ảnh Cùng lúc | FixPic",
+        "description": "Công cụ nén hình ảnh hàng loạt trực tuyến miễn phí. Nén nhiều hình ảnh đồng thời sang định dạng WebP, PNG hoặc JPEG. Xử lý dựa trên trình duyệt, không cần tải lên, bảo mật riêng tư.",
+        "keywords": "nén hàng loạt,nén hình ảnh hàng loạt,nén nhiều hình ảnh,công cụ nén,nén trực tuyến"
+      },
+      "title": "Nén Nhiều Hình ảnh Hàng loạt",
+      "intro": "Cần nén nhiều hình ảnh cùng lúc? Công cụ của chúng tôi cho phép bạn nén bao nhiêu hình ảnh tùy thích đồng thời, tiết kiệm rất nhiều thời gian.",
+      "whyBatch": {
+        "title": "Tại sao Nén Hàng loạt Tiện lợi?",
+        "reason1": "Tiết kiệm thời gian - Không cần xử lý từng cái một",
+        "reason2": "Chất lượng đồng nhất - Áp dụng cùng cài đặt cho tất cả hình ảnh",
+        "reason3": "Quy trình hiệu quả - Xử lý số lượng lớn nhanh chóng",
+        "reason4": "Xử lý cục bộ - Đảm bảo riêng tư cho tất cả hình ảnh"
+      },
+      "howTo": {
+        "title": "Cách Nén Hàng loạt",
+        "step1": "Kéo thả nhiều hình ảnh hoặc chọn",
+        "step2": "Chọn định dạng đầu ra (khuyến nghị WebP)",
+        "step3": "Điều chỉnh chất lượng nén",
+        "step4": "Nhấp \"Xử lý Tất cả\"",
+        "step5": "Tải xuống hình ảnh đã nén hàng loạt"
+      },
+      "tips": {
+        "title": "Mẹo Nén Hàng loạt",
+        "tip1": "Hình ảnh tương tự hiệu quả hơn với cùng cài đặt",
+        "tip2": "Định dạng WebP có tỷ lệ nén tốt nhất",
+        "tip3": "Chất lượng 80-85% duy trì chất lượng hình ảnh tốt",
+        "tip4": "Xem trước hình ảnh trước khi xử lý"
+      },
+      "cta": "Thử Nén Hàng loạt Ngay"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Nền Trong suốt Midjourney - Ô Vuông thành Trong suốt Thật | FixPic",
+        "description": "Tìm hiểu cách tạo hình ảnh nền trong suốt trong Midjourney và chuyển đổi mẫu ô vuông giả thành PNG trong suốt thật. Công cụ trực tuyến miễn phí.",
+        "keywords": "nền trong suốt Midjourney,Midjourney trong suốt,xóa mẫu ô vuông,hình ảnh AI trong suốt,Midjourney PNG,chuyển đổi nền trong suốt"
+      },
+      "title": "Cách Tạo Nền Trong suốt trong Midjourney",
+      "intro": "Khi bạn cố gắng tạo hình ảnh nền trong suốt trong Midjourney, thường bạn nhận được mẫu ô vuông xám-trắng thay vì trong suốt thật. Hướng dẫn này giải thích cách giải quyết vấn đề này.",
+      "problem": {
+        "title": "Vấn đề: Nền Trong suốt Giả",
+        "content": "Ngay cả khi bạn chỉ định \"transparent background\" hoặc \"nền trong suốt\" cho Midjourney, hình ảnh tạo ra không có trong suốt thật (kênh alpha), mà có mẫu ô vuông được vẽ lên. Nếu bạn sử dụng những hình ảnh này trực tiếp, nền sẽ không trong suốt mà hiển thị mẫu ô vuông."
+      },
+      "why": {
+        "title": "Tại sao Điều này Xảy ra?",
+        "content": "Các trình tạo hình ảnh AI như Midjourney đã học khái niệm trong suốt như một mẫu ô vuông trực quan. Vì vậy, khi bạn yêu cầu \"trong suốt\", chúng vẽ mẫu ô vuông trực tiếp lên hình ảnh thay vì tạo ra trong suốt alpha thật."
+      },
+      "solution": {
+        "title": "Giải pháp",
+        "step1": "Tạo hình ảnh trong Midjourney (--style raw thường làm đơn giản hóa nền)",
+        "step2": "Tải lên hình ảnh đã tạo lên FixPic",
+        "step3": "Nhấp \"Xử lý\" để xóa mẫu ô vuông",
+        "step4": "Tải xuống hình ảnh PNG trong suốt thật"
+      },
+      "prompts": {
+        "title": "Mẹo Prompt Midjourney",
+        "tip1": "\"isolated on white\" làm việc xóa nền dễ dàng hơn",
+        "tip2": "\"--style raw\" cho nền đơn giản hơn",
+        "tip3": "Phong cách \"product photography\" làm chủ thể rõ ràng hơn",
+        "tip4": "\"white background\" đôi khi hiệu quả hơn \"no background\""
+      },
+      "cta": "Xóa Trong suốt Giả Ngay"
     }
   }
 }

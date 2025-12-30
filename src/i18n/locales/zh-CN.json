@@ -13,7 +13,10 @@
     "useNow": "立即使用",
     "instructions": "使用说明",
     "privacy": "本地处理，隐私安全",
-    "free": "免费"
+    "free": "免费",
+    "relatedTools": "相关工具",
+    "relatedGuides": "相关指南",
+    "learnMore": "了解更多"
   },
   "header": {
     "title": "Fix-Pic",
@@ -21,6 +24,12 @@
   },
   "footer": {
     "description": "FixPic - 免费在线图片处理工具 | 本地处理，隐私安全"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "description": "抱歉，您访问的页面不存在或已被移动。",
+    "goHome": "返回首页",
+    "tryTools": "试试我们的工具："
   },
   "nav": {
     "removeFakeTransparency": "去假透明",
@@ -176,6 +185,167 @@
       "wechat": "微信公众号封面：900×383",
       "ecommerce": "电商主图：800×800 或 1000×1000",
       "banner": "网页横幅：1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "如何去除 AI 图片的棋盘格背景 - Midjourney、DALL-E、Stable Diffusion | FixPic",
+        "description": "学习如何去除 AI 生成图片的假透明棋盘格背景。适用于 Midjourney、DALL-E、Stable Diffusion、Leonardo AI 和 Lovart。免费在线工具，无需安装软件。",
+        "keywords": "去除AI棋盘格,Midjourney透明背景,DALL-E去背景,Stable Diffusion棋盘格,AI图片假透明,Leonardo AI透明,Lovart去背景"
+      },
+      "title": "如何去除 AI 图片的棋盘格背景",
+      "intro": "Midjourney、DALL-E、Stable Diffusion 等 AI 图片生成器有时会生成带有棋盘格图案而非真正透明的图片。本指南教你如何快速解决这个问题。",
+      "whatIs": {
+        "title": "什么是假透明背景？",
+        "content": "当 AI 工具生成「透明」背景的图片时，它们通常会将灰白棋盘格图案直接渲染到图片像素中。这看起来像透明，但实际上不是——棋盘格是图片的一部分，无法用于设计工作或图层叠加。"
+      },
+      "whyHappens": {
+        "title": "为什么会出现这种情况？",
+        "content": "大多数 AI 图片生成器是在有可见背景的图片上训练的。当被要求创建「透明」背景时，它们会模仿透明的视觉表现（棋盘格图案），而不是生成真正的 Alpha 通道透明度。这在 Midjourney、Lovart 和其他 AI 工具的早期版本中尤为常见。"
+      },
+      "howToFix": {
+        "title": "如何修复（分步指南）",
+        "step1": "上传带有棋盘格图案的 AI 生成图片",
+        "step2": "我们的工具会自动检测灰白棋盘格像素",
+        "step3": "棋盘格图案被转换为真正的 Alpha 透明度",
+        "step4": "下载真正透明的 PNG 文件"
+      },
+      "tools": {
+        "title": "支持的 AI 工具",
+        "content": "我们的工具适用于任何生成假透明的 AI 生成器的图片，包括："
+      },
+      "cta": "立即使用去假透明工具"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "如何压缩图片不损失画质 - 最佳设置指南 | FixPic",
+        "description": "学习压缩图片而不损失可见画质的最佳技术。比较 WebP、PNG、JPEG 格式。免费在线压缩，为照片、图形和网页图片提供最佳设置。",
+        "keywords": "压缩图片不损失画质,最佳图片压缩,WebP压缩,无损压缩,减小图片大小,照片压缩,网页优化"
+      },
+      "title": "如何压缩图片不损失画质",
+      "intro": "图片压缩不一定意味着可见的画质损失。使用正确的格式和设置，你可以大幅减小文件大小，同时保持图片清晰。",
+      "whyCompress": {
+        "title": "为什么要压缩图片？",
+        "content": "大图片会拖慢网站速度，占用存储空间，消耗更多带宽。正确的压缩可以将文件大小减少 50-90%，同时几乎没有可见的画质损失，从而提高页面加载速度和用户体验。"
+      },
+      "formats": {
+        "title": "选择正确的格式",
+        "webp": "压缩率最佳（比 JPEG 小 25-34%）。支持有损和无损压缩。最适合网页使用。",
+        "png": "无损压缩，保留每个像素。最适合图形、Logo 和需要透明的图片。",
+        "jpeg": "适合照片。兼容性广泛，但不支持透明。"
+      },
+      "tips": {
+        "title": "最佳效果提示",
+        "tip1": "在现代网站上使用 WebP 处理照片——它提供最佳的大小与质量比",
+        "tip2": "对 Logo、图标和带文字的图片使用 PNG——无损压缩保持边缘清晰",
+        "tip3": "WebP/JPEG 质量设置为 80-85%——与 100% 视觉上难以区分",
+        "tip4": "使用前始终预览压缩后的图片——检查是否有压缩伪影"
+      },
+      "benefits": {
+        "title": "优化图片的好处",
+        "benefit1": "更快的网站加载速度（更好的 SEO 排名）",
+        "benefit2": "降低带宽成本",
+        "benefit3": "移动设备上更好的用户体验",
+        "benefit4": "为其他文件腾出更多存储空间"
+      },
+      "cta": "立即压缩你的图片"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "免费在线转换图片为 WebP - PNG、JPEG 转 WebP 转换器 | FixPic",
+        "description": "免费在线 WebP 转换器。将 PNG、JPEG 和其他图片转换为 WebP 格式，获得更小的文件大小。基于浏览器，无需上传，保持画质。批量转换多张图片。",
+        "keywords": "转换为WebP,PNG转WebP,JPEG转WebP,WebP转换器,在线WebP转换,免费WebP工具,图片格式转换器"
+      },
+      "title": "将图片转换为 WebP 格式",
+      "intro": "WebP 是现代图片格式，在保持画质的同时提供卓越的压缩效果。将你的 PNG 和 JPEG 图片转换为 WebP，获得更快的网站和更小的文件。",
+      "whatIs": {
+        "title": "什么是 WebP？",
+        "content": "WebP 是 Google 开发的图片格式，支持有损和无损压缩。在同等画质下，它生成的文件通常比 JPEG 小 25-34%，并且像 PNG 一样支持透明，但文件大小要小得多。"
+      },
+      "advantages": {
+        "title": "WebP 的优势",
+        "adv1": "同等画质下文件比 JPEG 小 25-34%",
+        "adv2": "支持透明（像 PNG），但大小更小",
+        "adv3": "所有现代浏览器都支持（Chrome、Firefox、Safari、Edge）",
+        "adv4": "更快的页面加载速度有助于提升 SEO 排名"
+      },
+      "howTo": {
+        "title": "如何转换为 WebP",
+        "step1": "上传你的 PNG、JPEG 或其他图片文件",
+        "step2": "选择 WebP 作为输出格式",
+        "step3": "如需调整画质设置（推荐 80-85%）",
+        "step4": "下载优化后的 WebP 图片"
+      },
+      "compatibility": {
+        "title": "浏览器兼容性",
+        "content": "WebP 被所有现代浏览器支持，包括 Chrome、Firefox、Safari（14+）、Edge 和 Opera。对于旧版浏览器，考虑提供 JPEG 或 PNG 格式的备用图片。"
+      },
+      "cta": "立即转换为 WebP"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "批量压缩图片 - 免费在线批量图片压缩工具 | FixPic",
+        "description": "免费在线批量图片压缩工具。一次压缩多张图片，文件大小最多可减少80%。无需上传，在浏览器本地处理。非常适合网站优化。",
+        "keywords": "批量压缩图片,批量图片压缩,压缩多张图片,图片批量处理,批量调整图片大小,批量照片压缩"
+      },
+      "title": "如何批量压缩多张图片",
+      "intro": "需要一次压缩很多图片？我们的批量压缩工具让你可以同时处理多张图片，节省时间的同时保持画质。",
+      "whyBatch": {
+        "title": "为什么使用批量压缩？",
+        "reason1": "节省大量手动操作时间 - 几分钟内处理100+张图片",
+        "reason2": "所有图片保持一致的画质设置",
+        "reason3": "非常适合网页开发者、设计师和内容创作者",
+        "reason4": "一次性优化所有图片，减少网站加载时间"
+      },
+      "howTo": {
+        "title": "如何批量压缩图片",
+        "step1": "选择输出格式（推荐 WebP 获得最佳压缩效果）",
+        "step2": "设置所需的画质级别（照片推荐 80-90%）",
+        "step3": "拖放多张图片或点击选择",
+        "step4": "点击「全部处理」一次压缩所有图片",
+        "step5": "单独下载或一次性下载全部"
+      },
+      "tips": {
+        "title": "获得最佳效果的技巧",
+        "tip1": "将相似的图片放在一起以保持一致的设置",
+        "tip2": "用于网页时使用 WebP 格式 - 它提供最小的文件大小",
+        "tip3": "批量处理前备份原始图片",
+        "tip4": "下载前预览结果以确保画质"
+      },
+      "cta": "立即开始批量压缩"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "修复 Midjourney 透明背景 - 去除假透明 | FixPic",
+        "description": "修复 Midjourney 的假透明背景问题。将灰白棋盘格图案转换为真正的 PNG 透明。免费在线工具，无需安装软件。",
+        "keywords": "Midjourney透明背景,Midjourney棋盘格,修复Midjourney透明,Midjourney PNG透明,Midjourney去背景,Midjourney Alpha通道"
+      },
+      "title": "如何修复 Midjourney 透明背景",
+      "intro": "Midjourney 有时会生成带有假透明背景的图片 - 一个灰白棋盘格图案实际上是图片的一部分。以下是如何将其转换为真正透明的方法。",
+      "problem": {
+        "title": "Midjourney 透明度问题",
+        "content": "当你提示 Midjourney 生成「透明背景」或「带透明的PNG」时，它通常会将经典的棋盘格图案直接渲染到图片像素中。这不是真正的透明 - 这只是一张棋盘格图案的图片。"
+      },
+      "why": {
+        "title": "为什么 Midjourney 会这样做？",
+        "content": "Midjourney 是在网络图片上训练的，其中许多图片用棋盘格图案来表示透明。AI 学会了再现这种视觉表现，而不是创建真正的 Alpha 通道透明度。"
+      },
+      "solution": {
+        "title": "解决方案",
+        "step1": "上传带有棋盘格图案的 Midjourney 图片",
+        "step2": "我们的工具检测灰白棋盘格像素",
+        "step3": "这些像素被转换为真正的 Alpha 透明",
+        "step4": "下载真正透明的 PNG"
+      },
+      "prompts": {
+        "title": "更好的 Midjourney 透明提示词",
+        "tip1": "在提示中使用 '--no background'",
+        "tip2": "尝试 'isolated on white background' 然后去除白色",
+        "tip3": "添加 'product photography style, white background'",
+        "tip4": "要获得最佳效果，使用我们的工具修复输出"
+      },
+      "cta": "立即修复你的 Midjourney 图片"
     }
   }
 }

@@ -13,7 +13,10 @@
     "useNow": "Jetzt Verwenden",
     "instructions": "Anleitung",
     "privacy": "Lokale Verarbeitung, Datenschutz gewährleistet",
-    "free": "Kostenlos"
+    "free": "Kostenlos",
+    "relatedTools": "Verwandte Werkzeuge",
+    "relatedGuides": "Verwandte Anleitungen",
+    "learnMore": "Mehr erfahren"
   },
   "header": {
     "title": "Fix-Pic",
@@ -176,6 +179,167 @@
       "wechat": "WeChat-Cover: 900×383",
       "ecommerce": "E-Commerce-Produkt: 800×800 oder 1000×1000",
       "banner": "Web-Banner: 1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "AI-Schachbrett-Hintergrund entfernen - Midjourney, DALL-E, Stable Diffusion | FixPic",
+        "description": "Erfahren Sie, wie Sie falsche transparente Schachbrett-Hintergründe aus KI-generierten Bildern entfernen. Funktioniert mit Midjourney, DALL-E, Stable Diffusion, Leonardo AI und Lovart. Kostenloses Online-Tool, keine Software nötig.",
+        "keywords": "AI Schachbrett entfernen,Midjourney transparenter Hintergrund,DALL-E Hintergrund entfernen,Stable Diffusion Schachbrett,AI Bild falsche Transparenz,Leonardo AI transparent,Lovart Hintergrund entfernen"
+      },
+      "title": "So entfernen Sie AI-Schachbrett-Hintergründe",
+      "intro": "KI-Bildgeneratoren wie Midjourney, DALL-E und Stable Diffusion erzeugen manchmal Bilder mit Schachbrettmuster statt echter Transparenz. Diese Anleitung zeigt, wie Sie das sofort beheben können.",
+      "whatIs": {
+        "title": "Was ist ein falscher transparenter Hintergrund?",
+        "content": "Wenn KI-Tools Bilder mit 'transparentem' Hintergrund erzeugen, rendern sie oft ein grau-weißes Schachbrettmuster direkt in die Bildpixel. Es sieht transparent aus, ist es aber nicht - das Schachbrett ist Teil des Bildes und kann nicht für Designarbeiten oder Überlagerungen verwendet werden."
+      },
+      "whyHappens": {
+        "title": "Warum passiert das?",
+        "content": "Die meisten KI-Bildgeneratoren werden auf Bildern mit sichtbaren Hintergründen trainiert. Wenn sie aufgefordert werden, 'transparente' Hintergründe zu erstellen, imitieren sie die visuelle Darstellung von Transparenz (das Schachbrettmuster) anstatt echte Alpha-Kanal-Transparenz zu erzeugen. Dies ist besonders häufig bei Midjourney, Lovart und älteren Versionen anderer KI-Tools."
+      },
+      "howToFix": {
+        "title": "So beheben Sie es (Schritt für Schritt)",
+        "step1": "Laden Sie Ihr KI-generiertes Bild mit Schachbrettmuster hoch",
+        "step2": "Unser Tool erkennt automatisch die grau-weißen Schachbrettpixel",
+        "step3": "Das Muster wird in echte Alpha-Transparenz umgewandelt",
+        "step4": "Laden Sie Ihre wirklich transparente PNG-Datei herunter"
+      },
+      "tools": {
+        "title": "Unterstützte KI-Tools",
+        "content": "Unser Tool funktioniert mit Bildern von jedem KI-Generator, der falsche Transparenz erzeugt, einschließlich:"
+      },
+      "cta": "Jetzt Falsche-Transparenz-Entferner testen"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "Bilder komprimieren ohne Qualitätsverlust - Beste Einstellungen | FixPic",
+        "description": "Lernen Sie die besten Techniken zur Bildkomprimierung ohne sichtbaren Qualitätsverlust. Vergleich von WebP, PNG, JPEG-Formaten. Kostenlose Online-Komprimierung mit optimalen Einstellungen für Fotos, Grafiken und Webbilder.",
+        "keywords": "Bilder komprimieren ohne Qualitätsverlust,beste Bildkomprimierung,WebP Komprimierung,verlustfreie Komprimierung,Bildgröße reduzieren,Fotokomprimierung,Web-Optimierung"
+      },
+      "title": "Bilder ohne Qualitätsverlust komprimieren",
+      "intro": "Bildkomprimierung muss keinen sichtbaren Qualitätsverlust bedeuten. Mit dem richtigen Format und den richtigen Einstellungen können Sie Dateigrößen drastisch reduzieren und Bilder scharf halten.",
+      "whyCompress": {
+        "title": "Warum Bilder komprimieren?",
+        "content": "Große Bilder verlangsamen Websites, verbrauchen Speicherplatz und nutzen mehr Bandbreite. Richtige Komprimierung kann Dateigrößen um 50-90% reduzieren bei minimalem oder keinem sichtbaren Qualitätsverlust, was Ladezeiten und Benutzererfahrung verbessert."
+      },
+      "formats": {
+        "title": "Das richtige Format wählen",
+        "webp": "Bestes Komprimierungsverhältnis (25-34% kleiner als JPEG). Unterstützt verlustbehaftete und verlustfreie Komprimierung. Ideal für Web.",
+        "png": "Verlustfreie Komprimierung, erhält jeden Pixel. Am besten für Grafiken, Logos und Bilder mit Transparenz.",
+        "jpeg": "Gut für Fotografien. Breite Kompatibilität, aber keine Transparenz-Unterstützung."
+      },
+      "tips": {
+        "title": "Tipps für beste Ergebnisse",
+        "tip1": "Verwenden Sie WebP für Fotos auf modernen Websites - bestes Größen-Qualitäts-Verhältnis",
+        "tip2": "Verwenden Sie PNG für Logos, Icons und Bilder mit Text - verlustfrei hält Kanten scharf",
+        "tip3": "Stellen Sie Qualität auf 80-85% für WebP/JPEG - visuell nicht von 100% unterscheidbar",
+        "tip4": "Immer komprimierte Bilder vor Verwendung prüfen - auf Artefakte achten"
+      },
+      "benefits": {
+        "title": "Vorteile optimierter Bilder",
+        "benefit1": "Schnellere Website-Ladezeiten (besseres SEO-Ranking)",
+        "benefit2": "Reduzierte Bandbreitenkosten",
+        "benefit3": "Bessere Benutzererfahrung auf Mobilgeräten",
+        "benefit4": "Mehr Speicherplatz für andere Dateien"
+      },
+      "cta": "Jetzt Bilder komprimieren"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "Kostenlos online in WebP konvertieren - PNG, JPEG zu WebP | FixPic",
+        "description": "Kostenloser Online-WebP-Konverter. Konvertieren Sie PNG, JPEG und andere Bilder ins WebP-Format für kleinere Dateigrößen. Browserbasiert, kein Upload nötig, Qualität bleibt erhalten. Stapelkonvertierung möglich.",
+        "keywords": "in WebP konvertieren,PNG zu WebP,JPEG zu WebP,WebP Konverter,Online WebP Konvertierung,kostenloses WebP Tool,Bildformat-Konverter"
+      },
+      "title": "Bilder ins WebP-Format konvertieren",
+      "intro": "WebP ist das moderne Bildformat mit überlegener Komprimierung bei gleichbleibender Qualität. Konvertieren Sie Ihre PNG- und JPEG-Bilder in WebP für schnellere Websites und kleinere Dateien.",
+      "whatIs": {
+        "title": "Was ist WebP?",
+        "content": "WebP ist ein von Google entwickeltes Bildformat, das sowohl verlustbehaftete als auch verlustfreie Komprimierung verwendet. Es erzeugt typischerweise 25-34% kleinere Dateien als JPEG bei gleicher Qualität und unterstützt Transparenz wie PNG, aber mit viel kleineren Dateigrößen."
+      },
+      "advantages": {
+        "title": "Vorteile von WebP",
+        "adv1": "25-34% kleinere Dateien als JPEG bei gleicher Qualität",
+        "adv2": "Unterstützt Transparenz (wie PNG) mit kleineren Größen",
+        "adv3": "Von allen modernen Browsern unterstützt (Chrome, Firefox, Safari, Edge)",
+        "adv4": "Schnellere Ladezeiten verbessern SEO-Rankings"
+      },
+      "howTo": {
+        "title": "So konvertieren Sie zu WebP",
+        "step1": "Laden Sie Ihre PNG-, JPEG- oder anderen Bilddateien hoch",
+        "step2": "Wählen Sie WebP als Ausgabeformat",
+        "step3": "Passen Sie bei Bedarf die Qualitätseinstellungen an (80-85% empfohlen)",
+        "step4": "Laden Sie Ihre optimierten WebP-Bilder herunter"
+      },
+      "compatibility": {
+        "title": "Browser-Kompatibilität",
+        "content": "WebP wird von allen modernen Browsern unterstützt, einschließlich Chrome, Firefox, Safari (14+), Edge und Opera. Für ältere Browser sollten Sie Fallback-Bilder im JPEG- oder PNG-Format bereitstellen."
+      },
+      "cta": "Jetzt zu WebP konvertieren"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "Bilder stapelweise komprimieren - Mehrere Bilder gleichzeitig | FixPic",
+        "description": "Kostenloses Online-Tool zur Stapelkomprimierung von Bildern. Komprimieren Sie mehrere Bilder gleichzeitig in WebP-, PNG- oder JPEG-Format. Browserbasierte Verarbeitung, kein Upload nötig, Datenschutz gewährleistet.",
+        "keywords": "Stapelkomprimierung,Bilder stapelweise komprimieren,mehrere Bilder komprimieren,Batch-Komprimierung,Bildkomprimierungstool,Online-Komprimierung"
+      },
+      "title": "Mehrere Bilder stapelweise komprimieren",
+      "intro": "Müssen Sie mehrere Bilder gleichzeitig komprimieren? Mit unserem Tool können Sie beliebig viele Bilder gleichzeitig komprimieren und dabei viel Zeit sparen.",
+      "whyBatch": {
+        "title": "Warum ist Stapelkomprimierung praktisch?",
+        "reason1": "Zeitersparnis - Keine einzelne Verarbeitung nötig",
+        "reason2": "Konsistente Qualität - Gleiche Einstellungen für alle Bilder",
+        "reason3": "Effizienter Workflow - Auch große Mengen schnell verarbeiten",
+        "reason4": "Lokale Verarbeitung - Datenschutz für alle Bilder gewährleistet"
+      },
+      "howTo": {
+        "title": "So komprimieren Sie stapelweise",
+        "step1": "Mehrere Bilder per Drag & Drop oder Auswahl hinzufügen",
+        "step2": "Ausgabeformat wählen (WebP empfohlen)",
+        "step3": "Komprimierungsqualität anpassen",
+        "step4": "\"Alle Verarbeiten\" klicken",
+        "step5": "Komprimierte Bilder stapelweise herunterladen"
+      },
+      "tips": {
+        "title": "Tipps zur Stapelkomprimierung",
+        "tip1": "Ähnliche Bilder mit gleichen Einstellungen komprimieren ist effizienter",
+        "tip2": "WebP-Format bietet die beste Kompressionsrate",
+        "tip3": "80-85% Qualität reicht für gute Bildqualität",
+        "tip4": "Bilder vor der Verarbeitung in der Vorschau prüfen"
+      },
+      "cta": "Jetzt Stapelkomprimierung testen"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Midjourney transparenter Hintergrund - Schachbrettmuster in echte Transparenz | FixPic",
+        "description": "Erfahren Sie, wie Sie in Midjourney Bilder mit transparentem Hintergrund erstellen und das falsche Schachbrettmuster in echte transparente PNGs umwandeln. Kostenloses Online-Tool.",
+        "keywords": "Midjourney transparenter Hintergrund,Midjourney transparent,Schachbrettmuster entfernen,KI-Bild transparent,Midjourney PNG,transparenter Hintergrund umwandeln"
+      },
+      "title": "So erstellen Sie transparente Hintergründe in Midjourney",
+      "intro": "Wenn Sie in Midjourney Bilder mit transparentem Hintergrund erstellen möchten, wird oft statt echter Transparenz ein grau-weißes Schachbrettmuster ausgegeben. Diese Anleitung zeigt, wie Sie dieses Problem lösen können.",
+      "problem": {
+        "title": "Das Problem: Falscher transparenter Hintergrund",
+        "content": "Selbst wenn Sie Midjourney \"transparent background\" oder \"transparenter Hintergrund\" angeben, haben die ausgegebenen Bilder keine echte Transparenz (Alphakanal), sondern ein aufgemaltes Schachbrettmuster. Wenn Sie dieses direkt verwenden, wird der Hintergrund nicht transparent, sondern zeigt das Schachbrettmuster."
+      },
+      "why": {
+        "title": "Warum passiert das?",
+        "content": "KI-Bildgeneratoren wie Midjourney haben das Konzept der Transparenz als visuelles Schachbrettmuster gelernt. Wenn Sie \"transparent\" anfordern, zeichnen sie daher das Schachbrettmuster direkt ins Bild, anstatt echte Alpha-Transparenz zu erzeugen."
+      },
+      "solution": {
+        "title": "Die Lösung",
+        "step1": "Erstellen Sie das Bild in Midjourney (--style raw macht Hintergründe oft einfacher)",
+        "step2": "Laden Sie das erstellte Bild auf FixPic hoch",
+        "step3": "Klicken Sie auf \"Verarbeiten\", um das Schachbrettmuster zu entfernen",
+        "step4": "Laden Sie das echt transparente PNG-Bild herunter"
+      },
+      "prompts": {
+        "title": "Tipps für Midjourney-Prompts",
+        "tip1": "\"isolated on white\" macht die Hintergrundentfernung einfacher",
+        "tip2": "\"--style raw\" für einfachere Hintergründe",
+        "tip3": "\"product photography\"-Stil macht das Motiv klarer",
+        "tip4": "\"white background\" kann effektiver sein als \"no background\""
+      },
+      "cta": "Jetzt falsche Transparenz entfernen"
     }
   }
 }

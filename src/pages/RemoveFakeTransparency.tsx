@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
@@ -27,6 +27,7 @@ export function RemoveFakeTransparency() {
   const validLangCodes = languages.map(l => l.code)
   const urlLang = pathParts[0] && validLangCodes.includes(pathParts[0]) ? pathParts[0] : null
   const currentLang = urlLang || i18n.language || 'en'
+  const langLink = (path: string) => `/${currentLang}${path}`
   const [isDragging, setIsDragging] = useState(false)
   const [processing, setProcessing] = useState(false)
   const [processingIndex, setProcessingIndex] = useState<number | null>(null)
@@ -223,6 +224,7 @@ export function RemoveFakeTransparency() {
         description={t('removeFakeTransparency.seo.description')}
         keywords={t('removeFakeTransparency.seo.keywords')}
         canonicalUrl={`https://fix-pic.com/${currentLang}/remove-fake-transparency`}
+        ogImage="/og-remove-transparency.png"
       />
       <StructuredData type="removeFakeTransparency" />
 
@@ -270,7 +272,7 @@ export function RemoveFakeTransparency() {
                 <div key={i} className={`pending-card ${processingIndex === i ? 'processing' : ''}`}>
                   <button className="remove-btn" onClick={(e) => { e.stopPropagation(); removePendingFile(i) }}>×</button>
                   <div className="pending-preview">
-                    <img src={p.preview} alt={p.file.name} />
+                    <img src={p.preview} alt={p.file.name} loading="lazy" />
                     {processingIndex === i && (
                       <div className="pending-overlay"><div className="spinner-small"></div></div>
                     )}
@@ -299,7 +301,7 @@ export function RemoveFakeTransparency() {
               {results.map((r, i) => (
                 <div key={i} className="result-card">
                   <div className="result-preview checkerboard">
-                    <img src={r.preview} alt={r.original.name} />
+                    <img src={r.preview} alt={r.original.name} loading="lazy" />
                   </div>
                   <div className="result-info">
                     <p className="result-name">{r.original.name}</p>
@@ -329,6 +331,29 @@ export function RemoveFakeTransparency() {
             <li>{t('removeFakeTransparency.useCases.case3')}</li>
             <li>{t('removeFakeTransparency.useCases.case4')}</li>
           </ul>
+        </section>
+
+        {/* Related Content */}
+        <section className="related-content">
+          <div className="related-guides">
+            <h3>{t('common.relatedGuides')}</h3>
+            <Link to={langLink('/guides/remove-ai-checkerboard')} className="related-link">
+              {t('guides.aiCheckerboard.title')} →
+            </Link>
+          </div>
+          <div className="related-tools">
+            <h3>{t('common.relatedTools')}</h3>
+            <div className="related-tools-grid">
+              <Link to={langLink('/compress')} className="related-tool-card">
+                <span className="related-tool-icon">📦</span>
+                <span>{t('nav.compress')}</span>
+              </Link>
+              <Link to={langLink('/resize')} className="related-tool-card">
+                <span className="related-tool-icon">📐</span>
+                <span>{t('nav.resize')}</span>
+              </Link>
+            </div>
+          </div>
         </section>
       </div>
     </>

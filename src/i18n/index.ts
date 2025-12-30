@@ -2,22 +2,8 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-// 导入所有语言包
-import zhCN from './locales/zh-CN.json'
-import zhTW from './locales/zh-TW.json'
+// Only import English as fallback - other languages load on demand
 import en from './locales/en.json'
-import ja from './locales/ja.json'
-import ko from './locales/ko.json'
-import es from './locales/es.json'
-import pt from './locales/pt.json'
-import fr from './locales/fr.json'
-import de from './locales/de.json'
-import ru from './locales/ru.json'
-import it from './locales/it.json'
-import id from './locales/id.json'
-import vi from './locales/vi.json'
-import th from './locales/th.json'
-import tr from './locales/tr.json'
 
 export const languages = [
   { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩' },
@@ -37,29 +23,44 @@ export const languages = [
   { code: 'zh-TW', name: '繁體中文', flag: '🇭🇰' },
 ]
 
-const resources = {
-  'zh-CN': { translation: zhCN },
-  'zh-TW': { translation: zhTW },
-  en: { translation: en },
-  ja: { translation: ja },
-  ko: { translation: ko },
-  es: { translation: es },
-  pt: { translation: pt },
-  fr: { translation: fr },
-  de: { translation: de },
-  ru: { translation: ru },
-  it: { translation: it },
-  id: { translation: id },
-  vi: { translation: vi },
-  th: { translation: th },
-  tr: { translation: tr },
+// Lazy loaders for each language
+const localeLoaders: Record<string, () => Promise<{ default: Record<string, unknown> }>> = {
+  'zh-CN': () => import('./locales/zh-CN.json'),
+  'zh-TW': () => import('./locales/zh-TW.json'),
+  ja: () => import('./locales/ja.json'),
+  ko: () => import('./locales/ko.json'),
+  es: () => import('./locales/es.json'),
+  pt: () => import('./locales/pt.json'),
+  fr: () => import('./locales/fr.json'),
+  de: () => import('./locales/de.json'),
+  ru: () => import('./locales/ru.json'),
+  it: () => import('./locales/it.json'),
+  id: () => import('./locales/id.json'),
+  vi: () => import('./locales/vi.json'),
+  th: () => import('./locales/th.json'),
+  tr: () => import('./locales/tr.json'),
+}
+
+// Load language resources on demand
+export async function loadLanguage(lng: string): Promise<void> {
+  if (lng === 'en' || i18n.hasResourceBundle(lng, 'translation')) {
+    return
+  }
+
+  const loader = localeLoaders[lng]
+  if (loader) {
+    const resources = await loader()
+    i18n.addResourceBundle(lng, 'translation', resources.default, true, true)
+  }
 }
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    resources,
+    resources: {
+      en: { translation: en },
+    },
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
@@ -69,5 +70,11 @@ i18n
       caches: ['localStorage'],
     },
   })
+
+// Load initial language if not English
+const detectedLng = i18n.language || 'en'
+if (detectedLng !== 'en') {
+  loadLanguage(detectedLng)
+}
 
 export default i18n

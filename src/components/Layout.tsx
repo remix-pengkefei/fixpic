@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { languages } from '../i18n'
+import { languages, loadLanguage } from '../i18n'
+import { Breadcrumb } from './Breadcrumb'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -40,7 +41,8 @@ export function Layout({ children }: LayoutProps) {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const changeLanguage = (code: string) => {
+  const changeLanguage = async (code: string) => {
+    await loadLanguage(code)
     i18n.changeLanguage(code)
     setShowLangMenu(false)
   }
@@ -107,6 +109,9 @@ export function Layout({ children }: LayoutProps) {
           </Link>
         </nav>
       )}
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb />
 
       {/* Main Content */}
       <main className="main-content">

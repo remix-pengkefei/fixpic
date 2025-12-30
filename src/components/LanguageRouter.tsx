@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { languages } from '../i18n'
+import { languages, loadLanguage } from '../i18n'
 
 const validLangCodes = languages.map(l => l.code)
 
@@ -13,9 +13,11 @@ export function LanguageRouter({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (lang && validLangCodes.includes(lang)) {
-      // URL has valid language, sync with i18n
+      // URL has valid language, load resources then sync with i18n
       if (i18n.language !== lang) {
-        i18n.changeLanguage(lang)
+        loadLanguage(lang).then(() => {
+          i18n.changeLanguage(lang)
+        })
       }
     }
   }, [lang, i18n])

@@ -1,6 +1,9 @@
 # FixPic - Free Online Image Tools
 # https://fix-pic.com
 
+# Host directive
+Host: https://fix-pic.com
+
 User-agent: *
 Allow: /
 
@@ -21,9 +24,13 @@ Allow: /id/
 Allow: /zh-CN/
 Allow: /zh-TW/
 
-# Disallow internal/admin paths (if any)
+# Allow guide pages
+Allow: /*/guides/
+
+# Disallow internal/admin paths
 Disallow: /api/
 Disallow: /_/
+Disallow: /assets/*.map
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
@@ -40,3 +47,13 @@ Crawl-delay: 0
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
+
+# Baidu specific
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Yandex specific
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2

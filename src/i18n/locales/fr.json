@@ -13,7 +13,10 @@
     "useNow": "Utiliser Maintenant",
     "instructions": "Instructions",
     "privacy": "Traitement local, confidentialité assurée",
-    "free": "Gratuit"
+    "free": "Gratuit",
+    "relatedTools": "Outils connexes",
+    "relatedGuides": "Guides connexes",
+    "learnMore": "En savoir plus"
   },
   "header": {
     "title": "Fix-Pic",
@@ -176,6 +179,167 @@
       "wechat": "Couverture WeChat : 900×383",
       "ecommerce": "Produit e-commerce : 800×800 ou 1000×1000",
       "banner": "Bannière web : 1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "Comment supprimer le fond en damier des images IA - Midjourney, DALL-E, Stable Diffusion | FixPic",
+        "description": "Apprenez à supprimer les faux fonds transparents en damier des images générées par IA. Fonctionne avec Midjourney, DALL-E, Stable Diffusion, Leonardo AI et Lovart. Outil gratuit en ligne, aucun logiciel requis.",
+        "keywords": "supprimer damier IA,Midjourney fond transparent,DALL-E supprimer fond,Stable Diffusion damier,image IA fausse transparence,Leonardo AI transparent,Lovart suppression fond"
+      },
+      "title": "Comment supprimer le fond en damier des images IA",
+      "intro": "Les générateurs d'images IA comme Midjourney, DALL-E et Stable Diffusion produisent parfois des images avec un motif en damier au lieu d'une vraie transparence. Ce guide vous montre comment le corriger instantanément.",
+      "whatIs": {
+        "title": "Qu'est-ce qu'un faux fond transparent ?",
+        "content": "Lorsque les outils IA génèrent des images avec des fonds 'transparents', ils rendent souvent un motif en damier gris-blanc directement dans les pixels de l'image. Cela ressemble à de la transparence mais n'en est pas - le damier fait partie de l'image, la rendant inutilisable pour le design ou les superpositions."
+      },
+      "whyHappens": {
+        "title": "Pourquoi cela arrive-t-il ?",
+        "content": "La plupart des générateurs d'images IA sont entraînés sur des images avec des fonds visibles. Lorsqu'on leur demande de créer des fonds 'transparents', ils imitent la représentation visuelle de la transparence (le motif en damier) plutôt que de générer une vraie transparence alpha. C'est particulièrement courant avec Midjourney, Lovart et les anciennes versions d'autres outils IA."
+      },
+      "howToFix": {
+        "title": "Comment le corriger (étape par étape)",
+        "step1": "Téléversez votre image générée par IA avec le motif en damier",
+        "step2": "Notre outil détecte automatiquement les pixels du damier gris-blanc",
+        "step3": "Le motif est converti en vraie transparence alpha",
+        "step4": "Téléchargez votre fichier PNG vraiment transparent"
+      },
+      "tools": {
+        "title": "Outils IA supportés",
+        "content": "Notre outil fonctionne avec les images de tout générateur IA qui produit de la fausse transparence, notamment :"
+      },
+      "cta": "Essayez l'outil de suppression de fausse transparence maintenant"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "Comment compresser des images sans perte de qualité - Guide des meilleurs paramètres | FixPic",
+        "description": "Apprenez les meilleures techniques pour compresser des images sans perte de qualité visible. Comparez les formats WebP, PNG, JPEG. Compression gratuite en ligne avec paramètres optimaux pour photos, graphiques et images web.",
+        "keywords": "compresser images sans perte qualité,meilleure compression image,compression WebP,compression sans perte,réduire taille image,compression photo,optimisation web"
+      },
+      "title": "Comment compresser des images sans perte de qualité",
+      "intro": "La compression d'images ne signifie pas forcément une perte de qualité visible. Avec le bon format et les bons paramètres, vous pouvez réduire drastiquement la taille des fichiers tout en gardant des images nettes.",
+      "whyCompress": {
+        "title": "Pourquoi compresser les images ?",
+        "content": "Les grandes images ralentissent les sites web, consomment de l'espace de stockage et utilisent plus de bande passante. Une compression appropriée peut réduire la taille des fichiers de 50-90% avec une perte de qualité minimale ou nulle, améliorant les temps de chargement et l'expérience utilisateur."
+      },
+      "formats": {
+        "title": "Choisir le bon format",
+        "webp": "Meilleur taux de compression (25-34% plus petit que JPEG). Supporte la compression avec et sans perte. Idéal pour le web.",
+        "png": "Compression sans perte, préserve chaque pixel. Meilleur pour graphiques, logos et images nécessitant la transparence.",
+        "jpeg": "Bon pour les photographies. Large compatibilité mais pas de support de transparence."
+      },
+      "tips": {
+        "title": "Conseils pour de meilleurs résultats",
+        "tip1": "Utilisez WebP pour les photos sur les sites modernes - meilleur rapport taille-qualité",
+        "tip2": "Utilisez PNG pour logos, icônes et images avec texte - sans perte garde les bords nets",
+        "tip3": "Réglez la qualité à 80-85% pour WebP/JPEG - visuellement indiscernable de 100%",
+        "tip4": "Prévisualisez toujours les images compressées avant utilisation - vérifiez les artefacts"
+      },
+      "benefits": {
+        "title": "Avantages des images optimisées",
+        "benefit1": "Temps de chargement plus rapides (meilleur classement SEO)",
+        "benefit2": "Coûts de bande passante réduits",
+        "benefit3": "Meilleure expérience utilisateur sur mobile",
+        "benefit4": "Plus d'espace de stockage pour d'autres fichiers"
+      },
+      "cta": "Compressez vos images maintenant"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "Convertir images en WebP gratuitement en ligne - PNG, JPEG vers WebP | FixPic",
+        "description": "Convertisseur WebP gratuit en ligne. Convertissez PNG, JPEG et autres images au format WebP pour des fichiers plus petits. Basé sur navigateur, sans téléversement, qualité préservée. Conversion par lots disponible.",
+        "keywords": "convertir en WebP,PNG vers WebP,JPEG vers WebP,convertisseur WebP,conversion WebP en ligne,outil WebP gratuit,convertisseur format image"
+      },
+      "title": "Convertir des images au format WebP",
+      "intro": "WebP est le format d'image moderne qui offre une compression supérieure tout en maintenant la qualité. Convertissez vos images PNG et JPEG en WebP pour des sites web plus rapides et des fichiers plus petits.",
+      "whatIs": {
+        "title": "Qu'est-ce que WebP ?",
+        "content": "WebP est un format d'image développé par Google qui utilise la compression avec et sans perte. Il produit typiquement des fichiers 25-34% plus petits que JPEG à qualité équivalente, et supporte la transparence comme PNG mais avec des tailles de fichier bien plus petites."
+      },
+      "advantages": {
+        "title": "Avantages de WebP",
+        "adv1": "Fichiers 25-34% plus petits que JPEG à qualité égale",
+        "adv2": "Supporte la transparence (comme PNG) avec des tailles plus petites",
+        "adv3": "Supporté par tous les navigateurs modernes (Chrome, Firefox, Safari, Edge)",
+        "adv4": "Temps de chargement plus rapides améliorent le classement SEO"
+      },
+      "howTo": {
+        "title": "Comment convertir en WebP",
+        "step1": "Téléversez vos fichiers image PNG, JPEG ou autres",
+        "step2": "Sélectionnez WebP comme format de sortie",
+        "step3": "Ajustez les paramètres de qualité si nécessaire (80-85% recommandé)",
+        "step4": "Téléchargez vos images WebP optimisées"
+      },
+      "compatibility": {
+        "title": "Compatibilité navigateur",
+        "content": "WebP est supporté par tous les navigateurs modernes dont Chrome, Firefox, Safari (14+), Edge et Opera. Pour les anciens navigateurs, pensez à fournir des images de secours au format JPEG ou PNG."
+      },
+      "cta": "Convertir en WebP maintenant"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "Compression d'images par lots - Compresser plusieurs images à la fois | FixPic",
+        "description": "Outil gratuit de compression d'images par lots en ligne. Compressez plusieurs images simultanément en format WebP, PNG ou JPEG. Traitement dans le navigateur, sans téléversement, confidentialité assurée.",
+        "keywords": "compression par lots,compression images par lots,compresser plusieurs images,compression batch,outil compression image,compression en ligne"
+      },
+      "title": "Compresser plusieurs images par lots",
+      "intro": "Besoin de compresser plusieurs images à la fois ? Notre outil vous permet de compresser autant d'images que vous voulez simultanément, économisant ainsi beaucoup de temps.",
+      "whyBatch": {
+        "title": "Pourquoi la compression par lots est pratique ?",
+        "reason1": "Gain de temps - Pas besoin de traiter une par une",
+        "reason2": "Qualité cohérente - Mêmes paramètres pour toutes les images",
+        "reason3": "Flux de travail efficace - Traitez rapidement de grandes quantités",
+        "reason4": "Traitement local - Confidentialité assurée pour toutes les images"
+      },
+      "howTo": {
+        "title": "Comment compresser par lots",
+        "step1": "Glissez-déposez plusieurs images ou sélectionnez-les",
+        "step2": "Choisissez le format de sortie (WebP recommandé)",
+        "step3": "Ajustez la qualité de compression",
+        "step4": "Cliquez sur \"Tout Traiter\"",
+        "step5": "Téléchargez les images compressées en lot"
+      },
+      "tips": {
+        "title": "Conseils pour la compression par lots",
+        "tip1": "Les images similaires sont plus efficaces avec les mêmes paramètres",
+        "tip2": "Le format WebP offre le meilleur taux de compression",
+        "tip3": "Une qualité de 80-85% maintient une bonne qualité d'image",
+        "tip4": "Prévisualisez les images avant le traitement"
+      },
+      "cta": "Essayer la compression par lots maintenant"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Fond transparent Midjourney - Damier en vraie transparence | FixPic",
+        "description": "Apprenez à créer des images avec fond transparent dans Midjourney et à convertir le faux motif en damier en vrais PNG transparents. Outil gratuit en ligne.",
+        "keywords": "fond transparent Midjourney,Midjourney transparent,supprimer motif damier,image IA transparente,Midjourney PNG,conversion fond transparent"
+      },
+      "title": "Comment créer des fonds transparents avec Midjourney",
+      "intro": "Quand vous essayez de créer des images avec fond transparent dans Midjourney, vous obtenez souvent un motif en damier gris-blanc au lieu d'une vraie transparence. Ce guide explique comment résoudre ce problème.",
+      "problem": {
+        "title": "Le problème : Faux fond transparent",
+        "content": "Même si vous spécifiez \"transparent background\" ou \"fond transparent\" à Midjourney, les images générées n'ont pas de vraie transparence (canal alpha), mais un motif en damier peint dessus. Si vous utilisez ces images directement, le fond ne sera pas transparent mais affichera le motif en damier."
+      },
+      "why": {
+        "title": "Pourquoi cela arrive ?",
+        "content": "Les générateurs d'images IA comme Midjourney ont appris le concept de transparence comme un motif visuel en damier. Ainsi, quand vous demandez \"transparent\", ils dessinent le motif en damier directement dans l'image au lieu de générer une vraie transparence alpha."
+      },
+      "solution": {
+        "title": "La solution",
+        "step1": "Générez l'image dans Midjourney (--style raw simplifie souvent les fonds)",
+        "step2": "Téléversez l'image générée sur FixPic",
+        "step3": "Cliquez sur \"Traiter\" pour supprimer le motif en damier",
+        "step4": "Téléchargez l'image PNG vraiment transparente"
+      },
+      "prompts": {
+        "title": "Conseils pour les prompts Midjourney",
+        "tip1": "\"isolated on white\" facilite la suppression du fond",
+        "tip2": "\"--style raw\" pour des fonds plus simples",
+        "tip3": "Le style \"product photography\" rend le sujet plus net",
+        "tip4": "\"white background\" peut être plus efficace que \"no background\""
+      },
+      "cta": "Supprimer la fausse transparence maintenant"
     }
   }
 }

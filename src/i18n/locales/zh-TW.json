@@ -13,7 +13,10 @@
     "useNow": "立即使用",
     "instructions": "使用說明",
     "privacy": "本機處理，隱私安全",
-    "free": "免費"
+    "free": "免費",
+    "relatedTools": "相關工具",
+    "relatedGuides": "相關指南",
+    "learnMore": "了解更多"
   },
   "header": {
     "title": "Fix-Pic",
@@ -176,6 +179,167 @@
       "wechat": "微信公眾號封面：900×383",
       "ecommerce": "電商主圖：800×800 或 1000×1000",
       "banner": "網頁橫幅：1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "如何移除 AI 圖片的棋盤格背景 - Midjourney、DALL-E、Stable Diffusion | FixPic",
+        "description": "學習如何移除 AI 生成圖片的假透明棋盤格背景。適用於 Midjourney、DALL-E、Stable Diffusion、Leonardo AI 和 Lovart。免費線上工具，無需安裝軟體。",
+        "keywords": "移除AI棋盤格,Midjourney透明背景,DALL-E去背景,Stable Diffusion棋盤格,AI圖片假透明,Leonardo AI透明,Lovart去背景"
+      },
+      "title": "如何移除 AI 圖片的棋盤格背景",
+      "intro": "Midjourney、DALL-E、Stable Diffusion 等 AI 圖片生成器有時會生成帶有棋盤格圖案而非真正透明的圖片。本指南教你如何快速解決這個問題。",
+      "whatIs": {
+        "title": "什麼是假透明背景？",
+        "content": "當 AI 工具生成「透明」背景的圖片時，它們通常會將灰白棋盤格圖案直接渲染到圖片像素中。這看起來像透明，但實際上不是——棋盤格是圖片的一部分，無法用於設計工作或圖層疊加。"
+      },
+      "whyHappens": {
+        "title": "為什麼會出現這種情況？",
+        "content": "大多數 AI 圖片生成器是在有可見背景的圖片上訓練的。當被要求創建「透明」背景時，它們會模仿透明的視覺表現（棋盤格圖案），而不是生成真正的 Alpha 通道透明度。這在 Midjourney、Lovart 和其他 AI 工具的早期版本中尤為常見。"
+      },
+      "howToFix": {
+        "title": "如何修復（分步指南）",
+        "step1": "上傳帶有棋盤格圖案的 AI 生成圖片",
+        "step2": "我們的工具會自動偵測灰白棋盤格像素",
+        "step3": "棋盤格圖案被轉換為真正的 Alpha 透明度",
+        "step4": "下載真正透明的 PNG 檔案"
+      },
+      "tools": {
+        "title": "支援的 AI 工具",
+        "content": "我們的工具適用於任何生成假透明的 AI 生成器的圖片，包括："
+      },
+      "cta": "立即使用去假透明工具"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "如何壓縮圖片不損失畫質 - 最佳設定指南 | FixPic",
+        "description": "學習壓縮圖片而不損失可見畫質的最佳技術。比較 WebP、PNG、JPEG 格式。免費線上壓縮，為照片、圖形和網頁圖片提供最佳設定。",
+        "keywords": "壓縮圖片不損失畫質,最佳圖片壓縮,WebP壓縮,無損壓縮,減小圖片大小,照片壓縮,網頁優化"
+      },
+      "title": "如何壓縮圖片不損失畫質",
+      "intro": "圖片壓縮不一定意味著可見的畫質損失。使用正確的格式和設定，你可以大幅減小檔案大小，同時保持圖片清晰。",
+      "whyCompress": {
+        "title": "為什麼要壓縮圖片？",
+        "content": "大圖片會拖慢網站速度，佔用儲存空間，消耗更多頻寬。正確的壓縮可以將檔案大小減少 50-90%，同時幾乎沒有可見的畫質損失，從而提高頁面載入速度和使用者體驗。"
+      },
+      "formats": {
+        "title": "選擇正確的格式",
+        "webp": "壓縮率最佳（比 JPEG 小 25-34%）。支援有損和無損壓縮。最適合網頁使用。",
+        "png": "無損壓縮，保留每個像素。最適合圖形、Logo 和需要透明的圖片。",
+        "jpeg": "適合照片。相容性廣泛，但不支援透明。"
+      },
+      "tips": {
+        "title": "最佳效果提示",
+        "tip1": "在現代網站上使用 WebP 處理照片——它提供最佳的大小與品質比",
+        "tip2": "對 Logo、圖示和帶文字的圖片使用 PNG——無損壓縮保持邊緣清晰",
+        "tip3": "WebP/JPEG 品質設定為 80-85%——與 100% 視覺上難以區分",
+        "tip4": "使用前始終預覽壓縮後的圖片——檢查是否有壓縮偽影"
+      },
+      "benefits": {
+        "title": "優化圖片的好處",
+        "benefit1": "更快的網站載入速度（更好的 SEO 排名）",
+        "benefit2": "降低頻寬成本",
+        "benefit3": "行動裝置上更好的使用者體驗",
+        "benefit4": "為其他檔案騰出更多儲存空間"
+      },
+      "cta": "立即壓縮你的圖片"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "免費線上轉換圖片為 WebP - PNG、JPEG 轉 WebP 轉換器 | FixPic",
+        "description": "免費線上 WebP 轉換器。將 PNG、JPEG 和其他圖片轉換為 WebP 格式，獲得更小的檔案大小。基於瀏覽器，無需上傳，保持畫質。批次轉換多張圖片。",
+        "keywords": "轉換為WebP,PNG轉WebP,JPEG轉WebP,WebP轉換器,線上WebP轉換,免費WebP工具,圖片格式轉換器"
+      },
+      "title": "將圖片轉換為 WebP 格式",
+      "intro": "WebP 是現代圖片格式，在保持畫質的同時提供卓越的壓縮效果。將你的 PNG 和 JPEG 圖片轉換為 WebP，獲得更快的網站和更小的檔案。",
+      "whatIs": {
+        "title": "什麼是 WebP？",
+        "content": "WebP 是 Google 開發的圖片格式，支援有損和無損壓縮。在同等畫質下，它生成的檔案通常比 JPEG 小 25-34%，並且像 PNG 一樣支援透明，但檔案大小要小得多。"
+      },
+      "advantages": {
+        "title": "WebP 的優勢",
+        "adv1": "同等畫質下檔案比 JPEG 小 25-34%",
+        "adv2": "支援透明（像 PNG），但大小更小",
+        "adv3": "所有現代瀏覽器都支援（Chrome、Firefox、Safari、Edge）",
+        "adv4": "更快的頁面載入速度有助於提升 SEO 排名"
+      },
+      "howTo": {
+        "title": "如何轉換為 WebP",
+        "step1": "上傳你的 PNG、JPEG 或其他圖片檔案",
+        "step2": "選擇 WebP 作為輸出格式",
+        "step3": "如需調整畫質設定（推薦 80-85%）",
+        "step4": "下載優化後的 WebP 圖片"
+      },
+      "compatibility": {
+        "title": "瀏覽器相容性",
+        "content": "WebP 被所有現代瀏覽器支援，包括 Chrome、Firefox、Safari（14+）、Edge 和 Opera。對於舊版瀏覽器，考慮提供 JPEG 或 PNG 格式的備用圖片。"
+      },
+      "cta": "立即轉換為 WebP"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "批次壓縮圖片 - 同時壓縮多張圖片 | FixPic",
+        "description": "免費線上批次圖片壓縮工具。同時將多張圖片壓縮為 WebP、PNG 或 JPEG 格式。基於瀏覽器處理，無需上傳，隱私安全。",
+        "keywords": "批次壓縮,批次圖片壓縮,壓縮多張圖片,壓縮工具,線上壓縮"
+      },
+      "title": "批次壓縮多張圖片",
+      "intro": "需要同時壓縮多張圖片？我們的工具讓你可以同時壓縮任意數量的圖片，大幅節省時間。",
+      "whyBatch": {
+        "title": "為什麼批次壓縮很方便？",
+        "reason1": "節省時間 - 不需要逐一處理",
+        "reason2": "一致的品質 - 所有圖片使用相同設定",
+        "reason3": "高效工作流程 - 快速處理大量圖片",
+        "reason4": "本機處理 - 所有圖片的隱私都得到保護"
+      },
+      "howTo": {
+        "title": "如何批次壓縮",
+        "step1": "拖放多張圖片或選擇",
+        "step2": "選擇輸出格式（推薦 WebP）",
+        "step3": "調整壓縮品質",
+        "step4": "點擊「全部處理」",
+        "step5": "批次下載壓縮後的圖片"
+      },
+      "tips": {
+        "title": "批次壓縮技巧",
+        "tip1": "相似的圖片使用相同設定更有效率",
+        "tip2": "WebP 格式提供最佳壓縮率",
+        "tip3": "80-85% 品質可保持良好畫質",
+        "tip4": "處理前預覽圖片進行確認"
+      },
+      "cta": "立即嘗試批次壓縮"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Midjourney 透明背景製作 - 棋盤格轉真透明 | FixPic",
+        "description": "學習如何在 Midjourney 中創建透明背景圖片，以及如何將假透明（棋盤格圖案）轉換為真正的透明 PNG。免費線上工具。",
+        "keywords": "Midjourney透明背景,Midjourney透明,去除棋盤格圖案,AI圖片透明,Midjourney PNG,透明背景轉換"
+      },
+      "title": "如何在 Midjourney 中創建透明背景圖片",
+      "intro": "當你嘗試在 Midjourney 中創建透明背景圖片時，通常會得到灰白棋盤格圖案而非真正的透明。本指南說明如何解決這個問題。",
+      "problem": {
+        "title": "問題：假透明背景",
+        "content": "即使你向 Midjourney 指定「transparent background」或「透明背景」，生成的圖片也沒有真正的透明度（Alpha 通道），而是畫上了棋盤格圖案。如果直接使用這些圖片，背景不會是透明的，而會顯示棋盤格圖案。"
+      },
+      "why": {
+        "title": "為什麼會這樣？",
+        "content": "Midjourney 等 AI 圖片生成工具將透明的概念學習為視覺上的棋盤格圖案。因此，當你要求「透明」時，它們會直接在圖片上畫棋盤格圖案，而不是生成真正的 Alpha 透明度。"
+      },
+      "solution": {
+        "title": "解決方法",
+        "step1": "在 Midjourney 中生成圖片（使用 --style raw 可使背景更簡單）",
+        "step2": "將生成的圖片上傳到 FixPic",
+        "step3": "點擊「處理」按鈕去除棋盤格圖案",
+        "step4": "下載真正透明的 PNG 圖片"
+      },
+      "prompts": {
+        "title": "Midjourney 提示詞技巧",
+        "tip1": "使用「isolated on white」可使背景去除更容易",
+        "tip2": "「--style raw」可獲得更簡單的背景",
+        "tip3": "「product photography」風格可使主體更清晰",
+        "tip4": "「white background」有時比「no background」更有效"
+      },
+      "cta": "立即去除假透明"
     }
   }
 }

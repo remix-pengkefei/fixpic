@@ -177,5 +177,166 @@
       "ecommerce": "Prodotto e-commerce: 800×800 o 1000×1000",
       "banner": "Banner web: 1920×600"
     }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "Come rimuovere lo sfondo a scacchiera dalle immagini AI - Midjourney, DALL-E, Stable Diffusion | FixPic",
+        "description": "Scopri come rimuovere sfondi trasparenti falsi a scacchiera dalle immagini generate da AI. Funziona con Midjourney, DALL-E, Stable Diffusion, Leonardo AI e Lovart. Strumento online gratuito, nessun software necessario.",
+        "keywords": "rimuovere scacchiera AI,Midjourney sfondo trasparente,DALL-E rimuovere sfondo,Stable Diffusion scacchiera,immagine AI falsa trasparenza,Leonardo AI trasparente,Lovart rimozione sfondo"
+      },
+      "title": "Come rimuovere lo sfondo a scacchiera dalle immagini AI",
+      "intro": "I generatori di immagini AI come Midjourney, DALL-E e Stable Diffusion a volte producono immagini con un pattern a scacchiera invece della vera trasparenza. Questa guida ti mostra come risolverlo istantaneamente.",
+      "whatIs": {
+        "title": "Cos'è uno sfondo trasparente falso?",
+        "content": "Quando gli strumenti AI generano immagini con sfondi 'trasparenti', spesso rendono un pattern a scacchiera grigio-bianco direttamente nei pixel dell'immagine. Sembra trasparente ma non lo è - la scacchiera fa parte dell'immagine, rendendola inutilizzabile per il design o le sovrapposizioni."
+      },
+      "whyHappens": {
+        "title": "Perché succede questo?",
+        "content": "La maggior parte dei generatori di immagini AI sono addestrati su immagini con sfondi visibili. Quando viene chiesto di creare sfondi 'trasparenti', imitano la rappresentazione visiva della trasparenza (il pattern a scacchiera) invece di generare vera trasparenza alfa. Questo è particolarmente comune in Midjourney, Lovart e versioni precedenti di altri strumenti AI."
+      },
+      "howToFix": {
+        "title": "Come risolverlo (passo per passo)",
+        "step1": "Carica la tua immagine generata da AI con il pattern a scacchiera",
+        "step2": "Il nostro strumento rileva automaticamente i pixel della scacchiera grigio-bianca",
+        "step3": "Il pattern viene convertito in vera trasparenza alfa",
+        "step4": "Scarica il tuo file PNG veramente trasparente"
+      },
+      "tools": {
+        "title": "Strumenti AI supportati",
+        "content": "Il nostro strumento funziona con immagini di qualsiasi generatore AI che produce falsa trasparenza, inclusi:"
+      },
+      "cta": "Prova lo strumento di rimozione falsa trasparenza ora"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "Come comprimere immagini senza perdere qualità - Guida alle migliori impostazioni | FixPic",
+        "description": "Scopri le migliori tecniche per comprimere immagini senza perdita di qualità visibile. Confronta formati WebP, PNG, JPEG. Compressione gratuita online con impostazioni ottimali per foto, grafica e immagini web.",
+        "keywords": "comprimere immagini senza perdere qualità,migliore compressione immagini,compressione WebP,compressione senza perdita,ridurre dimensione immagine,compressione foto,ottimizzazione web"
+      },
+      "title": "Come comprimere immagini senza perdere qualità",
+      "intro": "La compressione delle immagini non deve significare perdita di qualità visibile. Con il formato e le impostazioni giusti, puoi ridurre drasticamente le dimensioni dei file mantenendo le immagini nitide.",
+      "whyCompress": {
+        "title": "Perché comprimere le immagini?",
+        "content": "Le immagini grandi rallentano i siti web, consumano spazio di archiviazione e usano più larghezza di banda. Una compressione adeguata può ridurre le dimensioni dei file del 50-90% con perdita di qualità minima o nulla, migliorando i tempi di caricamento e l'esperienza utente."
+      },
+      "formats": {
+        "title": "Scegliere il formato giusto",
+        "webp": "Miglior rapporto di compressione (25-34% più piccolo di JPEG). Supporta compressione con e senza perdita. Ideale per il web.",
+        "png": "Compressione senza perdita, preserva ogni pixel. Migliore per grafica, loghi e immagini che richiedono trasparenza.",
+        "jpeg": "Buono per le fotografie. Ampia compatibilità ma nessun supporto trasparenza."
+      },
+      "tips": {
+        "title": "Consigli per risultati migliori",
+        "tip1": "Usa WebP per foto su siti web moderni - miglior rapporto dimensione-qualità",
+        "tip2": "Usa PNG per loghi, icone e immagini con testo - senza perdita mantiene i bordi nitidi",
+        "tip3": "Imposta la qualità all'80-85% per WebP/JPEG - visivamente indistinguibile dal 100%",
+        "tip4": "Anteprima sempre le immagini compresse prima dell'uso - controlla gli artefatti"
+      },
+      "benefits": {
+        "title": "Vantaggi delle immagini ottimizzate",
+        "benefit1": "Tempi di caricamento più veloci (miglior ranking SEO)",
+        "benefit2": "Costi di larghezza di banda ridotti",
+        "benefit3": "Migliore esperienza utente su dispositivi mobili",
+        "benefit4": "Più spazio di archiviazione per altri file"
+      },
+      "cta": "Comprimi le tue immagini ora"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "Converti immagini in WebP gratis online - PNG, JPEG a WebP | FixPic",
+        "description": "Convertitore WebP gratuito online. Converti PNG, JPEG e altre immagini in formato WebP per file più piccoli. Basato su browser, nessun upload necessario, qualità mantenuta. Conversione batch disponibile.",
+        "keywords": "convertire in WebP,PNG a WebP,JPEG a WebP,convertitore WebP,conversione WebP online,strumento WebP gratuito,convertitore formato immagine"
+      },
+      "title": "Converti immagini in formato WebP",
+      "intro": "WebP è il formato immagine moderno che fornisce compressione superiore mantenendo la qualità. Converti le tue immagini PNG e JPEG in WebP per siti web più veloci e file più piccoli.",
+      "whatIs": {
+        "title": "Cos'è WebP?",
+        "content": "WebP è un formato immagine sviluppato da Google che usa compressione con e senza perdita. Produce tipicamente file 25-34% più piccoli di JPEG a qualità equivalente, e supporta la trasparenza come PNG ma con dimensioni file molto più piccole."
+      },
+      "advantages": {
+        "title": "Vantaggi di WebP",
+        "adv1": "File 25-34% più piccoli rispetto a JPEG alla stessa qualità",
+        "adv2": "Supporta trasparenza (come PNG) con dimensioni più piccole",
+        "adv3": "Supportato da tutti i browser moderni (Chrome, Firefox, Safari, Edge)",
+        "adv4": "Tempi di caricamento più veloci migliorano il ranking SEO"
+      },
+      "howTo": {
+        "title": "Come convertire in WebP",
+        "step1": "Carica i tuoi file immagine PNG, JPEG o altri",
+        "step2": "Seleziona WebP come formato di output",
+        "step3": "Regola le impostazioni di qualità se necessario (80-85% raccomandato)",
+        "step4": "Scarica le tue immagini WebP ottimizzate"
+      },
+      "compatibility": {
+        "title": "Compatibilità browser",
+        "content": "WebP è supportato da tutti i browser moderni inclusi Chrome, Firefox, Safari (14+), Edge e Opera. Per browser più vecchi, considera di fornire immagini di fallback in formato JPEG o PNG."
+      },
+      "cta": "Converti in WebP ora"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "Compressione immagini batch - Comprimi più immagini insieme | FixPic",
+        "description": "Strumento gratuito per la compressione batch di immagini online. Comprimi più immagini contemporaneamente in formato WebP, PNG o JPEG. Elaborazione nel browser, nessun upload, privacy sicura.",
+        "keywords": "compressione batch,compressione immagini batch,comprimere più immagini,compressione lotto,strumento compressione,compressione online"
+      },
+      "title": "Comprimi più immagini in batch",
+      "intro": "Hai bisogno di comprimere più immagini contemporaneamente? Il nostro strumento ti permette di comprimere quante immagini vuoi simultaneamente, risparmiando molto tempo.",
+      "whyBatch": {
+        "title": "Perché la compressione batch è conveniente?",
+        "reason1": "Risparmio di tempo - Non serve elaborare una alla volta",
+        "reason2": "Qualità coerente - Stesse impostazioni per tutte le immagini",
+        "reason3": "Flusso di lavoro efficiente - Elabora rapidamente grandi quantità",
+        "reason4": "Elaborazione locale - Privacy garantita per tutte le immagini"
+      },
+      "howTo": {
+        "title": "Come comprimere in batch",
+        "step1": "Trascina e rilascia più immagini o selezionale",
+        "step2": "Scegli il formato di output (WebP raccomandato)",
+        "step3": "Regola la qualità di compressione",
+        "step4": "Clicca su \"Elabora Tutto\"",
+        "step5": "Scarica le immagini compresse in batch"
+      },
+      "tips": {
+        "title": "Consigli per la compressione batch",
+        "tip1": "Immagini simili sono più efficienti con le stesse impostazioni",
+        "tip2": "Il formato WebP offre il miglior rapporto di compressione",
+        "tip3": "Una qualità dell'80-85% mantiene una buona qualità dell'immagine",
+        "tip4": "Anteprima le immagini prima dell'elaborazione"
+      },
+      "cta": "Prova la compressione batch ora"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Sfondo trasparente Midjourney - Scacchiera in trasparenza reale | FixPic",
+        "description": "Scopri come creare immagini con sfondo trasparente in Midjourney e come convertire il falso pattern a scacchiera in PNG realmente trasparenti. Strumento online gratuito.",
+        "keywords": "sfondo trasparente Midjourney,Midjourney trasparente,rimuovere pattern scacchiera,immagine IA trasparente,Midjourney PNG,conversione sfondo trasparente"
+      },
+      "title": "Come creare sfondi trasparenti in Midjourney",
+      "intro": "Quando cerchi di creare immagini con sfondo trasparente in Midjourney, spesso ottieni un pattern a scacchiera grigio-bianco invece di vera trasparenza. Questa guida spiega come risolvere questo problema.",
+      "problem": {
+        "title": "Il problema: Sfondo trasparente falso",
+        "content": "Anche se specifichi \"transparent background\" o \"sfondo trasparente\" a Midjourney, le immagini generate non hanno vera trasparenza (canale alfa), ma un pattern a scacchiera disegnato sopra. Se usi queste immagini direttamente, lo sfondo non sarà trasparente ma mostrerà il pattern a scacchiera."
+      },
+      "why": {
+        "title": "Perché succede questo?",
+        "content": "I generatori di immagini IA come Midjourney hanno imparato il concetto di trasparenza come un pattern visivo a scacchiera. Così, quando chiedi \"trasparente\", disegnano il pattern a scacchiera direttamente nell'immagine invece di generare vera trasparenza alfa."
+      },
+      "solution": {
+        "title": "La soluzione",
+        "step1": "Genera l'immagine in Midjourney (--style raw spesso semplifica gli sfondi)",
+        "step2": "Carica l'immagine generata su FixPic",
+        "step3": "Clicca su \"Elabora\" per rimuovere il pattern a scacchiera",
+        "step4": "Scarica l'immagine PNG realmente trasparente"
+      },
+      "prompts": {
+        "title": "Consigli per i prompt Midjourney",
+        "tip1": "\"isolated on white\" facilita la rimozione dello sfondo",
+        "tip2": "\"--style raw\" per sfondi più semplici",
+        "tip3": "Lo stile \"product photography\" rende il soggetto più chiaro",
+        "tip4": "\"white background\" può essere più efficace di \"no background\""
+      },
+      "cta": "Rimuovi falsa trasparenza ora"
+    }
   }
 }

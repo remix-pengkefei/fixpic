@@ -13,7 +13,10 @@
     "useNow": "Şimdi Kullan",
     "instructions": "Talimatlar",
     "privacy": "Yerel işlem, gizlilik güvende",
-    "free": "Ücretsiz"
+    "free": "Ücretsiz",
+    "relatedTools": "İlgili Araçlar",
+    "relatedGuides": "İlgili Kılavuzlar",
+    "learnMore": "Daha fazla bilgi"
   },
   "header": {
     "title": "Fix-Pic",
@@ -176,6 +179,158 @@
       "wechat": "WeChat kapağı: 900×383",
       "ecommerce": "E-ticaret ürünü: 800×800 veya 1000×1000",
       "banner": "Web banner: 1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "AI Görüntülerinden Dama Tahtası Arka Planı Nasıl Kaldırılır | FixPic Kılavuzu",
+        "description": "Midjourney, Lovart, Stable Diffusion görüntülerinden sahte şeffaf arka planları (gri-beyaz dama tahtası) kaldırmak için kapsamlı kılavuz. Ücretsiz olarak gerçek şeffaf PNG'ye dönüştürün.",
+        "keywords": "AI dama tahtası arka planı,Midjourney dama tahtasını kaldır,Lovart sahte şeffaflık,Stable Diffusion gerçek şeffaflık,AI arka planını kaldır"
+      },
+      "title": "AI Görüntülerinden Dama Tahtası Arka Planı Nasıl Kaldırılır",
+      "intro": "Midjourney, Lovart ve Stable Diffusion gibi AI görüntü oluşturma araçları sıklıkla gerçekte görüntünün parçası olan gri-beyaz dama tahtası deseni ile \"sahte şeffaf arka planlar\" oluşturur. Bu kılavuz bunu gerçek şeffaflığa nasıl dönüştüreceğinizi gösterir.",
+      "whatIs": {
+        "title": "Sahte Şeffaf Arka Plan Nedir?",
+        "content": "AI araçları \"şeffaf arka planlı\" görüntüler oluşturduğunda, gri-beyaz dama tahtası deseni aslında gerçek şeffaflık yerine görüntüye çizilir. Bu, görüntüyü projelerinizde kullandığınızda, şeffaf olmak yerine dama tahtası arka planının görüneceği anlamına gelir."
+      },
+      "whyHappens": {
+        "title": "Bu Neden Oluyor?",
+        "content": "AI modelleri milyonlarca görüntüden eğitilir ve birçoğu şeffaflığı dama tahtası deseni ile gösterir. AI, gerçek şeffaflık oluşturmak yerine şeffaflığı temsil ettiğini düşünerek bu deseni görüntünün bir parçası olarak üretmeyi öğrenir."
+      },
+      "howToFix": {
+        "title": "FixPic ile Nasıl Düzeltilir",
+        "step1": "FixPic'in Sahte Şeffaflığı Kaldır aracını açın",
+        "step2": "Dama tahtası arka planlı AI görüntünüzü yükleyin",
+        "step3": "Dama tahtası desenini otomatik olarak algılamak ve kaldırmak için \"İşle\"ye tıklayın",
+        "step4": "Gerçek şeffaf PNG görüntünüzü indirin"
+      },
+      "tools": {
+        "title": "Desteklenen AI Araçları",
+        "content": "Aracımız Midjourney, Lovart, Stable Diffusion, DALL-E, Leonardo AI ve sahte dama tahtası deseni üreten diğer AI görüntü oluşturuculardan görüntülerle çalışır."
+      },
+      "cta": "Ücretsiz Sahte Şeffaflığı Kaldırma Aracını Deneyin →"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "Kalite Kaybı Olmadan Görüntüler Nasıl Sıkıştırılır | FixPic Kılavuzu",
+        "description": "Kaliteyi korurken görüntü dosya boyutunu nasıl küçülteceğinizi öğrenin. WebP, PNG ve JPEG için optimum sıkıştırma ayarları ve format seçimi hakkında uzman ipuçları.",
+        "keywords": "kalite kaybı olmadan görüntü sıkıştırma,en iyi sıkıştırma ayarları,görüntü optimizasyonu,WebP dönüşümü,web için sıkıştırma"
+      },
+      "title": "Kalite Kaybı Olmadan Görüntüler Nasıl Sıkıştırılır",
+      "intro": "Görüntü sıkıştırma kalite kaybı anlamına gelmek zorunda değil. Bu kılavuz, görsel netliği korurken dosya boyutunu önemli ölçüde azaltmak için doğru ayarları ve formatları nasıl seçeceğinizi gösterir.",
+      "understanding": {
+        "title": "Sıkıştırma Türlerini Anlama",
+        "lossless": "Kayıpsız sıkıştırma (PNG): Tüm piksel verilerini korur, grafikler ve ekran görüntüleri için en iyisi",
+        "lossy": "Kayıplı sıkıştırma (JPEG, WebP): Minimal kalite kaybıyla dosyaları önemli ölçüde küçültür, fotoğraflar için en iyisi"
+      },
+      "bestPractices": {
+        "title": "En İyi Uygulamalar",
+        "tip1": "En iyi web performansı için WebP kullanın - hem kayıplı hem de kayıpsız destekler",
+        "tip2": "Fotoğraflar için optimal denge için %80-90 kalite ayarı kullanın",
+        "tip3": "Şeffaflık gerektiren görüntüler için PNG'yi koruyun",
+        "tip4": "Yeniden sıkıştırmaktan kaçının - her zaman orijinalden sıkıştırın"
+      },
+      "comparison": {
+        "title": "Format Karşılaştırması",
+        "webp": "WebP: En küçük boyut, JPEG'den %30 daha küçük, şeffaflık destekler, web için önerilir",
+        "jpeg": "JPEG: Evrensel destek, fotoğraflar için harika, şeffaflık yok",
+        "png": "PNG: Mükemmel kalite, şeffaflık destekler, en büyük dosyalar"
+      },
+      "cta": "Görüntülerinizi Ücretsiz Sıkıştırın →"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "Görüntüleri WebP'ye Nasıl Dönüştürülür - Kapsamlı Kılavuz | FixPic",
+        "description": "WebP'nin neden web için en iyi görüntü formatı olduğunu, PNG ve JPEG'den nasıl dönüştürüleceğini, avantajları ve uyumluluk hususlarını öğrenin.",
+        "keywords": "WebP'ye dönüştür,WebP formatı,PNG'den WebP'ye,JPEG'den WebP'ye,web görüntü optimizasyonu,WebP görüntüleri"
+      },
+      "title": "Görüntüleri WebP'ye Nasıl Dönüştürülür",
+      "intro": "WebP, Google tarafından geliştirilen ve JPEG ve PNG'den önemli ölçüde daha küçük dosya boyutları sağlayan modern bir görüntü formatıdır. Projeleriniz için neden ve nasıl kullanmanız gerektiğini öğrenin.",
+      "benefits": {
+        "title": "Neden WebP Kullanmalı?",
+        "benefit1": "Daha küçük dosyalar: Eşdeğer kalitede JPEG'den %25-34, PNG'den %26 daha küçük",
+        "benefit2": "Şeffaflık desteği: JPEG'in aksine, WebP PNG gibi şeffaflığı destekler",
+        "benefit3": "Animasyon desteği: GIF'leri çok daha küçük dosya boyutlarıyla değiştirebilir",
+        "benefit4": "Geniş tarayıcı desteği: Tüm modern tarayıcılar WebP'yi destekler"
+      },
+      "howTo": {
+        "title": "FixPic ile Nasıl Dönüştürülür",
+        "step1": "FixPic'in Sıkıştır ve Dönüştür aracını açın",
+        "step2": "Çıkış formatı olarak \"WebP\" seçin",
+        "step3": "Kaliteyi ayarlayın (iyi kalite için %85-90 önerilir)",
+        "step4": "PNG veya JPEG görüntülerinizi yükleyin",
+        "step5": "Dönüştürülmüş WebP dosyalarınızı indirin"
+      },
+      "compatibility": {
+        "title": "Tarayıcı Uyumluluğu",
+        "content": "WebP, Chrome, Firefox, Edge, Safari (14+) ve diğer tüm modern tarayıcılar tarafından desteklenir. Eski tarayıcılar için, yedek olarak JPEG/PNG ile <picture> etiketini kullanın."
+      },
+      "cta": "Görüntülerinizi Ücretsiz WebP'ye Dönüştürün →"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "Toplu Görüntü Sıkıştırma - Birden Fazla Görüntüyü Aynı Anda Sıkıştırın | FixPic",
+        "description": "Ücretsiz çevrimiçi toplu görüntü sıkıştırma aracı. Birden fazla görüntüyü aynı anda WebP, PNG veya JPEG formatına sıkıştırın. Tarayıcı tabanlı işlem, yükleme gerekmiyor, gizlilik güvende.",
+        "keywords": "toplu sıkıştırma,toplu görüntü sıkıştırma,çoklu görüntü sıkıştırma,sıkıştırma aracı,çevrimiçi sıkıştırma"
+      },
+      "title": "Birden Fazla Görüntüyü Toplu Sıkıştırın",
+      "intro": "Birden fazla görüntüyü aynı anda sıkıştırmanız mı gerekiyor? Aracımız istediğiniz kadar görüntüyü aynı anda sıkıştırmanıza olanak tanır ve çok zaman kazandırır.",
+      "whyBatch": {
+        "title": "Toplu Sıkıştırma Neden Kullanışlı?",
+        "reason1": "Zaman tasarrufu - Tek tek işlemenize gerek yok",
+        "reason2": "Tutarlı kalite - Tüm görüntülere aynı ayarları uygulayın",
+        "reason3": "Verimli iş akışı - Büyük miktarları hızla işleyin",
+        "reason4": "Yerel işlem - Tüm görüntüler için gizlilik garanti"
+      },
+      "howTo": {
+        "title": "Toplu Sıkıştırma Nasıl Yapılır",
+        "step1": "Birden fazla görüntüyü sürükleyip bırakın veya seçin",
+        "step2": "Çıktı formatını seçin (WebP önerilir)",
+        "step3": "Sıkıştırma kalitesini ayarlayın",
+        "step4": "\"Tümünü İşle\"ye tıklayın",
+        "step5": "Sıkıştırılmış görüntüleri toplu indirin"
+      },
+      "tips": {
+        "title": "Toplu Sıkıştırma İpuçları",
+        "tip1": "Benzer görüntüler aynı ayarlarla daha verimli",
+        "tip2": "WebP formatı en iyi sıkıştırma oranını sunar",
+        "tip3": "%80-85 kalite iyi görüntü kalitesini korur",
+        "tip4": "İşlemden önce görüntüleri önizleyin"
+      },
+      "cta": "Şimdi Toplu Sıkıştırmayı Deneyin"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Midjourney Şeffaf Arka Plan - Dama Tahtasını Gerçek Şeffaflığa Dönüştürün | FixPic",
+        "description": "Midjourney'de şeffaf arka planlı görüntüler oluşturmayı ve sahte dama tahtası desenini gerçek şeffaf PNG'lere dönüştürmeyi öğrenin. Ücretsiz çevrimiçi araç.",
+        "keywords": "Midjourney şeffaf arka plan,Midjourney şeffaf,dama tahtası desenini kaldır,AI görüntü şeffaf,Midjourney PNG,şeffaf arka plan dönüştürme"
+      },
+      "title": "Midjourney'de Şeffaf Arka Plan Nasıl Oluşturulur",
+      "intro": "Midjourney'de şeffaf arka planlı görüntüler oluşturmaya çalıştığınızda, genellikle gerçek şeffaflık yerine gri-beyaz dama tahtası deseni elde edersiniz. Bu kılavuz bu sorunu nasıl çözeceğinizi açıklar.",
+      "problem": {
+        "title": "Sorun: Sahte Şeffaf Arka Plan",
+        "content": "Midjourney'e \"transparent background\" veya \"şeffaf arka plan\" belirtseniz bile, oluşturulan görüntülerde gerçek şeffaflık (alpha kanalı) yoktur, bunun yerine üzerine boyanmış bir dama tahtası deseni vardır. Bu görüntüleri doğrudan kullanırsanız, arka plan şeffaf olmaz, dama tahtası deseni görünür."
+      },
+      "why": {
+        "title": "Bu Neden Oluyor?",
+        "content": "Midjourney gibi AI görüntü oluşturucuları, şeffaflık kavramını görsel bir dama tahtası deseni olarak öğrenmiştir. Bu yüzden \"şeffaf\" istediğinizde, gerçek alpha şeffaflığı oluşturmak yerine dama tahtası desenini doğrudan görüntüye çizerler."
+      },
+      "solution": {
+        "title": "Çözüm",
+        "step1": "Midjourney'de görüntü oluşturun (--style raw genellikle arka planları basitleştirir)",
+        "step2": "Oluşturulan görüntüyü FixPic'e yükleyin",
+        "step3": "Dama tahtası desenini kaldırmak için \"İşle\"ye tıklayın",
+        "step4": "Gerçek şeffaf PNG görüntüsünü indirin"
+      },
+      "prompts": {
+        "title": "Midjourney Prompt İpuçları",
+        "tip1": "\"isolated on white\" arka plan kaldırmayı kolaylaştırır",
+        "tip2": "\"--style raw\" daha basit arka planlar için",
+        "tip3": "\"product photography\" stili konuyu daha net yapar",
+        "tip4": "\"white background\" bazen \"no background\"dan daha etkili olabilir"
+      },
+      "cta": "Sahte Şeffaflığı Şimdi Kaldırın"
     }
   }
 }

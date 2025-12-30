@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
@@ -27,6 +27,7 @@ export function Compress() {
   const validLangCodes = languages.map(l => l.code)
   const urlLang = pathParts[0] && validLangCodes.includes(pathParts[0]) ? pathParts[0] : null
   const currentLang = urlLang || i18n.language || 'en'
+  const langLink = (path: string) => `/${currentLang}${path}`
   const [isDragging, setIsDragging] = useState(false)
   const [processing, setProcessing] = useState(false)
   const [processingIndex, setProcessingIndex] = useState<number | null>(null)
@@ -195,6 +196,7 @@ export function Compress() {
         description={t('compress.seo.description')}
         keywords={t('compress.seo.keywords')}
         canonicalUrl={`https://fix-pic.com/${currentLang}/compress`}
+        ogImage="/og-compress.png"
       />
       <StructuredData type="compress" />
 
@@ -277,7 +279,7 @@ export function Compress() {
                 <div key={i} className={`pending-card ${processingIndex === i ? 'processing' : ''}`}>
                   <button className="remove-btn" onClick={(e) => { e.stopPropagation(); removePendingFile(i) }}>×</button>
                   <div className="pending-preview">
-                    <img src={p.preview} alt={p.file.name} />
+                    <img src={p.preview} alt={p.file.name} loading="lazy" />
                     {processingIndex === i && (
                       <div className="pending-overlay"><div className="spinner-small"></div></div>
                     )}
@@ -306,7 +308,7 @@ export function Compress() {
               {results.map((r, i) => (
                 <div key={i} className="result-card">
                   <div className="result-preview">
-                    <img src={r.preview} alt={r.original.name} />
+                    <img src={r.preview} alt={r.original.name} loading="lazy" />
                   </div>
                   <div className="result-info">
                     <p className="result-name">{r.original.name}</p>
@@ -342,6 +344,34 @@ export function Compress() {
             <li><strong>JPEG</strong>: {t('compress.formatComparison.jpeg').split(': ')[1]}</li>
             <li><strong>PNG</strong>: {t('compress.formatComparison.png').split(': ')[1]}</li>
           </ul>
+        </section>
+
+        {/* Related Content */}
+        <section className="related-content">
+          <div className="related-guides">
+            <h3>{t('common.relatedGuides')}</h3>
+            <div className="related-guides-list">
+              <Link to={langLink('/guides/compress-without-quality-loss')} className="related-link">
+                {t('guides.compressQuality.title')} →
+              </Link>
+              <Link to={langLink('/guides/convert-to-webp')} className="related-link">
+                {t('guides.convertWebp.title')} →
+              </Link>
+            </div>
+          </div>
+          <div className="related-tools">
+            <h3>{t('common.relatedTools')}</h3>
+            <div className="related-tools-grid">
+              <Link to={langLink('/remove-fake-transparency')} className="related-tool-card">
+                <span className="related-tool-icon">🔲</span>
+                <span>{t('nav.removeFakeTransparency')}</span>
+              </Link>
+              <Link to={langLink('/resize')} className="related-tool-card">
+                <span className="related-tool-icon">📐</span>
+                <span>{t('nav.resize')}</span>
+              </Link>
+            </div>
+          </div>
         </section>
       </div>
     </>

@@ -23,6 +23,7 @@ export function Home() {
         description={t('home.seo.description')}
         keywords={t('home.seo.keywords')}
         canonicalUrl={`https://fix-pic.com/${currentLang}`}
+        ogImage="/og-image.png"
       />
       <StructuredData type="home" />
 

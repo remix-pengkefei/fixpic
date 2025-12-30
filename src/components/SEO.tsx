@@ -7,6 +7,7 @@ interface SEOProps {
   description: string
   keywords?: string
   canonicalUrl?: string
+  ogImage?: string
 }
 
 // Map language codes to Open Graph locale format
@@ -28,7 +29,7 @@ const ogLocaleMap: Record<string, string> = {
   'tr': 'tr_TR',
 }
 
-export function SEO({ title, description, keywords, canonicalUrl }: SEOProps) {
+export function SEO({ title, description, keywords, canonicalUrl, ogImage }: SEOProps) {
   const { i18n } = useTranslation()
   const currentLang = i18n.language
 
@@ -88,6 +89,11 @@ export function SEO({ title, description, keywords, canonicalUrl }: SEOProps) {
     if (canonicalUrl) {
       updateOGTag('og:url', canonicalUrl)
     }
+    if (ogImage) {
+      updateOGTag('og:image', `https://fix-pic.com${ogImage}`)
+      updateOGTag('og:image:width', '1200')
+      updateOGTag('og:image:height', '630')
+    }
 
     // Add alternate locale tags for other languages
     languages.forEach(lang => {
@@ -146,8 +152,11 @@ export function SEO({ title, description, keywords, canonicalUrl }: SEOProps) {
     updateTwitterTag('twitter:card', 'summary_large_image')
     updateTwitterTag('twitter:title', title)
     updateTwitterTag('twitter:description', description)
+    if (ogImage) {
+      updateTwitterTag('twitter:image', `https://fix-pic.com${ogImage}`)
+    }
 
-  }, [title, description, keywords, canonicalUrl, currentLang])
+  }, [title, description, keywords, canonicalUrl, ogImage, currentLang])
 
   return null
 }

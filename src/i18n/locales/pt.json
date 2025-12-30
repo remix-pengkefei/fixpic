@@ -13,7 +13,10 @@
     "useNow": "Usar Agora",
     "instructions": "Instruções",
     "privacy": "Processamento local, privacidade segura",
-    "free": "Grátis"
+    "free": "Grátis",
+    "relatedTools": "Ferramentas relacionadas",
+    "relatedGuides": "Guias relacionados",
+    "learnMore": "Saiba mais"
   },
   "header": {
     "title": "Fix-Pic",
@@ -176,6 +179,167 @@
       "wechat": "Capa do WeChat: 900×383",
       "ecommerce": "Produto de e-commerce: 800×800 ou 1000×1000",
       "banner": "Banner web: 1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "Como remover fundo xadrez de imagens IA - Midjourney, DALL-E, Stable Diffusion | FixPic",
+        "description": "Aprenda a remover fundos transparentes falsos em xadrez de imagens geradas por IA. Funciona com Midjourney, DALL-E, Stable Diffusion, Leonardo AI e Lovart. Ferramenta online gratuita, sem software necessário.",
+        "keywords": "remover xadrez IA,Midjourney fundo transparente,DALL-E remover fundo,Stable Diffusion xadrez,imagem IA falsa transparência,Leonardo AI transparente,Lovart remoção fundo"
+      },
+      "title": "Como remover fundo xadrez de imagens IA",
+      "intro": "Geradores de imagens IA como Midjourney, DALL-E e Stable Diffusion às vezes produzem imagens com padrão xadrez em vez de transparência real. Este guia mostra como corrigir instantaneamente.",
+      "whatIs": {
+        "title": "O que é um fundo transparente falso?",
+        "content": "Quando ferramentas de IA geram imagens com fundos 'transparentes', frequentemente renderizam um padrão xadrez cinza-branco diretamente nos pixels da imagem. Parece transparente mas não é - o xadrez é parte da imagem, tornando-a inutilizável para trabalho de design ou sobreposições."
+      },
+      "whyHappens": {
+        "title": "Por que isso acontece?",
+        "content": "A maioria dos geradores de imagens IA são treinados em imagens com fundos visíveis. Quando solicitados a criar fundos 'transparentes', imitam a representação visual da transparência (o padrão xadrez) em vez de gerar transparência alfa real. Isso é particularmente comum no Midjourney, Lovart e versões antigas de outras ferramentas IA."
+      },
+      "howToFix": {
+        "title": "Como corrigir (passo a passo)",
+        "step1": "Envie sua imagem gerada por IA com o padrão xadrez",
+        "step2": "Nossa ferramenta detecta automaticamente os pixels xadrez cinza-branco",
+        "step3": "O padrão é convertido em transparência alfa real",
+        "step4": "Baixe seu arquivo PNG verdadeiramente transparente"
+      },
+      "tools": {
+        "title": "Ferramentas IA suportadas",
+        "content": "Nossa ferramenta funciona com imagens de qualquer gerador IA que produz falsa transparência, incluindo:"
+      },
+      "cta": "Experimente a ferramenta de remoção de falsa transparência agora"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "Como comprimir imagens sem perder qualidade - Guia de melhores configurações | FixPic",
+        "description": "Aprenda as melhores técnicas para comprimir imagens sem perda de qualidade visível. Compare formatos WebP, PNG, JPEG. Compressão gratuita online com configurações ótimas para fotos, gráficos e imagens web.",
+        "keywords": "comprimir imagens sem perder qualidade,melhor compressão de imagens,compressão WebP,compressão sem perda,reduzir tamanho imagem,compressão de fotos,otimização web"
+      },
+      "title": "Como comprimir imagens sem perder qualidade",
+      "intro": "Compressão de imagens não precisa significar perda de qualidade visível. Com o formato e configurações corretos, você pode reduzir drasticamente os tamanhos dos arquivos mantendo as imagens nítidas.",
+      "whyCompress": {
+        "title": "Por que comprimir imagens?",
+        "content": "Imagens grandes deixam sites lentos, consomem espaço de armazenamento e usam mais largura de banda. Compressão adequada pode reduzir tamanhos de arquivo em 50-90% com perda de qualidade mínima ou nenhuma, melhorando tempos de carregamento e experiência do usuário."
+      },
+      "formats": {
+        "title": "Escolher o formato certo",
+        "webp": "Melhor taxa de compressão (25-34% menor que JPEG). Suporta compressão com e sem perda. Ideal para uso web.",
+        "png": "Compressão sem perda, preserva cada pixel. Melhor para gráficos, logos e imagens que precisam de transparência.",
+        "jpeg": "Bom para fotografias. Ampla compatibilidade mas sem suporte a transparência."
+      },
+      "tips": {
+        "title": "Dicas para melhores resultados",
+        "tip1": "Use WebP para fotos em sites modernos - melhor relação tamanho-qualidade",
+        "tip2": "Use PNG para logos, ícones e imagens com texto - sem perda mantém bordas nítidas",
+        "tip3": "Configure qualidade em 80-85% para WebP/JPEG - visualmente indistinguível de 100%",
+        "tip4": "Sempre visualize imagens comprimidas antes de usar - verifique artefatos"
+      },
+      "benefits": {
+        "title": "Benefícios de imagens otimizadas",
+        "benefit1": "Tempos de carregamento mais rápidos (melhor ranking SEO)",
+        "benefit2": "Custos de largura de banda reduzidos",
+        "benefit3": "Melhor experiência do usuário em dispositivos móveis",
+        "benefit4": "Mais espaço de armazenamento para outros arquivos"
+      },
+      "cta": "Comprima suas imagens agora"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "Converter imagens para WebP grátis online - PNG, JPEG para WebP | FixPic",
+        "description": "Conversor WebP gratuito online. Converta PNG, JPEG e outras imagens para formato WebP para arquivos menores. Baseado em navegador, sem upload necessário, qualidade mantida. Conversão em lote disponível.",
+        "keywords": "converter para WebP,PNG para WebP,JPEG para WebP,conversor WebP,conversão WebP online,ferramenta WebP grátis,conversor de formato de imagem"
+      },
+      "title": "Converter imagens para formato WebP",
+      "intro": "WebP é o formato de imagem moderno que fornece compressão superior mantendo a qualidade. Converta suas imagens PNG e JPEG para WebP para sites mais rápidos e arquivos menores.",
+      "whatIs": {
+        "title": "O que é WebP?",
+        "content": "WebP é um formato de imagem desenvolvido pelo Google que usa compressão com e sem perda. Tipicamente produz arquivos 25-34% menores que JPEG em qualidade equivalente, e suporta transparência como PNG mas com tamanhos de arquivo muito menores."
+      },
+      "advantages": {
+        "title": "Vantagens do WebP",
+        "adv1": "Arquivos 25-34% menores comparados com JPEG na mesma qualidade",
+        "adv2": "Suporta transparência (como PNG) com tamanhos menores",
+        "adv3": "Suportado por todos os navegadores modernos (Chrome, Firefox, Safari, Edge)",
+        "adv4": "Tempos de carregamento mais rápidos melhoram ranking SEO"
+      },
+      "howTo": {
+        "title": "Como converter para WebP",
+        "step1": "Envie seus arquivos de imagem PNG, JPEG ou outros",
+        "step2": "Selecione WebP como formato de saída",
+        "step3": "Ajuste configurações de qualidade se necessário (80-85% recomendado)",
+        "step4": "Baixe suas imagens WebP otimizadas"
+      },
+      "compatibility": {
+        "title": "Compatibilidade de navegadores",
+        "content": "WebP é suportado por todos os navegadores modernos incluindo Chrome, Firefox, Safari (14+), Edge e Opera. Para navegadores mais antigos, considere fornecer imagens alternativas em formato JPEG ou PNG."
+      },
+      "cta": "Converter para WebP agora"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "Compressão de imagens em lote - Comprimir múltiplas imagens de uma vez | FixPic",
+        "description": "Ferramenta gratuita de compressão de imagens em lote online. Comprima múltiplas imagens simultaneamente em formato WebP, PNG ou JPEG. Processamento no navegador, sem upload, privacidade segura.",
+        "keywords": "compressão em lote,compressão de imagens em lote,comprimir múltiplas imagens,compressão batch,ferramenta de compressão,compressão online"
+      },
+      "title": "Comprimir múltiplas imagens em lote",
+      "intro": "Precisa comprimir múltiplas imagens de uma vez? Nossa ferramenta permite comprimir quantas imagens quiser simultaneamente, economizando muito tempo.",
+      "whyBatch": {
+        "title": "Por que a compressão em lote é conveniente?",
+        "reason1": "Economia de tempo - Não precisa processar uma por uma",
+        "reason2": "Qualidade consistente - Mesmas configurações para todas as imagens",
+        "reason3": "Fluxo de trabalho eficiente - Processa grandes quantidades rapidamente",
+        "reason4": "Processamento local - Privacidade garantida para todas as imagens"
+      },
+      "howTo": {
+        "title": "Como comprimir em lote",
+        "step1": "Arraste e solte múltiplas imagens ou selecione-as",
+        "step2": "Escolha o formato de saída (WebP recomendado)",
+        "step3": "Ajuste a qualidade de compressão",
+        "step4": "Clique em \"Processar Tudo\"",
+        "step5": "Baixe as imagens comprimidas em lote"
+      },
+      "tips": {
+        "title": "Dicas para compressão em lote",
+        "tip1": "Imagens similares são mais eficientes com as mesmas configurações",
+        "tip2": "O formato WebP oferece a melhor taxa de compressão",
+        "tip3": "Uma qualidade de 80-85% mantém boa qualidade de imagem",
+        "tip4": "Visualize as imagens antes do processamento"
+      },
+      "cta": "Experimente a compressão em lote agora"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Fundo transparente no Midjourney - Grade para transparência real | FixPic",
+        "description": "Aprenda a criar imagens com fundo transparente no Midjourney e a converter o falso padrão de grade em PNGs realmente transparentes. Ferramenta online gratuita.",
+        "keywords": "fundo transparente Midjourney,Midjourney transparente,remover padrão grade,imagem IA transparente,Midjourney PNG,conversão fundo transparente"
+      },
+      "title": "Como criar fundos transparentes no Midjourney",
+      "intro": "Quando você tenta criar imagens com fundo transparente no Midjourney, frequentemente obtém um padrão de grade cinza-branco em vez de transparência real. Este guia explica como resolver este problema.",
+      "problem": {
+        "title": "O problema: Fundo transparente falso",
+        "content": "Mesmo se você especificar \"transparent background\" ou \"fundo transparente\" para o Midjourney, as imagens geradas não têm transparência real (canal alfa), mas um padrão de grade pintado. Se você usar essas imagens diretamente, o fundo não será transparente mas mostrará o padrão de grade."
+      },
+      "why": {
+        "title": "Por que isso acontece?",
+        "content": "Geradores de imagens IA como o Midjourney aprenderam o conceito de transparência como um padrão visual de grade. Assim, quando você pede \"transparente\", eles desenham o padrão de grade diretamente na imagem em vez de gerar verdadeira transparência alfa."
+      },
+      "solution": {
+        "title": "A solução",
+        "step1": "Gere a imagem no Midjourney (--style raw frequentemente simplifica os fundos)",
+        "step2": "Envie a imagem gerada para o FixPic",
+        "step3": "Clique em \"Processar\" para remover o padrão de grade",
+        "step4": "Baixe a imagem PNG realmente transparente"
+      },
+      "prompts": {
+        "title": "Dicas para prompts do Midjourney",
+        "tip1": "\"isolated on white\" facilita a remoção do fundo",
+        "tip2": "\"--style raw\" para fundos mais simples",
+        "tip3": "O estilo \"product photography\" torna o objeto mais claro",
+        "tip4": "\"white background\" pode ser mais eficaz que \"no background\""
+      },
+      "cta": "Remover falsa transparência agora"
     }
   }
 }

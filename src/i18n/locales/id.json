@@ -13,7 +13,10 @@
     "useNow": "Gunakan Sekarang",
     "instructions": "Petunjuk",
     "privacy": "Pemrosesan lokal, privasi aman",
-    "free": "Gratis"
+    "free": "Gratis",
+    "relatedTools": "Alat Terkait",
+    "relatedGuides": "Panduan Terkait",
+    "learnMore": "Pelajari lebih lanjut"
   },
   "header": {
     "title": "Fix-Pic",
@@ -176,6 +179,158 @@
       "wechat": "Cover WeChat: 900×383",
       "ecommerce": "Produk e-commerce: 800×800 atau 1000×1000",
       "banner": "Banner web: 1920×600"
+    }
+  },
+  "guides": {
+    "aiCheckerboard": {
+      "seo": {
+        "title": "Cara Menghapus Latar Belakang Kotak-kotak dari Gambar AI | Panduan FixPic",
+        "description": "Panduan lengkap untuk menghapus latar belakang transparan palsu (kotak-kotak abu-putih) dari gambar Midjourney, Lovart, Stable Diffusion. Konversi ke PNG transparan asli secara gratis.",
+        "keywords": "latar kotak-kotak AI,hapus kotak-kotak Midjourney,transparansi palsu Lovart,transparansi asli Stable Diffusion,hapus latar AI"
+      },
+      "title": "Cara Menghapus Latar Belakang Kotak-kotak dari Gambar AI",
+      "intro": "Alat pembuatan gambar AI seperti Midjourney, Lovart, dan Stable Diffusion sering menghasilkan \"latar belakang transparan palsu\" dengan pola kotak-kotak abu-putih yang sebenarnya merupakan bagian dari gambar. Panduan ini menunjukkan cara mengkonversinya menjadi transparansi asli.",
+      "whatIs": {
+        "title": "Apa itu Latar Belakang Transparan Palsu?",
+        "content": "Ketika alat AI menghasilkan gambar dengan \"latar belakang transparan\", pola kotak-kotak abu-putih sebenarnya dilukis ke dalam gambar alih-alih menjadi transparansi asli. Ini berarti ketika Anda menggunakan gambar dalam proyek Anda, latar kotak-kotak akan terlihat alih-alih transparan."
+      },
+      "whyHappens": {
+        "title": "Mengapa Ini Terjadi?",
+        "content": "Model AI dilatih dari jutaan gambar, banyak yang menampilkan transparansi dengan pola kotak-kotak. AI belajar menghasilkan pola ini sebagai bagian dari gambar, mengira itu mewakili transparansi, alih-alih membuat transparansi asli."
+      },
+      "howToFix": {
+        "title": "Cara Memperbaiki dengan FixPic",
+        "step1": "Buka alat Hapus Transparansi Palsu FixPic",
+        "step2": "Unggah gambar AI Anda dengan latar kotak-kotak",
+        "step3": "Klik \"Proses\" untuk mendeteksi dan menghapus pola kotak-kotak secara otomatis",
+        "step4": "Unduh gambar PNG transparan asli Anda"
+      },
+      "tools": {
+        "title": "Alat AI yang Didukung",
+        "content": "Alat kami bekerja dengan gambar dari Midjourney, Lovart, Stable Diffusion, DALL-E, Leonardo AI, dan generator gambar AI lainnya yang menghasilkan pola kotak-kotak palsu."
+      },
+      "cta": "Coba Alat Hapus Transparansi Palsu Gratis →"
+    },
+    "compressQuality": {
+      "seo": {
+        "title": "Cara Mengompres Gambar Tanpa Kehilangan Kualitas | Panduan FixPic",
+        "description": "Pelajari cara mengurangi ukuran file gambar sambil mempertahankan kualitas. Tips ahli tentang pengaturan kompresi optimal dan pemilihan format untuk WebP, PNG, dan JPEG.",
+        "keywords": "kompres gambar tanpa kehilangan kualitas,pengaturan kompresi terbaik,optimasi gambar,konversi WebP,kompresi untuk web"
+      },
+      "title": "Cara Mengompres Gambar Tanpa Kehilangan Kualitas",
+      "intro": "Kompresi gambar tidak harus berarti kehilangan kualitas. Panduan ini menunjukkan cara memilih pengaturan dan format yang tepat untuk mengurangi ukuran file secara signifikan sambil mempertahankan kejernihan visual.",
+      "understanding": {
+        "title": "Memahami Jenis Kompresi",
+        "lossless": "Kompresi lossless (PNG): Mempertahankan semua data piksel, terbaik untuk grafik dan tangkapan layar",
+        "lossy": "Kompresi lossy (JPEG, WebP): Mengurangi file secara signifikan dengan kehilangan kualitas minimal, terbaik untuk foto"
+      },
+      "bestPractices": {
+        "title": "Praktik Terbaik",
+        "tip1": "Gunakan WebP untuk performa web terbaik - mendukung lossy dan lossless",
+        "tip2": "Untuk foto, gunakan pengaturan kualitas 80-90% untuk keseimbangan optimal",
+        "tip3": "Pertahankan PNG untuk gambar yang membutuhkan transparansi",
+        "tip4": "Hindari kompresi ulang - selalu kompres dari aslinya"
+      },
+      "comparison": {
+        "title": "Perbandingan Format",
+        "webp": "WebP: Ukuran terkecil, 30% lebih kecil dari JPEG, mendukung transparansi, direkomendasikan untuk web",
+        "jpeg": "JPEG: Dukungan universal, bagus untuk foto, tanpa transparansi",
+        "png": "PNG: Kualitas sempurna, mendukung transparansi, file terbesar"
+      },
+      "cta": "Kompres Gambar Anda Gratis →"
+    },
+    "convertWebp": {
+      "seo": {
+        "title": "Cara Mengkonversi Gambar ke WebP - Panduan Lengkap | FixPic",
+        "description": "Pelajari mengapa WebP adalah format gambar terbaik untuk web, cara mengkonversi dari PNG dan JPEG, keunggulan dan pertimbangan kompatibilitas.",
+        "keywords": "konversi ke WebP,format WebP,PNG ke WebP,JPEG ke WebP,optimasi gambar web,gambar WebP"
+      },
+      "title": "Cara Mengkonversi Gambar ke WebP",
+      "intro": "WebP adalah format gambar modern yang dikembangkan oleh Google yang menyediakan ukuran file yang jauh lebih kecil daripada JPEG dan PNG. Pelajari mengapa dan bagaimana menggunakannya untuk proyek Anda.",
+      "benefits": {
+        "title": "Mengapa Menggunakan WebP?",
+        "benefit1": "File lebih kecil: 25-34% lebih kecil dari JPEG dan 26% lebih kecil dari PNG dengan kualitas setara",
+        "benefit2": "Dukungan transparansi: Tidak seperti JPEG, WebP mendukung transparansi seperti PNG",
+        "benefit3": "Dukungan animasi: Dapat menggantikan GIF dengan ukuran file yang jauh lebih kecil",
+        "benefit4": "Dukungan browser luas: Semua browser modern mendukung WebP"
+      },
+      "howTo": {
+        "title": "Cara Mengkonversi dengan FixPic",
+        "step1": "Buka alat Kompres dan Konversi FixPic",
+        "step2": "Pilih \"WebP\" sebagai format output",
+        "step3": "Sesuaikan kualitas (85-90% direkomendasikan untuk kualitas baik)",
+        "step4": "Unggah gambar PNG atau JPEG Anda",
+        "step5": "Unduh file WebP yang dikonversi"
+      },
+      "compatibility": {
+        "title": "Kompatibilitas Browser",
+        "content": "WebP didukung oleh Chrome, Firefox, Edge, Safari (14+), dan semua browser modern lainnya. Untuk browser lama, gunakan tag <picture> dengan JPEG/PNG sebagai fallback."
+      },
+      "cta": "Konversi Gambar Anda ke WebP Gratis →"
+    },
+    "batchCompress": {
+      "seo": {
+        "title": "Kompres Gambar Batch - Kompres Banyak Gambar Sekaligus | FixPic",
+        "description": "Alat kompres gambar batch online gratis. Kompres banyak gambar sekaligus ke format WebP, PNG, atau JPEG. Pemrosesan berbasis browser, tanpa unggahan, privasi aman.",
+        "keywords": "kompres batch,kompres gambar batch,kompres banyak gambar,alat kompres,kompres online"
+      },
+      "title": "Kompres Banyak Gambar Sekaligus",
+      "intro": "Perlu mengompres banyak gambar sekaligus? Alat kami memungkinkan Anda mengompres berapa pun gambar secara bersamaan, menghemat banyak waktu.",
+      "whyBatch": {
+        "title": "Mengapa Kompresi Batch Praktis?",
+        "reason1": "Hemat waktu - Tidak perlu memproses satu per satu",
+        "reason2": "Kualitas konsisten - Terapkan pengaturan sama untuk semua gambar",
+        "reason3": "Alur kerja efisien - Proses jumlah besar dengan cepat",
+        "reason4": "Pemrosesan lokal - Privasi terjamin untuk semua gambar"
+      },
+      "howTo": {
+        "title": "Cara Kompres Batch",
+        "step1": "Seret dan lepas banyak gambar atau pilih",
+        "step2": "Pilih format output (WebP direkomendasikan)",
+        "step3": "Sesuaikan kualitas kompresi",
+        "step4": "Klik \"Proses Semua\"",
+        "step5": "Unduh gambar yang dikompres secara batch"
+      },
+      "tips": {
+        "title": "Tips Kompres Batch",
+        "tip1": "Gambar serupa lebih efisien dengan pengaturan sama",
+        "tip2": "Format WebP menawarkan rasio kompresi terbaik",
+        "tip3": "Kualitas 80-85% menjaga kualitas gambar baik",
+        "tip4": "Pratinjau gambar sebelum memproses"
+      },
+      "cta": "Coba Kompres Batch Sekarang"
+    },
+    "midjourneyTransparent": {
+      "seo": {
+        "title": "Latar Transparan Midjourney - Kotak-kotak ke Transparan Asli | FixPic",
+        "description": "Pelajari cara membuat gambar berlatar transparan di Midjourney dan mengkonversi pola kotak-kotak palsu menjadi PNG transparan asli. Alat online gratis.",
+        "keywords": "latar transparan Midjourney,Midjourney transparan,hapus pola kotak-kotak,gambar AI transparan,Midjourney PNG,konversi latar transparan"
+      },
+      "title": "Cara Membuat Latar Transparan di Midjourney",
+      "intro": "Saat Anda mencoba membuat gambar berlatar transparan di Midjourney, sering kali Anda mendapatkan pola kotak-kotak abu-putih alih-alih transparan asli. Panduan ini menjelaskan cara menyelesaikan masalah ini.",
+      "problem": {
+        "title": "Masalah: Latar Transparan Palsu",
+        "content": "Bahkan jika Anda menentukan \"transparent background\" atau \"latar transparan\" ke Midjourney, gambar yang dihasilkan tidak memiliki transparansi asli (channel alpha), melainkan pola kotak-kotak yang dilukis. Jika Anda menggunakan gambar ini langsung, latar belakang tidak akan transparan tetapi menampilkan pola kotak-kotak."
+      },
+      "why": {
+        "title": "Mengapa Ini Terjadi?",
+        "content": "Generator gambar AI seperti Midjourney telah mempelajari konsep transparansi sebagai pola kotak-kotak visual. Jadi, ketika Anda meminta \"transparan\", mereka menggambar pola kotak-kotak langsung ke gambar alih-alih membuat transparansi alpha asli."
+      },
+      "solution": {
+        "title": "Solusinya",
+        "step1": "Buat gambar di Midjourney (--style raw sering menyederhanakan latar)",
+        "step2": "Unggah gambar yang dibuat ke FixPic",
+        "step3": "Klik \"Proses\" untuk menghapus pola kotak-kotak",
+        "step4": "Unduh gambar PNG transparan asli"
+      },
+      "prompts": {
+        "title": "Tips Prompt Midjourney",
+        "tip1": "\"isolated on white\" memudahkan penghapusan latar",
+        "tip2": "\"--style raw\" untuk latar yang lebih sederhana",
+        "tip3": "Gaya \"product photography\" membuat subjek lebih jelas",
+        "tip4": "\"white background\" kadang lebih efektif dari \"no background\""
+      },
+      "cta": "Hapus Transparansi Palsu Sekarang"
     }
   }
 }
