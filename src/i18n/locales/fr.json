@@ -25,10 +25,17 @@
   "footer": {
     "description": "FixPic - Outils Gratuits de Traitement d'Images | Traitement Local, Confidentialité Assurée"
   },
+  "notFound": {
+    "title": "Page Non Trouvée",
+    "description": "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
+    "goHome": "Aller à l'Accueil",
+    "tryTools": "Essayez nos outils :"
+  },
   "nav": {
     "removeFakeTransparency": "Supprimer Fausse Transparence",
     "compress": "Compresser",
-    "resize": "Redimensionner"
+    "resize": "Redimensionner",
+    "removeWatermark": "Supprimer Filigrane"
   },
   "home": {
     "seo": {
@@ -52,6 +59,35 @@
       "resize": {
         "title": "Redimensionner Images",
         "desc": "Ajustez précisément les dimensions des images, conservez le rapport d'aspect avec mise à l'échelle proportionnelle, traitez plusieurs images par lots"
+      },
+      "watermark": {
+        "title": "Supprimer Filigrane",
+        "desc": "Supprimez filigranes, texte, logos et objets indésirables des images avec la technologie d'inpainting alimentée par IA",
+        "demoText": "Peignez sur les filigranes pour les supprimer"
+      }
+    },
+    "showcase": {
+      "title": "Voyez la Différence",
+      "before": "Avant",
+      "after": "Après",
+      "transparency": {
+        "title": "Supprimer la Fausse Transparence",
+        "desc": "Convertissez instantanément les faux arrière-plans en damier des outils IA comme Midjourney et Lovart en vrais PNG transparents.",
+        "beforeAlt": "Image avec faux arrière-plan en damier",
+        "afterAlt": "Image avec vraie transparence"
+      },
+      "compress": {
+        "title": "Compression Intelligente",
+        "desc": "Réduisez la taille des fichiers jusqu'à 98% tout en maintenant la qualité visuelle. Parfait pour l'optimisation web.",
+        "sizeReduction": "Réduction de Taille",
+        "beforeAlt": "Image originale non compressée",
+        "afterAlt": "Image compressée"
+      },
+      "resize": {
+        "title": "Redimensionnement Précis",
+        "desc": "Redimensionnez les images aux dimensions exactes avec une précision au pixel près. Conserve automatiquement le rapport d'aspect.",
+        "beforeAlt": "Image taille originale",
+        "afterAlt": "Image redimensionnée"
       }
     },
     "features": {
@@ -179,6 +215,38 @@
       "wechat": "Couverture WeChat : 900×383",
       "ecommerce": "Produit e-commerce : 800×800 ou 1000×1000",
       "banner": "Bannière web : 1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "Supprimer Filigrane d'Image en Ligne Gratuitement - Outil d'Inpainting IA | FixPic",
+      "description": "Outil gratuit en ligne de suppression de filigrane utilisant l'inpainting IA. Supprimez texte, logos et filigranes des images. Peignez sur le filigrane et laissez l'IA le remplir. Traitement local, confidentialité assurée.",
+      "keywords": "supprimer filigrane,suppresseur de filigrane,inpainting d'image,supprimer texte d'image,supprimer logo,suppression filigrane photo,inpainting IA,OpenCV"
+    },
+    "title": "Supprimer Filigrane",
+    "desc": "Supprimez filigranes, texte, logos et objets indésirables des images avec l'inpainting alimenté par IA",
+    "loadingCV": "Chargement du moteur de traitement d'image...",
+    "error": "Échec du traitement. Veuillez réessayer.",
+    "dropText": "Télécharger une image avec filigrane",
+    "dropHint": "Prend en charge les formats PNG, JPG, WebP",
+    "brushSize": "Taille du Pinceau",
+    "inpaintRadius": "Rayon d'Inpainting",
+    "undo": "Annuler",
+    "clearMask": "Effacer Masque",
+    "removeWatermark": "Supprimer Filigrane",
+    "newImage": "Nouvelle Image",
+    "canvasHint": "Peignez sur la zone du filigrane avec votre souris ou doigt",
+    "instructions": {
+      "step1": "Téléchargez une image avec un filigrane à supprimer",
+      "step2": "Utilisez le pinceau pour peindre sur la zone du filigrane (superposition rouge)",
+      "step3": "Ajustez la taille du pinceau et le rayon d'inpainting selon les besoins",
+      "step4": "Cliquez sur 'Supprimer Filigrane' et téléchargez le résultat"
+    },
+    "tips": {
+      "title": "Conseils pour de Meilleurs Résultats",
+      "tip1": "Peignez légèrement au-delà des bords du filigrane pour un meilleur mélange",
+      "tip2": "Utilisez un pinceau plus petit pour les détails et plus grand pour les gros filigranes",
+      "tip3": "Augmentez le rayon d'inpainting pour des résultats plus lisses sur les arrière-plans uniformes"
     }
   },
   "guides": {

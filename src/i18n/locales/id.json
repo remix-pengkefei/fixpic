@@ -25,10 +25,17 @@
   "footer": {
     "description": "FixPic - Alat Pemrosesan Gambar Online Gratis | Pemrosesan Lokal, Privasi Aman"
   },
+  "notFound": {
+    "title": "Halaman Tidak Ditemukan",
+    "description": "Maaf, halaman yang Anda cari tidak ada atau telah dipindahkan.",
+    "goHome": "Ke Beranda",
+    "tryTools": "Coba alat kami:"
+  },
   "nav": {
     "removeFakeTransparency": "Hapus Transparansi Palsu",
     "compress": "Kompres",
-    "resize": "Ubah Ukuran"
+    "resize": "Ubah Ukuran",
+    "removeWatermark": "Hapus Tanda Air"
   },
   "home": {
     "seo": {
@@ -52,6 +59,35 @@
       "resize": {
         "title": "Ubah Ukuran Gambar",
         "desc": "Sesuaikan dimensi gambar dengan presisi, pertahankan rasio aspek dengan penskalaan proporsional, proses banyak gambar sekaligus"
+      },
+      "watermark": {
+        "title": "Hapus Tanda Air",
+        "desc": "Hapus tanda air, teks, logo, dan objek yang tidak diinginkan dari gambar menggunakan teknologi inpainting berbasis AI",
+        "demoText": "Lukis di atas tanda air untuk menghapusnya"
+      }
+    },
+    "showcase": {
+      "title": "Lihat Perbedaannya",
+      "before": "Sebelum",
+      "after": "Sesudah",
+      "transparency": {
+        "title": "Hapus Transparansi Palsu",
+        "desc": "Konversi instan latar belakang kotak-kotak palsu dari alat AI seperti Midjourney dan Lovart menjadi PNG transparan asli.",
+        "beforeAlt": "Gambar dengan latar kotak-kotak palsu",
+        "afterAlt": "Gambar dengan transparansi asli"
+      },
+      "compress": {
+        "title": "Kompresi Cerdas",
+        "desc": "Kurangi ukuran file hingga 98% sambil mempertahankan kualitas visual. Sempurna untuk optimasi web.",
+        "sizeReduction": "Pengurangan Ukuran",
+        "beforeAlt": "Gambar asli belum dikompresi",
+        "afterAlt": "Gambar terkompresi"
+      },
+      "resize": {
+        "title": "Pengubahan Ukuran Presisi",
+        "desc": "Skala gambar ke dimensi tepat dengan akurasi piksel. Pertahankan rasio aspek secara otomatis.",
+        "beforeAlt": "Gambar ukuran asli",
+        "afterAlt": "Gambar yang diubah ukurannya"
       }
     },
     "features": {
@@ -179,6 +215,38 @@
       "wechat": "Cover WeChat: 900×383",
       "ecommerce": "Produk e-commerce: 800×800 atau 1000×1000",
       "banner": "Banner web: 1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "Hapus Tanda Air dari Gambar Online Gratis - AI Penghapus Tanda Air | FixPic",
+      "description": "Alat online gratis untuk menghapus tanda air dari gambar menggunakan AI. Hapus tanda air, logo, teks, dan objek yang tidak diinginkan dari foto. Pemrosesan berbasis browser, privasi aman.",
+      "keywords": "hapus tanda air,penghapusan tanda air,hapus watermark dari foto,AI penghapus tanda air,hapus logo dari gambar,alat online,gratis"
+    },
+    "title": "Hapus Tanda Air dari Gambar",
+    "desc": "Gunakan teknologi AI inpainting untuk menghapus tanda air, logo, teks, dan objek yang tidak diinginkan dari gambar. Sepenuhnya diproses di browser, privasi aman.",
+    "loadingCV": "Memuat modul pemrosesan gambar...",
+    "error": "Gagal memuat modul. Silakan refresh halaman dan coba lagi.",
+    "dropText": "Seret gambar ke sini atau klik untuk memilih",
+    "dropHint": "Mendukung PNG, JPG, WebP",
+    "brushSize": "Ukuran Kuas",
+    "inpaintRadius": "Radius Inpaint",
+    "undo": "Batalkan",
+    "clearMask": "Hapus Masker",
+    "removeWatermark": "Hapus Tanda Air",
+    "newImage": "Gambar Baru",
+    "canvasHint": "Gunakan mouse untuk melukis area tanda air yang akan dihapus",
+    "instructions": {
+      "step1": "Unggah gambar dengan tanda air",
+      "step2": "Gunakan kuas untuk melukis area tanda air",
+      "step3": "Klik \"Hapus Tanda Air\" untuk memproses",
+      "step4": "Unduh gambar yang telah diproses"
+    },
+    "tips": {
+      "title": "Tips untuk Hasil Terbaik",
+      "tip1": "Tutupi seluruh area tanda air sepenuhnya",
+      "tip2": "Untuk hasil lebih baik, lukis sedikit melampaui batas tanda air",
+      "tip3": "Sesuaikan ukuran kuas dengan ukuran tanda air"
     }
   },
   "guides": {

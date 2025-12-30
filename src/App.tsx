@@ -10,6 +10,7 @@ const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
 const RemoveFakeTransparency = lazy(() => import('./pages/RemoveFakeTransparency').then(m => ({ default: m.RemoveFakeTransparency })))
 const Compress = lazy(() => import('./pages/Compress').then(m => ({ default: m.Compress })))
 const Resize = lazy(() => import('./pages/Resize').then(m => ({ default: m.Resize })))
+const RemoveWatermark = lazy(() => import('./pages/RemoveWatermark').then(m => ({ default: m.RemoveWatermark })))
 
 // Guide pages for long-tail SEO
 const RemoveAICheckerboard = lazy(() => import('./pages/guides/RemoveAICheckerboard').then(m => ({ default: m.RemoveAICheckerboard })))
@@ -55,12 +56,14 @@ function LangRoutes() {
         <Route path="/remove-fake-transparency" element={<LanguageRedirectPage page="remove-fake-transparency" />} />
         <Route path="/compress" element={<LanguageRedirectPage page="compress" />} />
         <Route path="/resize" element={<LanguageRedirectPage page="resize" />} />
+        <Route path="/remove-watermark" element={<LanguageRedirectPage page="remove-watermark" />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageRouter><Home /></LanguageRouter>} />
         <Route path="/:lang/remove-fake-transparency" element={<LanguageRouter><RemoveFakeTransparency /></LanguageRouter>} />
         <Route path="/:lang/compress" element={<LanguageRouter><Compress /></LanguageRouter>} />
         <Route path="/:lang/resize" element={<LanguageRouter><Resize /></LanguageRouter>} />
+        <Route path="/:lang/remove-watermark" element={<LanguageRouter><RemoveWatermark /></LanguageRouter>} />
 
         {/* Guide pages for long-tail SEO */}
         <Route path="/:lang/guides/remove-ai-checkerboard" element={<LanguageRouter><RemoveAICheckerboard /></LanguageRouter>} />

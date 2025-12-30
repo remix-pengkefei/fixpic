@@ -25,10 +25,17 @@
   "footer": {
     "description": "FixPic - Herramientas Gratuitas de Procesamiento de Imágenes | Procesamiento Local, Privacidad Segura"
   },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+    "goHome": "Ir a la Página Principal",
+    "tryTools": "Prueba nuestras herramientas:"
+  },
   "nav": {
     "removeFakeTransparency": "Eliminar Falsa Transparencia",
     "compress": "Comprimir",
-    "resize": "Redimensionar"
+    "resize": "Redimensionar",
+    "removeWatermark": "Eliminar Marca de Agua"
   },
   "home": {
     "seo": {
@@ -52,6 +59,35 @@
       "resize": {
         "title": "Redimensionar Imágenes",
         "desc": "Ajusta las dimensiones de imagen con precisión, mantén la relación de aspecto con escalado proporcional, procesa múltiples imágenes por lotes"
+      },
+      "watermark": {
+        "title": "Eliminar Marca de Agua",
+        "desc": "Elimina marcas de agua, texto, logos y objetos no deseados de las imágenes usando tecnología de inpainting impulsada por IA",
+        "demoText": "Pinta sobre las marcas de agua para eliminarlas"
+      }
+    },
+    "showcase": {
+      "title": "Vea la Diferencia",
+      "before": "Antes",
+      "after": "Después",
+      "transparency": {
+        "title": "Eliminar Falsa Transparencia",
+        "desc": "Convierta instantáneamente los fondos falsos de cuadrícula de herramientas de IA como Midjourney y Lovart en PNGs realmente transparentes.",
+        "beforeAlt": "Imagen con fondo falso de cuadrícula",
+        "afterAlt": "Imagen con transparencia real"
+      },
+      "compress": {
+        "title": "Compresión Inteligente",
+        "desc": "Reduzca el tamaño del archivo hasta un 98% manteniendo la calidad visual. Perfecto para optimización web.",
+        "sizeReduction": "Reducción de Tamaño",
+        "beforeAlt": "Imagen original sin comprimir",
+        "afterAlt": "Imagen comprimida"
+      },
+      "resize": {
+        "title": "Redimensionado Preciso",
+        "desc": "Escale imágenes a dimensiones exactas con precisión de píxeles. Mantiene automáticamente la relación de aspecto.",
+        "beforeAlt": "Imagen tamaño original",
+        "afterAlt": "Imagen redimensionada"
       }
     },
     "features": {
@@ -179,6 +215,38 @@
       "wechat": "Portada de WeChat: 900×383",
       "ecommerce": "Producto de e-commerce: 800×800 o 1000×1000",
       "banner": "Banner web: 1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "Eliminar Marca de Agua de Imagen Online Gratis - Herramienta de Inpainting IA | FixPic",
+      "description": "Herramienta gratuita en línea para eliminar marcas de agua usando inpainting IA. Elimina texto, logos y marcas de agua de imágenes. Pinta sobre la marca de agua y deja que la IA la rellene. Procesamiento local, privacidad segura.",
+      "keywords": "eliminar marca de agua,eliminador de marcas de agua,inpainting de imagen,eliminar texto de imagen,eliminar logo,eliminación de marca de agua de foto,inpainting IA,OpenCV"
+    },
+    "title": "Eliminar Marca de Agua",
+    "desc": "Elimina marcas de agua, texto, logos y objetos no deseados de imágenes usando inpainting con IA",
+    "loadingCV": "Cargando motor de procesamiento de imagen...",
+    "error": "Procesamiento fallido. Por favor, inténtelo de nuevo.",
+    "dropText": "Subir una imagen con marca de agua",
+    "dropHint": "Soporta formatos PNG, JPG, WebP",
+    "brushSize": "Tamaño del Pincel",
+    "inpaintRadius": "Radio de Inpainting",
+    "undo": "Deshacer",
+    "clearMask": "Borrar Máscara",
+    "removeWatermark": "Eliminar Marca de Agua",
+    "newImage": "Nueva Imagen",
+    "canvasHint": "Pinte sobre el área de la marca de agua con su ratón o dedo",
+    "instructions": {
+      "step1": "Suba una imagen con una marca de agua que desee eliminar",
+      "step2": "Use el pincel para pintar sobre el área de la marca de agua (superposición roja)",
+      "step3": "Ajuste el tamaño del pincel y el radio de inpainting según sea necesario",
+      "step4": "Haga clic en 'Eliminar Marca de Agua' y descargue el resultado"
+    },
+    "tips": {
+      "title": "Consejos para Mejores Resultados",
+      "tip1": "Pinte ligeramente más allá de los bordes de la marca de agua para mejor mezcla",
+      "tip2": "Use un pincel más pequeño para áreas detalladas y más grande para marcas de agua grandes",
+      "tip3": "Aumente el radio de inpainting para resultados más suaves en fondos uniformes"
     }
   },
   "guides": {

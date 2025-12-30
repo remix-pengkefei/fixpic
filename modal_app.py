@@ -12,7 +12,7 @@ from pydantic import BaseModel
 # 定义 Modal 镜像
 image = (
     modal.Image.debian_slim(python_version="3.11")
-    .apt_install("git")  # 安装 git
+    .apt_install("git", "libgl1-mesa-glx", "libglib2.0-0")  # 安装 git 和 OpenCV 依赖
     .pip_install(
         "fastapi",
         "python-multipart",
@@ -24,10 +24,12 @@ image = (
         "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git",
         "transformers",
         "pydantic",
+        "simple-lama-inpainting",  # LaMa inpainting
+        "opencv-python-headless",
     )
     .run_commands(
-        # 预下载 rembg 模型
-        "python -c 'from rembg import new_session; new_session(\"u2net\")'",
+        # 预下载 rembg 模型（不需要GPU）
+        "python -c 'from rembg import new_session; new_session(\"u2net\")' || true",
     )
 )
 
@@ -86,6 +88,11 @@ class ClothesSegmentRequest(BaseModel):
     categories: List[int]
 
 
+class InpaintRequest(BaseModel):
+    image_base64: str
+    mask_base64: str
+
+
 @app.cls(
     gpu="T4",  # 使用 T4 GPU，性价比高
     volumes={MODEL_DIR: volume},
@@ -106,6 +113,7 @@ class FixPicAPI:
         self.sam_predictor = None
         self.clothes_processor = None
         self.clothes_model = None
+        self.lama_model = None
 
     def _get_sam_predictor(self):
         """延迟加载 SAM 模型"""
@@ -149,6 +157,17 @@ class FixPicAPI:
             print("Clothes model loaded!")
 
         return self.clothes_processor, self.clothes_model
+
+    def _get_lama_model(self):
+        """延迟加载 LaMa 模型"""
+        if self.lama_model is None:
+            from simple_lama_inpainting import SimpleLama
+
+            print("Loading LaMa inpainting model...")
+            self.lama_model = SimpleLama()
+            print("LaMa model loaded!")
+
+        return self.lama_model
 
     @modal.fastapi_endpoint(method="POST")
     def remove_bg(self, request: RemoveBgRequest):
@@ -382,6 +401,42 @@ class FixPicAPI:
             'image': f'data:image/png;base64,{img_base64}',
             'width': output_image.width,
             'height': output_image.height
+        }
+
+    @modal.fastapi_endpoint(method="POST")
+    def inpaint(self, request: InpaintRequest):
+        """图像修复 - 去水印"""
+        import numpy as np
+        from PIL import Image
+
+        # 解码图片
+        image_data = base64.b64decode(request.image_base64)
+        input_image = Image.open(io.BytesIO(image_data)).convert('RGB')
+
+        # 解码掩码
+        mask_data = base64.b64decode(request.mask_base64)
+        mask_image = Image.open(io.BytesIO(mask_data)).convert('L')
+
+        # 确保掩码大小与图片一致
+        if mask_image.size != input_image.size:
+            mask_image = mask_image.resize(input_image.size, Image.Resampling.NEAREST)
+
+        # 获取 LaMa 模型
+        lama = self._get_lama_model()
+
+        # 执行修复
+        result = lama(input_image, mask_image)
+
+        # 编码结果
+        buffered = io.BytesIO()
+        result.save(buffered, format='PNG')
+        img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+
+        return {
+            'success': True,
+            'image': f'data:image/png;base64,{img_base64}',
+            'width': result.width,
+            'height': result.height
         }
 
     @modal.fastapi_endpoint(method="GET")

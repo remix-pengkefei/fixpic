@@ -61,6 +61,11 @@ interface ClothesSegmentOptions {
   categories: number[]
 }
 
+interface InpaintOptions {
+  imageBase64: string
+  maskBase64: string
+}
+
 interface ApiResponse {
   success: boolean
   image?: string
@@ -211,6 +216,33 @@ export async function clothesSegment(options: ClothesSegmentOptions): Promise<Ap
     const response = await fetch(`${API_URL}/api/clothes-segment`, {
       method: 'POST',
       body: formData
+    })
+    return response.json()
+  }
+}
+
+/**
+ * 图像修复 - 去水印
+ */
+export async function inpaint(options: InpaintOptions): Promise<ApiResponse> {
+  if (isModalAPI) {
+    const response = await fetch(getModalEndpoint('inpaint'), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        image_base64: options.imageBase64,
+        mask_base64: options.maskBase64
+      })
+    })
+    return response.json()
+  } else {
+    const response = await fetch(`${API_URL}/api/inpaint`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        image_base64: options.imageBase64,
+        mask_base64: options.maskBase64
+      })
     })
     return response.json()
   }

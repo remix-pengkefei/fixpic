@@ -13,7 +13,10 @@
     "useNow": "Usa Ora",
     "instructions": "Istruzioni",
     "privacy": "Elaborazione locale, privacy sicura",
-    "free": "Gratis"
+    "free": "Gratis",
+    "relatedTools": "Strumenti Correlati",
+    "relatedGuides": "Guide Correlate",
+    "learnMore": "Scopri di Più"
   },
   "header": {
     "title": "Fix-Pic",
@@ -22,10 +25,17 @@
   "footer": {
     "description": "FixPic - Strumenti Gratuiti per l'Elaborazione di Immagini | Elaborazione Locale, Privacy Sicura"
   },
+  "notFound": {
+    "title": "Pagina Non Trovata",
+    "description": "Spiacenti, la pagina che stai cercando non esiste o è stata spostata.",
+    "goHome": "Vai alla Home",
+    "tryTools": "Prova i nostri strumenti:"
+  },
   "nav": {
     "removeFakeTransparency": "Rimuovi Falsa Trasparenza",
     "compress": "Comprimi",
-    "resize": "Ridimensiona"
+    "resize": "Ridimensiona",
+    "removeWatermark": "Rimuovi Filigrana"
   },
   "home": {
     "seo": {
@@ -49,6 +59,35 @@
       "resize": {
         "title": "Ridimensiona Immagini",
         "desc": "Regola con precisione le dimensioni dell'immagine, mantieni le proporzioni con ridimensionamento proporzionale, elabora più immagini in batch"
+      },
+      "watermark": {
+        "title": "Rimuovi Filigrana",
+        "desc": "Rimuovi filigrane, testo, loghi e oggetti indesiderati dalle immagini usando la tecnologia di inpainting basata su IA",
+        "demoText": "Dipingi sopra le filigrane per rimuoverle"
+      }
+    },
+    "showcase": {
+      "title": "Vedi la Differenza",
+      "before": "Prima",
+      "after": "Dopo",
+      "transparency": {
+        "title": "Rimuovi Falsa Trasparenza",
+        "desc": "Converti istantaneamente gli sfondi a scacchiera falsi da strumenti AI come Midjourney e Lovart in PNG veramente trasparenti.",
+        "beforeAlt": "Immagine con sfondo a scacchiera falso",
+        "afterAlt": "Immagine con vera trasparenza"
+      },
+      "compress": {
+        "title": "Compressione Intelligente",
+        "desc": "Riduci la dimensione del file fino al 98% mantenendo la qualità visiva. Perfetto per l'ottimizzazione web.",
+        "sizeReduction": "Riduzione Dimensione",
+        "beforeAlt": "Immagine originale non compressa",
+        "afterAlt": "Immagine compressa"
+      },
+      "resize": {
+        "title": "Ridimensionamento Preciso",
+        "desc": "Ridimensiona le immagini alle dimensioni esatte con precisione pixel-perfect. Mantiene automaticamente le proporzioni.",
+        "beforeAlt": "Immagine dimensione originale",
+        "afterAlt": "Immagine ridimensionata"
       }
     },
     "features": {
@@ -176,6 +215,38 @@
       "wechat": "Copertina WeChat: 900×383",
       "ecommerce": "Prodotto e-commerce: 800×800 o 1000×1000",
       "banner": "Banner web: 1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "Rimuovi Filigrana da Immagine Online Gratis - Strumento di Inpainting IA | FixPic",
+      "description": "Strumento gratuito online per rimuovere filigrane usando l'inpainting IA. Rimuovi testo, loghi e filigrane dalle immagini. Dipingi sopra la filigrana e lascia che l'IA la riempia. Elaborazione locale, privacy sicura.",
+      "keywords": "rimuovere filigrana,rimuovi filigrana,inpainting immagine,rimuovere testo da immagine,rimuovere logo,rimozione filigrana foto,inpainting IA,OpenCV"
+    },
+    "title": "Rimuovi Filigrana",
+    "desc": "Rimuovi filigrane, testo, loghi e oggetti indesiderati dalle immagini usando l'inpainting con IA",
+    "loadingCV": "Caricamento motore di elaborazione immagini...",
+    "error": "Elaborazione fallita. Riprova.",
+    "dropText": "Carica un'immagine con filigrana",
+    "dropHint": "Supporta formati PNG, JPG, WebP",
+    "brushSize": "Dimensione Pennello",
+    "inpaintRadius": "Raggio Inpainting",
+    "undo": "Annulla",
+    "clearMask": "Cancella Maschera",
+    "removeWatermark": "Rimuovi Filigrana",
+    "newImage": "Nuova Immagine",
+    "canvasHint": "Dipingi sull'area della filigrana con il mouse o il dito",
+    "instructions": {
+      "step1": "Carica un'immagine con una filigrana da rimuovere",
+      "step2": "Usa il pennello per dipingere sull'area della filigrana (sovrapposizione rossa)",
+      "step3": "Regola la dimensione del pennello e il raggio di inpainting secondo necessità",
+      "step4": "Clicca su 'Rimuovi Filigrana' e scarica il risultato"
+    },
+    "tips": {
+      "title": "Consigli per Migliori Risultati",
+      "tip1": "Dipingi leggermente oltre i bordi della filigrana per una migliore fusione",
+      "tip2": "Usa un pennello più piccolo per aree dettagliate e più grande per filigrane grandi",
+      "tip3": "Aumenta il raggio di inpainting per risultati più uniformi su sfondi omogenei"
     }
   },
   "guides": {

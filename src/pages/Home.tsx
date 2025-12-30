@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
+import { BeforeAfterSlider } from '../components/BeforeAfterSlider'
 import { languages } from '../i18n'
 
 export function Home() {
@@ -33,27 +34,98 @@ export function Home() {
           <p className="hero-desc">{t('home.hero.desc')}</p>
         </section>
 
-        <section className="tools-grid">
-          <Link to={langLink('/remove-fake-transparency')} className="tool-card">
-            <div className="tool-card-icon">🔲</div>
-            <h2>{t('home.tools.removeFakeTransparency.title')}</h2>
-            <p>{t('home.tools.removeFakeTransparency.desc')}</p>
-            <span className="tool-card-btn">{t('common.useNow')}</span>
-          </Link>
+        {/* Quick navigation - minimal pill style */}
+        <nav className="tools-quick-nav">
+          <a href="#tool-transparency">{t('home.tools.removeFakeTransparency.title')}</a>
+          <a href="#tool-compress">{t('home.tools.compress.title')}</a>
+          <a href="#tool-resize">{t('home.tools.resize.title')}</a>
+          <a href="#tool-watermark">{t('home.tools.watermark.title')}</a>
+        </nav>
 
-          <Link to={langLink('/compress')} className="tool-card">
-            <div className="tool-card-icon">📦</div>
-            <h2>{t('home.tools.compress.title')}</h2>
-            <p>{t('home.tools.compress.desc')}</p>
-            <span className="tool-card-btn">{t('common.useNow')}</span>
-          </Link>
+        <section className="tools-showcase">
+          {/* Remove Fake Transparency */}
+          <div id="tool-transparency" className="tool-showcase-card">
+            <div className="tool-showcase-preview">
+              <BeforeAfterSlider
+                beforeImage="/examples/transparency-before.png"
+                afterImage="/examples/transparency-after.png"
+                beforeLabel={t('home.showcase.before')}
+                afterLabel={t('home.showcase.after')}
+                beforeAlt={t('home.showcase.transparency.beforeAlt')}
+                afterAlt={t('home.showcase.transparency.afterAlt')}
+              />
+            </div>
+            <div className="tool-showcase-content">
+              <h2>{t('home.tools.removeFakeTransparency.title')}</h2>
+              <p>{t('home.tools.removeFakeTransparency.desc')}</p>
+              <Link to={langLink('/remove-fake-transparency')} className="tool-showcase-btn">
+                {t('common.useNow')}
+              </Link>
+            </div>
+          </div>
 
-          <Link to={langLink('/resize')} className="tool-card">
-            <div className="tool-card-icon">📐</div>
-            <h2>{t('home.tools.resize.title')}</h2>
-            <p>{t('home.tools.resize.desc')}</p>
-            <span className="tool-card-btn">{t('common.useNow')}</span>
-          </Link>
+          {/* Compress */}
+          <div id="tool-compress" className="tool-showcase-card">
+            <div className="tool-showcase-preview">
+              <BeforeAfterSlider
+                beforeImage="/examples/compress-before.png"
+                afterImage="/examples/compress-after.webp"
+                beforeLabel="470 KB"
+                afterLabel="6 KB"
+                beforeAlt={t('home.showcase.compress.beforeAlt')}
+                afterAlt={t('home.showcase.compress.afterAlt')}
+              />
+            </div>
+            <div className="tool-showcase-content">
+              <h2>{t('home.tools.compress.title')}</h2>
+              <p>{t('home.tools.compress.desc')}</p>
+              <div className="tool-showcase-stat">
+                <span className="stat-value">-98%</span>
+                <span className="stat-label">{t('home.showcase.compress.sizeReduction')}</span>
+              </div>
+              <Link to={langLink('/compress')} className="tool-showcase-btn">
+                {t('common.useNow')}
+              </Link>
+            </div>
+          </div>
+
+          {/* Resize */}
+          <div id="tool-resize" className="tool-showcase-card">
+            <div className="tool-showcase-preview">
+              <BeforeAfterSlider
+                beforeImage="/examples/resize-before.png"
+                afterImage="/examples/resize-after.png"
+                beforeLabel="1200×800"
+                afterLabel="600×400"
+                beforeAlt={t('home.showcase.resize.beforeAlt')}
+                afterAlt={t('home.showcase.resize.afterAlt')}
+              />
+            </div>
+            <div className="tool-showcase-content">
+              <h2>{t('home.tools.resize.title')}</h2>
+              <p>{t('home.tools.resize.desc')}</p>
+              <Link to={langLink('/resize')} className="tool-showcase-btn">
+                {t('common.useNow')}
+              </Link>
+            </div>
+          </div>
+
+          {/* Remove Watermark */}
+          <div id="tool-watermark" className="tool-showcase-card">
+            <div className="tool-showcase-preview">
+              <div className="watermark-demo-placeholder">
+                <div className="demo-icon">🖌️</div>
+                <p>{t('home.tools.watermark.demoText')}</p>
+              </div>
+            </div>
+            <div className="tool-showcase-content">
+              <h2>{t('home.tools.watermark.title')}</h2>
+              <p>{t('home.tools.watermark.desc')}</p>
+              <Link to={langLink('/remove-watermark')} className="tool-showcase-btn">
+                {t('common.useNow')}
+              </Link>
+            </div>
+          </div>
         </section>
 
         <section className="features">

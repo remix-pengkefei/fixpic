@@ -8,45 +8,18 @@ const validLangCodes = languages.map(l => l.code)
 export function LanguageRouter({ children }: { children: React.ReactNode }) {
   const { lang } = useParams<{ lang: string }>()
   const { i18n } = useTranslation()
-  const navigate = useNavigate()
-  const location = useLocation()
 
   useEffect(() => {
     if (lang && validLangCodes.includes(lang)) {
-      // URL has valid language, load resources then sync with i18n
+      // URL has valid language, ensure resources are loaded and i18n is synced
+      // This handles direct URL access and browser back/forward navigation
       if (i18n.language !== lang) {
-        loadLanguage(lang).then(() => {
-          i18n.changeLanguage(lang)
-        })
+        loadLanguage(lang)
+          .then(() => i18n.changeLanguage(lang))
+          .catch((err) => console.error('Failed to load language:', lang, err))
       }
     }
   }, [lang, i18n])
-
-  // Sync URL when language changes via dropdown
-  useEffect(() => {
-    const handleLanguageChange = (newLang: string) => {
-      const currentPath = location.pathname
-      const pathParts = currentPath.split('/').filter(Boolean)
-
-      // Check if first part is a language code
-      if (pathParts.length > 0 && validLangCodes.includes(pathParts[0])) {
-        // Replace language in URL
-        pathParts[0] = newLang
-        navigate('/' + pathParts.join('/'), { replace: true })
-      } else if (pathParts.length === 0) {
-        // Root path, add language
-        navigate(`/${newLang}`, { replace: true })
-      } else {
-        // No language in URL, prepend it
-        navigate(`/${newLang}/${pathParts.join('/')}`, { replace: true })
-      }
-    }
-
-    i18n.on('languageChanged', handleLanguageChange)
-    return () => {
-      i18n.off('languageChanged', handleLanguageChange)
-    }
-  }, [i18n, navigate, location.pathname])
 
   return <>{children}</>
 }

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { languages, loadLanguage } from '../i18n'
 import { Breadcrumb } from './Breadcrumb'
@@ -10,6 +10,7 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const location = useLocation()
+  const navigate = useNavigate()
   const { t, i18n } = useTranslation()
   const [showLangMenu, setShowLangMenu] = useState(false)
   const langMenuRef = useRef<HTMLDivElement>(null)
@@ -42,9 +43,19 @@ export function Layout({ children }: LayoutProps) {
   }, [])
 
   const changeLanguage = async (code: string) => {
-    await loadLanguage(code)
-    i18n.changeLanguage(code)
     setShowLangMenu(false)
+
+    // Load language resources first, then navigate
+    try {
+      await loadLanguage(code)
+      await i18n.changeLanguage(code)
+    } catch (err) {
+      console.error('Failed to load language:', code, err)
+    }
+
+    // Navigate to the same page with new language prefix
+    const newPath = `/${code}${currentPage === '/' ? '' : currentPage}`
+    navigate(newPath)
   }
 
   return (
@@ -107,6 +118,12 @@ export function Layout({ children }: LayoutProps) {
           >
             {t('nav.resize')}
           </Link>
+          <Link
+            to={langLink('/remove-watermark')}
+            className={currentPage === '/remove-watermark' ? 'active' : ''}
+          >
+            {t('nav.removeWatermark')}
+          </Link>
         </nav>
       )}
 
@@ -124,6 +141,7 @@ export function Layout({ children }: LayoutProps) {
           <Link to={langLink('/remove-fake-transparency')}>{t('nav.removeFakeTransparency')}</Link>
           <Link to={langLink('/compress')}>{t('nav.compress')}</Link>
           <Link to={langLink('/resize')}>{t('nav.resize')}</Link>
+          <Link to={langLink('/remove-watermark')}>{t('nav.removeWatermark')}</Link>
         </div>
         <p>{t('footer.description')}</p>
       </footer>

@@ -25,10 +25,17 @@
   "footer": {
     "description": "FixPic - Công cụ Xử lý Hình ảnh Trực tuyến Miễn phí | Xử lý Cục bộ, Bảo mật Riêng tư"
   },
+  "notFound": {
+    "title": "Không Tìm Thấy Trang",
+    "description": "Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển.",
+    "goHome": "Về Trang Chủ",
+    "tryTools": "Thử các công cụ của chúng tôi:"
+  },
   "nav": {
     "removeFakeTransparency": "Xóa Trong suốt Giả",
     "compress": "Nén",
-    "resize": "Thay đổi Kích thước"
+    "resize": "Thay đổi Kích thước",
+    "removeWatermark": "Xóa Watermark"
   },
   "home": {
     "seo": {
@@ -52,6 +59,35 @@
       "resize": {
         "title": "Thay đổi Kích thước Hình ảnh",
         "desc": "Điều chỉnh kích thước hình ảnh chính xác, duy trì tỷ lệ khung hình với tỷ lệ tương ứng, xử lý nhiều hình ảnh hàng loạt"
+      },
+      "watermark": {
+        "title": "Xóa Watermark",
+        "desc": "Xóa watermark, văn bản, logo và các đối tượng không mong muốn khỏi hình ảnh bằng công nghệ AI inpainting",
+        "demoText": "Tô lên watermark để xóa chúng"
+      }
+    },
+    "showcase": {
+      "title": "Xem Sự Khác Biệt",
+      "before": "Trước",
+      "after": "Sau",
+      "transparency": {
+        "title": "Xóa Trong suốt Giả",
+        "desc": "Chuyển đổi ngay lập tức nền ô vuông giả từ các công cụ AI như Midjourney và Lovart thành PNG trong suốt thật.",
+        "beforeAlt": "Hình ảnh với nền ô vuông giả",
+        "afterAlt": "Hình ảnh với trong suốt thật"
+      },
+      "compress": {
+        "title": "Nén Thông Minh",
+        "desc": "Giảm kích thước tệp lên đến 98% trong khi vẫn duy trì chất lượng hình ảnh. Hoàn hảo cho tối ưu hóa web.",
+        "sizeReduction": "Giảm Kích thước",
+        "beforeAlt": "Hình ảnh gốc chưa nén",
+        "afterAlt": "Hình ảnh đã nén"
+      },
+      "resize": {
+        "title": "Thay đổi Kích thước Chính xác",
+        "desc": "Thay đổi tỷ lệ hình ảnh đến kích thước chính xác với độ chính xác từng pixel. Tự động duy trì tỷ lệ khung hình.",
+        "beforeAlt": "Hình ảnh kích thước gốc",
+        "afterAlt": "Hình ảnh đã thay đổi kích thước"
       }
     },
     "features": {
@@ -179,6 +215,38 @@
       "wechat": "Ảnh bìa WeChat: 900×383",
       "ecommerce": "Sản phẩm thương mại điện tử: 800×800 hoặc 1000×1000",
       "banner": "Banner web: 1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "Xóa Watermark khỏi Hình ảnh Trực tuyến Miễn phí - AI Xóa Watermark | FixPic",
+      "description": "Công cụ trực tuyến miễn phí để xóa watermark khỏi hình ảnh bằng AI. Xóa watermark, logo, văn bản và các đối tượng không mong muốn khỏi ảnh. Xử lý dựa trên trình duyệt, bảo mật riêng tư.",
+      "keywords": "xóa watermark,xóa watermark hình ảnh,xóa watermark trực tuyến,AI xóa watermark,xóa logo khỏi hình ảnh,công cụ trực tuyến,miễn phí"
+    },
+    "title": "Xóa Watermark khỏi Hình ảnh",
+    "desc": "Sử dụng công nghệ AI inpainting để xóa watermark, logo, văn bản và các đối tượng không mong muốn khỏi hình ảnh. Xử lý hoàn toàn dựa trên trình duyệt, bảo mật riêng tư.",
+    "loadingCV": "Đang tải mô-đun xử lý hình ảnh...",
+    "error": "Tải mô-đun thất bại. Vui lòng làm mới trang và thử lại.",
+    "dropText": "Kéo thả hình ảnh vào đây hoặc nhấp để chọn",
+    "dropHint": "Hỗ trợ PNG, JPG, WebP",
+    "brushSize": "Kích thước Cọ",
+    "inpaintRadius": "Bán kính Inpaint",
+    "undo": "Hoàn tác",
+    "clearMask": "Xóa Mặt nạ",
+    "removeWatermark": "Xóa Watermark",
+    "newImage": "Hình ảnh Mới",
+    "canvasHint": "Sử dụng chuột để tô vùng watermark cần xóa",
+    "instructions": {
+      "step1": "Tải lên hình ảnh có watermark",
+      "step2": "Dùng cọ tô vùng watermark",
+      "step3": "Nhấp \"Xóa Watermark\" để xử lý",
+      "step4": "Tải xuống hình ảnh đã xử lý"
+    },
+    "tips": {
+      "title": "Mẹo để Có Kết quả Tốt nhất",
+      "tip1": "Bao phủ hoàn toàn vùng watermark",
+      "tip2": "Để có kết quả tốt hơn, tô hơi ra ngoài ranh giới watermark",
+      "tip3": "Điều chỉnh kích thước cọ phù hợp với kích thước watermark"
     }
   },
   "guides": {

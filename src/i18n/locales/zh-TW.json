@@ -25,10 +25,17 @@
   "footer": {
     "description": "FixPic - 免費線上圖片處理工具 | 本機處理，隱私安全"
   },
+  "notFound": {
+    "title": "找不到頁面",
+    "description": "抱歉，您尋找的頁面不存在或已被移動。",
+    "goHome": "回到首頁",
+    "tryTools": "試試我們的工具："
+  },
   "nav": {
     "removeFakeTransparency": "去假透明",
     "compress": "壓縮圖片",
-    "resize": "調整尺寸"
+    "resize": "調整尺寸",
+    "removeWatermark": "去除浮水印"
   },
   "home": {
     "seo": {
@@ -52,6 +59,35 @@
       "resize": {
         "title": "調整圖片尺寸",
         "desc": "精確調整圖片寬高尺寸，支援保持寬高比等比縮放，批次處理多張圖片"
+      },
+      "watermark": {
+        "title": "去除浮水印",
+        "desc": "使用 AI inpainting 技術移除圖片上的浮水印、文字、Logo 和不需要的物件",
+        "demoText": "塗抹浮水印以去除"
+      }
+    },
+    "showcase": {
+      "title": "看見差異",
+      "before": "處理前",
+      "after": "處理後",
+      "transparency": {
+        "title": "去除假透明背景",
+        "desc": "將 Midjourney、Lovart 等 AI 工具產生的假棋盤格背景立即轉換為真正的透明 PNG。",
+        "beforeAlt": "帶有假棋盤格背景的圖片",
+        "afterAlt": "具有真正透明背景的圖片"
+      },
+      "compress": {
+        "title": "智慧壓縮",
+        "desc": "在保持視覺品質的同時，將檔案大小減少高達 98%。非常適合網頁最佳化。",
+        "sizeReduction": "大小縮減",
+        "beforeAlt": "原始未壓縮圖片",
+        "afterAlt": "壓縮後的圖片"
+      },
+      "resize": {
+        "title": "精確調整尺寸",
+        "desc": "以像素級精確度將圖片縮放到精確尺寸。自動保持寬高比。",
+        "beforeAlt": "原始尺寸圖片",
+        "afterAlt": "調整尺寸後的圖片"
       }
     },
     "features": {
@@ -179,6 +215,38 @@
       "wechat": "微信公眾號封面：900×383",
       "ecommerce": "電商主圖：800×800 或 1000×1000",
       "banner": "網頁橫幅：1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "線上免費去除圖片浮水印 - AI 智慧去浮水印 | FixPic",
+      "description": "免費線上 AI 去浮水印工具，輕鬆移除圖片上的浮水印、Logo、文字和不需要的物件。本機瀏覽器處理，保護隱私安全。",
+      "keywords": "去浮水印,去除浮水印,移除圖片浮水印,AI去浮水印,去除Logo,線上工具,免費"
+    },
+    "title": "去除圖片浮水印",
+    "desc": "使用 AI inpainting 技術移除圖片上的浮水印、Logo、文字和不需要的物件。完全在瀏覽器中處理，保護您的隱私。",
+    "loadingCV": "正在載入圖片處理模組...",
+    "error": "模組載入失敗，請重新整理頁面後再試。",
+    "dropText": "拖曳圖片到這裡，或點擊選擇",
+    "dropHint": "支援 PNG、JPG、WebP",
+    "brushSize": "筆刷大小",
+    "inpaintRadius": "修復半徑",
+    "undo": "撤銷",
+    "clearMask": "清除遮罩",
+    "removeWatermark": "去除浮水印",
+    "newImage": "新圖片",
+    "canvasHint": "使用滑鼠塗抹需要去除的浮水印區域",
+    "instructions": {
+      "step1": "上傳帶有浮水印的圖片",
+      "step2": "使用筆刷塗抹浮水印區域",
+      "step3": "點擊「去除浮水印」進行處理",
+      "step4": "下載處理後的圖片"
+    },
+    "tips": {
+      "title": "獲得最佳效果的技巧",
+      "tip1": "完整覆蓋浮水印區域",
+      "tip2": "為獲得更好的效果，塗抹時稍微超出浮水印邊界",
+      "tip3": "根據浮水印大小調整筆刷尺寸"
     }
   },
   "guides": {

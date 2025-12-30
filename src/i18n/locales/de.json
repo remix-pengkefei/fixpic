@@ -25,10 +25,17 @@
   "footer": {
     "description": "FixPic - Kostenlose Online-Bildverarbeitungswerkzeuge | Lokale Verarbeitung, Datenschutz gewährleistet"
   },
+  "notFound": {
+    "title": "Seite Nicht Gefunden",
+    "description": "Entschuldigung, die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "goHome": "Zur Startseite",
+    "tryTools": "Probieren Sie unsere Werkzeuge:"
+  },
   "nav": {
     "removeFakeTransparency": "Falsche Transparenz Entfernen",
     "compress": "Komprimieren",
-    "resize": "Größe Ändern"
+    "resize": "Größe Ändern",
+    "removeWatermark": "Wasserzeichen Entfernen"
   },
   "home": {
     "seo": {
@@ -52,6 +59,35 @@
       "resize": {
         "title": "Bildgröße Ändern",
         "desc": "Passen Sie Bildabmessungen präzise an, behalten Sie das Seitenverhältnis mit proportionaler Skalierung bei, verarbeiten Sie mehrere Bilder im Stapel"
+      },
+      "watermark": {
+        "title": "Wasserzeichen Entfernen",
+        "desc": "Entfernen Sie Wasserzeichen, Text, Logos und unerwünschte Objekte aus Bildern mit KI-gestützter Inpainting-Technologie",
+        "demoText": "Übermalen Sie Wasserzeichen, um sie zu entfernen"
+      }
+    },
+    "showcase": {
+      "title": "Sehen Sie den Unterschied",
+      "before": "Vorher",
+      "after": "Nachher",
+      "transparency": {
+        "title": "Falsche Transparenz Entfernen",
+        "desc": "Wandeln Sie falsche Schachbretthintergründe von KI-Tools wie Midjourney und Lovart sofort in echte transparente PNGs um.",
+        "beforeAlt": "Bild mit falschem Schachbretthintergrund",
+        "afterAlt": "Bild mit echter Transparenz"
+      },
+      "compress": {
+        "title": "Intelligente Komprimierung",
+        "desc": "Reduzieren Sie die Dateigröße um bis zu 98% bei Beibehaltung der visuellen Qualität. Perfekt für Web-Optimierung.",
+        "sizeReduction": "Größenreduzierung",
+        "beforeAlt": "Originales unkomprimiertes Bild",
+        "afterAlt": "Komprimiertes Bild"
+      },
+      "resize": {
+        "title": "Präzise Größenänderung",
+        "desc": "Skalieren Sie Bilder auf exakte Abmessungen mit pixelgenauer Präzision. Seitenverhältnis wird automatisch beibehalten.",
+        "beforeAlt": "Bild in Originalgröße",
+        "afterAlt": "Größengeändertes Bild"
       }
     },
     "features": {
@@ -179,6 +215,38 @@
       "wechat": "WeChat-Cover: 900×383",
       "ecommerce": "E-Commerce-Produkt: 800×800 oder 1000×1000",
       "banner": "Web-Banner: 1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "Wasserzeichen Online Kostenlos Entfernen - KI-Inpainting-Tool | FixPic",
+      "description": "Kostenloses Online-Tool zum Entfernen von Wasserzeichen mit KI-Inpainting. Entfernen Sie Text, Logos und Wasserzeichen aus Bildern. Übermalen Sie das Wasserzeichen und lassen Sie die KI es ausfüllen. Lokale Verarbeitung, datenschutzsicher.",
+      "keywords": "Wasserzeichen entfernen,Wasserzeichen-Entferner,Bild-Inpainting,Text aus Bild entfernen,Logo entfernen,Foto-Wasserzeichen-Entfernung,KI-Inpainting,OpenCV"
+    },
+    "title": "Wasserzeichen Entfernen",
+    "desc": "Entfernen Sie Wasserzeichen, Text, Logos und unerwünschte Objekte aus Bildern mit KI-Inpainting",
+    "loadingCV": "Bildverarbeitungs-Engine wird geladen...",
+    "error": "Verarbeitung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "dropText": "Bild mit Wasserzeichen hochladen",
+    "dropHint": "Unterstützt PNG, JPG, WebP Formate",
+    "brushSize": "Pinselgröße",
+    "inpaintRadius": "Inpaint-Radius",
+    "undo": "Rückgängig",
+    "clearMask": "Maske Löschen",
+    "removeWatermark": "Wasserzeichen Entfernen",
+    "newImage": "Neues Bild",
+    "canvasHint": "Übermalen Sie den Wasserzeichenbereich mit Maus oder Finger",
+    "instructions": {
+      "step1": "Laden Sie ein Bild mit dem zu entfernenden Wasserzeichen hoch",
+      "step2": "Übermalen Sie den Wasserzeichenbereich mit dem Pinsel (rotes Overlay)",
+      "step3": "Passen Sie Pinselgröße und Inpaint-Radius nach Bedarf an",
+      "step4": "Klicken Sie auf 'Wasserzeichen Entfernen' und laden Sie das Ergebnis herunter"
+    },
+    "tips": {
+      "title": "Tipps für beste Ergebnisse",
+      "tip1": "Malen Sie etwas über die Wasserzeichen-Ränder hinaus für bessere Überblendung",
+      "tip2": "Verwenden Sie einen kleineren Pinsel für Details und größeren für große Wasserzeichen",
+      "tip3": "Erhöhen Sie den Inpaint-Radius für glattere Ergebnisse bei einheitlichen Hintergründen"
     }
   },
   "guides": {

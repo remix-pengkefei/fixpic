@@ -25,10 +25,17 @@
   "footer": {
     "description": "FixPic - Ücretsiz Çevrimiçi Resim İşleme Araçları | Yerel İşlem, Gizlilik Güvende"
   },
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "description": "Üzgünüz, aradığınız sayfa mevcut değil veya taşınmış.",
+    "goHome": "Ana Sayfaya Git",
+    "tryTools": "Araçlarımızı deneyin:"
+  },
   "nav": {
     "removeFakeTransparency": "Sahte Şeffaflığı Kaldır",
     "compress": "Sıkıştır",
-    "resize": "Yeniden Boyutlandır"
+    "resize": "Yeniden Boyutlandır",
+    "removeWatermark": "Filigran Kaldır"
   },
   "home": {
     "seo": {
@@ -52,6 +59,35 @@
       "resize": {
         "title": "Resimleri Yeniden Boyutlandır",
         "desc": "Resim boyutlarını hassas şekilde ayarlayın, orantılı ölçekleme ile en boy oranını koruyun, birden fazla resmi toplu işleyin"
+      },
+      "watermark": {
+        "title": "Filigran Kaldır",
+        "desc": "AI destekli inpainting teknolojisi kullanarak resimlerden filigranları, metinleri, logoları ve istenmeyen nesneleri kaldırın",
+        "demoText": "Kaldırmak için filigranların üzerini boyayın"
+      }
+    },
+    "showcase": {
+      "title": "Farkı Görün",
+      "before": "Önce",
+      "after": "Sonra",
+      "transparency": {
+        "title": "Sahte Şeffaflığı Kaldır",
+        "desc": "Midjourney ve Lovart gibi AI araçlarından gelen sahte dama tahtası arka planlarını anında gerçek şeffaf PNG'lere dönüştürün.",
+        "beforeAlt": "Sahte dama tahtası arka planlı resim",
+        "afterAlt": "Gerçek şeffaflığa sahip resim"
+      },
+      "compress": {
+        "title": "Akıllı Sıkıştırma",
+        "desc": "Görsel kaliteyi korurken dosya boyutunu %98'e kadar azaltın. Web optimizasyonu için mükemmel.",
+        "sizeReduction": "Boyut Azaltma",
+        "beforeAlt": "Orijinal sıkıştırılmamış resim",
+        "afterAlt": "Sıkıştırılmış resim"
+      },
+      "resize": {
+        "title": "Hassas Yeniden Boyutlandırma",
+        "desc": "Resimleri piksel hassasiyetinde tam boyutlara ölçekleyin. En boy oranını otomatik olarak korur.",
+        "beforeAlt": "Orijinal boyutlu resim",
+        "afterAlt": "Yeniden boyutlandırılmış resim"
       }
     },
     "features": {
@@ -179,6 +215,38 @@
       "wechat": "WeChat kapağı: 900×383",
       "ecommerce": "E-ticaret ürünü: 800×800 veya 1000×1000",
       "banner": "Web banner: 1920×600"
+    }
+  },
+  "watermark": {
+    "seo": {
+      "title": "Resimden Filigran Kaldır Ücretsiz Çevrimiçi - AI Filigran Kaldırma | FixPic",
+      "description": "AI kullanarak resimlerden filigran kaldırmak için ücretsiz çevrimiçi araç. Fotoğraflardan filigranları, logoları, metinleri ve istenmeyen nesneleri kaldırın. Tarayıcı tabanlı işlem, gizlilik güvende.",
+      "keywords": "filigran kaldır,filigran kaldırma,fotoğraftan filigran sil,AI filigran kaldırma,resimden logo kaldır,çevrimiçi araç,ücretsiz"
+    },
+    "title": "Resimden Filigran Kaldır",
+    "desc": "Resimlerden filigranları, logoları, metinleri ve istenmeyen nesneleri kaldırmak için AI inpainting teknolojisini kullanın. Tamamen tarayıcı tabanlı işlem, gizlilik güvende.",
+    "loadingCV": "Görüntü işleme modülü yükleniyor...",
+    "error": "Modül yüklenemedi. Lütfen sayfayı yenileyin ve tekrar deneyin.",
+    "dropText": "Resmi buraya sürükleyin veya seçmek için tıklayın",
+    "dropHint": "PNG, JPG, WebP desteklenir",
+    "brushSize": "Fırça Boyutu",
+    "inpaintRadius": "Inpaint Yarıçapı",
+    "undo": "Geri Al",
+    "clearMask": "Maskeyi Temizle",
+    "removeWatermark": "Filigranı Kaldır",
+    "newImage": "Yeni Resim",
+    "canvasHint": "Kaldırılacak filigran alanını boyamak için fareyi kullanın",
+    "instructions": {
+      "step1": "Filigranlı resmi yükleyin",
+      "step2": "Fırça ile filigran alanını boyayın",
+      "step3": "İşlemek için \"Filigranı Kaldır\"a tıklayın",
+      "step4": "İşlenmiş resmi indirin"
+    },
+    "tips": {
+      "title": "En İyi Sonuçlar İçin İpuçları",
+      "tip1": "Filigran alanını tamamen kaplayın",
+      "tip2": "Daha iyi sonuçlar için filigran sınırlarının biraz dışına boyayın",
+      "tip3": "Filigran boyutuna göre fırça boyutunu ayarlayın"
     }
   },
   "guides": {

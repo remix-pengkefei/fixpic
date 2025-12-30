@@ -54,10 +54,9 @@ export function RemoveFakeTransparency() {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
         const data = imageData.data
 
-        const sampleSize = Math.min(20, Math.floor(Math.min(canvas.width, canvas.height) / 10))
-        let minVal = 255
-        let grayCount = 0
-        let totalSamples = 0
+        // Sample corners to detect checkerboard pattern
+        const sampleSize = Math.min(50, Math.floor(Math.min(canvas.width, canvas.height) / 10))
+        const grayValues: number[] = []
 
         const sampleCorner = (startX: number, startY: number) => {
           for (let y = startY; y < startY + sampleSize && y < canvas.height; y++) {
@@ -65,11 +64,11 @@ export function RemoveFakeTransparency() {
               const idx = (y * canvas.width + x) * 4
               const r = data[idx], g = data[idx + 1], b = data[idx + 2]
               const diff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b))
-              if (diff < 20) {
-                grayCount++
-                minVal = Math.min(minVal, r, g, b)
+              // Only consider grayscale pixels (R ≈ G ≈ B)
+              if (diff < 15) {
+                const avg = Math.round((r + g + b) / 3)
+                grayValues.push(avg)
               }
-              totalSamples++
             }
           }
         }
@@ -79,15 +78,52 @@ export function RemoveFakeTransparency() {
         sampleCorner(0, canvas.height - sampleSize)
         sampleCorner(canvas.width - sampleSize, canvas.height - sampleSize)
 
-        const isGrayBg = grayCount / totalSamples > 0.7
-        const threshold = isGrayBg ? Math.max(150, minVal - 10) : 220
+        // Find the two most common gray values (checkerboard colors)
+        const histogram: Record<number, number> = {}
+        for (const val of grayValues) {
+          // Group into buckets of 10 to handle slight variations
+          const bucket = Math.round(val / 10) * 10
+          histogram[bucket] = (histogram[bucket] || 0) + 1
+        }
 
+        // Sort by frequency and get top 2 values
+        const sortedBuckets = Object.entries(histogram)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 2)
+          .map(([val]) => parseInt(val))
+
+        // Determine thresholds based on detected checkerboard colors
+        let lowThreshold = 160  // Default for dark gray
+        let highThreshold = 255 // Default for light gray
+
+        if (sortedBuckets.length >= 2) {
+          const [val1, val2] = sortedBuckets.sort((a, b) => a - b)
+          // Set thresholds with generous margin to catch edge pixels
+          lowThreshold = Math.max(val1 - 30, 140)
+          highThreshold = Math.min(val2 + 20, 255)
+        } else if (sortedBuckets.length === 1) {
+          // Single color background
+          const val = sortedBuckets[0]
+          lowThreshold = Math.max(val - 30, 140)
+          highThreshold = Math.min(val + 20, 255)
+        }
+
+        // Remove pixels that fall within the checkerboard color range
         for (let i = 0; i < data.length; i += 4) {
           const r = data[i], g = data[i + 1], b = data[i + 2]
-          const isGray = r > threshold && g > threshold && b > threshold
-          const isSimilar = Math.abs(r - g) < 20 && Math.abs(g - b) < 20 && Math.abs(r - b) < 20
-          if (isGray && isSimilar) {
-            data[i + 3] = 0
+          const avg = (r + g + b) / 3
+          const diff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b))
+          const minChannel = Math.min(r, g, b)
+
+          // Check if pixel is grayscale-ish and within checkerboard color range
+          // For nearly gray pixels (diff < 35), use standard check
+          // For slightly tinted pixels (diff < 50), only remove if min channel is still high (light tint)
+          const isNearlyGray = diff < 35
+          const isLightTinted = diff < 50 && minChannel > 140
+          const isInRange = avg >= lowThreshold && avg <= highThreshold
+
+          if ((isNearlyGray || isLightTinted) && isInRange) {
+            data[i + 3] = 0 // Make transparent
           }
         }
 
