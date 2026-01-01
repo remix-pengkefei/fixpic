@@ -3449,6 +3449,58 @@
   text-decoration: underline;
 }
 
+.auth-hint {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.auth-code-input {
+  text-align: center;
+  font-size: 24px !important;
+  font-weight: 600;
+  letter-spacing: 8px;
+  font-family: monospace;
+}
+
+.auth-resend {
+  text-align: center;
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.auth-resend button {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-resend button:hover {
+  text-decoration: underline;
+}
+
+.auth-resend button:disabled {
+  color: #999;
+  cursor: not-allowed;
+}
+
+.auth-back-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.auth-back-btn:hover {
+  color: #666;
+}
+
 /* User Menu */
 .user-menu {
   position: relative;
