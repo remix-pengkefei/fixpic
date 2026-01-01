@@ -5,10 +5,10 @@ import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
 import { languages } from '../i18n'
 import { useAuth } from '../contexts/AuthContext'
-import { removeBg } from '../lib/pixelbin'
-import type { RemoveBgOptions } from '../lib/pixelbin'
+import { upscaleImage } from '../lib/pixelbin'
+import type { UpscaleOptions } from '../lib/pixelbin'
 
-export function ChangeBackground() {
+export function ImageUpscaler() {
   const { t, i18n } = useTranslation()
   const location = useLocation()
   const { user } = useAuth()
@@ -27,17 +27,19 @@ export function ChangeBackground() {
   const [error, setError] = useState<string>('')
 
   // 选项状态
-  const [industryType, setIndustryType] = useState<'general' | 'ecommerce' | 'car' | 'human'>('general')
+  const [scale, setScale] = useState<'2x' | '4x'>('2x')
+  const [enhanceFace, setEnhanceFace] = useState(false)
+  const [enhanceQuality, setEnhanceQuality] = useState(true)
 
   useEffect(() => {
     return () => {
       if (inputPreview) URL.revokeObjectURL(inputPreview)
+      if (result) URL.revokeObjectURL(result)
     }
-  }, [inputPreview])
+  }, [inputPreview, result])
 
   const handleFile = useCallback((file: File) => {
     if (!file.type.startsWith('image/')) return
-
     setInputFile(file)
     setInputPreview(URL.createObjectURL(file))
     setResult('')
@@ -51,10 +53,12 @@ export function ChangeBackground() {
     setError('')
 
     try {
-      const options: RemoveBgOptions = {
-        industryType,
+      const options: UpscaleOptions = {
+        scale,
+        enhanceFace,
+        enhanceQuality,
       }
-      const response = await removeBg(inputFile, options)
+      const response = await upscaleImage(inputFile, options)
 
       if (response.success && response.url) {
         setResult(response.url)
@@ -66,7 +70,7 @@ export function ChangeBackground() {
     } finally {
       setProcessing(false)
     }
-  }, [inputFile, industryType])
+  }, [inputFile, scale, enhanceFace, enhanceQuality])
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault()
@@ -89,31 +93,41 @@ export function ChangeBackground() {
     if (file) handleFile(file)
   }, [handleFile])
 
-  const downloadResult = useCallback(() => {
+  const downloadResult = useCallback(async () => {
     if (!result) return
-
+    const response = await fetch(result)
+    const blob = await response.blob()
+    const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
-    link.href = result
-    link.download = `background-removed-${Date.now()}.png`
+    link.href = url
+    link.download = `upscaled-${scale}-${Date.now()}.png`
     link.click()
-  }, [result])
+    URL.revokeObjectURL(url)
+  }, [result, scale])
+
+  const resetTool = useCallback(() => {
+    setInputFile(null)
+    setInputPreview('')
+    setResult('')
+    setError('')
+  }, [])
 
   // 未登录时显示登录提示
   if (!user) {
     return (
       <>
         <SEO
-          title={t('bgRemover.title', 'AI Background Remover - Remove Background Instantly')}
-          description={t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
-          keywords="background remover, remove background, AI background, photo editor, e-commerce"
-          canonicalUrl={`/${currentLang}/background-remover`}
+          title={t('upscaler.title', 'AI Image Upscaler - Enlarge Images Up to 4x')}
+          description={t('upscaler.description', 'Enlarge images up to 4x without losing quality. AI-powered upscaling for sharper, clearer images.')}
+          keywords="image upscaler, AI upscale, enlarge image, enhance image, super resolution"
+          canonicalUrl={`/${currentLang}/image-upscaler`}
         />
         <StructuredData type="home" />
 
         <div className="tool-page">
-          <h1>{t('bgRemover.title', 'AI Background Remover')}</h1>
+          <h1>{t('upscaler.title', 'AI Image Upscaler')}</h1>
           <p className="tool-description">
-            {t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
+            {t('upscaler.description', 'Enlarge images up to 4x without losing quality. AI-powered upscaling for sharper, clearer images.')}
           </p>
 
           <div className="login-required-box">
@@ -126,22 +140,22 @@ export function ChangeBackground() {
           </div>
 
           <div className="features-section">
-            <h2>{t('bgRemover.features', 'Features')}</h2>
+            <h2>{t('upscaler.features', 'Features')}</h2>
             <div className="features-grid">
               <div className="feature-card">
-                <div className="feature-icon">🎯</div>
-                <h3>{t('bgRemover.feature1Title', 'Auto Detection')}</h3>
-                <p>{t('bgRemover.feature1Desc', 'AI automatically detects and isolates the main subject')}</p>
-              </div>
-              <div className="feature-card">
-                <div className="feature-icon">🛒</div>
-                <h3>{t('bgRemover.feature2Title', 'E-commerce Ready')}</h3>
-                <p>{t('bgRemover.feature2Desc', 'Optimized for product photos with clean edges')}</p>
+                <div className="feature-icon">🔍</div>
+                <h3>{t('upscaler.feature1Title', '2x & 4x Upscaling')}</h3>
+                <p>{t('upscaler.feature1Desc', 'Double or quadruple your image resolution with AI')}</p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">👤</div>
-                <h3>{t('bgRemover.feature3Title', 'Portrait Mode')}</h3>
-                <p>{t('bgRemover.feature3Desc', 'Enhanced detection for human subjects and portraits')}</p>
+                <h3>{t('upscaler.feature2Title', 'Face Enhancement')}</h3>
+                <p>{t('upscaler.feature2Desc', 'Automatically enhance facial features for portraits')}</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">✨</div>
+                <h3>{t('upscaler.feature3Title', 'Quality Enhancement')}</h3>
+                <p>{t('upscaler.feature3Desc', 'Remove JPEG artifacts and improve image quality')}</p>
               </div>
             </div>
           </div>
@@ -153,17 +167,17 @@ export function ChangeBackground() {
   return (
     <>
       <SEO
-        title={t('bgRemover.title', 'AI Background Remover - Remove Background Instantly')}
-        description={t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
-        keywords="background remover, remove background, AI background, photo editor, e-commerce"
-        canonicalUrl={`/${currentLang}/background-remover`}
+        title={t('upscaler.title', 'AI Image Upscaler - Enlarge Images Up to 4x')}
+        description={t('upscaler.description', 'Enlarge images up to 4x without losing quality. AI-powered upscaling for sharper, clearer images.')}
+        keywords="image upscaler, AI upscale, enlarge image, enhance image, super resolution"
+        canonicalUrl={`/${currentLang}/image-upscaler`}
       />
       <StructuredData type="home" />
 
       <div className="tool-page">
-        <h1>{t('bgRemover.title', 'AI Background Remover')}</h1>
+        <h1>{t('upscaler.title', 'AI Image Upscaler')}</h1>
         <p className="tool-description">
-          {t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
+          {t('upscaler.description', 'Enlarge images up to 4x without losing quality. AI-powered upscaling for sharper, clearer images.')}
         </p>
 
         {!inputFile ? (
@@ -172,10 +186,10 @@ export function ChangeBackground() {
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
-            onClick={() => document.getElementById('file-input')?.click()}
+            onClick={() => document.getElementById('upscaler-file-input')?.click()}
           >
             <input
-              id="file-input"
+              id="upscaler-file-input"
               type="file"
               accept="image/*"
               onChange={handleFileSelect}
@@ -190,46 +204,58 @@ export function ChangeBackground() {
             </div>
             <p>{t('upload.dragDrop', 'Drag & drop your image here')}</p>
             <p className="upload-hint">{t('upload.or', 'or click to select')}</p>
+            <p className="upload-formats">PNG, JPG, JPEG, WEBP, HEIC</p>
           </div>
         ) : (
           <div className="editor-container">
             {/* 选项面板 */}
             <div className="options-panel">
               <div className="option-group">
-                <label>{t('bgRemover.industryType', 'Industry Type')}</label>
+                <label>{t('upscaler.scale', 'Scale')}</label>
                 <div className="option-buttons">
                   <button
-                    className={`option-btn ${industryType === 'general' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('general')}
+                    className={`option-btn ${scale === '2x' ? 'active' : ''}`}
+                    onClick={() => setScale('2x')}
                     disabled={processing}
                   >
-                    {t('bgRemover.general', 'General')}
+                    2x
                   </button>
                   <button
-                    className={`option-btn ${industryType === 'ecommerce' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('ecommerce')}
+                    className={`option-btn ${scale === '4x' ? 'active' : ''}`}
+                    onClick={() => setScale('4x')}
                     disabled={processing}
                   >
-                    {t('bgRemover.ecommerce', 'E-commerce')}
-                  </button>
-                  <button
-                    className={`option-btn ${industryType === 'car' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('car')}
-                    disabled={processing}
-                  >
-                    {t('bgRemover.car', 'Car')}
-                  </button>
-                  <button
-                    className={`option-btn ${industryType === 'human' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('human')}
-                    disabled={processing}
-                  >
-                    {t('bgRemover.human', 'Human')}
+                    4x
                   </button>
                 </div>
               </div>
+
+              <div className="option-group">
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={enhanceFace}
+                    onChange={(e) => setEnhanceFace(e.target.checked)}
+                    disabled={processing}
+                  />
+                  <span>{t('upscaler.enhanceFace', 'Enhance Face')}</span>
+                </label>
+              </div>
+
+              <div className="option-group">
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={enhanceQuality}
+                    onChange={(e) => setEnhanceQuality(e.target.checked)}
+                    disabled={processing}
+                  />
+                  <span>{t('upscaler.enhanceQuality', 'Enhance Quality')}</span>
+                </label>
+              </div>
             </div>
 
+            {/* 预览区域 */}
             <div className="editor-main">
               <div className="preview-section">
                 <h3>{t('common.original', 'Original')}</h3>
@@ -240,25 +266,26 @@ export function ChangeBackground() {
 
               {result && (
                 <div className="preview-section">
-                  <h3>{t('common.result', 'Result')}</h3>
-                  <div className="preview-box checkerboard">
+                  <h3>{t('common.result', 'Result')} ({scale})</h3>
+                  <div className="preview-box">
                     <img src={result} alt="Result" />
                   </div>
                 </div>
               )}
             </div>
 
+            {/* 操作按钮 */}
             <div className="action-buttons">
               {!processing && !result && (
                 <button className="btn-primary" onClick={processImage}>
-                  {t('bgRemover.removeBg', 'Remove Background')}
+                  {t('upscaler.upscale', 'Upscale Image')}
                 </button>
               )}
 
               {processing && (
                 <div className="processing-status">
                   <div className="spinner"></div>
-                  <span>{t('bgRemover.processing', 'Removing background...')}</span>
+                  <span>{t('upscaler.processing', 'Upscaling image...')}</span>
                 </div>
               )}
 
@@ -268,44 +295,32 @@ export function ChangeBackground() {
                 </button>
               )}
 
-              <button
-                className="btn-secondary"
-                onClick={() => {
-                  setInputFile(null)
-                  setInputPreview('')
-                  setResult('')
-                  setError('')
-                }}
-              >
+              <button className="btn-secondary" onClick={resetTool}>
                 {t('common.newImage', 'New Image')}
               </button>
             </div>
 
-            {error && (
-              <div className="error-message">
-                {error}
-              </div>
-            )}
+            {error && <div className="error-message">{error}</div>}
           </div>
         )}
 
         <div className="features-section">
-          <h2>{t('bgRemover.features', 'Features')}</h2>
+          <h2>{t('upscaler.features', 'Features')}</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">🎯</div>
-              <h3>{t('bgRemover.feature1Title', 'Auto Detection')}</h3>
-              <p>{t('bgRemover.feature1Desc', 'AI automatically detects and isolates the main subject')}</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">🛒</div>
-              <h3>{t('bgRemover.feature2Title', 'E-commerce Ready')}</h3>
-              <p>{t('bgRemover.feature2Desc', 'Optimized for product photos with clean edges')}</p>
+              <div className="feature-icon">🔍</div>
+              <h3>{t('upscaler.feature1Title', '2x & 4x Upscaling')}</h3>
+              <p>{t('upscaler.feature1Desc', 'Double or quadruple your image resolution with AI')}</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">👤</div>
-              <h3>{t('bgRemover.feature3Title', 'Portrait Mode')}</h3>
-              <p>{t('bgRemover.feature3Desc', 'Enhanced detection for human subjects and portraits')}</p>
+              <h3>{t('upscaler.feature2Title', 'Face Enhancement')}</h3>
+              <p>{t('upscaler.feature2Desc', 'Automatically enhance facial features for portraits')}</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">✨</div>
+              <h3>{t('upscaler.feature3Title', 'Quality Enhancement')}</h3>
+              <p>{t('upscaler.feature3Desc', 'Remove JPEG artifacts and improve image quality')}</p>
             </div>
           </div>
         </div>
@@ -349,10 +364,9 @@ export function ChangeBackground() {
         .option-buttons {
           display: flex;
           gap: 8px;
-          flex-wrap: wrap;
         }
         .option-btn {
-          padding: 8px 16px;
+          padding: 8px 20px;
           border: 2px solid #e0e0e0;
           background: #fff;
           border-radius: 8px;
@@ -372,34 +386,41 @@ export function ChangeBackground() {
           opacity: 0.5;
           cursor: not-allowed;
         }
+        .checkbox-label {
+          display: flex !important;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          margin-bottom: 0 !important;
+        }
+        .checkbox-label input {
+          width: 18px;
+          height: 18px;
+        }
+        .upload-formats {
+          font-size: 12px;
+          color: #999;
+          margin-top: 8px;
+        }
         .feature-icon {
           font-size: 32px;
           margin-bottom: 12px;
         }
-        .editor-container {
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-        }
-
         .editor-main {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 24px;
         }
-
         @media (max-width: 768px) {
           .editor-main {
             grid-template-columns: 1fr;
           }
         }
-
         .preview-section h3 {
           margin-bottom: 12px;
           font-size: 14px;
           color: #666;
         }
-
         .preview-box {
           border: 1px solid #e0e0e0;
           border-radius: 8px;
@@ -410,102 +431,35 @@ export function ChangeBackground() {
           align-items: center;
           justify-content: center;
         }
-
         .preview-box img {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
         }
-
-        .checkerboard {
-          background-image: linear-gradient(45deg, #ccc 25%, transparent 25%),
-            linear-gradient(-45deg, #ccc 25%, transparent 25%),
-            linear-gradient(45deg, transparent 75%, #ccc 75%),
-            linear-gradient(-45deg, transparent 75%, #ccc 75%);
-          background-size: 20px 20px;
-          background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-        }
-
-        .backgrounds-grid {
-          margin-top: 16px;
-        }
-
-        .backgrounds-grid h3 {
-          margin-bottom: 16px;
-          font-size: 16px;
-        }
-
-        .bg-options {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-          gap: 12px;
-        }
-
-        .bg-option {
-          cursor: pointer;
-          border: 2px solid transparent;
-          border-radius: 8px;
-          padding: 8px;
-          transition: all 0.2s;
-        }
-
-        .bg-option:hover {
-          border-color: #ddd;
-        }
-
-        .bg-option.selected {
-          border-color: #007bff;
-          background: #f0f7ff;
-        }
-
-        .bg-preview {
-          aspect-ratio: 1;
-          border-radius: 4px;
-          overflow: hidden;
-          background: #f5f5f5;
-          margin-bottom: 8px;
-        }
-
-        .bg-preview img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .bg-option span {
-          font-size: 12px;
-          color: #666;
-          display: block;
-          text-align: center;
-        }
-
         .action-buttons {
           display: flex;
           gap: 12px;
           flex-wrap: wrap;
           align-items: center;
+          margin-top: 24px;
         }
-
         .processing-status {
           display: flex;
           align-items: center;
           gap: 12px;
           color: #666;
         }
-
         .spinner {
           width: 24px;
           height: 24px;
           border: 3px solid #e0e0e0;
-          border-top-color: #007bff;
+          border-top-color: #667eea;
           border-radius: 50%;
           animation: spin 1s linear infinite;
         }
-
         @keyframes spin {
           to { transform: rotate(360deg); }
         }
-
         .error-message {
           color: #dc3545;
           padding: 12px;
@@ -513,31 +467,27 @@ export function ChangeBackground() {
           border-radius: 8px;
           margin-top: 12px;
         }
-
         .features-section {
           margin-top: 48px;
           padding-top: 32px;
           border-top: 1px solid #e0e0e0;
         }
-
         .features-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 24px;
           margin-top: 24px;
         }
-
         .feature-card {
           padding: 24px;
           background: #f8f9fa;
           border-radius: 12px;
+          text-align: center;
         }
-
         .feature-card h3 {
           margin-bottom: 12px;
           font-size: 18px;
         }
-
         .feature-card p {
           color: #666;
           line-height: 1.6;

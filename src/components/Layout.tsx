@@ -52,12 +52,30 @@ export function Layout({ children }: LayoutProps) {
     navigate(newPath)
   }
 
-  const navItems = [
-    { path: '/remove-watermark', label: t('nav.removeWatermark'), icon: '🔍', anchor: 'section-watermark' },
-    { path: '/change-background', label: t('nav.changeBackground', 'AI Background'), icon: '🎨', anchor: 'section-background' },
+  // AI Tools (require login)
+  const aiToolItems = [
+    { path: '/background-remover', label: t('nav.bgRemover', 'Background Remover'), icon: '🎨', anchor: 'section-background' },
+    { path: '/image-upscaler', label: t('nav.upscaler', 'Image Upscaler'), icon: '🔍', anchor: 'section-upscaler' },
+    { path: '/watermark-remover', label: t('nav.watermarkRemover', 'Watermark Remover'), icon: '💧', anchor: 'section-watermark' },
+    { path: '/background-generator', label: t('nav.bgGenerator', 'Background Generator'), icon: '✨', anchor: 'section-generator' },
+    { path: '/image-sharpener', label: t('nav.sharpener', 'Image Sharpener'), icon: '🔬', anchor: '' },
+    { path: '/image-denoiser', label: t('nav.denoiser', 'Image Denoiser'), icon: '🔇', anchor: '' },
+    { path: '/shadow-generator', label: t('nav.shadowGen', 'Shadow Generator'), icon: '🌓', anchor: '' },
+    { path: '/smart-crop', label: t('nav.smartCrop', 'Smart Crop'), icon: '✂️', anchor: '' },
+    { path: '/image-extender', label: t('nav.extender', 'Image Extender'), icon: '↔️', anchor: '' },
+  ]
+
+  // Free Tools
+  const freeToolItems = [
     { path: '/remove-fake-transparency', label: t('nav.removeFakeTransparency'), icon: '🔲', anchor: 'section-transparency' },
     { path: '/compress', label: t('nav.compress'), icon: '📦', anchor: 'section-compress' },
     { path: '/resize', label: t('nav.resize'), icon: '📐', anchor: 'section-resize' },
+  ]
+
+  // Combined for header nav (show main tools)
+  const navItems = [
+    ...aiToolItems.slice(0, 3), // Show first 3 AI tools
+    ...freeToolItems.slice(0, 2), // Show first 2 free tools
   ]
 
   const handleNavClick = (e: React.MouseEvent, item: typeof navItems[0]) => {
@@ -83,8 +101,22 @@ export function Layout({ children }: LayoutProps) {
 
           <nav className="dash-nav">
             <div className="dash-nav-section">
-              <span className="dash-nav-label">{t('footer.tools', 'Tools')}</span>
-              {navItems.map(item => (
+              <span className="dash-nav-label">{t('nav.aiTools', 'AI Tools')}</span>
+              {aiToolItems.map(item => (
+                <Link
+                  key={item.path}
+                  to={langLink(item.path)}
+                  className={`dash-nav-item ${currentPage === item.path ? 'active' : ''}`}
+                >
+                  <span className="dash-nav-icon">{item.icon}</span>
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="dash-nav-section">
+              <span className="dash-nav-label">{t('nav.freeTools', 'Free Tools')}</span>
+              {freeToolItems.map(item => (
                 <Link
                   key={item.path}
                   to={langLink(item.path)}
@@ -248,8 +280,14 @@ export function Layout({ children }: LayoutProps) {
           </div>
           <div className="pr-footer-links">
             <div className="pr-footer-col">
-              <h4>{t('footer.tools', 'Tools')}</h4>
-              {navItems.map(item => (
+              <h4>{t('nav.aiTools', 'AI Tools')}</h4>
+              {aiToolItems.map(item => (
+                <Link key={item.path} to={langLink(item.path)}>{item.label}</Link>
+              ))}
+            </div>
+            <div className="pr-footer-col">
+              <h4>{t('nav.freeTools', 'Free Tools')}</h4>
+              {freeToolItems.map(item => (
                 <Link key={item.path} to={langLink(item.path)}>{item.label}</Link>
               ))}
             </div>

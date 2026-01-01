@@ -5,10 +5,10 @@ import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
 import { languages } from '../i18n'
 import { useAuth } from '../contexts/AuthContext'
-import { removeBg } from '../lib/pixelbin'
-import type { RemoveBgOptions } from '../lib/pixelbin'
+import { removeWatermark } from '../lib/pixelbin'
+import type { RemoveWatermarkOptions } from '../lib/pixelbin'
 
-export function ChangeBackground() {
+export function WatermarkRemover() {
   const { t, i18n } = useTranslation()
   const location = useLocation()
   const { user } = useAuth()
@@ -27,17 +27,18 @@ export function ChangeBackground() {
   const [error, setError] = useState<string>('')
 
   // 选项状态
-  const [industryType, setIndustryType] = useState<'general' | 'ecommerce' | 'car' | 'human'>('general')
+  const [removeText, setRemoveText] = useState(true)
+  const [removeLogo, setRemoveLogo] = useState(true)
 
   useEffect(() => {
     return () => {
       if (inputPreview) URL.revokeObjectURL(inputPreview)
+      if (result) URL.revokeObjectURL(result)
     }
-  }, [inputPreview])
+  }, [inputPreview, result])
 
   const handleFile = useCallback((file: File) => {
     if (!file.type.startsWith('image/')) return
-
     setInputFile(file)
     setInputPreview(URL.createObjectURL(file))
     setResult('')
@@ -51,10 +52,11 @@ export function ChangeBackground() {
     setError('')
 
     try {
-      const options: RemoveBgOptions = {
-        industryType,
+      const options: RemoveWatermarkOptions = {
+        removeText,
+        removeLogo,
       }
-      const response = await removeBg(inputFile, options)
+      const response = await removeWatermark(inputFile, options)
 
       if (response.success && response.url) {
         setResult(response.url)
@@ -66,7 +68,7 @@ export function ChangeBackground() {
     } finally {
       setProcessing(false)
     }
-  }, [inputFile, industryType])
+  }, [inputFile, removeText, removeLogo])
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault()
@@ -89,31 +91,41 @@ export function ChangeBackground() {
     if (file) handleFile(file)
   }, [handleFile])
 
-  const downloadResult = useCallback(() => {
+  const downloadResult = useCallback(async () => {
     if (!result) return
-
+    const response = await fetch(result)
+    const blob = await response.blob()
+    const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
-    link.href = result
-    link.download = `background-removed-${Date.now()}.png`
+    link.href = url
+    link.download = `watermark-removed-${Date.now()}.png`
     link.click()
+    URL.revokeObjectURL(url)
   }, [result])
+
+  const resetTool = useCallback(() => {
+    setInputFile(null)
+    setInputPreview('')
+    setResult('')
+    setError('')
+  }, [])
 
   // 未登录时显示登录提示
   if (!user) {
     return (
       <>
         <SEO
-          title={t('bgRemover.title', 'AI Background Remover - Remove Background Instantly')}
-          description={t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
-          keywords="background remover, remove background, AI background, photo editor, e-commerce"
-          canonicalUrl={`/${currentLang}/background-remover`}
+          title={t('watermark.title', 'AI Watermark Remover - Remove Watermarks Automatically')}
+          description={t('watermark.description', 'Remove watermarks, text overlays, and logos from images using AI. Clean and restore your photos automatically.')}
+          keywords="watermark remover, remove watermark, AI watermark, text removal, logo removal"
+          canonicalUrl={`/${currentLang}/watermark-remover`}
         />
         <StructuredData type="home" />
 
         <div className="tool-page">
-          <h1>{t('bgRemover.title', 'AI Background Remover')}</h1>
+          <h1>{t('watermark.title', 'AI Watermark Remover')}</h1>
           <p className="tool-description">
-            {t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
+            {t('watermark.description', 'Remove watermarks, text overlays, and logos from images using AI. Clean and restore your photos automatically.')}
           </p>
 
           <div className="login-required-box">
@@ -126,22 +138,22 @@ export function ChangeBackground() {
           </div>
 
           <div className="features-section">
-            <h2>{t('bgRemover.features', 'Features')}</h2>
+            <h2>{t('watermark.features', 'Features')}</h2>
             <div className="features-grid">
               <div className="feature-card">
-                <div className="feature-icon">🎯</div>
-                <h3>{t('bgRemover.feature1Title', 'Auto Detection')}</h3>
-                <p>{t('bgRemover.feature1Desc', 'AI automatically detects and isolates the main subject')}</p>
+                <div className="feature-icon">📝</div>
+                <h3>{t('watermark.feature1Title', 'Text Removal')}</h3>
+                <p>{t('watermark.feature1Desc', 'Remove text overlays and watermarks from images')}</p>
               </div>
               <div className="feature-card">
-                <div className="feature-icon">🛒</div>
-                <h3>{t('bgRemover.feature2Title', 'E-commerce Ready')}</h3>
-                <p>{t('bgRemover.feature2Desc', 'Optimized for product photos with clean edges')}</p>
+                <div className="feature-icon">🏷️</div>
+                <h3>{t('watermark.feature2Title', 'Logo Removal')}</h3>
+                <p>{t('watermark.feature2Desc', 'Remove logos and brand marks from photos')}</p>
               </div>
               <div className="feature-card">
-                <div className="feature-icon">👤</div>
-                <h3>{t('bgRemover.feature3Title', 'Portrait Mode')}</h3>
-                <p>{t('bgRemover.feature3Desc', 'Enhanced detection for human subjects and portraits')}</p>
+                <div className="feature-icon">🔄</div>
+                <h3>{t('watermark.feature3Title', 'Smart Inpainting')}</h3>
+                <p>{t('watermark.feature3Desc', 'AI fills in removed areas naturally')}</p>
               </div>
             </div>
           </div>
@@ -153,17 +165,17 @@ export function ChangeBackground() {
   return (
     <>
       <SEO
-        title={t('bgRemover.title', 'AI Background Remover - Remove Background Instantly')}
-        description={t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
-        keywords="background remover, remove background, AI background, photo editor, e-commerce"
-        canonicalUrl={`/${currentLang}/background-remover`}
+        title={t('watermark.title', 'AI Watermark Remover - Remove Watermarks Automatically')}
+        description={t('watermark.description', 'Remove watermarks, text overlays, and logos from images using AI. Clean and restore your photos automatically.')}
+        keywords="watermark remover, remove watermark, AI watermark, text removal, logo removal"
+        canonicalUrl={`/${currentLang}/watermark-remover`}
       />
       <StructuredData type="home" />
 
       <div className="tool-page">
-        <h1>{t('bgRemover.title', 'AI Background Remover')}</h1>
+        <h1>{t('watermark.title', 'AI Watermark Remover')}</h1>
         <p className="tool-description">
-          {t('bgRemover.description', 'Remove image backgrounds automatically with AI. Perfect for e-commerce products, portraits, and more.')}
+          {t('watermark.description', 'Remove watermarks, text overlays, and logos from images using AI. Clean and restore your photos automatically.')}
         </p>
 
         {!inputFile ? (
@@ -172,10 +184,10 @@ export function ChangeBackground() {
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
-            onClick={() => document.getElementById('file-input')?.click()}
+            onClick={() => document.getElementById('watermark-file-input')?.click()}
           >
             <input
-              id="file-input"
+              id="watermark-file-input"
               type="file"
               accept="image/*"
               onChange={handleFileSelect}
@@ -190,46 +202,38 @@ export function ChangeBackground() {
             </div>
             <p>{t('upload.dragDrop', 'Drag & drop your image here')}</p>
             <p className="upload-hint">{t('upload.or', 'or click to select')}</p>
+            <p className="upload-formats">PNG, JPG, JPEG, WEBP</p>
           </div>
         ) : (
           <div className="editor-container">
             {/* 选项面板 */}
             <div className="options-panel">
               <div className="option-group">
-                <label>{t('bgRemover.industryType', 'Industry Type')}</label>
-                <div className="option-buttons">
-                  <button
-                    className={`option-btn ${industryType === 'general' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('general')}
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={removeText}
+                    onChange={(e) => setRemoveText(e.target.checked)}
                     disabled={processing}
-                  >
-                    {t('bgRemover.general', 'General')}
-                  </button>
-                  <button
-                    className={`option-btn ${industryType === 'ecommerce' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('ecommerce')}
+                  />
+                  <span>{t('watermark.removeText', 'Remove Text')}</span>
+                </label>
+              </div>
+
+              <div className="option-group">
+                <label className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={removeLogo}
+                    onChange={(e) => setRemoveLogo(e.target.checked)}
                     disabled={processing}
-                  >
-                    {t('bgRemover.ecommerce', 'E-commerce')}
-                  </button>
-                  <button
-                    className={`option-btn ${industryType === 'car' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('car')}
-                    disabled={processing}
-                  >
-                    {t('bgRemover.car', 'Car')}
-                  </button>
-                  <button
-                    className={`option-btn ${industryType === 'human' ? 'active' : ''}`}
-                    onClick={() => setIndustryType('human')}
-                    disabled={processing}
-                  >
-                    {t('bgRemover.human', 'Human')}
-                  </button>
-                </div>
+                  />
+                  <span>{t('watermark.removeLogo', 'Remove Logo')}</span>
+                </label>
               </div>
             </div>
 
+            {/* 预览区域 */}
             <div className="editor-main">
               <div className="preview-section">
                 <h3>{t('common.original', 'Original')}</h3>
@@ -241,24 +245,25 @@ export function ChangeBackground() {
               {result && (
                 <div className="preview-section">
                   <h3>{t('common.result', 'Result')}</h3>
-                  <div className="preview-box checkerboard">
+                  <div className="preview-box">
                     <img src={result} alt="Result" />
                   </div>
                 </div>
               )}
             </div>
 
+            {/* 操作按钮 */}
             <div className="action-buttons">
               {!processing && !result && (
                 <button className="btn-primary" onClick={processImage}>
-                  {t('bgRemover.removeBg', 'Remove Background')}
+                  {t('watermark.remove', 'Remove Watermark')}
                 </button>
               )}
 
               {processing && (
                 <div className="processing-status">
                   <div className="spinner"></div>
-                  <span>{t('bgRemover.processing', 'Removing background...')}</span>
+                  <span>{t('watermark.processing', 'Removing watermark...')}</span>
                 </div>
               )}
 
@@ -268,44 +273,32 @@ export function ChangeBackground() {
                 </button>
               )}
 
-              <button
-                className="btn-secondary"
-                onClick={() => {
-                  setInputFile(null)
-                  setInputPreview('')
-                  setResult('')
-                  setError('')
-                }}
-              >
+              <button className="btn-secondary" onClick={resetTool}>
                 {t('common.newImage', 'New Image')}
               </button>
             </div>
 
-            {error && (
-              <div className="error-message">
-                {error}
-              </div>
-            )}
+            {error && <div className="error-message">{error}</div>}
           </div>
         )}
 
         <div className="features-section">
-          <h2>{t('bgRemover.features', 'Features')}</h2>
+          <h2>{t('watermark.features', 'Features')}</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">🎯</div>
-              <h3>{t('bgRemover.feature1Title', 'Auto Detection')}</h3>
-              <p>{t('bgRemover.feature1Desc', 'AI automatically detects and isolates the main subject')}</p>
+              <div className="feature-icon">📝</div>
+              <h3>{t('watermark.feature1Title', 'Text Removal')}</h3>
+              <p>{t('watermark.feature1Desc', 'Remove text overlays and watermarks from images')}</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🛒</div>
-              <h3>{t('bgRemover.feature2Title', 'E-commerce Ready')}</h3>
-              <p>{t('bgRemover.feature2Desc', 'Optimized for product photos with clean edges')}</p>
+              <div className="feature-icon">🏷️</div>
+              <h3>{t('watermark.feature2Title', 'Logo Removal')}</h3>
+              <p>{t('watermark.feature2Desc', 'Remove logos and brand marks from photos')}</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">👤</div>
-              <h3>{t('bgRemover.feature3Title', 'Portrait Mode')}</h3>
-              <p>{t('bgRemover.feature3Desc', 'Enhanced detection for human subjects and portraits')}</p>
+              <div className="feature-icon">🔄</div>
+              <h3>{t('watermark.feature3Title', 'Smart Inpainting')}</h3>
+              <p>{t('watermark.feature3Desc', 'AI fills in removed areas naturally')}</p>
             </div>
           </div>
         </div>
@@ -346,60 +339,41 @@ export function ChangeBackground() {
           margin-bottom: 8px;
           color: #333;
         }
-        .option-buttons {
-          display: flex;
+        .checkbox-label {
+          display: flex !important;
+          align-items: center;
           gap: 8px;
-          flex-wrap: wrap;
-        }
-        .option-btn {
-          padding: 8px 16px;
-          border: 2px solid #e0e0e0;
-          background: #fff;
-          border-radius: 8px;
           cursor: pointer;
-          font-weight: 500;
-          transition: all 0.2s;
+          margin-bottom: 0 !important;
         }
-        .option-btn:hover {
-          border-color: #667eea;
+        .checkbox-label input {
+          width: 18px;
+          height: 18px;
         }
-        .option-btn.active {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          color: white;
-          border-color: transparent;
-        }
-        .option-btn:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
+        .upload-formats {
+          font-size: 12px;
+          color: #999;
+          margin-top: 8px;
         }
         .feature-icon {
           font-size: 32px;
           margin-bottom: 12px;
         }
-        .editor-container {
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-        }
-
         .editor-main {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 24px;
         }
-
         @media (max-width: 768px) {
           .editor-main {
             grid-template-columns: 1fr;
           }
         }
-
         .preview-section h3 {
           margin-bottom: 12px;
           font-size: 14px;
           color: #666;
         }
-
         .preview-box {
           border: 1px solid #e0e0e0;
           border-radius: 8px;
@@ -410,102 +384,35 @@ export function ChangeBackground() {
           align-items: center;
           justify-content: center;
         }
-
         .preview-box img {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
         }
-
-        .checkerboard {
-          background-image: linear-gradient(45deg, #ccc 25%, transparent 25%),
-            linear-gradient(-45deg, #ccc 25%, transparent 25%),
-            linear-gradient(45deg, transparent 75%, #ccc 75%),
-            linear-gradient(-45deg, transparent 75%, #ccc 75%);
-          background-size: 20px 20px;
-          background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-        }
-
-        .backgrounds-grid {
-          margin-top: 16px;
-        }
-
-        .backgrounds-grid h3 {
-          margin-bottom: 16px;
-          font-size: 16px;
-        }
-
-        .bg-options {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-          gap: 12px;
-        }
-
-        .bg-option {
-          cursor: pointer;
-          border: 2px solid transparent;
-          border-radius: 8px;
-          padding: 8px;
-          transition: all 0.2s;
-        }
-
-        .bg-option:hover {
-          border-color: #ddd;
-        }
-
-        .bg-option.selected {
-          border-color: #007bff;
-          background: #f0f7ff;
-        }
-
-        .bg-preview {
-          aspect-ratio: 1;
-          border-radius: 4px;
-          overflow: hidden;
-          background: #f5f5f5;
-          margin-bottom: 8px;
-        }
-
-        .bg-preview img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .bg-option span {
-          font-size: 12px;
-          color: #666;
-          display: block;
-          text-align: center;
-        }
-
         .action-buttons {
           display: flex;
           gap: 12px;
           flex-wrap: wrap;
           align-items: center;
+          margin-top: 24px;
         }
-
         .processing-status {
           display: flex;
           align-items: center;
           gap: 12px;
           color: #666;
         }
-
         .spinner {
           width: 24px;
           height: 24px;
           border: 3px solid #e0e0e0;
-          border-top-color: #007bff;
+          border-top-color: #667eea;
           border-radius: 50%;
           animation: spin 1s linear infinite;
         }
-
         @keyframes spin {
           to { transform: rotate(360deg); }
         }
-
         .error-message {
           color: #dc3545;
           padding: 12px;
@@ -513,31 +420,27 @@ export function ChangeBackground() {
           border-radius: 8px;
           margin-top: 12px;
         }
-
         .features-section {
           margin-top: 48px;
           padding-top: 32px;
           border-top: 1px solid #e0e0e0;
         }
-
         .features-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 24px;
           margin-top: 24px;
         }
-
         .feature-card {
           padding: 24px;
           background: #f8f9fa;
           border-radius: 12px;
+          text-align: center;
         }
-
         .feature-card h3 {
           margin-bottom: 12px;
           font-size: 18px;
         }
-
         .feature-card p {
           color: #666;
           line-height: 1.6;

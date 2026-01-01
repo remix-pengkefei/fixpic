@@ -104,7 +104,10 @@ class AutoRemoveWatermarkRequest(BaseModel):
     volumes={MODEL_DIR: volume},
     scaledown_window=300,  # 5分钟无请求后关闭
     timeout=600,  # 10分钟超时
-    secrets=[modal.Secret.from_name("replicate-api-key")],  # Replicate API Key
+    secrets=[
+        modal.Secret.from_name("replicate-api-key"),  # Replicate API Key
+        modal.Secret.from_name("pixelbin-api-key"),   # Pixelbin API Key
+    ],
 )
 class FixPicAPI:
     """FixPic API 服务类"""
@@ -122,6 +125,12 @@ class FixPicAPI:
         self.replicate_token = os.environ.get("REPLICATE_API_TOKEN")
         if self.replicate_token:
             print("Replicate API token configured")
+
+        # Pixelbin API
+        self.pixelbin_api_secret = os.environ.get("PIXELBIN_API_SECRET", "")
+        self.pixelbin_cloud_name = os.environ.get("PIXELBIN_CLOUD_NAME", "")
+        if self.pixelbin_api_secret:
+            print("Pixelbin API configured")
 
         # 延迟加载模型
         self.sam_predictor = None
@@ -806,9 +815,100 @@ class FixPicAPI:
 
         return None
 
+    def _remove_bg_pixelbin(self, image, industry_type="general"):
+        """使用 Pixelbin erase.bg API 去除背景"""
+        import os
+        import requests
+        import tempfile
+        import time
+        import subprocess
+        import json
+        from PIL import Image as PILImage
+
+        if not self.pixelbin_api_secret or not self.pixelbin_cloud_name:
+            print("Pixelbin credentials not configured")
+            return None
+
+        try:
+            # 保存图片到临时文件
+            with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp_file:
+                image.save(tmp_file, format='PNG')
+                tmp_path = tmp_file.name
+
+            print("Uploading to Pixelbin for background removal...")
+            timestamp = int(time.time() * 1000)
+
+            # 使用 subprocess 调用 Pixelbin SDK
+            upload_script = f'''
+import asyncio
+from pixelbin import PixelbinConfig, PixelbinClient
+import json
+
+async def upload():
+    config = PixelbinConfig({{
+        "domain": "https://api.pixelbin.io",
+        "apiSecret": "{self.pixelbin_api_secret}"
+    }})
+    client = PixelbinClient(config=config)
+    with open("{tmp_path}", "rb") as f:
+        result = await client.assets.fileUploadAsync(
+            file=f,
+            path="bg_removal_temp",
+            name="bg_removal_{timestamp}",
+            access="public-read",
+            overwrite=True
+        )
+    print(json.dumps(result))
+
+asyncio.run(upload())
+'''
+            result = subprocess.run(
+                ['python3', '-c', upload_script],
+                capture_output=True,
+                text=True,
+                timeout=60
+            )
+
+            os.unlink(tmp_path)
+
+            if result.returncode != 0:
+                print(f"Upload script failed: {result.stderr}")
+                return None
+
+            upload_result = json.loads(result.stdout.strip())
+
+            if not upload_result or 'fileId' not in upload_result:
+                print(f"Upload failed: {upload_result}")
+                return None
+
+            file_path = upload_result.get('fileId', '')
+            print(f"Uploaded: {file_path}")
+
+            # 构建带有背景去除转换的 URL
+            transform_url = f"https://cdn.pixelbin.io/v2/{self.pixelbin_cloud_name}/erase.bg(industry_type:{industry_type})/{file_path}"
+
+            print(f"Fetching transformed image: {transform_url}")
+
+            # 下载处理后的图片
+            response = requests.get(transform_url, timeout=120)
+
+            if response.status_code == 200:
+                result_image = PILImage.open(io.BytesIO(response.content))
+                print("Pixelbin background removal successful!")
+                return result_image.convert('RGBA')
+            else:
+                print(f"Transform failed: {response.status_code} - {response.text[:200]}")
+                return None
+
+        except Exception as e:
+            print(f"Pixelbin API error: {e}")
+            import traceback
+            traceback.print_exc()
+            return None
+
     @modal.fastapi_endpoint(method="POST")
     def remove_bg(self, request: RemoveBgRequest):
-        """自动抠图 - 去除背景"""
+        """自动抠图 - 去除背景（优先使用 Pixelbin，fallback 到 rembg）"""
         from PIL import Image
         from rembg import remove
 
@@ -816,8 +916,24 @@ class FixPicAPI:
         image_data = base64.b64decode(request.image_base64)
         input_image = Image.open(io.BytesIO(image_data))
 
-        # 去除背景
-        output_image = remove(input_image)
+        # 优先尝试 Pixelbin API
+        output_image = None
+        method_used = "rembg"
+
+        if self.pixelbin_api_secret:
+            try:
+                print("Trying Pixelbin erase.bg API...")
+                output_image = self._remove_bg_pixelbin(input_image.convert('RGB'))
+                if output_image:
+                    method_used = "pixelbin"
+                    print("Pixelbin background removal succeeded!")
+            except Exception as e:
+                print(f"Pixelbin failed: {e}")
+
+        # Fallback 到 rembg
+        if output_image is None:
+            print("Using rembg fallback...")
+            output_image = remove(input_image)
 
         # 编码结果
         buffered = io.BytesIO()
@@ -828,7 +944,8 @@ class FixPicAPI:
             'success': True,
             'image': f'data:image/png;base64,{img_base64}',
             'width': output_image.width,
-            'height': output_image.height
+            'height': output_image.height,
+            'method': method_used
         }
 
     @modal.fastapi_endpoint(method="POST")
@@ -841,8 +958,17 @@ class FixPicAPI:
         image_data = base64.b64decode(request.image_base64)
         input_image = Image.open(io.BytesIO(image_data))
 
-        # 去除背景
-        fg_image = remove(input_image)
+        # 优先使用 Pixelbin 去除背景
+        fg_image = None
+        if self.pixelbin_api_secret:
+            try:
+                fg_image = self._remove_bg_pixelbin(input_image.convert('RGB'))
+            except Exception as e:
+                print(f"Pixelbin failed: {e}")
+
+        # Fallback 到 rembg
+        if fg_image is None:
+            fg_image = remove(input_image)
 
         if request.bg_type == "transparent":
             output_image = fg_image

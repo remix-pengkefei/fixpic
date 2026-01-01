@@ -14,6 +14,16 @@ const Resize = lazy(() => import('./pages/Resize').then(m => ({ default: m.Resiz
 const RemoveWatermark = lazy(() => import('./pages/RemoveWatermark').then(m => ({ default: m.RemoveWatermark })))
 const ChangeBackground = lazy(() => import('./pages/ChangeBackground').then(m => ({ default: m.ChangeBackground })))
 
+// AI Tools (Pixelbin)
+const ImageUpscaler = lazy(() => import('./pages/ImageUpscaler').then(m => ({ default: m.ImageUpscaler })))
+const WatermarkRemover = lazy(() => import('./pages/WatermarkRemover').then(m => ({ default: m.WatermarkRemover })))
+const BackgroundGenerator = lazy(() => import('./pages/BackgroundGenerator').then(m => ({ default: m.BackgroundGenerator })))
+const ImageSharpener = lazy(() => import('./pages/ImageSharpener').then(m => ({ default: m.ImageSharpener })))
+const ImageDenoiser = lazy(() => import('./pages/ImageDenoiser').then(m => ({ default: m.ImageDenoiser })))
+const ShadowGenerator = lazy(() => import('./pages/ShadowGenerator').then(m => ({ default: m.ShadowGenerator })))
+const SmartCrop = lazy(() => import('./pages/SmartCrop').then(m => ({ default: m.SmartCrop })))
+const ImageExtender = lazy(() => import('./pages/ImageExtender').then(m => ({ default: m.ImageExtender })))
+
 // Guide pages for long-tail SEO
 const RemoveAICheckerboard = lazy(() => import('./pages/guides/RemoveAICheckerboard').then(m => ({ default: m.RemoveAICheckerboard })))
 const CompressWithoutQualityLoss = lazy(() => import('./pages/guides/CompressWithoutQualityLoss').then(m => ({ default: m.CompressWithoutQualityLoss })))
@@ -67,6 +77,15 @@ function LangRoutes() {
         <Route path="/resize" element={<LanguageRedirectPage page="resize" />} />
         <Route path="/remove-watermark" element={<LanguageRedirectPage page="remove-watermark" />} />
         <Route path="/change-background" element={<LanguageRedirectPage page="change-background" />} />
+        <Route path="/background-remover" element={<LanguageRedirectPage page="background-remover" />} />
+        <Route path="/image-upscaler" element={<LanguageRedirectPage page="image-upscaler" />} />
+        <Route path="/watermark-remover" element={<LanguageRedirectPage page="watermark-remover" />} />
+        <Route path="/background-generator" element={<LanguageRedirectPage page="background-generator" />} />
+        <Route path="/image-sharpener" element={<LanguageRedirectPage page="image-sharpener" />} />
+        <Route path="/image-denoiser" element={<LanguageRedirectPage page="image-denoiser" />} />
+        <Route path="/shadow-generator" element={<LanguageRedirectPage page="shadow-generator" />} />
+        <Route path="/smart-crop" element={<LanguageRedirectPage page="smart-crop" />} />
+        <Route path="/image-extender" element={<LanguageRedirectPage page="image-extender" />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageRouter><Home /></LanguageRouter>} />
@@ -75,6 +94,17 @@ function LangRoutes() {
         <Route path="/:lang/resize" element={<LanguageRouter><Resize /></LanguageRouter>} />
         <Route path="/:lang/remove-watermark" element={<LanguageRouter><RemoveWatermark /></LanguageRouter>} />
         <Route path="/:lang/change-background" element={<LanguageRouter><ChangeBackground /></LanguageRouter>} />
+
+        {/* AI Tools (Pixelbin) */}
+        <Route path="/:lang/background-remover" element={<LanguageRouter><ChangeBackground /></LanguageRouter>} />
+        <Route path="/:lang/image-upscaler" element={<LanguageRouter><ImageUpscaler /></LanguageRouter>} />
+        <Route path="/:lang/watermark-remover" element={<LanguageRouter><WatermarkRemover /></LanguageRouter>} />
+        <Route path="/:lang/background-generator" element={<LanguageRouter><BackgroundGenerator /></LanguageRouter>} />
+        <Route path="/:lang/image-sharpener" element={<LanguageRouter><ImageSharpener /></LanguageRouter>} />
+        <Route path="/:lang/image-denoiser" element={<LanguageRouter><ImageDenoiser /></LanguageRouter>} />
+        <Route path="/:lang/shadow-generator" element={<LanguageRouter><ShadowGenerator /></LanguageRouter>} />
+        <Route path="/:lang/smart-crop" element={<LanguageRouter><SmartCrop /></LanguageRouter>} />
+        <Route path="/:lang/image-extender" element={<LanguageRouter><ImageExtender /></LanguageRouter>} />
 
         {/* Guide pages for long-tail SEO */}
         <Route path="/:lang/guides/remove-ai-checkerboard" element={<LanguageRouter><RemoveAICheckerboard /></LanguageRouter>} />
