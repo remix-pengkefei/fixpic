@@ -3,6 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { languages, loadLanguage } from '../i18n'
 import { Breadcrumb } from './Breadcrumb'
+import { useAuth } from '../contexts/AuthContext'
+import { AuthModal } from './AuthModal'
+import { UserMenu } from './UserMenu'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -12,7 +15,9 @@ export function Layout({ children }: LayoutProps) {
   const location = useLocation()
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
+  const { user, loading } = useAuth()
   const [showLangMenu, setShowLangMenu] = useState(false)
+  const [showAuthModal, setShowAuthModal] = useState(false)
   const langMenuRef = useRef<HTMLDivElement>(null)
 
   // Get current language from URL or i18n
@@ -62,40 +67,58 @@ export function Layout({ children }: LayoutProps) {
     <div className="app">
       {/* Header */}
       <header className="header">
-        <Link to={langLink('')} className="logo-link">
-          <div className="logo">
-            <span className="logo-icon">F</span>
-            <span className="logo-text">ix-Pic</span>
+        <div className="header-content">
+          <div className="header-left">
+            <Link to={langLink('')} className="logo-link">
+              <div className="logo">
+                <span className="logo-icon">F</span>
+                <span className="logo-text">ix-Pic</span>
+              </div>
+            </Link>
           </div>
-        </Link>
-        <p className="tagline">{t('header.tagline')}</p>
-
-        {/* Language Switcher */}
-        <div className="lang-switcher" ref={langMenuRef}>
-          <button
-            className="lang-btn"
-            onClick={() => setShowLangMenu(!showLangMenu)}
-          >
-            <span className="lang-flag">{currentLang.flag}</span>
-            <span className="lang-name">{currentLang.name}</span>
-            <span className="lang-arrow">▼</span>
-          </button>
-          {showLangMenu && (
-            <div className="lang-menu">
-              {languages.map(lang => (
-                <button
-                  key={lang.code}
-                  className={`lang-option ${lang.code === currentLangCode ? 'active' : ''}`}
-                  onClick={() => changeLanguage(lang.code)}
-                >
-                  <span className="lang-flag">{lang.flag}</span>
-                  <span className="lang-name">{lang.name}</span>
-                </button>
-              ))}
+          <div className="header-right">
+            {/* Language Switcher */}
+            <div className="lang-switcher" ref={langMenuRef}>
+              <button
+                className="lang-btn"
+                onClick={() => setShowLangMenu(!showLangMenu)}
+              >
+                <span className="lang-flag">{currentLang.flag}</span>
+                <span className="lang-name">{currentLang.name}</span>
+                <span className="lang-arrow">▼</span>
+              </button>
+              {showLangMenu && (
+                <div className="lang-menu">
+                  {languages.map(lang => (
+                    <button
+                      key={lang.code}
+                      className={`lang-option ${lang.code === currentLangCode ? 'active' : ''}`}
+                      onClick={() => changeLanguage(lang.code)}
+                    >
+                      <span className="lang-flag">{lang.flag}</span>
+                      <span className="lang-name">{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+            {/* Auth */}
+            {!loading && (
+              user ? (
+                <UserMenu />
+              ) : (
+                <button className="header-login-btn" onClick={() => setShowAuthModal(true)}>
+                  {t('auth.login')}
+                </button>
+              )
+            )}
+          </div>
         </div>
+        <p className="tagline">{t('header.tagline')}</p>
       </header>
+
+      {/* Auth Modal */}
+      <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
 
       {/* Navigation - show on tool pages */}
       {!isHome && (

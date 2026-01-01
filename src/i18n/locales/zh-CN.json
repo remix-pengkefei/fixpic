@@ -1,8 +1,29 @@
 {
+  "auth": {
+    "login": "登录",
+    "signup": "注册",
+    "logout": "退出登录",
+    "email": "邮箱",
+    "password": "密码",
+    "or": "或",
+    "continueWithGoogle": "使用 Google 登录",
+    "continueWithApple": "使用 Apple 登录",
+    "noAccount": "还没有账号？",
+    "hasAccount": "已有账号？",
+    "checkEmail": "请查看邮箱中的确认链接",
+    "loginRequired": "请登录后继续",
+    "loginToSave": "登录后可保存历史记录"
+  },
+  "user": {
+    "history": "历史记录",
+    "settings": "设置",
+    "logout": "退出登录"
+  },
   "common": {
     "process": "处理",
     "processAll": "全部处理",
     "processing": "处理中...",
+    "loading": "加载中...",
     "download": "下载",
     "downloadAll": "全部下载",
     "clear": "清空",

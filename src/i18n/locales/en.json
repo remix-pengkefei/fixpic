@@ -1,8 +1,29 @@
 {
+  "auth": {
+    "login": "Log In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "email": "Email",
+    "password": "Password",
+    "or": "or",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithApple": "Continue with Apple",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "checkEmail": "Check your email for the confirmation link",
+    "loginRequired": "Please log in to continue",
+    "loginToSave": "Log in to save your history"
+  },
+  "user": {
+    "history": "History",
+    "settings": "Settings",
+    "logout": "Log Out"
+  },
   "common": {
     "process": "Process",
     "processAll": "Process All",
     "processing": "Processing...",
+    "loading": "Loading...",
     "download": "Download",
     "downloadAll": "Download All",
     "clear": "Clear",

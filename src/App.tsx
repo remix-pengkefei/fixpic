@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { AuthProvider } from './contexts/AuthContext'
 import { Layout } from './components/Layout'
 import { LanguageRouter } from './components/LanguageRouter'
 import './App.css'
@@ -23,6 +24,9 @@ const RemoveWatermarkGuide = lazy(() => import('./pages/guides/RemoveWatermark')
 
 // 404 page
 const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })))
+
+// Auth callback page
+const AuthCallback = lazy(() => import('./pages/AuthCallback').then(m => ({ default: m.AuthCallback })))
 
 // Loading fallback component
 function PageLoader() {
@@ -77,6 +81,9 @@ function LangRoutes() {
         <Route path="/:lang/guides/midjourney-transparent" element={<LanguageRouter><MidjourneyTransparent /></LanguageRouter>} />
         <Route path="/:lang/guides/remove-watermark" element={<LanguageRouter><RemoveWatermarkGuide /></LanguageRouter>} />
 
+        {/* Auth callback */}
+        <Route path="/auth/callback" element={<AuthCallback />} />
+
         {/* 404 Not Found */}
         <Route path="*" element={<NotFound />} />
       </Routes>
@@ -86,11 +93,13 @@ function LangRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <LangRoutes />
-      </Layout>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Layout>
+          <LangRoutes />
+        </Layout>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 

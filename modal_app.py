@@ -24,10 +24,10 @@ image = (
         "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git",
         "transformers",
         "pydantic",
-        "simple-lama-inpainting",  # LaMa inpainting
         "opencv-python-headless",
-        "einops",  # Florence-2 依赖
-        "timm",    # Florence-2 依赖
+        "replicate",  # Replicate API for LaMa
+        "requests",
+        "easyocr",  # OCR for watermark text detection
     )
     .run_commands(
         # 预下载 rembg 模型（不需要GPU）
@@ -100,9 +100,11 @@ class AutoRemoveWatermarkRequest(BaseModel):
 
 
 @app.cls(
-    gpu="T4",  # 使用 T4 GPU，性价比高
+    gpu="T4",  # 使用 T4 GPU，水印去除使用 Replicate API
     volumes={MODEL_DIR: volume},
     scaledown_window=300,  # 5分钟无请求后关闭
+    timeout=600,  # 10分钟超时
+    secrets=[modal.Secret.from_name("replicate-api-key")],  # Replicate API Key
 )
 class FixPicAPI:
     """FixPic API 服务类"""
@@ -111,17 +113,21 @@ class FixPicAPI:
     def setup(self):
         """容器启动时加载模型"""
         import torch
+        import os
 
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"Using device: {self.device}")
+
+        # Replicate API Token
+        self.replicate_token = os.environ.get("REPLICATE_API_TOKEN")
+        if self.replicate_token:
+            print("Replicate API token configured")
 
         # 延迟加载模型
         self.sam_predictor = None
         self.clothes_processor = None
         self.clothes_model = None
-        self.lama_model = None
-        self.florence_model = None
-        self.florence_processor = None
+        self.ocr_reader = None
 
     def _get_sam_predictor(self):
         """延迟加载 SAM 模型"""
@@ -166,132 +172,639 @@ class FixPicAPI:
 
         return self.clothes_processor, self.clothes_model
 
-    def _get_lama_model(self):
-        """延迟加载 LaMa 模型"""
-        if self.lama_model is None:
-            from simple_lama_inpainting import SimpleLama
+    def _get_ocr_reader(self):
+        """延迟加载 EasyOCR"""
+        if self.ocr_reader is None:
+            import easyocr
+            print("Loading EasyOCR (en, ch_sim)...")
+            self.ocr_reader = easyocr.Reader(['en', 'ch_sim'], gpu=True)
+            print("EasyOCR loaded!")
+        return self.ocr_reader
 
-            print("Loading LaMa inpainting model...")
-            self.lama_model = SimpleLama()
-            print("LaMa model loaded!")
-
-        return self.lama_model
-
-    def _get_florence_model(self):
-        """延迟加载 Florence-2 模型用于水印检测"""
-        if self.florence_model is None:
-            import torch
-            from transformers import AutoProcessor, AutoModelForCausalLM
-
-            print("Loading Florence-2-large model...")
-            model_id = "microsoft/Florence-2-large"
-
-            self.florence_processor = AutoProcessor.from_pretrained(
-                model_id,
-                trust_remote_code=True
-            )
-            self.florence_model = AutoModelForCausalLM.from_pretrained(
-                model_id,
-                torch_dtype=torch.float16,
-                trust_remote_code=True
-            ).to(self.device)
-            print("Florence-2-large model loaded!")
-
-        return self.florence_processor, self.florence_model
-
-    def _detect_watermark_mask(self, image):
-        """使用 Florence-2 检测水印并生成 mask"""
-        import torch
+    def _detect_watermark_mask_ocr(self, image, aggressive=True):
+        """使用 OCR 检测水印文字并生成精确 mask（优化版：缩小图片加速处理）"""
         import numpy as np
-        from PIL import Image, ImageDraw
+        from PIL import Image
+        import cv2
 
-        processor, model = self._get_florence_model()
+        image_np = np.array(image)
+        h, w = image_np.shape[:2]
+        print(f"Image size: {w}x{h}")
 
-        # 使用 phrase grounding 来检测水印
-        prompt = "<CAPTION_TO_PHRASE_GROUNDING>"
-        text_input = "watermark, text overlay, logo"
+        # 创建空白 mask
+        mask = np.zeros((h, w), dtype=np.uint8)
 
-        inputs = processor(
-            text=prompt,
-            images=image,
-            return_tensors="pt"
-        ).to(self.device, torch.float16)
+        # 如果图片太大，先缩小再检测，然后映射回原尺寸
+        max_dim = 1200
+        scale = 1.0
+        if max(h, w) > max_dim:
+            scale = max_dim / max(h, w)
+            new_w, new_h = int(w * scale), int(h * scale)
+            image_small = cv2.resize(image_np, (new_w, new_h))
+            print(f"Resized to {new_w}x{new_h} for OCR (scale={scale:.2f})")
+        else:
+            image_small = image_np
+            new_h, new_w = h, w
 
-        generated_ids = model.generate(
-            input_ids=inputs["input_ids"],
-            pixel_values=inputs["pixel_values"],
-            max_new_tokens=1024,
-            num_beams=3,
-            do_sample=False
-        )
+        reader = self._get_ocr_reader()
 
-        generated_text = processor.batch_decode(
-            generated_ids,
-            skip_special_tokens=False
-        )[0]
+        # 使用更低的阈值进行检测
+        text_threshold = 0.2 if aggressive else 0.3
+        low_text = 0.2 if aggressive else 0.3
 
-        # 解析结果获取边界框
-        parsed = processor.post_process_generation(
-            generated_text,
-            task=prompt,
-            image_size=(image.width, image.height)
-        )
+        print(f"Detecting text with EasyOCR (threshold={text_threshold})...")
+        results = reader.readtext(image_small, text_threshold=text_threshold, low_text=low_text)
+        print(f"Found {len(results)} text regions")
 
-        # 创建 mask
-        mask = Image.new('L', image.size, 0)
-        draw = ImageDraw.Draw(mask)
+        # 常见水印关键词
+        watermark_keywords = [
+            'shutterstock', 'adobe', 'stock', 'getty', 'istock', 'dreamstime',
+            'alamy', '123rf', 'depositphotos', 'bigstock', 'fotolia',
+            'sample', 'preview', 'watermark', 'copyright', 'demo',
+            '©', '®', '™', 'lukasz', 'lukasiewicz'  # 添加常见摄影师名字
+        ]
 
-        # 检查是否有检测到的区域
-        if prompt in parsed and 'bboxes' in parsed[prompt]:
-            bboxes = parsed[prompt]['bboxes']
-            for bbox in bboxes:
-                # bbox 格式: [x1, y1, x2, y2]
-                x1, y1, x2, y2 = bbox
-                # 稍微扩大边界框以确保完全覆盖水印
-                padding = 5
-                x1 = max(0, x1 - padding)
-                y1 = max(0, y1 - padding)
-                x2 = min(image.width, x2 + padding)
-                y2 = min(image.height, y2 + padding)
-                draw.rectangle([x1, y1, x2, y2], fill=255)
+        mask_small = np.zeros((new_h, new_w), dtype=np.uint8)
 
-        # 如果没检测到，尝试用 OD (Object Detection) 任务
-        if np.array(mask).max() == 0:
-            print("Phrase grounding found nothing, trying OCR for text detection...")
-            # 用 OCR 检测文字区域
-            prompt_ocr = "<OCR_WITH_REGION>"
-            inputs_ocr = processor(
-                text=prompt_ocr,
-                images=image,
-                return_tensors="pt"
-            ).to(self.device, torch.float16)
+        # 定义边缘区域（水印通常出现的位置）
+        edge_margin_x = int(new_w * 0.2)  # 左右各 20%
+        edge_margin_y = int(new_h * 0.15)  # 上下各 15%
 
-            generated_ids_ocr = model.generate(
-                input_ids=inputs_ocr["input_ids"],
-                pixel_values=inputs_ocr["pixel_values"],
-                max_new_tokens=1024,
-                num_beams=3,
-                do_sample=False
+        for (bbox, text, confidence) in results:
+            text_lower = text.lower()
+            is_watermark_keyword = any(kw in text_lower for kw in watermark_keywords)
+
+            pts = np.array(bbox, dtype=np.int32)
+            center = pts.mean(axis=0)
+            center_x, center_y = center[0], center[1]
+
+            # 检查文字是否在边缘区域
+            is_at_left_edge = center_x < edge_margin_x
+            is_at_right_edge = center_x > new_w - edge_margin_x
+            is_at_top_edge = center_y < edge_margin_y
+            is_at_bottom_edge = center_y > new_h - edge_margin_y
+            is_at_edge = is_at_left_edge or is_at_right_edge or is_at_top_edge or is_at_bottom_edge
+
+            # 决定是否作为水印处理
+            should_remove = False
+
+            if is_watermark_keyword:
+                # 水印关键词：无论在哪里都移除
+                should_remove = True
+                print(f"  Text: '{text}' (conf={confidence:.2f}, keyword=True)")
+            elif is_at_edge and confidence > 0.3:
+                # 在边缘区域的非关键词文字：较高置信度才移除
+                should_remove = True
+                print(f"  Text: '{text}' (conf={confidence:.2f}, edge=True)")
+            # 中央区域的非关键词文字：不移除（可能是图片内容）
+
+            if should_remove:
+                # 扩大边界框
+                expand_ratio = 1.4 if is_watermark_keyword else 1.25
+                pts_expanded = center + (pts - center) * expand_ratio
+                pts_expanded = pts_expanded.astype(np.int32)
+
+                cv2.fillPoly(mask_small, [pts_expanded], 255)
+
+        # 膨胀
+        if np.sum(mask_small > 0) > 0:
+            kernel = np.ones((7, 7), np.uint8)
+            mask_small = cv2.dilate(mask_small, kernel, iterations=3)
+
+        # 如果缩放过，映射回原尺寸
+        if scale < 1.0:
+            mask = cv2.resize(mask_small, (w, h), interpolation=cv2.INTER_NEAREST)
+        else:
+            mask = mask_small
+
+        watermark_pixels = np.sum(mask > 0)
+        print(f"OCR detected watermark pixels: {watermark_pixels} ({100*watermark_pixels/(h*w):.2f}%)")
+
+        return Image.fromarray(mask), watermark_pixels
+
+    def _detect_bar_watermarks_simple(self, image):
+        """简化的横条水印检测 - 只检测底部/顶部的纯色横条"""
+        import numpy as np
+        from PIL import Image
+        import cv2
+
+        image_np = np.array(image)
+        h, w = image_np.shape[:2]
+        mask = np.zeros((h, w), dtype=np.uint8)
+
+        # 只检测底部横条（最常见）
+        bottom_height = int(h * 0.12)
+        bottom_region = image_np[h - bottom_height:, :]
+        bottom_gray = cv2.cvtColor(bottom_region, cv2.COLOR_RGB2GRAY)
+
+        # 检测每行的颜色标准差
+        row_std = np.std(bottom_gray, axis=1)
+
+        # 找到连续的低标准差区域（纯色横条）
+        uniform_threshold = 25
+        uniform_rows = row_std < uniform_threshold
+
+        # 需要连续的多行才算横条
+        consecutive_count = 0
+        bar_start = -1
+
+        for i, is_uniform in enumerate(uniform_rows):
+            if is_uniform:
+                consecutive_count += 1
+                if bar_start == -1:
+                    bar_start = i
+            else:
+                if consecutive_count > bottom_height * 0.3:  # 需要占底部区域30%以上
+                    actual_start = h - bottom_height + bar_start
+                    mask[actual_start:, :] = 255
+                    print(f"Detected bottom bar: y={actual_start} to {h}")
+                    break
+                consecutive_count = 0
+                bar_start = -1
+
+        # 检查最后的连续区域
+        if consecutive_count > bottom_height * 0.3 and bar_start != -1:
+            actual_start = h - bottom_height + bar_start
+            mask[actual_start:, :] = 255
+            print(f"Detected bottom bar: y={actual_start} to {h}")
+
+        watermark_pixels = np.sum(mask > 0)
+        return Image.fromarray(mask), watermark_pixels
+
+    def _detect_edge_watermarks(self, image):
+        """检测边缘水印（底部/顶部横条、左右边栏）- 改进版"""
+        import numpy as np
+        from PIL import Image
+        import cv2
+
+        image_np = np.array(image)
+        h, w = image_np.shape[:2]
+
+        mask = np.zeros((h, w), dtype=np.uint8)
+
+        # ====== 底部横条检测 ======
+        bottom_region_height = int(h * 0.12)
+        bottom_region = image_np[h - bottom_region_height:, :]
+        bottom_gray = cv2.cvtColor(bottom_region, cv2.COLOR_RGB2GRAY)
+        row_std = np.std(bottom_gray, axis=1)
+
+        # 如果某些行颜色非常一致（标准差低），可能是水印横条
+        uniform_rows = row_std < 35
+        if np.sum(uniform_rows) > bottom_region_height * 0.25:
+            for i, is_uniform in enumerate(uniform_rows):
+                if is_uniform:
+                    start_y = h - bottom_region_height + i
+                    mask[start_y:, :] = 255
+                    print(f"Detected bottom bar at y={start_y}")
+                    break
+
+        # ====== 顶部横条检测 ======
+        top_region_height = int(h * 0.08)
+        top_region = image_np[:top_region_height, :]
+        top_gray = cv2.cvtColor(top_region, cv2.COLOR_RGB2GRAY)
+        top_row_std = np.std(top_gray, axis=1)
+
+        uniform_top_rows = top_row_std < 35
+        if np.sum(uniform_top_rows) > top_region_height * 0.25:
+            for i, is_uniform in enumerate(uniform_top_rows):
+                if is_uniform:
+                    mask[:i + top_region_height, :] = 255
+                    print(f"Detected top bar at y={i + top_region_height}")
+                    break
+
+        # ====== 左侧边栏检测（Adobe Stock 风格）- 改进版 ======
+        # 使用饱和度检测：水印区域通常饱和度较低
+        left_region_width = int(w * 0.12)  # 增大检测区域
+        left_region = image_np[:, :left_region_width]
+
+        # 转换到 HSV 检测饱和度变化
+        left_hsv = cv2.cvtColor(left_region, cv2.COLOR_RGB2HSV)
+        left_saturation = left_hsv[:, :, 1]
+
+        # 计算每列的平均饱和度
+        col_sat_mean = np.mean(left_saturation, axis=0)
+
+        # 如果左侧区域饱和度明显低于图片其他部分，可能有水印
+        rest_region = image_np[:, left_region_width:]
+        rest_hsv = cv2.cvtColor(rest_region, cv2.COLOR_RGB2HSV)
+        rest_sat_mean = np.mean(rest_hsv[:, :, 1])
+
+        # 检测饱和度显著降低的列
+        low_sat_cols = col_sat_mean < rest_sat_mean * 0.7
+
+        if np.sum(low_sat_cols) > left_region_width * 0.3:
+            # 找到水印区域的边界
+            watermark_end = 0
+            for i in range(left_region_width - 1, -1, -1):
+                if low_sat_cols[i]:
+                    watermark_end = i + 1
+                    break
+
+            if watermark_end > 0:
+                # 扩展一点边界
+                watermark_end = min(int(watermark_end * 1.2), w)
+                mask[:, :watermark_end] = 255
+                print(f"Detected left sidebar watermark (saturation) ending at x={watermark_end}")
+
+        # ====== 右侧边栏检测 ======
+        right_region_width = int(w * 0.12)
+        right_region = image_np[:, w - right_region_width:]
+        right_hsv = cv2.cvtColor(right_region, cv2.COLOR_RGB2HSV)
+        right_saturation = right_hsv[:, :, 1]
+        right_col_sat_mean = np.mean(right_saturation, axis=0)
+
+        low_sat_right_cols = right_col_sat_mean < rest_sat_mean * 0.7
+        if np.sum(low_sat_right_cols) > right_region_width * 0.3:
+            watermark_start = w
+            for i in range(right_region_width):
+                if low_sat_right_cols[i]:
+                    watermark_start = w - right_region_width + i
+                    break
+            if watermark_start < w:
+                watermark_start = max(int(watermark_start * 0.95), 0)
+                mask[:, watermark_start:] = 255
+                print(f"Detected right sidebar watermark starting at x={watermark_start}")
+
+        watermark_pixels = np.sum(mask > 0)
+        print(f"Edge detection watermark pixels: {watermark_pixels} ({100*watermark_pixels/(h*w):.2f}%)")
+
+        return Image.fromarray(mask), watermark_pixels
+
+    def _detect_repeated_patterns(self, image):
+        """检测重复平铺的水印（改进版：使用多种方法）"""
+        import numpy as np
+        from PIL import Image
+        import cv2
+
+        image_np = np.array(image)
+        h, w = image_np.shape[:2]
+
+        gray = cv2.cvtColor(image_np, cv2.COLOR_RGB2GRAY)
+        mask = np.zeros((h, w), dtype=np.uint8)
+
+        # ====== 方法1: 检测半透明覆盖（水印通常是半透明白色/灰色）======
+        # 转换到 LAB 色彩空间，检测 L 通道异常
+        lab = cv2.cvtColor(image_np, cv2.COLOR_RGB2LAB)
+        l_channel = lab[:, :, 0]
+
+        # 使用局部对比度检测：水印区域的局部对比度通常较低
+        # 计算局部标准差
+        kernel_size = 15
+        local_mean = cv2.blur(l_channel.astype(np.float32), (kernel_size, kernel_size))
+        local_sq_mean = cv2.blur((l_channel.astype(np.float32) ** 2), (kernel_size, kernel_size))
+        local_std = np.sqrt(np.maximum(local_sq_mean - local_mean ** 2, 0))
+
+        # 低对比度区域可能是水印
+        low_contrast = local_std < 15
+        # 排除太暗或太亮的区域（这些可能是图片本身的特征）
+        mid_brightness = (l_channel > 50) & (l_channel < 200)
+        potential_watermark = low_contrast & mid_brightness
+
+        # ====== 方法2: 边缘检测找重复轮廓 ======
+        edges = cv2.Canny(gray, 30, 100)  # 降低阈值以检测更多边缘
+        kernel = np.ones((3, 3), np.uint8)
+        edges_dilated = cv2.dilate(edges, kernel, iterations=1)
+
+        contours, _ = cv2.findContours(edges_dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        # 分析轮廓
+        watermark_contours = []
+        for contour in contours:
+            area = cv2.contourArea(contour)
+            if 50 < area < h * w * 0.05:  # 调整大小范围
+                x, y, bw, bh = cv2.boundingRect(contour)
+                aspect_ratio = bw / max(bh, 1)
+                # 水印文字通常是扁长形
+                if 0.5 < aspect_ratio < 15:
+                    watermark_contours.append((contour, area, x, y, bw, bh))
+
+        # 检测重复模式
+        if len(watermark_contours) > 5:
+            areas = [c[1] for c in watermark_contours]
+
+            # 聚类找相似大小的轮廓
+            areas_sorted = sorted(areas)
+            median_area = areas_sorted[len(areas_sorted) // 2]
+
+            # 选择大小在中位数附近的轮廓
+            similar_contours = [c for c in watermark_contours
+                               if median_area * 0.3 < c[1] < median_area * 3]
+
+            if len(similar_contours) > 5:
+                print(f"Detected {len(similar_contours)} repeated pattern contours")
+                for contour, area, x, y, bw, bh in similar_contours:
+                    padding = max(5, int(min(bw, bh) * 0.3))
+                    x1 = max(0, x - padding)
+                    y1 = max(0, y - padding)
+                    x2 = min(w, x + bw + padding)
+                    y2 = min(h, y + bh + padding)
+                    mask[y1:y2, x1:x2] = 255
+
+        # ====== 方法3: 检测规则间隔的亮度异常 ======
+        # Shutterstock 水印通常有规则的间隔
+        # 对图片进行网格分析
+        grid_h, grid_w = 8, 8
+        cell_h, cell_w = h // grid_h, w // grid_w
+
+        brightness_grid = np.zeros((grid_h, grid_w))
+        for i in range(grid_h):
+            for j in range(grid_w):
+                cell = gray[i*cell_h:(i+1)*cell_h, j*cell_w:(j+1)*cell_w]
+                brightness_grid[i, j] = np.mean(cell)
+
+        # 检测亮度异常的格子
+        mean_brightness = np.mean(brightness_grid)
+        std_brightness = np.std(brightness_grid)
+
+        for i in range(grid_h):
+            for j in range(grid_w):
+                # 如果某个格子亮度明显偏离平均值
+                if abs(brightness_grid[i, j] - mean_brightness) > std_brightness * 0.5:
+                    # 进一步检查这个区域是否有水印特征
+                    cell_region = gray[i*cell_h:(i+1)*cell_h, j*cell_w:(j+1)*cell_w]
+                    cell_edges = cv2.Canny(cell_region, 30, 100)
+                    edge_density = np.sum(cell_edges > 0) / (cell_h * cell_w)
+
+                    # 如果边缘密度适中（文字通常有一定边缘但不太密集）
+                    if 0.02 < edge_density < 0.15:
+                        mask[i*cell_h:(i+1)*cell_h, j*cell_w:(j+1)*cell_w] = 255
+
+        # 膨胀并平滑 mask
+        if np.sum(mask > 0) > 0:
+            kernel = np.ones((7, 7), np.uint8)
+            mask = cv2.dilate(mask, kernel, iterations=2)
+            mask = cv2.GaussianBlur(mask, (5, 5), 0)
+            mask = (mask > 128).astype(np.uint8) * 255
+
+        watermark_pixels = np.sum(mask > 0)
+        print(f"Pattern detection watermark pixels: {watermark_pixels} ({100*watermark_pixels/(h*w):.2f}%)")
+
+        return Image.fromarray(mask), watermark_pixels
+
+    def _detect_diagonal_text_watermark(self, image):
+        """专门检测对角线文字水印（如 Adobe Stock、Shutterstock 斜向文字）- 保守版"""
+        import numpy as np
+        from PIL import Image
+        import cv2
+
+        image_np = np.array(image)
+        h, w = image_np.shape[:2]
+        gray = cv2.cvtColor(image_np, cv2.COLOR_RGB2GRAY)
+
+        mask = np.zeros((h, w), dtype=np.uint8)
+
+        # 使用 Sobel 算子检测不同方向的边缘
+        sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
+        sobely = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
+
+        gradient_angle = np.arctan2(sobely, sobelx) * 180 / np.pi
+        gradient_magnitude = np.sqrt(sobelx**2 + sobely**2)
+
+        # 更严格的对角线角度范围（45±8° 和 135±8°）
+        diagonal_45 = ((gradient_angle > 37) & (gradient_angle < 53)) | \
+                      ((gradient_angle > -143) & (gradient_angle < -127))
+        diagonal_135 = ((gradient_angle > 127) & (gradient_angle < 143)) | \
+                       ((gradient_angle > -53) & (gradient_angle < -37))
+
+        # 更高的梯度阈值
+        strong_edges = gradient_magnitude > 35
+        diagonal_watermark = (diagonal_45 | diagonal_135) & strong_edges
+
+        diagonal_mask = diagonal_watermark.astype(np.uint8) * 255
+
+        # 较小的膨胀
+        kernel = np.ones((5, 5), np.uint8)
+        diagonal_mask = cv2.dilate(diagonal_mask, kernel, iterations=2)
+
+        # 只保留适当大小的连通区域（不太小也不太大）
+        contours, _ = cv2.findContours(diagonal_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        total_area = h * w
+        for contour in contours:
+            area = cv2.contourArea(contour)
+            # 区域大小在 500 到图片面积 5% 之间
+            if 500 < area < total_area * 0.05:
+                cv2.drawContours(mask, [contour], -1, 255, -1)
+
+        # 轻微膨胀
+        if np.sum(mask > 0) > 0:
+            kernel = np.ones((3, 3), np.uint8)
+            mask = cv2.dilate(mask, kernel, iterations=1)
+
+        watermark_pixels = np.sum(mask > 0)
+        coverage = 100 * watermark_pixels / (h * w)
+        print(f"Diagonal text detection: {watermark_pixels} pixels ({coverage:.2f}%)")
+
+        # 安全检查：如果检测超过 30% 的图片，认为是误检测，返回空 mask
+        if coverage > 30:
+            print(f"  WARNING: Coverage too high ({coverage:.1f}%), skipping diagonal detection")
+            return Image.fromarray(np.zeros((h, w), dtype=np.uint8)), 0
+
+        return Image.fromarray(mask), watermark_pixels
+
+    def _detect_adobe_stock_watermark(self, image):
+        """专门检测 Adobe Stock 左侧半透明水印 - 使用 OCR 检测垂直文字
+
+        Adobe Stock 水印特征：
+        1. 位于图片左侧边缘（通常 < 15% 宽度）
+        2. 垂直排列的 "Adobe Stock" 文字和数字 ID
+        3. 半透明白色/灰色
+        """
+        import numpy as np
+        from PIL import Image
+        import cv2
+
+        image_np = np.array(image)
+        h, w = image_np.shape[:2]
+        mask = np.zeros((h, w), dtype=np.uint8)
+
+        # 提取左侧边缘区域（更窄，只取 12%）
+        left_width = int(w * 0.12)
+        left_region = image_np[:, :left_width]
+
+        # 将左侧区域旋转 90 度，让垂直文字变成水平文字便于 OCR 识别
+        left_rotated = cv2.rotate(left_region, cv2.ROTATE_90_CLOCKWISE)
+
+        # 增强对比度（水印通常是半透明的）
+        left_gray = cv2.cvtColor(left_rotated, cv2.COLOR_RGB2GRAY)
+
+        # 使用 CLAHE 增强对比度
+        clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
+        left_enhanced = clahe.apply(left_gray)
+
+        # 转回 RGB
+        left_enhanced_rgb = cv2.cvtColor(left_enhanced, cv2.COLOR_GRAY2RGB)
+
+        # 使用 OCR 检测旋转后的图像
+        reader = self._get_ocr_reader()
+        results = reader.readtext(left_enhanced_rgb, text_threshold=0.15, low_text=0.15)
+
+        print(f"Adobe Stock OCR (rotated): Found {len(results)} text regions in left edge")
+
+        # 水印关键词
+        watermark_keywords = ['adobe', 'stock', '©', '#']
+
+        rotated_h, rotated_w = left_rotated.shape[:2]
+        mask_rotated = np.zeros((rotated_h, rotated_w), dtype=np.uint8)
+
+        for (bbox, text, confidence) in results:
+            text_lower = text.lower()
+            # 检查是否是水印相关文字，或者是纯数字（可能是图片 ID）
+            is_watermark = any(kw in text_lower for kw in watermark_keywords)
+            is_numeric = text.replace(' ', '').replace('#', '').isdigit()
+
+            if is_watermark or is_numeric:
+                print(f"  Adobe Stock text: '{text}' (conf={confidence:.2f})")
+                pts = np.array(bbox, dtype=np.int32)
+
+                # 扩大边界框
+                center = pts.mean(axis=0)
+                pts_expanded = center + (pts - center) * 1.5
+                pts_expanded = pts_expanded.astype(np.int32)
+
+                cv2.fillPoly(mask_rotated, [pts_expanded], 255)
+
+        # 将 mask 旋转回原方向
+        if np.sum(mask_rotated > 0) > 0:
+            # 膨胀
+            kernel = np.ones((7, 7), np.uint8)
+            mask_rotated = cv2.dilate(mask_rotated, kernel, iterations=3)
+
+            # 旋转回原方向（逆时针 90 度）
+            left_mask = cv2.rotate(mask_rotated, cv2.ROTATE_90_COUNTERCLOCKWISE)
+
+            # 放入完整 mask
+            mask[:, :left_width] = left_mask
+
+        watermark_pixels = np.sum(mask > 0)
+        coverage = 100 * watermark_pixels / (h * w)
+        print(f"Adobe Stock detection: {watermark_pixels} pixels ({coverage:.2f}%)")
+
+        # 安全检查
+        if coverage > 10:
+            print(f"  WARNING: Adobe Stock coverage too high ({coverage:.1f}%), skipping")
+            return Image.fromarray(np.zeros((h, w), dtype=np.uint8)), 0
+
+        return Image.fromarray(mask), watermark_pixels
+
+    def _detect_adobe_stock_watermark_visual(self, image):
+        """备用方法：视觉分析检测 Adobe Stock 左侧水印"""
+        import numpy as np
+        from PIL import Image
+        import cv2
+
+        image_np = np.array(image)
+        h, w = image_np.shape[:2]
+        mask = np.zeros((h, w), dtype=np.uint8)
+
+        # 只分析左侧 15% 区域
+        left_width = int(w * 0.15)
+        left_region = image_np[:, :left_width]
+
+        # 转换到 LAB 色彩空间
+        left_lab = cv2.cvtColor(left_region, cv2.COLOR_RGB2LAB)
+        left_l = left_lab[:, :, 0].astype(np.float32)
+
+        # 高通滤波，突出局部变化
+        kernel_size = 15
+        local_mean = cv2.blur(left_l, (kernel_size, kernel_size))
+        local_diff = np.abs(left_l - local_mean)
+
+        # 检测局部对比度异常（水印文字边缘）
+        contrast_threshold = 3  # 降低阈值
+        contrast_pixels = local_diff > contrast_threshold
+
+        # 形态学处理
+        contrast_mask = contrast_pixels.astype(np.uint8) * 255
+        kernel = np.ones((5, 5), np.uint8)
+        contrast_mask = cv2.dilate(contrast_mask, kernel, iterations=2)
+        contrast_mask = cv2.morphologyEx(contrast_mask, cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
+
+        # 过滤：只保留垂直方向较长的区域
+        contours, _ = cv2.findContours(contrast_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        left_mask = np.zeros((h, left_width), dtype=np.uint8)
+        for contour in contours:
+            x, y, bw, bh = cv2.boundingRect(contour)
+            # 水印文字垂直排列，高度应该远大于宽度
+            if bh > h * 0.2 and bh > bw * 2:
+                cv2.drawContours(left_mask, [contour], -1, 255, -1)
+
+        if np.sum(left_mask > 0) > 0:
+            kernel = np.ones((7, 7), np.uint8)
+            left_mask = cv2.dilate(left_mask, kernel, iterations=2)
+
+        # 将左侧 mask 放回完整尺寸
+        mask[:, :left_width] = left_mask
+
+        watermark_pixels = np.sum(mask > 0)
+        coverage = 100 * watermark_pixels / (h * w)
+        print(f"Adobe Stock detection: {watermark_pixels} pixels ({coverage:.2f}%)")
+
+        # 安全检查：最多覆盖 15% 的图片
+        if coverage > 15:
+            print(f"  WARNING: Adobe Stock coverage too high ({coverage:.1f}%), skipping")
+            return Image.fromarray(np.zeros((h, w), dtype=np.uint8)), 0
+
+        return Image.fromarray(mask), watermark_pixels
+
+    def _combine_masks(self, masks):
+        """合并多个 mask"""
+        import numpy as np
+        from PIL import Image
+
+        if not masks:
+            return None, 0
+
+        # 将所有 mask 转为 numpy 数组并合并
+        combined = np.array(masks[0])
+        for m in masks[1:]:
+            combined = np.maximum(combined, np.array(m))
+
+        watermark_pixels = np.sum(combined > 0)
+        return Image.fromarray(combined), watermark_pixels
+
+    def _call_replicate_lama(self, image, mask):
+        """调用 Replicate LaMa API 进行图像修复"""
+        import replicate
+        import requests
+        import tempfile
+        import os
+
+        # 保存临时文件
+        with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as img_file:
+            image.save(img_file, format='PNG')
+            img_path = img_file.name
+
+        with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as mask_file:
+            mask.save(mask_file, format='PNG')
+            mask_path = mask_file.name
+
+        try:
+            print("Calling Replicate LaMa API...")
+            output = replicate.run(
+                "allenhooo/lama:cdac78a1bec5b23c07fd29692fb70baa513ea403a39e643c48ec5edadb15fe72",
+                input={
+                    "image": open(img_path, "rb"),
+                    "mask": open(mask_path, "rb"),
+                }
             )
 
-            generated_text_ocr = processor.batch_decode(
-                generated_ids_ocr,
-                skip_special_tokens=False
-            )[0]
+            if output:
+                result_url = str(output)
+                print(f"Result URL: {result_url}")
 
-            parsed_ocr = processor.post_process_generation(
-                generated_text_ocr,
-                task=prompt_ocr,
-                image_size=(image.width, image.height)
-            )
+                # 下载结果
+                response = requests.get(result_url)
+                from PIL import Image as PILImage
+                result_image = PILImage.open(io.BytesIO(response.content))
+                return result_image
 
-            if prompt_ocr in parsed_ocr and 'quad_boxes' in parsed_ocr[prompt_ocr]:
-                quad_boxes = parsed_ocr[prompt_ocr]['quad_boxes']
-                for quad in quad_boxes:
-                    # quad 是 4 个点的坐标
-                    draw.polygon(quad, fill=255)
+        finally:
+            # 清理临时文件
+            os.unlink(img_path)
+            os.unlink(mask_path)
 
-        return mask
+        return None
 
     @modal.fastapi_endpoint(method="POST")
     def remove_bg(self, request: RemoveBgRequest):
@@ -529,8 +1042,7 @@ class FixPicAPI:
 
     @modal.fastapi_endpoint(method="POST")
     def inpaint(self, request: InpaintRequest):
-        """图像修复 - 去水印"""
-        import numpy as np
+        """图像修复 - 使用 Replicate LaMa API"""
         from PIL import Image
 
         # 解码图片
@@ -545,11 +1057,14 @@ class FixPicAPI:
         if mask_image.size != input_image.size:
             mask_image = mask_image.resize(input_image.size, Image.Resampling.NEAREST)
 
-        # 获取 LaMa 模型
-        lama = self._get_lama_model()
+        # 调用 Replicate LaMa API
+        result = self._call_replicate_lama(input_image, mask_image)
 
-        # 执行修复
-        result = lama(input_image, mask_image)
+        if result is None:
+            return {
+                'success': False,
+                'error': 'LaMa API call failed'
+            }
 
         # 编码结果
         buffered = io.BytesIO()
@@ -565,68 +1080,142 @@ class FixPicAPI:
 
     @modal.fastapi_endpoint(method="POST")
     def auto_remove_watermark(self, request: AutoRemoveWatermarkRequest):
-        """自动检测并去除水印"""
+        """自动检测并去除水印 - 单轮处理（OCR + 横条检测）"""
         import numpy as np
         from PIL import Image
+        import traceback
 
-        # 解码图片
-        image_data = base64.b64decode(request.image_base64)
-        input_image = Image.open(io.BytesIO(image_data)).convert('RGB')
+        try:
+            # 解码图片
+            image_data = base64.b64decode(request.image_base64)
+            input_image = Image.open(io.BytesIO(image_data)).convert('RGB')
 
-        print(f"Processing image: {input_image.size}")
+            print(f"Processing image: {input_image.size}")
 
-        # Step 1: 使用 Florence-2 检测水印区域
-        print("Step 1: Detecting watermarks with Florence-2...")
-        mask = self._detect_watermark_mask(input_image)
+            masks = []
+            detection_info = {}
 
-        # 检查是否检测到水印
-        mask_array = np.array(mask)
-        watermark_pixels = np.sum(mask_array > 0)
-        print(f"Detected watermark pixels: {watermark_pixels}")
+            # OCR 文字检测
+            try:
+                print("OCR detection...")
+                ocr_mask, ocr_pixels = self._detect_watermark_mask_ocr(input_image, aggressive=True)
+                if ocr_pixels > 0:
+                    masks.append(ocr_mask)
+                    detection_info['ocr'] = int(ocr_pixels)
+                    print(f"  OCR: {ocr_pixels} pixels")
+            except Exception as e:
+                print(f"OCR error: {e}")
+                detection_info['ocr_error'] = str(e)
 
-        if watermark_pixels == 0:
-            # 没有检测到水印，返回原图
+            # 底部横条检测
+            try:
+                print("Bar detection...")
+                bar_mask, bar_pixels = self._detect_bar_watermarks_simple(input_image)
+                if bar_pixels > 0:
+                    masks.append(bar_mask)
+                    detection_info['bar'] = int(bar_pixels)
+                    print(f"  Bar: {bar_pixels} pixels")
+            except Exception as e:
+                print(f"Bar error: {e}")
+                detection_info['bar_error'] = str(e)
+
+            # Adobe Stock 左侧水印检测
+            try:
+                print("Adobe Stock detection...")
+                adobe_mask, adobe_pixels = self._detect_adobe_stock_watermark(input_image)
+                if adobe_pixels > 0:
+                    masks.append(adobe_mask)
+                    detection_info['adobe_stock'] = int(adobe_pixels)
+                    print(f"  Adobe Stock: {adobe_pixels} pixels")
+            except Exception as e:
+                print(f"Adobe Stock error: {e}")
+                detection_info['adobe_stock_error'] = str(e)
+
+            # 如果没有检测到水印，返回原图
+            if not masks:
+                print("No watermarks detected")
+                buffered = io.BytesIO()
+                input_image.save(buffered, format='PNG')
+                img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+                return {
+                    'success': True,
+                    'image': f'data:image/png;base64,{img_base64}',
+                    'width': input_image.width,
+                    'height': input_image.height,
+                    'watermark_detected': False,
+                    'detection_info': detection_info
+                }
+
+            # 合并 mask
+            combined_mask, total_pixels = self._combine_masks(masks)
+            total_area = input_image.width * input_image.height
+            coverage = 100 * total_pixels / total_area
+            print(f"Total: {total_pixels} pixels ({coverage:.2f}%)")
+
+            # 安全检查：覆盖超过 35% 返回原图
+            if coverage > 35:
+                print(f"Coverage too high ({coverage:.1f}%), returning original")
+                buffered = io.BytesIO()
+                input_image.save(buffered, format='PNG')
+                img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+                return {
+                    'success': True,
+                    'image': f'data:image/png;base64,{img_base64}',
+                    'width': input_image.width,
+                    'height': input_image.height,
+                    'watermark_detected': False,
+                    'message': f'Coverage too high ({coverage:.1f}%)',
+                    'detection_info': detection_info
+                }
+
+            # 使用 LaMa 修复
+            print("Inpainting...")
+            result = self._call_replicate_lama(input_image, combined_mask)
+
+            if result is None:
+                # LaMa 失败，返回原图
+                buffered = io.BytesIO()
+                input_image.save(buffered, format='PNG')
+                img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+                return {
+                    'success': True,
+                    'image': f'data:image/png;base64,{img_base64}',
+                    'width': input_image.width,
+                    'height': input_image.height,
+                    'watermark_detected': False,
+                    'message': 'Inpainting failed',
+                    'detection_info': detection_info
+                }
+
+            # 返回结果
             buffered = io.BytesIO()
-            input_image.save(buffered, format='PNG')
+            result.save(buffered, format='PNG')
             img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+
             return {
                 'success': True,
                 'image': f'data:image/png;base64,{img_base64}',
-                'width': input_image.width,
-                'height': input_image.height,
-                'watermark_detected': False,
-                'message': 'No watermark detected'
+                'width': result.width,
+                'height': result.height,
+                'watermark_detected': True,
+                'watermark_pixels': int(total_pixels),
+                'detection_info': detection_info
             }
 
-        # Step 2: 使用 LaMa 修复水印区域
-        print("Step 2: Inpainting with LaMa...")
-        lama = self._get_lama_model()
-        result = lama(input_image, mask)
-
-        # 编码结果
-        buffered = io.BytesIO()
-        result.save(buffered, format='PNG')
-        img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
-
-        # 同时返回 mask 用于调试
-        mask_buffered = io.BytesIO()
-        mask.save(mask_buffered, format='PNG')
-        mask_base64 = base64.b64encode(mask_buffered.getvalue()).decode('utf-8')
-
-        return {
-            'success': True,
-            'image': f'data:image/png;base64,{img_base64}',
-            'mask': f'data:image/png;base64,{mask_base64}',
-            'width': result.width,
-            'height': result.height,
-            'watermark_detected': True,
-            'watermark_pixels': int(watermark_pixels)
-        }
+        except Exception as e:
+            print(f"Error in auto_remove_watermark: {e}")
+            print(traceback.format_exc())
+            return {
+                'success': False,
+                'error': str(e),
+                'traceback': traceback.format_exc()
+            }
 
     @modal.fastapi_endpoint(method="GET")
     def health(self):
         """健康检查"""
         return {'status': 'ok'}
+
 
 
 # 用于测试的本地入口

@@ -5,7 +5,7 @@
   <!-- Homepage - All Languages -->
   <url>
     <loc>https://fix-pic.com/en</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fix-pic.com/en"/>
@@ -216,6 +216,54 @@
     <xhtml:link rel="alternate" hreflang="id" href="https://fix-pic.com/id/guides/midjourney-transparent"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fix-pic.com/zh-CN/guides/midjourney-transparent"/>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://fix-pic.com/zh-TW/guides/midjourney-transparent"/>
+  </url>
+
+  <!-- Remove Watermark - All Languages (NEW) -->
+  <url>
+    <loc>https://fix-pic.com/en/remove-watermark</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fix-pic.com/en/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fix-pic.com/en/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fix-pic.com/de/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fix-pic.com/es/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fix-pic.com/fr/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fix-pic.com/it/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fix-pic.com/ja/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fix-pic.com/ko/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fix-pic.com/pt/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fix-pic.com/ru/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://fix-pic.com/th/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fix-pic.com/tr/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://fix-pic.com/vi/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fix-pic.com/id/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fix-pic.com/zh-CN/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://fix-pic.com/zh-TW/remove-watermark"/>
+  </url>
+
+  <!-- Guide: Remove Watermark - All Languages (NEW) -->
+  <url>
+    <loc>https://fix-pic.com/en/guides/remove-watermark</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fix-pic.com/en/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fix-pic.com/en/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fix-pic.com/de/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fix-pic.com/es/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fix-pic.com/fr/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fix-pic.com/it/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fix-pic.com/ja/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fix-pic.com/ko/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fix-pic.com/pt/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fix-pic.com/ru/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://fix-pic.com/th/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fix-pic.com/tr/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://fix-pic.com/vi/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fix-pic.com/id/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://fix-pic.com/zh-CN/guides/remove-watermark"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://fix-pic.com/zh-TW/guides/remove-watermark"/>
   </url>
 
 </urlset>

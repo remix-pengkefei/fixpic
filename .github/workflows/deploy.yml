@@ -29,6 +29,8 @@ jobs:
         run: npm run build
         env:
           VITE_API_URL: https://remix-pengkefei--fixpic-api-fixpicapi
+          VITE_SUPABASE_URL: https://fweaxqebiokzkklmvpai.supabase.co
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
