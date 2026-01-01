@@ -27,6 +27,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_API_URL: https://remix-pengkefei--fixpic-api-fixpicapi
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
