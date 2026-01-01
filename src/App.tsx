@@ -28,6 +28,9 @@ const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.N
 // Auth callback page
 const AuthCallback = lazy(() => import('./pages/AuthCallback').then(m => ({ default: m.AuthCallback })))
 
+// History page
+const History = lazy(() => import('./pages/History').then(m => ({ default: m.History })))
+
 // Loading fallback component
 function PageLoader() {
   return (
@@ -80,6 +83,9 @@ function LangRoutes() {
         <Route path="/:lang/guides/batch-compress" element={<LanguageRouter><BatchCompress /></LanguageRouter>} />
         <Route path="/:lang/guides/midjourney-transparent" element={<LanguageRouter><MidjourneyTransparent /></LanguageRouter>} />
         <Route path="/:lang/guides/remove-watermark" element={<LanguageRouter><RemoveWatermarkGuide /></LanguageRouter>} />
+
+        {/* History page */}
+        <Route path="/:lang/history" element={<LanguageRouter><History /></LanguageRouter>} />
 
         {/* Auth callback */}
         <Route path="/auth/callback" element={<AuthCallback />} />

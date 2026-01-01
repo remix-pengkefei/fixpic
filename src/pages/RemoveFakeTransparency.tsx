@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
 import { languages } from '../i18n'
+import { saveHistory } from '../services/history'
 
 interface PendingFile {
   file: File
@@ -165,6 +166,13 @@ export function RemoveFakeTransparency() {
         preview: URL.createObjectURL(result)
       }])
       setPendingFiles(prev => prev.filter((_, i) => i !== index))
+      // Save to history
+      saveHistory({
+        tool_type: 'transparency',
+        original_filename: pending.file.name,
+        original_size: pending.file.size,
+        result_size: result.size
+      })
     } catch (err) {
       console.error('Processing failed:', pending.file.name, err)
     }
@@ -186,6 +194,13 @@ export function RemoveFakeTransparency() {
           originalSize: pending.file.size,
           resultSize: result.size,
           preview: URL.createObjectURL(result)
+        })
+        // Save to history
+        saveHistory({
+          tool_type: 'transparency',
+          original_filename: pending.file.name,
+          original_size: pending.file.size,
+          result_size: result.size
         })
       } catch (err) {
         console.error('Processing failed:', pending.file.name, err)

@@ -1,12 +1,23 @@
 import { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { languages } from '../i18n'
 
 export function UserMenu() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { user, signOut } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
   const [showMenu, setShowMenu] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
+
+  // Get current language from URL
+  const pathParts = location.pathname.split('/').filter(Boolean)
+  const validLangCodes = languages.map(l => l.code)
+  const urlLang = pathParts[0] && validLangCodes.includes(pathParts[0]) ? pathParts[0] : null
+  const currentLang = urlLang || i18n.language || 'en'
+  const langLink = (path: string) => `/${currentLang}${path}`
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -43,11 +54,8 @@ export function UserMenu() {
             <p className="user-menu-email">{user.email}</p>
           </div>
           <div className="user-menu-items">
-            <button onClick={() => { /* TODO: history page */ }}>
+            <button onClick={() => { setShowMenu(false); navigate(langLink('/history')) }}>
               {t('user.history')}
-            </button>
-            <button onClick={() => { /* TODO: settings page */ }}>
-              {t('user.settings')}
             </button>
             <hr />
             <button onClick={signOut} className="logout-btn">

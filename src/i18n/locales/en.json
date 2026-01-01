@@ -19,6 +19,14 @@
     "settings": "Settings",
     "logout": "Log Out"
   },
+  "history": {
+    "title": "Processing History",
+    "clearAll": "Clear All",
+    "confirmClear": "Are you sure you want to clear all history?",
+    "empty": "No history yet",
+    "emptyHint": "Your processed images will appear here",
+    "delete": "Delete"
+  },
   "common": {
     "process": "Process",
     "processAll": "Process All",
@@ -37,7 +45,8 @@
     "free": "Free",
     "relatedTools": "Related Tools",
     "relatedGuides": "Related Guides",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "delete": "Delete"
   },
   "header": {
     "title": "Fix-Pic",

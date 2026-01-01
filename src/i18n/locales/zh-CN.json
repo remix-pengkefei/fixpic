@@ -19,6 +19,14 @@
     "settings": "设置",
     "logout": "退出登录"
   },
+  "history": {
+    "title": "处理历史",
+    "clearAll": "清空全部",
+    "confirmClear": "确定要清空所有历史记录吗？",
+    "empty": "暂无记录",
+    "emptyHint": "处理过的图片会显示在这里",
+    "delete": "删除"
+  },
   "common": {
     "process": "处理",
     "processAll": "全部处理",

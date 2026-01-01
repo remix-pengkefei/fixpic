@@ -5,6 +5,7 @@ import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
 import { languages } from '../i18n'
 import { autoRemoveWatermark } from '../api'
+import { saveHistory } from '../services/history'
 
 interface ProcessedImage {
   original: File
@@ -135,6 +136,13 @@ export function RemoveWatermark() {
       try {
         const result = await processImage(files[i].file)
         setResults(prev => [...prev, result])
+        // Save to history
+        saveHistory({
+          tool_type: 'watermark',
+          original_filename: files[i].file.name,
+          original_size: files[i].file.size,
+          result_size: result.resultSize
+        })
       } catch (err) {
         console.error(`Failed to process ${files[i].file.name}:`, err)
       }
