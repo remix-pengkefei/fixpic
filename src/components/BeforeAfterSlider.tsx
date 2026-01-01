@@ -71,7 +71,7 @@ export function BeforeAfterSlider({
     >
       {/* After image (background) */}
       <div className="slider-image-container">
-        <img src={afterImage} alt={afterAlt} className="slider-image" draggable={false} />
+        <img src={afterImage} alt={afterAlt} className="slider-image" draggable={false} loading="lazy" />
         <span className="slider-label slider-label-after">{afterLabel}</span>
       </div>
 
@@ -80,7 +80,7 @@ export function BeforeAfterSlider({
         className="slider-image-container slider-before"
         style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
       >
-        <img src={beforeImage} alt={beforeAlt} className="slider-image" draggable={false} />
+        <img src={beforeImage} alt={beforeAlt} className="slider-image" draggable={false} loading="lazy" />
         <span className="slider-label slider-label-before">{beforeLabel}</span>
       </div>
 
