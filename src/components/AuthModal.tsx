@@ -11,7 +11,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const { t } = useTranslation()
   const [step, setStep] = useState<'email' | 'code'>('email')
   const [email, setEmail] = useState('')
-  const [code, setCode] = useState(['', '', '', '', '', ''])
+  const [code, setCode] = useState(['', '', '', '', '', '', '', ''])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
@@ -21,7 +21,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     if (!isOpen) {
       setStep('email')
       setEmail('')
-      setCode(['', '', '', '', '', ''])
+      setCode(['', '', '', '', '', '', '', ''])
       setError('')
     }
   }, [isOpen])
@@ -62,12 +62,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     setCode(newCode)
 
     // Auto-focus next input
-    if (value && index < 5) {
+    if (value && index < 7) {
       inputRefs.current[index + 1]?.focus()
     }
 
-    // Auto-submit when all 6 digits entered
-    if (value && index === 5 && newCode.every(d => d !== '')) {
+    // Auto-submit when all 8 digits entered
+    if (value && index === 7 && newCode.every(d => d !== '')) {
       handleVerifyCode(newCode.join(''))
     }
   }
@@ -80,8 +80,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
   const handlePaste = (e: React.ClipboardEvent) => {
     e.preventDefault()
-    const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6)
-    if (pastedData.length === 6) {
+    const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 8)
+    if (pastedData.length === 8) {
       const newCode = pastedData.split('')
       setCode(newCode)
       handleVerifyCode(pastedData)
@@ -100,7 +100,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
     if (verifyError) {
       setError(verifyError.message)
-      setCode(['', '', '', '', '', ''])
+      setCode(['', '', '', '', '', '', '', ''])
       inputRefs.current[0]?.focus()
     } else if (data.session) {
       // Success! Close modal
@@ -112,7 +112,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const handleResend = async () => {
     setLoading(true)
     setError('')
-    setCode(['', '', '', '', '', ''])
+    setCode(['', '', '', '', '', '', '', ''])
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
@@ -192,7 +192,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               <button
                 type="button"
                 className="auth-back-btn"
-                onClick={() => { setStep('email'); setError(''); setCode(['', '', '', '', '', '']) }}
+                onClick={() => { setStep('email'); setError(''); setCode(['', '', '', '', '', '', '', '']) }}
               >
                 {t('auth.changeEmail')}
               </button>
