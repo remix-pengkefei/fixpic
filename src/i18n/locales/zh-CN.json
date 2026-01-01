@@ -45,7 +45,9 @@
     "free": "免费",
     "relatedTools": "相关工具",
     "relatedGuides": "相关指南",
-    "learnMore": "了解更多"
+    "learnMore": "了解更多",
+    "delete": "删除",
+    "viewAll": "查看全部"
   },
   "header": {
     "title": "Fix-Pic",
@@ -64,7 +66,9 @@
     "removeFakeTransparency": "去假透明",
     "compress": "压缩图片",
     "resize": "调整尺寸",
-    "removeWatermark": "去水印"
+    "removeWatermark": "去水印",
+    "changeBackground": "AI换背景",
+    "history": "历史记录"
   },
   "home": {
     "seo": {
@@ -76,23 +80,39 @@
       "title": "免费在线图片处理工具",
       "desc": "本地浏览器处理，无需上传服务器，保护您的隐私"
     },
+    "dashboard": {
+      "welcome": "欢迎回来，{{name}}！",
+      "desc": "选择工具开始处理",
+      "tools": "图片工具",
+      "recentHistory": "最近处理",
+      "viewHistory": "查看所有处理历史"
+    },
     "tools": {
       "removeFakeTransparency": {
         "title": "去假透明背景",
-        "desc": "将 Midjourney、Lovart、Stable Diffusion 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG"
+        "desc": "将 Midjourney、Lovart、Stable Diffusion 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG",
+        "shortDesc": "去除棋盘格背景"
       },
       "compress": {
         "title": "图片压缩转换",
-        "desc": "压缩图片文件大小，支持转换为 WebP、PNG、JPEG 格式，可调节压缩质量"
+        "desc": "压缩图片文件大小，支持转换为 WebP、PNG、JPEG 格式，可调节压缩质量",
+        "shortDesc": "压缩转换为 WebP"
       },
       "resize": {
         "title": "调整图片尺寸",
-        "desc": "精确调整图片宽高尺寸，支持保持宽高比等比缩放，批量处理多张图片"
+        "desc": "精确调整图片宽高尺寸，支持保持宽高比等比缩放，批量处理多张图片",
+        "shortDesc": "精确调整尺寸"
       },
       "watermark": {
         "title": "图片去水印",
         "desc": "使用 AI 智能修复技术，去除图片中的水印、文字、Logo 等不需要的内容",
+        "shortDesc": "AI智能去水印",
         "demoText": "涂抹水印区域即可去除"
+      },
+      "background": {
+        "title": "AI换背景",
+        "desc": "使用 AI 技术去除或更换图片背景",
+        "shortDesc": "去除或更换背景"
       }
     },
     "showcase": {

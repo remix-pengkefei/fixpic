@@ -46,7 +46,8 @@
     "relatedTools": "Related Tools",
     "relatedGuides": "Related Guides",
     "learnMore": "Learn More",
-    "delete": "Delete"
+    "delete": "Delete",
+    "viewAll": "View All"
   },
   "header": {
     "title": "Fix-Pic",
@@ -65,7 +66,9 @@
     "removeFakeTransparency": "Remove Fake Transparency",
     "compress": "Compress",
     "resize": "Resize",
-    "removeWatermark": "Remove Watermark"
+    "removeWatermark": "Remove Watermark",
+    "changeBackground": "AI Background",
+    "history": "History"
   },
   "home": {
     "seo": {
@@ -77,23 +80,39 @@
       "title": "Free Online Image Processing Tools",
       "desc": "All processing done locally in your browser. No uploads, complete privacy."
     },
+    "dashboard": {
+      "welcome": "Welcome back, {{name}}!",
+      "desc": "Choose a tool to get started",
+      "tools": "Image Tools",
+      "recentHistory": "Recent History",
+      "viewHistory": "View all processing history"
+    },
     "tools": {
       "removeFakeTransparency": {
         "title": "Remove Fake Transparency",
-        "desc": "Convert fake transparent backgrounds (gray-white checkerboard) from Midjourney, Lovart, Stable Diffusion and other AI tools into real transparent PNG"
+        "desc": "Convert fake transparent backgrounds (gray-white checkerboard) from Midjourney, Lovart, Stable Diffusion and other AI tools into real transparent PNG",
+        "shortDesc": "Remove checkerboard background"
       },
       "compress": {
         "title": "Compress & Convert",
-        "desc": "Reduce image file size, convert to WebP, PNG, or JPEG format with adjustable quality settings"
+        "desc": "Reduce image file size, convert to WebP, PNG, or JPEG format with adjustable quality settings",
+        "shortDesc": "Compress & convert to WebP"
       },
       "resize": {
         "title": "Resize Images",
-        "desc": "Precisely adjust image dimensions, maintain aspect ratio with proportional scaling, batch process multiple images"
+        "desc": "Precisely adjust image dimensions, maintain aspect ratio with proportional scaling, batch process multiple images",
+        "shortDesc": "Resize images precisely"
       },
       "watermark": {
         "title": "Remove Watermark",
         "desc": "Remove watermarks, text, logos and unwanted objects from images using AI-powered inpainting technology",
+        "shortDesc": "AI-powered watermark removal",
         "demoText": "Paint over watermarks to remove them"
+      },
+      "background": {
+        "title": "AI Background",
+        "desc": "Remove or change image backgrounds using AI technology",
+        "shortDesc": "Remove or change background"
       }
     },
     "showcase": {
