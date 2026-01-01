@@ -15,6 +15,11 @@ interface ProcessedImage {
   watermarkDetected: boolean
 }
 
+interface PendingFile {
+  file: File
+  preview: string
+}
+
 export function RemoveWatermark() {
   const { t, i18n } = useTranslation()
   const location = useLocation()
@@ -28,7 +33,7 @@ export function RemoveWatermark() {
 
   // State
   const [isDragging, setIsDragging] = useState(false)
-  const [pendingFiles, setPendingFiles] = useState<File[]>([])
+  const [pendingFiles, setPendingFiles] = useState<PendingFile[]>([])
   const [processing, setProcessing] = useState(false)
   const [processingStatus, setProcessingStatus] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -38,7 +43,11 @@ export function RemoveWatermark() {
   const handleFileSelect = useCallback((files: FileList | File[]) => {
     const imageFiles = Array.from(files).filter(f => f.type.startsWith('image/'))
     if (imageFiles.length > 0) {
-      setPendingFiles(prev => [...prev, ...imageFiles])
+      const newPendingFiles = imageFiles.map(file => ({
+        file,
+        preview: URL.createObjectURL(file)
+      }))
+      setPendingFiles(prev => [...prev, ...newPendingFiles])
     }
   }, [])
 
@@ -119,13 +128,15 @@ export function RemoveWatermark() {
       setProcessingStatus(`${t('common.processing')} (${i + 1}/${pendingFiles.length})`)
 
       try {
-        const result = await processImage(pendingFiles[i])
+        const result = await processImage(pendingFiles[i].file)
         setResults(prev => [...prev, result])
       } catch (err) {
-        console.error(`Failed to process ${pendingFiles[i].name}:`, err)
+        console.error(`Failed to process ${pendingFiles[i].file.name}:`, err)
       }
     }
 
+    // Revoke preview URLs
+    pendingFiles.forEach(p => URL.revokeObjectURL(p.preview))
     setPendingFiles([])
     setProcessing(false)
     setProcessingStatus('')
@@ -133,7 +144,11 @@ export function RemoveWatermark() {
 
   // Remove pending file
   const removePendingFile = useCallback((index: number) => {
-    setPendingFiles(prev => prev.filter((_, i) => i !== index))
+    setPendingFiles(prev => {
+      const toRemove = prev[index]
+      if (toRemove) URL.revokeObjectURL(toRemove.preview)
+      return prev.filter((_, i) => i !== index)
+    })
   }, [])
 
   // Download handlers
@@ -164,8 +179,9 @@ export function RemoveWatermark() {
   useEffect(() => {
     return () => {
       results.forEach(r => URL.revokeObjectURL(r.preview))
+      pendingFiles.forEach(p => URL.revokeObjectURL(p.preview))
     }
-  }, [])
+  }, [results, pendingFiles])
 
   return (
     <>
@@ -222,14 +238,8 @@ export function RemoveWatermark() {
               </button>
             </div>
             <div className="pending-grid">
-              {pendingFiles.map((file, index) => (
-                <div key={index} className="pending-card">
-                  <img
-                    src={URL.createObjectURL(file)}
-                    alt={file.name}
-                    onLoad={(e) => URL.revokeObjectURL((e.target as HTMLImageElement).src)}
-                  />
-                  <p className="pending-name">{file.name}</p>
+              {pendingFiles.map((p, index) => (
+                <div key={index} className={`pending-card ${currentIndex === index && processing ? 'processing' : ''}`}>
                   <button
                     className="remove-btn"
                     onClick={(e) => {
@@ -239,6 +249,16 @@ export function RemoveWatermark() {
                   >
                     ×
                   </button>
+                  <div className="pending-preview">
+                    <img src={p.preview} alt={p.file.name} loading="lazy" />
+                    {currentIndex === index && processing && (
+                      <div className="pending-overlay"><div className="spinner-small"></div></div>
+                    )}
+                  </div>
+                  <div className="pending-info">
+                    <p className="pending-name">{p.file.name}</p>
+                    <p className="pending-size">{formatSize(p.file.size)}</p>
+                  </div>
                 </div>
               ))}
             </div>
