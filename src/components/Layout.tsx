@@ -18,7 +18,6 @@ export function Layout({ children }: LayoutProps) {
   const { user, loading } = useAuth()
   const [showLangMenu, setShowLangMenu] = useState(false)
   const [showAuthModal, setShowAuthModal] = useState(false)
-  const [showMobileNav, setShowMobileNav] = useState(false)
   const langMenuRef = useRef<HTMLDivElement>(null)
 
   const pathParts = location.pathname.split('/').filter(Boolean)
@@ -68,18 +67,6 @@ export function Layout({ children }: LayoutProps) {
     { path: '/resize', label: t('nav.resize'), icon: '📐', anchor: 'tool-resize' },
   ]
 
-  // Show all tools in nav
-  const navItems = toolItems
-
-  const handleNavClick = (e: React.MouseEvent, item: typeof navItems[0]) => {
-    if (isHome && item.anchor) {
-      e.preventDefault()
-      const element = document.getElementById(item.anchor)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      }
-    }
-  }
 
   // Logged-in layout with sidebar
   if (user) {
@@ -169,19 +156,6 @@ export function Layout({ children }: LayoutProps) {
             <span className="pr-logo-text">ixPic</span>
           </Link>
 
-          <nav className="pr-nav">
-            {navItems.map(item => (
-              <Link
-                key={item.path}
-                to={langLink(item.path)}
-                className={`pr-nav-link ${currentPage === item.path ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, item)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
           <div className="pr-header-actions">
             <div className="pr-lang" ref={langMenuRef}>
               <button className="pr-lang-btn" onClick={() => setShowLangMenu(!showLangMenu)}>
@@ -211,33 +185,8 @@ export function Layout({ children }: LayoutProps) {
                 {t('auth.login')}
               </button>
             )}
-
-            <button className="pr-mobile-toggle" onClick={() => setShowMobileNav(!showMobileNav)}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                {showMobileNav ? (
-                  <path d="M6 6l12 12M6 18L18 6" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
           </div>
         </div>
-
-        {showMobileNav && (
-          <nav className="pr-mobile-nav">
-            {navItems.map(item => (
-              <Link
-                key={item.path}
-                to={langLink(item.path)}
-                className={`pr-mobile-nav-link ${currentPage === item.path ? 'active' : ''}`}
-                onClick={(e) => { handleNavClick(e, item); setShowMobileNav(false) }}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        )}
       </header>
 
       <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />

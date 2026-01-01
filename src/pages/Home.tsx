@@ -147,32 +147,30 @@ export function Home() {
       <StructuredData type="home" />
 
       <div className="home-page">
-        {/* Hero Section */}
-        <section className="hero">
+        {/* Hero Section - Compact */}
+        <section className="hero hero-compact">
           <h1>{t('home.hero.title')}</h1>
           <p className="hero-desc">{t('home.hero.desc')}</p>
         </section>
 
-        {/* Tools Showcase */}
-        {user ? (
-          // Logged-in: Show tool cards grid
-          <section className="tools-section">
-            <h2>{t('nav.tools', 'Tools')}</h2>
-            <div className="tool-cards-grid">
-              {tools.map(tool => (
-                <Link key={tool.path} to={langLink(tool.path)} className="tool-card">
-                  <span className="tool-card-icon">{tool.icon}</span>
-                  <span className="tool-card-name">{tool.name}</span>
-                  <span className="tool-card-desc">{tool.desc}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        ) : (
-          // Not logged-in: Show effect showcases with BeforeAfterSlider
-          <section className="effects-showcase">
+        {/* Tools Grid - First Screen */}
+        <section className="tools-grid-section">
+          <div className="tools-grid">
             {tools.map(tool => (
-              <div key={tool.path} id={tool.anchor} className="effect-item">
+              <Link key={tool.path} to={langLink(tool.path)} className="tool-grid-card" id={tool.anchor}>
+                <span className="tool-grid-icon">{tool.icon}</span>
+                <span className="tool-grid-name">{tool.name}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Effect Showcases - Below the fold */}
+        {!user && (
+          <section className="effects-showcase">
+            <h2 className="showcase-title">{t('home.showcase.title', 'See the Magic')}</h2>
+            {tools.slice(0, 6).map(tool => (
+              <div key={tool.path} className="effect-item">
                 <div className="effect-preview">
                   <BeforeAfterSlider
                     beforeImage={tool.beforeImage}
