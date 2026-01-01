@@ -78,20 +78,62 @@ export function Home() {
               <p className="dashboard-desc">{t('home.dashboard.desc')}</p>
             </section>
 
-            {/* Tool Cards Grid */}
+            {/* AI Tools Section */}
             <section className="dashboard-tools">
-              <h2>{t('home.dashboard.tools')}</h2>
+              <h2>{t('nav.aiTools', 'AI Tools')}</h2>
               <div className="tool-cards-grid">
-                <Link to={langLink('/remove-watermark')} className="tool-card">
-                  <span className="tool-card-icon">🔍</span>
-                  <span className="tool-card-name">{t('nav.removeWatermark')}</span>
-                  <span className="tool-card-desc">{t('home.tools.watermark.shortDesc', 'AI-powered watermark removal')}</span>
-                </Link>
-                <Link to={langLink('/change-background')} className="tool-card">
+                <Link to={langLink('/background-remover')} className="tool-card">
                   <span className="tool-card-icon">🎨</span>
-                  <span className="tool-card-name">{t('nav.changeBackground', 'AI Background')}</span>
-                  <span className="tool-card-desc">{t('home.tools.background.shortDesc', 'Remove or change background')}</span>
+                  <span className="tool-card-name">{t('nav.bgRemover', 'Background Remover')}</span>
+                  <span className="tool-card-desc">{t('home.tools.bgRemover.shortDesc', 'Remove image backgrounds with AI')}</span>
                 </Link>
+                <Link to={langLink('/image-upscaler')} className="tool-card">
+                  <span className="tool-card-icon">🔍</span>
+                  <span className="tool-card-name">{t('nav.upscaler', 'Image Upscaler')}</span>
+                  <span className="tool-card-desc">{t('home.tools.upscaler.shortDesc', 'Enlarge images up to 4x')}</span>
+                </Link>
+                <Link to={langLink('/watermark-remover')} className="tool-card">
+                  <span className="tool-card-icon">💧</span>
+                  <span className="tool-card-name">{t('nav.watermarkRemover', 'Watermark Remover')}</span>
+                  <span className="tool-card-desc">{t('home.tools.watermarkRemover.shortDesc', 'Remove watermarks and logos')}</span>
+                </Link>
+                <Link to={langLink('/background-generator')} className="tool-card">
+                  <span className="tool-card-icon">✨</span>
+                  <span className="tool-card-name">{t('nav.bgGenerator', 'Background Generator')}</span>
+                  <span className="tool-card-desc">{t('home.tools.bgGenerator.shortDesc', 'Generate AI backgrounds')}</span>
+                </Link>
+                <Link to={langLink('/image-sharpener')} className="tool-card">
+                  <span className="tool-card-icon">🔬</span>
+                  <span className="tool-card-name">{t('nav.sharpener', 'Image Sharpener')}</span>
+                  <span className="tool-card-desc">{t('home.tools.sharpener.shortDesc', 'Sharpen blurry images')}</span>
+                </Link>
+                <Link to={langLink('/image-denoiser')} className="tool-card">
+                  <span className="tool-card-icon">🔇</span>
+                  <span className="tool-card-name">{t('nav.denoiser', 'Image Denoiser')}</span>
+                  <span className="tool-card-desc">{t('home.tools.denoiser.shortDesc', 'Remove noise and artifacts')}</span>
+                </Link>
+                <Link to={langLink('/shadow-generator')} className="tool-card">
+                  <span className="tool-card-icon">🌓</span>
+                  <span className="tool-card-name">{t('nav.shadowGen', 'Shadow Generator')}</span>
+                  <span className="tool-card-desc">{t('home.tools.shadowGen.shortDesc', 'Add realistic shadows')}</span>
+                </Link>
+                <Link to={langLink('/smart-crop')} className="tool-card">
+                  <span className="tool-card-icon">✂️</span>
+                  <span className="tool-card-name">{t('nav.smartCrop', 'Smart Crop')}</span>
+                  <span className="tool-card-desc">{t('home.tools.smartCrop.shortDesc', 'AI-powered smart cropping')}</span>
+                </Link>
+                <Link to={langLink('/image-extender')} className="tool-card">
+                  <span className="tool-card-icon">↔️</span>
+                  <span className="tool-card-name">{t('nav.extender', 'Image Extender')}</span>
+                  <span className="tool-card-desc">{t('home.tools.extender.shortDesc', 'Extend image borders')}</span>
+                </Link>
+              </div>
+            </section>
+
+            {/* Free Tools Section */}
+            <section className="dashboard-tools">
+              <h2>{t('nav.freeTools', 'Free Tools')}</h2>
+              <div className="tool-cards-grid">
                 <Link to={langLink('/remove-fake-transparency')} className="tool-card">
                   <span className="tool-card-icon">🔲</span>
                   <span className="tool-card-name">{t('nav.removeFakeTransparency')}</span>
