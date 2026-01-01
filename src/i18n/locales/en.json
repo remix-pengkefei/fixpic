@@ -54,7 +54,8 @@
     "tagline": "Free Online Image Processing Tools"
   },
   "footer": {
-    "description": "FixPic - Free Online Image Processing Tools | Local Processing, Privacy Safe"
+    "description": "FixPic - Free Online Image Processing Tools | Local Processing, Privacy Safe",
+    "tools": "Tools"
   },
   "notFound": {
     "title": "Page Not Found",

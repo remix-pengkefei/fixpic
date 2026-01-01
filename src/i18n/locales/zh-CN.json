@@ -54,7 +54,8 @@
     "tagline": "免费在线图片处理工具"
   },
   "footer": {
-    "description": "FixPic - 免费在线图片处理工具 | 本地处理，隐私安全"
+    "description": "FixPic - 免费在线图片处理工具 | 本地处理，隐私安全",
+    "tools": "工具"
   },
   "notFound": {
     "title": "页面未找到",
