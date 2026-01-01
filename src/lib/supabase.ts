@@ -14,8 +14,8 @@ export const supabase = createClient(
     auth: {
       autoRefreshToken: true,
       persistSession: true,
-      detectSessionInUrl: false,  // We handle code exchange manually in AuthCallback
-      flowType: 'pkce'
+      detectSessionInUrl: true,
+      flowType: 'implicit'  // Use implicit flow - tokens in URL hash, no code_verifier needed
     }
   }
 )

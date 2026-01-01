@@ -7,57 +7,55 @@ export function AuthCallback() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const handleAuthCallback = async () => {
-      try {
-        const params = new URLSearchParams(window.location.search)
-        const hashParams = new URLSearchParams(window.location.hash.substring(1))
+    // Check for error in URL first
+    const params = new URLSearchParams(window.location.search)
+    const hashParams = new URLSearchParams(window.location.hash.substring(1))
 
-        // Check for error in URL
-        const errorParam = params.get('error') || hashParams.get('error')
-        const errorDescription = params.get('error_description') || hashParams.get('error_description')
+    const errorParam = params.get('error') || hashParams.get('error')
+    const errorDescription = params.get('error_description') || hashParams.get('error_description')
 
-        if (errorParam) {
-          console.error('Auth error from URL:', errorParam, errorDescription)
-          setError(errorDescription || errorParam)
-          return
-        }
+    if (errorParam) {
+      setError(errorDescription || errorParam)
+      return
+    }
 
-        // Handle PKCE code exchange (Magic Link flow)
-        const code = params.get('code')
-        if (code) {
-          console.log('Exchanging code for session...')
-          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
-
-          if (exchangeError) {
-            console.error('Code exchange error:', exchangeError)
-            setError(exchangeError.message)
-            return
-          }
-
-          if (data.session) {
-            console.log('Login successful!')
-            navigate('/', { replace: true })
-            return
-          }
-        }
-
-        // Fallback: check if session already exists
-        const { data: { session } } = await supabase.auth.getSession()
+    // Listen for auth state changes
+    // With detectSessionInUrl: true and implicit flow, Supabase auto-detects tokens in URL hash
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        console.log('Auth event:', event)
         if (session) {
-          console.log('Session already exists')
+          // Successfully logged in
           navigate('/', { replace: true })
-          return
         }
+      }
+    )
 
-        // No code and no session
-        setError('Login failed. Please try again.')
-      } catch (err) {
-        console.error('Auth callback error:', err)
-        setError('An unexpected error occurred')
+    // Check for session after a short delay (gives Supabase time to process URL)
+    const checkSession = async () => {
+      // Wait for Supabase to process the URL hash
+      await new Promise(resolve => setTimeout(resolve, 500))
+
+      const { data: { session } } = await supabase.auth.getSession()
+      if (session) {
+        navigate('/', { replace: true })
+      } else {
+        // Give it more time
+        await new Promise(resolve => setTimeout(resolve, 1500))
+        const { data: { session: retrySession } } = await supabase.auth.getSession()
+        if (retrySession) {
+          navigate('/', { replace: true })
+        } else {
+          setError('Login failed. Please try again.')
+        }
       }
     }
 
-    handleAuthCallback()
+    checkSession()
+
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [navigate])
 
   if (error) {
