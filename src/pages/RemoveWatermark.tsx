@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
@@ -38,6 +38,10 @@ export function RemoveWatermark() {
   const [processingStatus, setProcessingStatus] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [results, setResults] = useState<ProcessedImage[]>([])
+
+  // Ref to always have latest pendingFiles
+  const pendingFilesRef = useRef<PendingFile[]>([])
+  pendingFilesRef.current = pendingFiles
 
   // Handle file selection
   const handleFileSelect = useCallback((files: FileList | File[]) => {
@@ -118,29 +122,30 @@ export function RemoveWatermark() {
 
   // Process all pending files
   const processAll = useCallback(async () => {
-    if (pendingFiles.length === 0 || processing) return
+    const files = pendingFilesRef.current
+    if (files.length === 0 || processing) return
 
     setProcessing(true)
     setCurrentIndex(0)
 
-    for (let i = 0; i < pendingFiles.length; i++) {
+    for (let i = 0; i < files.length; i++) {
       setCurrentIndex(i)
-      setProcessingStatus(`${t('common.processing')} (${i + 1}/${pendingFiles.length})`)
+      setProcessingStatus(`${t('common.processing')} (${i + 1}/${files.length})`)
 
       try {
-        const result = await processImage(pendingFiles[i].file)
+        const result = await processImage(files[i].file)
         setResults(prev => [...prev, result])
       } catch (err) {
-        console.error(`Failed to process ${pendingFiles[i].file.name}:`, err)
+        console.error(`Failed to process ${files[i].file.name}:`, err)
       }
     }
 
     // Revoke preview URLs
-    pendingFiles.forEach(p => URL.revokeObjectURL(p.preview))
+    files.forEach(p => URL.revokeObjectURL(p.preview))
     setPendingFiles([])
     setProcessing(false)
     setProcessingStatus('')
-  }, [pendingFiles, processing, processImage, t])
+  }, [processing, processImage, t])
 
   // Remove pending file
   const removePendingFile = useCallback((index: number) => {
