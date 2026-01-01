@@ -17,7 +17,8 @@
   "user": {
     "history": "History",
     "settings": "Settings",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "account": "Account"
   },
   "history": {
     "title": "Processing History",

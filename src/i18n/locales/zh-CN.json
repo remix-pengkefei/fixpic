@@ -17,7 +17,8 @@
   "user": {
     "history": "历史记录",
     "settings": "设置",
-    "logout": "退出登录"
+    "logout": "退出登录",
+    "account": "账户"
   },
   "history": {
     "title": "处理历史",

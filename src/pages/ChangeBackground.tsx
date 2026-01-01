@@ -4,12 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
 import { languages } from '../i18n'
-import { changeBgAI } from '../api'
-
-interface BackgroundResult {
-  image: string
-  prompt: string
-}
+import { removeBg } from '../api'
 
 export function ChangeBackground() {
   const { t, i18n } = useTranslation()
@@ -25,9 +20,7 @@ export function ChangeBackground() {
   const [processing, setProcessing] = useState(false)
   const [inputFile, setInputFile] = useState<File | null>(null)
   const [inputPreview, setInputPreview] = useState<string>('')
-  const [transparentResult, setTransparentResult] = useState<string>('')
-  const [backgrounds, setBackgrounds] = useState<BackgroundResult[]>([])
-  const [selectedBg, setSelectedBg] = useState<number>(-1) // -1 = transparent
+  const [result, setResult] = useState<string>('')
   const [error, setError] = useState<string>('')
 
   useEffect(() => {
@@ -41,9 +34,7 @@ export function ChangeBackground() {
 
     setInputFile(file)
     setInputPreview(URL.createObjectURL(file))
-    setTransparentResult('')
-    setBackgrounds([])
-    setSelectedBg(-1)
+    setResult('')
     setError('')
   }, [])
 
@@ -54,14 +45,12 @@ export function ChangeBackground() {
     setError('')
 
     try {
-      const result = await changeBgAI({ image: inputFile, numBackgrounds: 6 })
+      const response = await removeBg({ image: inputFile })
 
-      if (result.success) {
-        setTransparentResult(result.transparent || '')
-        setBackgrounds(result.backgrounds || [])
-        setSelectedBg(-1)
+      if (response.success && response.image) {
+        setResult(response.image)
       } else {
-        setError(result.error || 'Processing failed')
+        setError(response.error || 'Processing failed')
       }
     } catch (err) {
       setError(String(err))
@@ -92,16 +81,13 @@ export function ChangeBackground() {
   }, [handleFile])
 
   const downloadResult = useCallback(() => {
-    const imageData = selectedBg === -1 ? transparentResult : backgrounds[selectedBg]?.image
-    if (!imageData) return
+    if (!result) return
 
     const link = document.createElement('a')
-    link.href = imageData
-    link.download = `background-changed-${Date.now()}.png`
+    link.href = result
+    link.download = `background-removed-${Date.now()}.png`
     link.click()
-  }, [selectedBg, transparentResult, backgrounds])
-
-  const currentResult = selectedBg === -1 ? transparentResult : backgrounds[selectedBg]?.image
+  }, [result])
 
   return (
     <>
@@ -160,63 +146,33 @@ export function ChangeBackground() {
                 </div>
               </div>
 
-              {currentResult && (
+              {result && (
                 <div className="preview-section">
                   <h3>{t('changeBg.result', 'Result')}</h3>
                   <div className="preview-box checkerboard">
-                    <img src={currentResult} alt="Result" />
+                    <img src={result} alt="Result" />
                   </div>
                 </div>
               )}
             </div>
 
-            {backgrounds.length > 0 && (
-              <div className="backgrounds-grid">
-                <h3>{t('changeBg.selectBackground', 'Select Background')}</h3>
-                <div className="bg-options">
-                  <div
-                    className={`bg-option ${selectedBg === -1 ? 'selected' : ''}`}
-                    onClick={() => setSelectedBg(-1)}
-                  >
-                    <div className="bg-preview checkerboard">
-                      {transparentResult && <img src={transparentResult} alt="Transparent" />}
-                    </div>
-                    <span>{t('changeBg.transparent', 'Transparent')}</span>
-                  </div>
-
-                  {backgrounds.map((bg, index) => (
-                    <div
-                      key={index}
-                      className={`bg-option ${selectedBg === index ? 'selected' : ''}`}
-                      onClick={() => setSelectedBg(index)}
-                    >
-                      <div className="bg-preview">
-                        <img src={bg.image} alt={`Background ${index + 1}`} />
-                      </div>
-                      <span>{t('changeBg.background', 'Background')} {index + 1}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
             <div className="action-buttons">
-              {!processing && !backgrounds.length && (
+              {!processing && !result && (
                 <button className="btn-primary" onClick={processImage}>
-                  {t('changeBg.generate', 'Generate Backgrounds')}
+                  {t('changeBg.removeBg', 'Remove Background')}
                 </button>
               )}
 
               {processing && (
                 <div className="processing-status">
                   <div className="spinner"></div>
-                  <span>{t('changeBg.processing', 'Generating AI backgrounds... This may take 30-60 seconds')}</span>
+                  <span>{t('changeBg.processing', 'Removing background...')}</span>
                 </div>
               )}
 
-              {currentResult && (
+              {result && (
                 <button className="btn-primary" onClick={downloadResult}>
-                  {t('download', 'Download')}
+                  {t('common.download', 'Download')}
                 </button>
               )}
 
@@ -225,8 +181,7 @@ export function ChangeBackground() {
                 onClick={() => {
                   setInputFile(null)
                   setInputPreview('')
-                  setTransparentResult('')
-                  setBackgrounds([])
+                  setResult('')
                   setError('')
                 }}
               >

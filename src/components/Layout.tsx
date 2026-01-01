@@ -53,40 +53,125 @@ export function Layout({ children }: LayoutProps) {
   }
 
   const navItems = [
-    { path: '/remove-watermark', label: t('nav.removeWatermark') },
-    { path: '/change-background', label: t('nav.changeBackground', 'AI Background') },
-    { path: '/remove-fake-transparency', label: t('nav.removeFakeTransparency') },
-    { path: '/compress', label: t('nav.compress') },
-    { path: '/resize', label: t('nav.resize') },
+    { path: '/remove-watermark', label: t('nav.removeWatermark'), icon: '🔍', anchor: 'section-watermark' },
+    { path: '/change-background', label: t('nav.changeBackground', 'AI Background'), icon: '🎨', anchor: 'section-background' },
+    { path: '/remove-fake-transparency', label: t('nav.removeFakeTransparency'), icon: '🔲', anchor: 'section-transparency' },
+    { path: '/compress', label: t('nav.compress'), icon: '📦', anchor: 'section-compress' },
+    { path: '/resize', label: t('nav.resize'), icon: '📐', anchor: 'section-resize' },
   ]
 
+  const handleNavClick = (e: React.MouseEvent, item: typeof navItems[0]) => {
+    if (isHome && item.anchor) {
+      e.preventDefault()
+      const element = document.getElementById(item.anchor)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }
+  }
+
+  // Logged-in layout with sidebar
+  if (user) {
+    return (
+      <div className="app-dashboard">
+        {/* Sidebar */}
+        <aside className="dash-sidebar">
+          <Link to={langLink('')} className="dash-logo">
+            <span className="dash-logo-icon">F</span>
+            <span className="dash-logo-text">ixPic</span>
+          </Link>
+
+          <nav className="dash-nav">
+            <div className="dash-nav-section">
+              <span className="dash-nav-label">{t('footer.tools', 'Tools')}</span>
+              {navItems.map(item => (
+                <Link
+                  key={item.path}
+                  to={langLink(item.path)}
+                  className={`dash-nav-item ${currentPage === item.path ? 'active' : ''}`}
+                >
+                  <span className="dash-nav-icon">{item.icon}</span>
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="dash-nav-section">
+              <span className="dash-nav-label">{t('user.account', 'Account')}</span>
+              <Link
+                to={langLink('/history')}
+                className={`dash-nav-item ${currentPage === '/history' ? 'active' : ''}`}
+              >
+                <span className="dash-nav-icon">📋</span>
+                <span>{t('nav.history')}</span>
+              </Link>
+            </div>
+          </nav>
+
+          <div className="dash-sidebar-footer">
+            {/* Language Switcher */}
+            <div className="dash-lang" ref={langMenuRef}>
+              <button className="dash-lang-btn" onClick={() => setShowLangMenu(!showLangMenu)}>
+                <span>{currentLang.flag}</span>
+                <span>{currentLang.name}</span>
+              </button>
+              {showLangMenu && (
+                <div className="dash-lang-menu">
+                  {languages.map(lang => (
+                    <button
+                      key={lang.code}
+                      className={`dash-lang-option ${lang.code === currentLangCode ? 'active' : ''}`}
+                      onClick={() => changeLanguage(lang.code)}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <UserMenu />
+          </div>
+        </aside>
+
+        {/* Main Content Area */}
+        <main className="dash-main">
+          {!isHome && <Breadcrumb />}
+          <div className="dash-content">
+            {children}
+          </div>
+        </main>
+
+        <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+      </div>
+    )
+  }
+
+  // Non-logged-in layout
   return (
     <div className="app-layout">
       {/* Header */}
       <header className="pr-header">
         <div className="pr-header-inner">
-          {/* Logo */}
           <Link to={langLink('')} className="pr-logo">
             <span className="pr-logo-icon">F</span>
             <span className="pr-logo-text">ixPic</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="pr-nav">
             {navItems.map(item => (
               <Link
                 key={item.path}
                 to={langLink(item.path)}
                 className={`pr-nav-link ${currentPage === item.path ? 'active' : ''}`}
+                onClick={(e) => handleNavClick(e, item)}
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          {/* Right Actions */}
           <div className="pr-header-actions">
-            {/* Language Switcher */}
             <div className="pr-lang" ref={langMenuRef}>
               <button className="pr-lang-btn" onClick={() => setShowLangMenu(!showLangMenu)}>
                 <span>{currentLang.flag}</span>
@@ -110,18 +195,12 @@ export function Layout({ children }: LayoutProps) {
               )}
             </div>
 
-            {/* Auth */}
             {!loading && (
-              user ? (
-                <UserMenu />
-              ) : (
-                <button className="pr-login-btn" onClick={() => setShowAuthModal(true)}>
-                  {t('auth.login')}
-                </button>
-              )
+              <button className="pr-login-btn" onClick={() => setShowAuthModal(true)}>
+                {t('auth.login')}
+              </button>
             )}
 
-            {/* Mobile Menu Toggle */}
             <button className="pr-mobile-toggle" onClick={() => setShowMobileNav(!showMobileNav)}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {showMobileNav ? (
@@ -134,7 +213,6 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {showMobileNav && (
           <nav className="pr-mobile-nav">
             {navItems.map(item => (
@@ -142,7 +220,7 @@ export function Layout({ children }: LayoutProps) {
                 key={item.path}
                 to={langLink(item.path)}
                 className={`pr-mobile-nav-link ${currentPage === item.path ? 'active' : ''}`}
-                onClick={() => setShowMobileNav(false)}
+                onClick={(e) => { handleNavClick(e, item); setShowMobileNav(false) }}
               >
                 {item.label}
               </Link>
@@ -151,18 +229,14 @@ export function Layout({ children }: LayoutProps) {
         )}
       </header>
 
-      {/* Auth Modal */}
       <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
 
-      {/* Breadcrumb */}
       {!isHome && <Breadcrumb />}
 
-      {/* Main Content */}
       <main className="pr-main">
         {children}
       </main>
 
-      {/* Footer */}
       <footer className="pr-footer">
         <div className="pr-footer-inner">
           <div className="pr-footer-brand">
