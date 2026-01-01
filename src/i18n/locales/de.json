@@ -551,5 +551,109 @@
     "empty": "Noch keine Einträge",
     "emptyHint": "Verarbeitete Bilder werden hier angezeigt",
     "delete": "Löschen"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "KI Hintergrund Entfernen - Kostenloses Online-Tool | FixPic",
+      "description": "Kostenloser KI-Hintergrundentferner. Entfernen Sie Bildhintergründe sofort.",
+      "keywords": "Hintergrund entfernen,KI Hintergrund,transparenter Hintergrund"
+    },
+    "instructions": {
+      "step1": "Bild mit Hintergrund hochladen",
+      "step2": "KI erkennt Motiv automatisch",
+      "step3": "Hintergrund sofort entfernt",
+      "step4": "Transparentes PNG herunterladen"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "KI Bild Vergrößern - Auflösung bis zu 4x erhöhen | FixPic",
+      "description": "Kostenloser KI-Bildvergrößerer. Erhöhen Sie die Auflösung bis zu 4x ohne Qualitätsverlust.",
+      "keywords": "Bild vergrößern,Auflösung erhöhen,KI Upscale"
+    },
+    "instructions": {
+      "step1": "Niedrigauflösendes Bild hochladen",
+      "step2": "Vergrößerungsfaktor wählen",
+      "step3": "KI verbessert und vergrößert",
+      "step4": "HD-Bild herunterladen"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "KI Bild Schärfen - Unscharfe Fotos Reparieren | FixPic",
+      "description": "Kostenloses KI-Schärfungstool. Verbessern Sie unscharfe Fotos und erhöhen Sie die Klarheit.",
+      "keywords": "Bild schärfen,unscharfes Foto reparieren,KI Schärfung"
+    },
+    "instructions": {
+      "step1": "Unscharfes Bild hochladen",
+      "step2": "KI analysiert Unschärfe",
+      "step3": "Bild automatisch geschärft",
+      "step4": "Verbessertes Bild herunterladen"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "KI Bildrauschen Entfernen - Körnung aus Fotos Entfernen | FixPic",
+      "description": "Kostenloses KI-Entrauschungstool. Entfernen Sie Rauschen und Körnung aus Fotos.",
+      "keywords": "Rauschen entfernen,Körnung entfernen,KI Denoiser"
+    },
+    "instructions": {
+      "step1": "Verrauschtes Bild hochladen",
+      "step2": "KI erkennt Rauschmuster",
+      "step3": "Rauschen entfernt, Details erhalten",
+      "step4": "Sauberes Bild herunterladen"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "KI Hintergrund Generator - Professionelle Hintergründe Erstellen | FixPic",
+      "description": "Kostenloser KI-Hintergrundgenerator. Erstellen Sie professionelle Produktfoto-Hintergründe.",
+      "keywords": "Hintergrund Generator,KI Hintergrund,professioneller Hintergrund"
+    },
+    "instructions": {
+      "step1": "Produktbild hochladen",
+      "step2": "Gewünschten Hintergrund beschreiben",
+      "step3": "KI generiert professionellen Hintergrund",
+      "step4": "Fertiges Bild herunterladen"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "KI Schatten Generator - Realistische Schatten Hinzufügen | FixPic",
+      "description": "Kostenloser KI-Schattengenerator. Fügen Sie natürliche, realistische Schatten hinzu.",
+      "keywords": "Schatten hinzufügen,Schatten Generator,KI Schatten"
+    },
+    "instructions": {
+      "step1": "Freigestelltes Bild hochladen",
+      "step2": "Schattentyp wählen",
+      "step3": "KI generiert realistischen Schatten",
+      "step4": "Bild mit Schatten herunterladen"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "KI Bild Erweitern - Bildränder Erweitern | FixPic",
+      "description": "Kostenloses KI-Tool zum Erweitern von Bildern. Erweitern Sie Bildränder mit generiertem Inhalt.",
+      "keywords": "Bild erweitern,KI Outpainting,Ränder erweitern"
+    },
+    "instructions": {
+      "step1": "Zu erweiterndes Bild hochladen",
+      "step2": "Erweiterungsrichtung wählen",
+      "step3": "KI generiert passenden Inhalt",
+      "step4": "Erweitertes Bild herunterladen"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "KI Smart Crop - Automatisch zur Besten Komposition Zuschneiden | FixPic",
+      "description": "Kostenloses KI-Smart-Crop-Tool. Schneiden Sie Bilder automatisch auf optimale Komposition zu.",
+      "keywords": "Smart Crop,KI Zuschneiden,Auto Crop"
+    },
+    "instructions": {
+      "step1": "Zu schneidendes Bild hochladen",
+      "step2": "Ziel-Seitenverhältnis wählen",
+      "step3": "KI erkennt Motiv und schneidet zu",
+      "step4": "Zugeschnittenes Bild herunterladen"
+    }
   }
 }

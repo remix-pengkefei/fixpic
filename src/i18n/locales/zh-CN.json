@@ -100,9 +100,28 @@
     },
     "allTools": "全部工具",
     "showcase": {
-      "title": "效果展示",
+      "title": "效果对比",
       "before": "处理前",
-      "after": "处理后"
+      "after": "处理后",
+      "transparency": {
+        "title": "去除假透明背景",
+        "desc": "一键将 Midjourney、Lovart 等 AI 工具生成的假透明棋盘格背景转换为真正的透明 PNG。",
+        "beforeAlt": "带假透明棋盘格的图片",
+        "afterAlt": "真正透明的图片"
+      },
+      "compress": {
+        "title": "智能压缩",
+        "desc": "在保持视觉质量的同时，将文件大小减少高达 98%。非常适合网页优化。",
+        "sizeReduction": "体积减少",
+        "beforeAlt": "原始未压缩图片",
+        "afterAlt": "压缩后的图片"
+      },
+      "resize": {
+        "title": "精确调整尺寸",
+        "desc": "以像素级精度缩放图片到精确尺寸，自动保持宽高比。",
+        "beforeAlt": "原始尺寸图片",
+        "afterAlt": "调整尺寸后的图片"
+      }
     },
     "dashboard": {
       "welcome": "欢迎回来，{{name}}！",
@@ -182,30 +201,6 @@
         "title": "AI图片扩展",
         "desc": "智能扩展图片边界，生成自然延伸内容",
         "shortDesc": "扩展图片边界"
-      }
-    },
-    "showcase": {
-      "title": "效果对比",
-      "before": "处理前",
-      "after": "处理后",
-      "transparency": {
-        "title": "去除假透明背景",
-        "desc": "一键将 Midjourney、Lovart 等 AI 工具生成的假透明棋盘格背景转换为真正的透明 PNG。",
-        "beforeAlt": "带假透明棋盘格的图片",
-        "afterAlt": "真正透明的图片"
-      },
-      "compress": {
-        "title": "智能压缩",
-        "desc": "在保持视觉质量的同时，将文件大小减少高达 98%。非常适合网页优化。",
-        "sizeReduction": "体积减少",
-        "beforeAlt": "原始未压缩图片",
-        "afterAlt": "压缩后的图片"
-      },
-      "resize": {
-        "title": "精确调整尺寸",
-        "desc": "以像素级精度缩放图片到精确尺寸，自动保持宽高比。",
-        "beforeAlt": "原始尺寸图片",
-        "afterAlt": "调整尺寸后的图片"
       }
     },
     "features": {
@@ -561,6 +556,110 @@
         "tip3": "密集重复的水印可能无法完全去除"
       },
       "cta": "立即试用AI去水印工具"
+    }
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "AI智能抠图 - 一键去除图片背景 免费在线工具 | FixPic",
+      "description": "免费AI智能抠图工具。一键去除图片背景，完美处理产品图、人像照片、Logo。无需注册，本地处理。",
+      "keywords": "抠图,去除背景,AI抠图,透明背景,产品图背景,智能抠图,一键去背景"
+    },
+    "instructions": {
+      "step1": "上传带背景的图片",
+      "step2": "AI自动识别主体",
+      "step3": "背景立即被移除",
+      "step4": "下载透明PNG图片"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "AI图片放大 - 无损放大图片至4倍 免费在线工具 | FixPic",
+      "description": "免费AI图片放大工具。将图片无损放大至4倍分辨率，保持清晰度。适合打印、社交媒体和网页使用。",
+      "keywords": "图片放大,无损放大,AI放大,提高分辨率,增强图片质量,4倍放大,照片放大"
+    },
+    "instructions": {
+      "step1": "上传低分辨率图片",
+      "step2": "选择放大倍数(2倍或4倍)",
+      "step3": "AI增强并放大",
+      "step4": "下载高清图片"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "AI图片锐化 - 免费修复模糊照片 在线工具 | FixPic",
+      "description": "免费AI图片锐化工具。增强模糊照片的清晰度和细节。完美修复失焦照片，提高图片质量。",
+      "keywords": "图片锐化,修复模糊,AI锐化,增强清晰度,提高图片质量,去模糊,照片增强"
+    },
+    "instructions": {
+      "step1": "上传模糊或不清晰的图片",
+      "step2": "AI分析并检测模糊",
+      "step3": "图片自动锐化",
+      "step4": "下载增强后的图片"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "AI图片降噪 - 去除照片噪点和颗粒 免费在线工具 | FixPic",
+      "description": "免费AI图片降噪工具。去除照片中的噪点、颗粒和伪影。完美处理高ISO照片和低光拍摄。",
+      "keywords": "去除噪点,图片降噪,AI降噪,减少颗粒,修复噪点,ISO噪点去除,照片降噪"
+    },
+    "instructions": {
+      "step1": "上传有噪点或颗粒的图片",
+      "step2": "AI检测噪点模式",
+      "step3": "去除噪点同时保留细节",
+      "step4": "下载干净的图片"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "AI背景生成器 - 生成专业产品图背景 免费在线工具 | FixPic",
+      "description": "免费AI背景生成器。使用AI创建精美的产品图背景。适合电商、营销和社交媒体。",
+      "keywords": "AI背景生成,产品图背景,创建背景,电商图片,专业背景,AI背景"
+    },
+    "instructions": {
+      "step1": "上传产品图(透明背景效果最佳)",
+      "step2": "描述想要的背景或选择风格",
+      "step3": "AI生成专业背景",
+      "step4": "下载最终图片"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "AI阴影生成器 - 为产品图添加逼真阴影 免费在线工具 | FixPic",
+      "description": "免费AI阴影生成器。为产品图添加自然逼真的阴影。让抠图看起来更专业、更有立体感。",
+      "keywords": "添加阴影,阴影生成,AI阴影,产品阴影,投影,逼真阴影,照片阴影效果"
+    },
+    "instructions": {
+      "step1": "上传抠图(透明背景)",
+      "step2": "选择阴影类型和方向",
+      "step3": "AI生成逼真阴影",
+      "step4": "下载带阴影的图片"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "AI图片扩展 - 智能扩展图片边界 免费在线工具 | FixPic",
+      "description": "免费AI图片扩展工具。使用AI无缝扩展图片边界。完美改变图片比例，创造更多画布空间。",
+      "keywords": "图片扩展,AI外扩,扩展图片,延伸边界,取消裁剪,生成式填充,画布扩展"
+    },
+    "instructions": {
+      "step1": "上传需要扩展的图片",
+      "step2": "选择扩展方向",
+      "step3": "AI生成匹配内容",
+      "step4": "下载扩展后的图片"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "AI智能裁剪 - 自动裁剪到最佳构图 免费在线工具 | FixPic",
+      "description": "免费AI智能裁剪工具。自动将图片裁剪到最佳构图。检测主体并应用三分法获得专业效果。",
+      "keywords": "智能裁剪,AI裁剪,自动裁剪,最佳构图,主体检测,三分法,智能剪裁"
+    },
+    "instructions": {
+      "step1": "上传需要裁剪的图片",
+      "step2": "选择目标宽高比",
+      "step3": "AI检测主体并裁剪",
+      "step4": "下载裁剪后的图片"
     }
   }
 }

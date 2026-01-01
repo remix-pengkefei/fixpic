@@ -550,5 +550,109 @@
     "empty": "Belum ada catatan",
     "emptyHint": "Gambar yang diproses akan muncul di sini",
     "delete": "Hapus"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "AI Hapus Latar Belakang - Alat Online Gratis | FixPic",
+      "description": "Penghapus latar belakang AI gratis. Hapus latar belakang gambar secara instan.",
+      "keywords": "hapus latar belakang,hilangkan background,AI background,transparan"
+    },
+    "instructions": {
+      "step1": "Unggah gambar dengan latar belakang",
+      "step2": "AI mendeteksi subjek otomatis",
+      "step3": "Latar belakang dihapus seketika",
+      "step4": "Unduh PNG transparan"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "AI Perbesar Gambar - Tingkatkan Resolusi hingga 4x | FixPic",
+      "description": "Pembesar gambar AI gratis. Tingkatkan resolusi hingga 4x dengan menjaga kualitas.",
+      "keywords": "perbesar gambar,tingkatkan resolusi,AI upscale"
+    },
+    "instructions": {
+      "step1": "Unggah gambar resolusi rendah",
+      "step2": "Pilih faktor pembesaran",
+      "step3": "AI meningkatkan dan memperbesar",
+      "step4": "Unduh gambar HD"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "AI Tajamkan Gambar - Perbaiki Foto Buram | FixPic",
+      "description": "Alat penajam gambar AI gratis. Perbaiki foto buram dan tingkatkan ketajaman.",
+      "keywords": "tajamkan gambar,perbaiki foto buram,AI ketajaman"
+    },
+    "instructions": {
+      "step1": "Unggah gambar buram",
+      "step2": "AI menganalisis keburaman",
+      "step3": "Gambar ditajamkan otomatis",
+      "step4": "Unduh gambar tajam"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "AI Hapus Noise Gambar - Hilangkan Grain dari Foto | FixPic",
+      "description": "Alat penghapus noise AI gratis. Hilangkan noise dan grain dari foto.",
+      "keywords": "hapus noise,hilangkan grain,AI denoiser"
+    },
+    "instructions": {
+      "step1": "Unggah gambar bernoise",
+      "step2": "AI mendeteksi pola noise",
+      "step3": "Noise dihapus, detail dipertahankan",
+      "step4": "Unduh gambar bersih"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "AI Generator Latar Belakang - Buat Background Profesional | FixPic",
+      "description": "Generator latar belakang AI gratis. Buat background profesional untuk foto produk.",
+      "keywords": "generator background,AI latar belakang,buat background"
+    },
+    "instructions": {
+      "step1": "Unggah gambar produk",
+      "step2": "Deskripsikan background yang diinginkan",
+      "step3": "AI menghasilkan background profesional",
+      "step4": "Unduh gambar final"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "AI Generator Bayangan - Tambahkan Bayangan Realistis | FixPic",
+      "description": "Generator bayangan AI gratis. Tambahkan bayangan alami dan realistis.",
+      "keywords": "tambah bayangan,generator bayangan,AI bayangan"
+    },
+    "instructions": {
+      "step1": "Unggah gambar crop",
+      "step2": "Pilih jenis bayangan",
+      "step3": "AI menghasilkan bayangan realistis",
+      "step4": "Unduh gambar dengan bayangan"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "AI Perluas Gambar - Perlebar Batas Gambar | FixPic",
+      "description": "Alat perluasan gambar AI gratis. Perlebar batas dengan konten yang dihasilkan.",
+      "keywords": "perluas gambar,AI outpainting,perlebar batas"
+    },
+    "instructions": {
+      "step1": "Unggah gambar untuk diperluas",
+      "step2": "Pilih arah perluasan",
+      "step3": "AI menghasilkan konten yang cocok",
+      "step4": "Unduh gambar yang diperluas"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "AI Smart Crop - Potong ke Komposisi Terbaik | FixPic",
+      "description": "Alat smart crop AI gratis. Potong otomatis ke komposisi optimal.",
+      "keywords": "smart crop,AI potong,auto crop"
+    },
+    "instructions": {
+      "step1": "Unggah gambar untuk dipotong",
+      "step2": "Pilih rasio aspek target",
+      "step3": "AI mendeteksi subjek dan memotong",
+      "step4": "Unduh gambar terpotong"
+    }
   }
 }

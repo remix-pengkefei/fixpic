@@ -551,5 +551,109 @@
     "empty": "Aucun enregistrement pour l'instant",
     "emptyHint": "Les images traitées apparaîtront ici",
     "delete": "Supprimer"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "Supprimer l'Arrière-plan avec l'IA - Outil Gratuit en Ligne | FixPic",
+      "description": "Suppresseur d'arrière-plan IA gratuit. Supprimez l'arrière-plan de vos images instantanément.",
+      "keywords": "supprimer arrière-plan,enlever fond,IA fond,fond transparent"
+    },
+    "instructions": {
+      "step1": "Téléchargez l'image avec arrière-plan",
+      "step2": "L'IA détecte automatiquement le sujet",
+      "step3": "Arrière-plan supprimé instantanément",
+      "step4": "Téléchargez le PNG transparent"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "Agrandir Image avec l'IA - Augmenter la Résolution jusqu'à 4x | FixPic",
+      "description": "Agrandisseur d'images IA gratuit. Augmentez la résolution jusqu'à 4x en maintenant la qualité.",
+      "keywords": "agrandir image,augmenter résolution,IA upscale,améliorer qualité"
+    },
+    "instructions": {
+      "step1": "Téléchargez image basse résolution",
+      "step2": "Sélectionnez facteur d'agrandissement",
+      "step3": "L'IA améliore et agrandit",
+      "step4": "Téléchargez image HD"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "Améliorer la Netteté avec l'IA - Corriger Photos Floues | FixPic",
+      "description": "Outil gratuit pour améliorer la netteté avec l'IA. Améliorez les photos floues.",
+      "keywords": "améliorer netteté,corriger photo floue,IA netteté"
+    },
+    "instructions": {
+      "step1": "Téléchargez image floue",
+      "step2": "L'IA analyse et détecte le flou",
+      "step3": "Image améliorée automatiquement",
+      "step4": "Téléchargez image nette"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "Supprimer le Bruit avec l'IA - Enlever le Grain des Photos | FixPic",
+      "description": "Outil gratuit pour supprimer le bruit avec l'IA. Enlevez le grain et les artefacts.",
+      "keywords": "supprimer bruit,enlever grain,IA débruitage,réduire bruit ISO"
+    },
+    "instructions": {
+      "step1": "Téléchargez image bruitée",
+      "step2": "L'IA détecte les motifs de bruit",
+      "step3": "Bruit supprimé en préservant les détails",
+      "step4": "Téléchargez image nette"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "Générateur d'Arrière-plan IA - Créer des Fonds Professionnels | FixPic",
+      "description": "Générateur d'arrière-plan IA gratuit. Créez des fonds professionnels pour vos photos produits.",
+      "keywords": "générateur fond,IA arrière-plan,créer fond,photo produit pro"
+    },
+    "instructions": {
+      "step1": "Téléchargez image produit",
+      "step2": "Décrivez le fond souhaité",
+      "step3": "L'IA génère un fond pro",
+      "step4": "Téléchargez image finale"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "Générateur d'Ombres IA - Ajouter des Ombres Réalistes | FixPic",
+      "description": "Générateur d'ombres IA gratuit. Ajoutez des ombres naturelles et réalistes.",
+      "keywords": "ajouter ombre,générateur ombres,IA ombre,ombre réaliste"
+    },
+    "instructions": {
+      "step1": "Téléchargez image détourée",
+      "step2": "Sélectionnez type d'ombre",
+      "step3": "L'IA génère ombre réaliste",
+      "step4": "Téléchargez image avec ombre"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "Étendre Image avec l'IA - Élargir les Bordures | FixPic",
+      "description": "Outil gratuit pour étendre les images avec l'IA. Élargissez les bordures avec du contenu généré.",
+      "keywords": "étendre image,IA outpainting,élargir bordures"
+    },
+    "instructions": {
+      "step1": "Téléchargez image à étendre",
+      "step2": "Sélectionnez direction d'expansion",
+      "step3": "L'IA génère contenu correspondant",
+      "step4": "Téléchargez image étendue"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "Recadrage Intelligent IA - Recadrer à la Meilleure Composition | FixPic",
+      "description": "Outil de recadrage intelligent IA gratuit. Recadrez automatiquement pour une composition optimale.",
+      "keywords": "recadrage intelligent,IA recadrer,auto recadrage"
+    },
+    "instructions": {
+      "step1": "Téléchargez image à recadrer",
+      "step2": "Sélectionnez ratio cible",
+      "step3": "L'IA détecte sujet et recadre",
+      "step4": "Téléchargez image recadrée"
+    }
   }
 }

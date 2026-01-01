@@ -550,5 +550,109 @@
     "empty": "Chưa có bản ghi nào",
     "emptyHint": "Hình ảnh đã xử lý sẽ xuất hiện ở đây",
     "delete": "Xóa"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "AI Xóa Nền Ảnh - Công Cụ Trực Tuyến Miễn Phí | FixPic",
+      "description": "Công cụ xóa nền AI miễn phí. Xóa nền ảnh ngay lập tức.",
+      "keywords": "xóa nền,xóa background,AI nền,trong suốt"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh có nền",
+      "step2": "AI tự động phát hiện đối tượng",
+      "step3": "Nền được xóa ngay lập tức",
+      "step4": "Tải xuống PNG trong suốt"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "AI Phóng To Ảnh - Tăng Độ Phân Giải Lên 4 Lần | FixPic",
+      "description": "Công cụ phóng to ảnh AI miễn phí. Tăng độ phân giải lên 4 lần mà vẫn giữ chất lượng.",
+      "keywords": "phóng to ảnh,tăng độ phân giải,AI upscale"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh độ phân giải thấp",
+      "step2": "Chọn hệ số phóng to",
+      "step3": "AI cải thiện và phóng to",
+      "step4": "Tải xuống ảnh HD"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "AI Làm Sắc Nét Ảnh - Sửa Ảnh Mờ | FixPic",
+      "description": "Công cụ làm sắc nét ảnh AI miễn phí. Cải thiện ảnh mờ và tăng độ sắc nét.",
+      "keywords": "làm sắc nét ảnh,sửa ảnh mờ,AI sắc nét"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh mờ",
+      "step2": "AI phân tích độ mờ",
+      "step3": "Ảnh được làm sắc nét tự động",
+      "step4": "Tải xuống ảnh sắc nét"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "AI Khử Nhiễu Ảnh - Xóa Hạt Từ Ảnh | FixPic",
+      "description": "Công cụ khử nhiễu ảnh AI miễn phí. Xóa nhiễu và hạt từ ảnh.",
+      "keywords": "khử nhiễu,xóa hạt,AI denoiser"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh có nhiễu",
+      "step2": "AI phát hiện mẫu nhiễu",
+      "step3": "Nhiễu được xóa, chi tiết được giữ",
+      "step4": "Tải xuống ảnh sạch"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "AI Tạo Nền - Tạo Nền Chuyên Nghiệp | FixPic",
+      "description": "Công cụ tạo nền AI miễn phí. Tạo nền chuyên nghiệp cho ảnh sản phẩm.",
+      "keywords": "tạo nền,AI background,nền chuyên nghiệp"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh sản phẩm",
+      "step2": "Mô tả nền mong muốn",
+      "step3": "AI tạo nền chuyên nghiệp",
+      "step4": "Tải xuống ảnh hoàn chỉnh"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "AI Tạo Bóng - Thêm Bóng Chân Thực | FixPic",
+      "description": "Công cụ tạo bóng AI miễn phí. Thêm bóng tự nhiên và chân thực.",
+      "keywords": "thêm bóng,tạo bóng,AI bóng"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh đã cắt",
+      "step2": "Chọn loại bóng",
+      "step3": "AI tạo bóng chân thực",
+      "step4": "Tải xuống ảnh có bóng"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "AI Mở Rộng Ảnh - Mở Rộng Biên Ảnh | FixPic",
+      "description": "Công cụ mở rộng ảnh AI miễn phí. Mở rộng biên với nội dung được tạo.",
+      "keywords": "mở rộng ảnh,AI outpainting,mở rộng biên"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh cần mở rộng",
+      "step2": "Chọn hướng mở rộng",
+      "step3": "AI tạo nội dung phù hợp",
+      "step4": "Tải xuống ảnh mở rộng"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "AI Cắt Thông Minh - Cắt Theo Bố Cục Tốt Nhất | FixPic",
+      "description": "Công cụ cắt thông minh AI miễn phí. Tự động cắt theo bố cục tối ưu.",
+      "keywords": "cắt thông minh,AI cắt,tự động cắt"
+    },
+    "instructions": {
+      "step1": "Tải lên ảnh cần cắt",
+      "step2": "Chọn tỷ lệ mục tiêu",
+      "step3": "AI phát hiện đối tượng và cắt",
+      "step4": "Tải xuống ảnh đã cắt"
+    }
   }
 }

@@ -551,5 +551,109 @@
     "empty": "Nenhum registro ainda",
     "emptyHint": "Imagens processadas aparecerão aqui",
     "delete": "Excluir"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "Remover Fundo de Imagem com IA - Ferramenta Grátis Online | FixPic",
+      "description": "Removedor de fundo com IA gratuito. Remova o fundo das suas imagens instantaneamente.",
+      "keywords": "remover fundo,tirar fundo,IA fundo,fundo transparente"
+    },
+    "instructions": {
+      "step1": "Envie imagem com fundo",
+      "step2": "IA detecta o sujeito automaticamente",
+      "step3": "Fundo removido instantaneamente",
+      "step4": "Baixe PNG transparente"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "Ampliar Imagem com IA - Aumentar Resolução até 4x | FixPic",
+      "description": "Ampliador de imagens com IA gratuito. Aumente a resolução até 4x mantendo a qualidade.",
+      "keywords": "ampliar imagem,aumentar resolução,IA upscale,melhorar qualidade"
+    },
+    "instructions": {
+      "step1": "Envie imagem de baixa resolução",
+      "step2": "Selecione fator de ampliação",
+      "step3": "IA melhora e amplia",
+      "step4": "Baixe imagem HD"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "Nitidez de Imagem com IA - Corrigir Fotos Borradas | FixPic",
+      "description": "Ferramenta gratuita para aumentar nitidez com IA. Melhore fotos borradas.",
+      "keywords": "aumentar nitidez,corrigir foto borrada,IA nitidez"
+    },
+    "instructions": {
+      "step1": "Envie imagem borrada",
+      "step2": "IA analisa e detecta borrão",
+      "step3": "Imagem melhorada automaticamente",
+      "step4": "Baixe imagem nítida"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "Remover Ruído de Imagem com IA - Tirar Granulação de Fotos | FixPic",
+      "description": "Ferramenta gratuita para remover ruído com IA. Tire granulação e artefatos das fotos.",
+      "keywords": "remover ruído,tirar granulação,IA denoiser,reduzir ruído ISO"
+    },
+    "instructions": {
+      "step1": "Envie imagem com ruído",
+      "step2": "IA detecta padrões de ruído",
+      "step3": "Ruído removido preservando detalhes",
+      "step4": "Baixe imagem limpa"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "Gerador de Fundos com IA - Criar Fundos Profissionais | FixPic",
+      "description": "Gerador de fundos com IA gratuito. Crie fundos profissionais para fotos de produtos.",
+      "keywords": "gerador fundos,IA fundo,criar fundo,foto produto profissional"
+    },
+    "instructions": {
+      "step1": "Envie imagem de produto",
+      "step2": "Descreva o fundo desejado",
+      "step3": "IA gera fundo profissional",
+      "step4": "Baixe imagem final"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "Gerador de Sombras com IA - Adicionar Sombras Realistas | FixPic",
+      "description": "Gerador de sombras com IA gratuito. Adicione sombras naturais e realistas às suas imagens.",
+      "keywords": "adicionar sombra,gerador sombras,IA sombra,sombra realista"
+    },
+    "instructions": {
+      "step1": "Envie imagem recortada",
+      "step2": "Selecione tipo de sombra",
+      "step3": "IA gera sombra realista",
+      "step4": "Baixe imagem com sombra"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "Estender Imagem com IA - Expandir Bordas de Imagem | FixPic",
+      "description": "Ferramenta gratuita para estender imagens com IA. Expanda as bordas com conteúdo gerado.",
+      "keywords": "estender imagem,IA outpainting,expandir bordas"
+    },
+    "instructions": {
+      "step1": "Envie imagem a estender",
+      "step2": "Selecione direção de expansão",
+      "step3": "IA gera conteúdo correspondente",
+      "step4": "Baixe imagem estendida"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "Corte Inteligente com IA - Cortar para Melhor Composição | FixPic",
+      "description": "Ferramenta de corte inteligente com IA gratuita. Corte automaticamente para composição ótima.",
+      "keywords": "corte inteligente,IA cortar,auto corte"
+    },
+    "instructions": {
+      "step1": "Envie imagem a cortar",
+      "step2": "Selecione proporção alvo",
+      "step3": "IA detecta sujeito e corta",
+      "step4": "Baixe imagem cortada"
+    }
   }
 }

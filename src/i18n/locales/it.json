@@ -559,5 +559,109 @@
     "empty": "Nessun record ancora",
     "emptyHint": "Le immagini elaborate appariranno qui",
     "delete": "Elimina"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "Rimuovi Sfondo Immagine con IA - Strumento Gratuito Online | FixPic",
+      "description": "Rimozione sfondo con IA gratuita. Rimuovi lo sfondo delle tue immagini istantaneamente.",
+      "keywords": "rimuovi sfondo,elimina sfondo,IA sfondo,sfondo trasparente"
+    },
+    "instructions": {
+      "step1": "Carica immagine con sfondo",
+      "step2": "IA rileva soggetto automaticamente",
+      "step3": "Sfondo rimosso istantaneamente",
+      "step4": "Scarica PNG trasparente"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "Ingrandisci Immagine con IA - Aumenta Risoluzione fino a 4x | FixPic",
+      "description": "Ingranditore immagini IA gratuito. Aumenta la risoluzione fino a 4x mantenendo la qualità.",
+      "keywords": "ingrandisci immagine,aumenta risoluzione,IA upscale"
+    },
+    "instructions": {
+      "step1": "Carica immagine bassa risoluzione",
+      "step2": "Seleziona fattore ingrandimento",
+      "step3": "IA migliora e ingrandisce",
+      "step4": "Scarica immagine HD"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "Nitidezza Immagine con IA - Correggi Foto Sfocate | FixPic",
+      "description": "Strumento gratuito per migliorare nitidezza con IA. Migliora foto sfocate.",
+      "keywords": "migliora nitidezza,correggi foto sfocata,IA nitidezza"
+    },
+    "instructions": {
+      "step1": "Carica immagine sfocata",
+      "step2": "IA analizza e rileva sfocatura",
+      "step3": "Immagine migliorata automaticamente",
+      "step4": "Scarica immagine nitida"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "Rimuovi Rumore Immagine con IA - Elimina Grana dalle Foto | FixPic",
+      "description": "Strumento gratuito per rimuovere rumore con IA. Elimina grana e artefatti dalle foto.",
+      "keywords": "rimuovi rumore,elimina grana,IA denoiser"
+    },
+    "instructions": {
+      "step1": "Carica immagine con rumore",
+      "step2": "IA rileva pattern di rumore",
+      "step3": "Rumore rimosso preservando dettagli",
+      "step4": "Scarica immagine pulita"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "Generatore Sfondi IA - Crea Sfondi Professionali | FixPic",
+      "description": "Generatore sfondi IA gratuito. Crea sfondi professionali per foto prodotti.",
+      "keywords": "generatore sfondi,IA sfondo,crea sfondo"
+    },
+    "instructions": {
+      "step1": "Carica immagine prodotto",
+      "step2": "Descrivi sfondo desiderato",
+      "step3": "IA genera sfondo professionale",
+      "step4": "Scarica immagine finale"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "Generatore Ombre IA - Aggiungi Ombre Realistiche | FixPic",
+      "description": "Generatore ombre IA gratuito. Aggiungi ombre naturali e realistiche.",
+      "keywords": "aggiungi ombra,generatore ombre,IA ombra"
+    },
+    "instructions": {
+      "step1": "Carica immagine ritagliata",
+      "step2": "Seleziona tipo ombra",
+      "step3": "IA genera ombra realistica",
+      "step4": "Scarica immagine con ombra"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "Estendi Immagine con IA - Espandi Bordi Immagine | FixPic",
+      "description": "Strumento gratuito per estendere immagini con IA. Espandi i bordi con contenuto generato.",
+      "keywords": "estendi immagine,IA outpainting,espandi bordi"
+    },
+    "instructions": {
+      "step1": "Carica immagine da estendere",
+      "step2": "Seleziona direzione espansione",
+      "step3": "IA genera contenuto corrispondente",
+      "step4": "Scarica immagine estesa"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "Ritaglio Intelligente IA - Ritaglia alla Migliore Composizione | FixPic",
+      "description": "Strumento ritaglio intelligente IA gratuito. Ritaglia automaticamente per composizione ottimale.",
+      "keywords": "ritaglio intelligente,IA ritaglio,auto crop"
+    },
+    "instructions": {
+      "step1": "Carica immagine da ritagliare",
+      "step2": "Seleziona proporzioni target",
+      "step3": "IA rileva soggetto e ritaglia",
+      "step4": "Scarica immagine ritagliata"
+    }
   }
 }

@@ -550,5 +550,109 @@
     "empty": "Henüz kayıt yok",
     "emptyHint": "İşlenen resimler burada görünecek",
     "delete": "Sil"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "AI Arka Plan Kaldırma - Ücretsiz Çevrimiçi Araç | FixPic",
+      "description": "Ücretsiz AI arka plan kaldırıcı. Görüntü arka planlarını anında kaldırın.",
+      "keywords": "arka plan kaldır,background sil,AI arka plan,şeffaf"
+    },
+    "instructions": {
+      "step1": "Arka planlı görüntü yükleyin",
+      "step2": "AI konuyu otomatik algılar",
+      "step3": "Arka plan anında kaldırılır",
+      "step4": "Şeffaf PNG indirin"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "AI Görüntü Büyütme - Çözünürlüğü 4x'e Kadar Artırın | FixPic",
+      "description": "Ücretsiz AI görüntü büyütücü. Kaliteyi koruyarak çözünürlüğü 4x'e kadar artırın.",
+      "keywords": "görüntü büyüt,çözünürlük artır,AI upscale"
+    },
+    "instructions": {
+      "step1": "Düşük çözünürlüklü görüntü yükleyin",
+      "step2": "Büyütme faktörünü seçin",
+      "step3": "AI iyileştirir ve büyütür",
+      "step4": "HD görüntü indirin"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "AI Görüntü Keskinleştirme - Bulanık Fotoğrafları Düzeltin | FixPic",
+      "description": "Ücretsiz AI keskinleştirme aracı. Bulanık fotoğrafları iyileştirin.",
+      "keywords": "görüntü keskinleştir,bulanık foto düzelt,AI keskinlik"
+    },
+    "instructions": {
+      "step1": "Bulanık görüntü yükleyin",
+      "step2": "AI bulanıklığı analiz eder",
+      "step3": "Görüntü otomatik keskinleştirilir",
+      "step4": "Keskin görüntü indirin"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "AI Görüntü Gürültü Azaltma - Fotoğraflardan Grenli Giderme | FixPic",
+      "description": "Ücretsiz AI gürültü azaltma aracı. Fotoğraflardan gürültü ve grenli giderin.",
+      "keywords": "gürültü azalt,grenli gider,AI denoiser"
+    },
+    "instructions": {
+      "step1": "Gürültülü görüntü yükleyin",
+      "step2": "AI gürültü kalıplarını algılar",
+      "step3": "Gürültü giderilir, detaylar korunur",
+      "step4": "Temiz görüntü indirin"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "AI Arka Plan Oluşturucu - Profesyonel Arka Planlar Oluşturun | FixPic",
+      "description": "Ücretsiz AI arka plan oluşturucu. Ürün fotoğrafları için profesyonel arka planlar oluşturun.",
+      "keywords": "arka plan oluştur,AI background,profesyonel arka plan"
+    },
+    "instructions": {
+      "step1": "Ürün görüntüsü yükleyin",
+      "step2": "İstenen arka planı tanımlayın",
+      "step3": "AI profesyonel arka plan oluşturur",
+      "step4": "Son görüntüyü indirin"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "AI Gölge Oluşturucu - Gerçekçi Gölgeler Ekleyin | FixPic",
+      "description": "Ücretsiz AI gölge oluşturucu. Doğal, gerçekçi gölgeler ekleyin.",
+      "keywords": "gölge ekle,gölge oluşturucu,AI gölge"
+    },
+    "instructions": {
+      "step1": "Kesilmiş görüntü yükleyin",
+      "step2": "Gölge tipini seçin",
+      "step3": "AI gerçekçi gölge oluşturur",
+      "step4": "Gölgeli görüntü indirin"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "AI Görüntü Genişletme - Görüntü Sınırlarını Genişletin | FixPic",
+      "description": "Ücretsiz AI görüntü genişletme aracı. Oluşturulan içerikle sınırları genişletin.",
+      "keywords": "görüntü genişlet,AI outpainting,sınır genişlet"
+    },
+    "instructions": {
+      "step1": "Genişletilecek görüntü yükleyin",
+      "step2": "Genişletme yönünü seçin",
+      "step3": "AI eşleşen içerik oluşturur",
+      "step4": "Genişletilmiş görüntü indirin"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "AI Akıllı Kırpma - En İyi Kompozisyona Kırpın | FixPic",
+      "description": "Ücretsiz AI akıllı kırpma aracı. Optimal kompozisyona otomatik kırpın.",
+      "keywords": "akıllı kırpma,AI kırp,otomatik kırpma"
+    },
+    "instructions": {
+      "step1": "Kırpılacak görüntü yükleyin",
+      "step2": "Hedef en-boy oranını seçin",
+      "step3": "AI konuyu algılar ve kırpar",
+      "step4": "Kırpılmış görüntü indirin"
+    }
   }
 }

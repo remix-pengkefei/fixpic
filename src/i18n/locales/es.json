@@ -551,5 +551,109 @@
     "empty": "Sin registros aún",
     "emptyHint": "Las imágenes procesadas aparecerán aquí",
     "delete": "Eliminar"
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "Eliminar Fondo de Imagen con IA - Herramienta Gratuita Online | FixPic",
+      "description": "Eliminador de fondo con IA gratuito. Elimina el fondo de tus imágenes al instante. Perfecto para fotos de productos y retratos.",
+      "keywords": "eliminar fondo,quitar fondo,IA fondo,fondo transparente,foto producto,recortar imagen"
+    },
+    "instructions": {
+      "step1": "Sube imagen con fondo",
+      "step2": "IA detecta el sujeto automáticamente",
+      "step3": "Fondo eliminado al instante",
+      "step4": "Descarga PNG transparente"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "Ampliar Imagen con IA - Aumentar Resolución hasta 4x | FixPic",
+      "description": "Ampliador de imágenes con IA gratuito. Aumenta la resolución hasta 4x manteniendo la calidad.",
+      "keywords": "ampliar imagen,aumentar resolución,IA upscale,mejorar calidad,4x ampliación"
+    },
+    "instructions": {
+      "step1": "Sube imagen de baja resolución",
+      "step2": "Selecciona factor de ampliación",
+      "step3": "IA mejora y amplía",
+      "step4": "Descarga imagen HD"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "Enfocar Imagen con IA - Arreglar Fotos Borrosas | FixPic",
+      "description": "Herramienta gratuita para enfocar imágenes con IA. Mejora fotos borrosas y aumenta la nitidez.",
+      "keywords": "enfocar imagen,arreglar foto borrosa,IA nitidez,mejorar claridad"
+    },
+    "instructions": {
+      "step1": "Sube imagen borrosa",
+      "step2": "IA analiza y detecta borrosidad",
+      "step3": "Imagen enfocada automáticamente",
+      "step4": "Descarga imagen mejorada"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "Eliminar Ruido de Imagen con IA - Quitar Grano de Fotos | FixPic",
+      "description": "Herramienta gratuita para eliminar ruido con IA. Quita grano y artefactos de las fotos.",
+      "keywords": "eliminar ruido,quitar grano,IA denoiser,reducir ruido ISO"
+    },
+    "instructions": {
+      "step1": "Sube imagen con ruido",
+      "step2": "IA detecta patrones de ruido",
+      "step3": "Ruido eliminado conservando detalles",
+      "step4": "Descarga imagen limpia"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "Generador de Fondos con IA - Crear Fondos Profesionales | FixPic",
+      "description": "Generador de fondos con IA gratuito. Crea fondos profesionales para fotos de productos.",
+      "keywords": "generador fondos,IA fondo,crear fondo,foto producto profesional"
+    },
+    "instructions": {
+      "step1": "Sube imagen de producto",
+      "step2": "Describe el fondo deseado",
+      "step3": "IA genera fondo profesional",
+      "step4": "Descarga imagen final"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "Generador de Sombras con IA - Añadir Sombras Realistas | FixPic",
+      "description": "Generador de sombras con IA gratuito. Añade sombras naturales y realistas a tus imágenes.",
+      "keywords": "añadir sombra,generador sombras,IA sombra,sombra realista"
+    },
+    "instructions": {
+      "step1": "Sube imagen recortada",
+      "step2": "Selecciona tipo de sombra",
+      "step3": "IA genera sombra realista",
+      "step4": "Descarga imagen con sombra"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "Extender Imagen con IA - Expandir Bordes de Imagen | FixPic",
+      "description": "Herramienta gratuita para extender imágenes con IA. Expande los bordes con contenido generado.",
+      "keywords": "extender imagen,IA outpainting,expandir bordes,ampliar lienzo"
+    },
+    "instructions": {
+      "step1": "Sube imagen a extender",
+      "step2": "Selecciona dirección de expansión",
+      "step3": "IA genera contenido coincidente",
+      "step4": "Descarga imagen extendida"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "Recorte Inteligente con IA - Recortar a Mejor Composición | FixPic",
+      "description": "Herramienta de recorte inteligente con IA gratuita. Recorta automáticamente a la composición óptima.",
+      "keywords": "recorte inteligente,IA recortar,auto recorte,mejor composición"
+    },
+    "instructions": {
+      "step1": "Sube imagen a recortar",
+      "step2": "Selecciona proporción objetivo",
+      "step3": "IA detecta sujeto y recorta",
+      "step4": "Descarga imagen recortada"
+    }
   }
 }

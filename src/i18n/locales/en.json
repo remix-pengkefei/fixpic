@@ -555,5 +555,109 @@
       },
       "cta": "Try the AI Watermark Remover Now"
     }
+  },
+  "bgRemover": {
+    "seo": {
+      "title": "AI Background Remover - Remove Image Background Free Online | FixPic",
+      "description": "Free AI-powered background remover. Remove image backgrounds instantly with one click. Perfect for product photos, portraits, logos. No signup required.",
+      "keywords": "remove background,background remover,AI background removal,transparent background,product photo background,remove bg,cutout image"
+    },
+    "instructions": {
+      "step1": "Upload image with background",
+      "step2": "AI automatically detects subject",
+      "step3": "Background removed instantly",
+      "step4": "Download transparent PNG"
+    }
+  },
+  "upscaler": {
+    "seo": {
+      "title": "AI Image Upscaler - Enlarge Images Up to 4x Without Quality Loss | FixPic",
+      "description": "Free AI image upscaler. Enlarge and enhance images up to 4x resolution while maintaining clarity. Perfect for printing, social media, and web use.",
+      "keywords": "image upscaler,enlarge image,AI upscale,increase resolution,enhance image quality,4x upscale,photo enlarger"
+    },
+    "instructions": {
+      "step1": "Upload low resolution image",
+      "step2": "Select upscale factor (2x or 4x)",
+      "step3": "AI enhances and enlarges",
+      "step4": "Download high-res image"
+    }
+  },
+  "sharpener": {
+    "seo": {
+      "title": "AI Image Sharpener - Fix Blurry Photos Online Free | FixPic",
+      "description": "Free AI image sharpener. Enhance blurry photos, improve clarity and details. Perfect for fixing out-of-focus shots and improving image quality.",
+      "keywords": "sharpen image,fix blurry photo,AI sharpener,enhance clarity,improve image quality,unblur photo,deblur image"
+    },
+    "instructions": {
+      "step1": "Upload blurry or soft image",
+      "step2": "AI analyzes and detects blur",
+      "step3": "Image sharpened automatically",
+      "step4": "Download enhanced image"
+    }
+  },
+  "denoiser": {
+    "seo": {
+      "title": "AI Image Denoiser - Remove Noise and Grain from Photos | FixPic",
+      "description": "Free AI image denoiser. Remove noise, grain, and artifacts from photos. Perfect for high ISO shots and low-light photography.",
+      "keywords": "remove noise,denoise image,AI denoiser,reduce grain,fix noisy photo,ISO noise removal,photo noise reduction"
+    },
+    "instructions": {
+      "step1": "Upload noisy or grainy image",
+      "step2": "AI detects noise patterns",
+      "step3": "Noise removed while preserving details",
+      "step4": "Download clean image"
+    }
+  },
+  "bgGenerator": {
+    "seo": {
+      "title": "AI Background Generator - Create Professional Product Photo Backgrounds | FixPic",
+      "description": "Free AI background generator. Create stunning product photo backgrounds with AI. Perfect for e-commerce, marketing, and social media.",
+      "keywords": "AI background generator,product photo background,create background,e-commerce photo,professional background,AI backdrop"
+    },
+    "instructions": {
+      "step1": "Upload product image (transparent background works best)",
+      "step2": "Describe desired background or select style",
+      "step3": "AI generates professional background",
+      "step4": "Download final image"
+    }
+  },
+  "shadowGen": {
+    "seo": {
+      "title": "AI Shadow Generator - Add Realistic Shadows to Product Photos | FixPic",
+      "description": "Free AI shadow generator. Add natural, realistic shadows to product images. Make cutout images look professional and grounded.",
+      "keywords": "add shadow,shadow generator,AI shadow,product shadow,drop shadow,realistic shadow,photo shadow effect"
+    },
+    "instructions": {
+      "step1": "Upload cutout image (transparent background)",
+      "step2": "Select shadow type and direction",
+      "step3": "AI generates realistic shadow",
+      "step4": "Download image with shadow"
+    }
+  },
+  "extender": {
+    "seo": {
+      "title": "AI Image Extender - Expand Image Borders with AI Outpainting | FixPic",
+      "description": "Free AI image extender. Expand image borders seamlessly with AI-generated content. Perfect for changing aspect ratios and creating more canvas space.",
+      "keywords": "image extender,AI outpainting,expand image,extend borders,uncrop image,generative fill,canvas expansion"
+    },
+    "instructions": {
+      "step1": "Upload image to extend",
+      "step2": "Select expansion direction",
+      "step3": "AI generates matching content",
+      "step4": "Download extended image"
+    }
+  },
+  "smartCrop": {
+    "seo": {
+      "title": "AI Smart Crop - Auto Crop Images to Best Composition | FixPic",
+      "description": "Free AI smart crop tool. Automatically crop images to optimal composition. Detect subjects and apply rule of thirds for professional results.",
+      "keywords": "smart crop,AI crop,auto crop,best composition,subject detection,rule of thirds,intelligent cropping"
+    },
+    "instructions": {
+      "step1": "Upload image to crop",
+      "step2": "Select target aspect ratio",
+      "step3": "AI detects subject and crops",
+      "step4": "Download cropped image"
+    }
   }
 }
