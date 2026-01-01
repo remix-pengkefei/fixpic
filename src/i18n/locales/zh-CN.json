@@ -8,7 +8,9 @@
     "codeSentTo": "验证码已发送至 {{email}}",
     "resendCode": "重新发送",
     "changeEmail": "更换邮箱",
+    "verify": "验证",
     "verifying": "验证中...",
+    "codeRequired": "请输入验证码",
     "loginRequired": "请登录后继续",
     "loginToSave": "登录后可保存历史记录"
   },

@@ -11,17 +11,17 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const { t } = useTranslation()
   const [step, setStep] = useState<'email' | 'code'>('email')
   const [email, setEmail] = useState('')
-  const [code, setCode] = useState(['', '', '', '', '', '', '', ''])
+  const [code, setCode] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([])
+  const codeInputRef = useRef<HTMLInputElement>(null)
 
   // Reset state when modal closes
   useEffect(() => {
     if (!isOpen) {
       setStep('email')
       setEmail('')
-      setCode(['', '', '', '', '', '', '', ''])
+      setCode('')
       setError('')
     }
   }, [isOpen])
@@ -35,7 +35,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     setLoading(true)
     setError('')
 
-    // Use email type to get a code instead of magic link
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
@@ -47,63 +46,32 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       setError(error.message)
     } else {
       setStep('code')
-      // Focus first code input
-      setTimeout(() => inputRefs.current[0]?.focus(), 100)
+      setTimeout(() => codeInputRef.current?.focus(), 100)
     }
     setLoading(false)
   }
 
-  const handleCodeChange = (index: number, value: string) => {
-    // Only allow numbers
-    if (value && !/^\d$/.test(value)) return
-
-    const newCode = [...code]
-    newCode[index] = value
-    setCode(newCode)
-
-    // Auto-focus next input
-    if (value && index < 7) {
-      inputRefs.current[index + 1]?.focus()
-    }
-
-    // Auto-submit when all 8 digits entered
-    if (value && index === 7 && newCode.every(d => d !== '')) {
-      handleVerifyCode(newCode.join(''))
-    }
-  }
-
-  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
-    if (e.key === 'Backspace' && !code[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus()
-    }
-  }
-
-  const handlePaste = (e: React.ClipboardEvent) => {
+  const handleVerifyCode = async (e: React.FormEvent) => {
     e.preventDefault()
-    const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 8)
-    if (pastedData.length === 8) {
-      const newCode = pastedData.split('')
-      setCode(newCode)
-      handleVerifyCode(pastedData)
+    if (!code || code.length < 6) {
+      setError(t('auth.codeRequired'))
+      return
     }
-  }
 
-  const handleVerifyCode = async (otpCode: string) => {
     setLoading(true)
     setError('')
 
     const { data, error: verifyError } = await supabase.auth.verifyOtp({
       email,
-      token: otpCode,
+      token: code,
       type: 'email'
     })
 
     if (verifyError) {
       setError(verifyError.message)
-      setCode(['', '', '', '', '', '', '', ''])
-      inputRefs.current[0]?.focus()
+      setCode('')
+      codeInputRef.current?.focus()
     } else if (data.session) {
-      // Success! Close modal
       onClose()
     }
     setLoading(false)
@@ -112,7 +80,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const handleResend = async () => {
     setLoading(true)
     setError('')
-    setCode(['', '', '', '', '', '', '', ''])
+    setCode('')
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
@@ -125,7 +93,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       setError(error.message)
     } else {
       setError('')
-      inputRefs.current[0]?.focus()
+      codeInputRef.current?.focus()
     }
     setLoading(false)
   }
@@ -156,34 +124,31 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             </button>
           </form>
         ) : (
-          <div className="auth-code">
+          <form onSubmit={handleVerifyCode} className="auth-code">
             <p className="auth-code-hint">{t('auth.codeSentTo', { email })}</p>
 
-            <div className="auth-code-inputs" onPaste={handlePaste}>
-              {code.map((digit, index) => (
-                <input
-                  key={index}
-                  ref={el => { inputRefs.current[index] = el }}
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={1}
-                  value={digit}
-                  onChange={e => handleCodeChange(index, e.target.value)}
-                  onKeyDown={e => handleKeyDown(index, e)}
-                  className="auth-code-input"
-                  disabled={loading}
-                />
-              ))}
-            </div>
+            <input
+              ref={codeInputRef}
+              type="text"
+              inputMode="numeric"
+              placeholder="000000"
+              value={code}
+              onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
+              className="auth-code-single-input"
+              disabled={loading}
+              autoComplete="one-time-code"
+            />
 
             {error && <p className="auth-error">{error}</p>}
 
-            {loading && <p className="auth-loading">{t('auth.verifying')}</p>}
+            <button type="submit" className="auth-submit-btn" disabled={loading || !code}>
+              {loading ? t('auth.verifying') : t('auth.verify')}
+            </button>
 
             <div className="auth-code-actions">
               <button
                 type="button"
-                className="auth-resend-btn"
+                className="auth-link-btn"
                 onClick={handleResend}
                 disabled={loading}
               >
@@ -191,13 +156,13 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               </button>
               <button
                 type="button"
-                className="auth-back-btn"
-                onClick={() => { setStep('email'); setError(''); setCode(['', '', '', '', '', '', '', '']) }}
+                className="auth-link-btn"
+                onClick={() => { setStep('email'); setError(''); setCode('') }}
               >
                 {t('auth.changeEmail')}
               </button>
             </div>
-          </div>
+          </form>
         )}
       </div>
     </div>

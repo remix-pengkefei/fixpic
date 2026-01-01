@@ -8,7 +8,9 @@
     "codeSentTo": "Code sent to {{email}}",
     "resendCode": "Resend Code",
     "changeEmail": "Use a different email",
+    "verify": "Verify",
     "verifying": "Verifying...",
+    "codeRequired": "Please enter the code",
     "loginRequired": "Please log in to continue",
     "loginToSave": "Log in to save your history"
   },
