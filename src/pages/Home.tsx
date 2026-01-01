@@ -36,13 +36,30 @@ export function Home() {
 
         {/* Quick navigation - minimal pill style */}
         <nav className="tools-quick-nav">
+          <a href="#tool-watermark">{t('home.tools.watermark.title')}</a>
           <a href="#tool-transparency">{t('home.tools.removeFakeTransparency.title')}</a>
           <a href="#tool-compress">{t('home.tools.compress.title')}</a>
           <a href="#tool-resize">{t('home.tools.resize.title')}</a>
-          <a href="#tool-watermark">{t('home.tools.watermark.title')}</a>
         </nav>
 
         <section className="tools-showcase">
+          {/* Remove Watermark */}
+          <div id="tool-watermark" className="tool-showcase-card">
+            <div className="tool-showcase-preview">
+              <div className="watermark-demo-placeholder">
+                <div className="demo-icon">🖌️</div>
+                <p>{t('home.tools.watermark.demoText')}</p>
+              </div>
+            </div>
+            <div className="tool-showcase-content">
+              <h2>{t('home.tools.watermark.title')}</h2>
+              <p>{t('home.tools.watermark.desc')}</p>
+              <Link to={langLink('/remove-watermark')} className="tool-showcase-btn">
+                {t('common.useNow')}
+              </Link>
+            </div>
+          </div>
+
           {/* Remove Fake Transparency */}
           <div id="tool-transparency" className="tool-showcase-card">
             <div className="tool-showcase-preview">
@@ -105,23 +122,6 @@ export function Home() {
               <h2>{t('home.tools.resize.title')}</h2>
               <p>{t('home.tools.resize.desc')}</p>
               <Link to={langLink('/resize')} className="tool-showcase-btn">
-                {t('common.useNow')}
-              </Link>
-            </div>
-          </div>
-
-          {/* Remove Watermark */}
-          <div id="tool-watermark" className="tool-showcase-card">
-            <div className="tool-showcase-preview">
-              <div className="watermark-demo-placeholder">
-                <div className="demo-icon">🖌️</div>
-                <p>{t('home.tools.watermark.demoText')}</p>
-              </div>
-            </div>
-            <div className="tool-showcase-content">
-              <h2>{t('home.tools.watermark.title')}</h2>
-              <p>{t('home.tools.watermark.desc')}</p>
-              <Link to={langLink('/remove-watermark')} className="tool-showcase-btn">
                 {t('common.useNow')}
               </Link>
             </div>
