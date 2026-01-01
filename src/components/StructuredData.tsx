@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface StructuredDataProps {
-  type: 'home' | 'removeFakeTransparency' | 'compress' | 'resize'
+  type: 'home' | 'removeFakeTransparency' | 'compress' | 'resize' | 'removeWatermark'
 }
 
 export function StructuredData({ type }: StructuredDataProps) {
@@ -267,6 +267,63 @@ export function StructuredData({ type }: StructuredDataProps) {
       })
     }
 
+    if (type === 'removeWatermark') {
+      // HowTo schema for Remove Watermark
+      scripts.push({
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": t('watermark.title'),
+        "description": t('watermark.desc'),
+        "image": "https://fix-pic.com/og-watermark.png",
+        "totalTime": "PT2M",
+        "tool": {
+          "@type": "HowToTool",
+          "name": "FixPic AI Watermark Remover"
+        },
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": t('watermark.instructions.step1'),
+            "text": t('watermark.instructions.step1'),
+            "position": 1
+          },
+          {
+            "@type": "HowToStep",
+            "name": t('watermark.instructions.step2'),
+            "text": t('watermark.instructions.step2'),
+            "position": 2
+          },
+          {
+            "@type": "HowToStep",
+            "name": t('watermark.instructions.step3'),
+            "text": t('watermark.instructions.step3'),
+            "position": 3
+          }
+        ]
+      })
+
+      // SoftwareApplication for watermark removal tool
+      scripts.push({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": t('watermark.title') + " - FixPic",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": t('watermark.seo.description'),
+        "featureList": [
+          "AI-powered watermark detection",
+          "Automatic text recognition (OCR)",
+          "High-quality image restoration",
+          "Support for multiple languages"
+        ]
+      })
+    }
+
     // Add BreadcrumbList for non-home pages
     if (type !== 'home') {
       const breadcrumbMap: Record<string, { name: string; url: string }> = {
@@ -281,6 +338,10 @@ export function StructuredData({ type }: StructuredDataProps) {
         'resize': {
           name: t('nav.resize'),
           url: 'https://fix-pic.com/resize'
+        },
+        'removeWatermark': {
+          name: t('nav.removeWatermark'),
+          url: 'https://fix-pic.com/remove-watermark'
         }
       }
 
