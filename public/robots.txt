@@ -1,4 +1,4 @@
-# FixPic - Free Online Image Tools
+# FixPic - Free Online AI Image Tools
 # https://fix-pic.com
 
 # Host directive
@@ -24,6 +24,20 @@ Allow: /id/
 Allow: /zh-CN/
 Allow: /zh-TW/
 
+# Allow all tool pages
+Allow: /*/background-remover
+Allow: /*/watermark-remover
+Allow: /*/remove-fake-transparency
+Allow: /*/image-upscaler
+Allow: /*/image-sharpener
+Allow: /*/image-denoiser
+Allow: /*/background-generator
+Allow: /*/shadow-generator
+Allow: /*/image-extender
+Allow: /*/smart-crop
+Allow: /*/compress
+Allow: /*/resize
+
 # Allow guide pages
 Allow: /*/guides/
 
@@ -31,6 +45,8 @@ Allow: /*/guides/
 Disallow: /api/
 Disallow: /_/
 Disallow: /assets/*.map
+Disallow: /history
+Disallow: /*/history
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
@@ -48,12 +64,22 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Baidu specific
+# Baidu specific (important for Chinese market)
 User-agent: Baiduspider
 Allow: /
 Crawl-delay: 2
 
-# Yandex specific
+# Yandex specific (important for Russian market)
 User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Sogou (Chinese search engine)
+User-agent: Sogou
+Allow: /
+Crawl-delay: 2
+
+# Naver (Korean search engine)
+User-agent: Yeti
 Allow: /
 Crawl-delay: 2

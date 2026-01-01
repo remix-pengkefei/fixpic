@@ -16,7 +16,10 @@
     "free": "Gratis",
     "relatedTools": "Alat Terkait",
     "relatedGuides": "Panduan Terkait",
-    "learnMore": "Pelajari lebih lanjut"
+    "learnMore": "Pelajari lebih lanjut",
+    "loading": "Memuat...",
+    "delete": "Hapus",
+    "viewAll": "Lihat Semua"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "Hapus Transparansi Palsu",
     "compress": "Kompres",
     "resize": "Ubah Ukuran",
-    "removeWatermark": "Hapus Tanda Air"
+    "removeWatermark": "Hapus Tanda Air",
+    "tools": "Alat",
+    "history": "Riwayat",
+    "bgRemover": "Hapus Latar",
+    "upscaler": "Perbesar Gambar",
+    "watermarkRemover": "Hapus Watermark",
+    "bgGenerator": "Buat Latar",
+    "sharpener": "Pertajam Gambar",
+    "denoiser": "Kurangi Noise",
+    "shadowGen": "Buat Bayangan",
+    "smartCrop": "Crop Cerdas",
+    "extender": "Perluas Gambar"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "Hapus Tanda Air",
         "desc": "Hapus tanda air, teks, logo, dan objek yang tidak diinginkan dari gambar menggunakan teknologi inpainting berbasis AI",
         "demoText": "Lukis di atas tanda air untuk menghapusnya"
+      },
+      "bgRemover": {
+        "title": "Penghapus Latar AI",
+        "desc": "Hapus latar belakang gambar secara otomatis dengan AI",
+        "shortDesc": "Hapus latar dengan satu klik"
+      },
+      "upscaler": {
+        "title": "Pembesar Gambar AI",
+        "desc": "Perbesar gambar hingga 4x dengan AI",
+        "shortDesc": "Perbesar hingga 4x"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Hapus watermark dengan cerdas"
+      },
+      "bgGenerator": {
+        "title": "Generator Latar AI",
+        "desc": "Buat latar belakang profesional untuk foto produk",
+        "shortDesc": "Buat latar profesional"
+      },
+      "sharpener": {
+        "title": "Penajam Gambar AI",
+        "desc": "Tingkatkan kejernihan dan detail gambar buram",
+        "shortDesc": "Pertajam gambar buram"
+      },
+      "denoiser": {
+        "title": "Pengurang Noise AI",
+        "desc": "Hapus noise dan grain dari gambar",
+        "shortDesc": "Hapus noise gambar"
+      },
+      "shadowGen": {
+        "title": "Generator Bayangan AI",
+        "desc": "Tambahkan bayangan realistis ke gambar produk",
+        "shortDesc": "Tambahkan bayangan realistis"
+      },
+      "smartCrop": {
+        "title": "Crop Cerdas AI",
+        "desc": "Crop otomatis ke komposisi terbaik",
+        "shortDesc": "Crop cerdas berbasis AI"
+      },
+      "extender": {
+        "title": "Pemerluas Gambar AI",
+        "desc": "Perluas batas gambar dengan konten yang dihasilkan AI",
+        "shortDesc": "Perluas batas gambar"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "Bisakah saya memproses banyak gambar sekaligus?",
         "answer": "Ya. Anda dapat memilih beberapa gambar sekaligus. Alat akan memprosesnya satu per satu, dan Anda dapat mengunduhnya secara individual atau semuanya sekaligus."
       }
+    },
+    "category": {
+      "remove": "AI Hapus",
+      "enhance": "AI Tingkatkan",
+      "generate": "AI Buat",
+      "edit": "Alat Edit"
+    },
+    "allTools": "Semua Alat",
+    "dashboard": {
+      "welcome": "Selamat datang kembali, {{name}}!",
+      "desc": "Pilih alat untuk memulai",
+      "tools": "Alat Gambar",
+      "recentHistory": "Riwayat Terbaru",
+      "viewHistory": "Lihat semua riwayat pemrosesan"
     }
   },
   "removeFakeTransparency": {
@@ -450,5 +521,34 @@
       },
       "cta": "Coba Alat Penghapus Tanda Air AI Sekarang"
     }
+  },
+  "auth": {
+    "login": "Masuk",
+    "logout": "Keluar",
+    "email": "Email",
+    "emailHint": "Masukkan email untuk mendapatkan kode",
+    "sendCode": "Kirim Kode",
+    "codeSentTo": "Kode dikirim ke {{email}}",
+    "resendCode": "Kirim Ulang",
+    "changeEmail": "Ubah Email",
+    "verify": "Verifikasi",
+    "verifying": "Memverifikasi...",
+    "codeRequired": "Masukkan kode",
+    "loginRequired": "Silakan masuk untuk melanjutkan",
+    "loginToSave": "Masuk untuk menyimpan riwayat"
+  },
+  "user": {
+    "history": "Riwayat",
+    "settings": "Pengaturan",
+    "logout": "Keluar",
+    "account": "Akun"
+  },
+  "history": {
+    "title": "Riwayat Pemrosesan",
+    "clearAll": "Hapus Semua",
+    "confirmClear": "Apakah Anda yakin ingin menghapus semua riwayat?",
+    "empty": "Belum ada catatan",
+    "emptyHint": "Gambar yang diproses akan muncul di sini",
+    "delete": "Hapus"
   }
 }

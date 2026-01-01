@@ -16,7 +16,10 @@
     "free": "Grátis",
     "relatedTools": "Ferramentas relacionadas",
     "relatedGuides": "Guias relacionados",
-    "learnMore": "Saiba mais"
+    "learnMore": "Saiba mais",
+    "loading": "Carregando...",
+    "delete": "Excluir",
+    "viewAll": "Ver tudo"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "Remover Falsa Transparência",
     "compress": "Comprimir",
     "resize": "Redimensionar",
-    "removeWatermark": "Remover Marca d'Água"
+    "removeWatermark": "Remover Marca d'Água",
+    "tools": "Ferramentas",
+    "history": "Histórico",
+    "bgRemover": "Remover Fundo",
+    "upscaler": "Ampliar Imagem",
+    "watermarkRemover": "Remover Marca d'água",
+    "bgGenerator": "Gerar Fundo",
+    "sharpener": "Nitidez de Imagem",
+    "denoiser": "Reduzir Ruído",
+    "shadowGen": "Gerar Sombra",
+    "smartCrop": "Corte Inteligente",
+    "extender": "Estender Imagem"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "Remover Marca d'Água",
         "desc": "Remova marcas d'água, texto, logos e objetos indesejados das imagens usando tecnologia de inpainting com IA",
         "demoText": "Pinte sobre as marcas d'água para removê-las"
+      },
+      "bgRemover": {
+        "title": "Removedor de Fundo AI",
+        "desc": "Remova automaticamente o fundo da imagem com IA",
+        "shortDesc": "Remover fundo com um clique"
+      },
+      "upscaler": {
+        "title": "Ampliador de Imagem AI",
+        "desc": "Amplie imagens até 4x com IA mantendo a clareza",
+        "shortDesc": "Ampliar até 4x"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Remover marcas d'água de forma inteligente"
+      },
+      "bgGenerator": {
+        "title": "Gerador de Fundo AI",
+        "desc": "Gere fundos profissionais para fotos de produtos",
+        "shortDesc": "Gerar fundos profissionais"
+      },
+      "sharpener": {
+        "title": "Nitidez de Imagem AI",
+        "desc": "Melhore a clareza e os detalhes de imagens borradas",
+        "shortDesc": "Nitidez de imagens borradas"
+      },
+      "denoiser": {
+        "title": "Redutor de Ruído AI",
+        "desc": "Remova ruído e granulação das imagens",
+        "shortDesc": "Remover ruído de imagem"
+      },
+      "shadowGen": {
+        "title": "Gerador de Sombras AI",
+        "desc": "Adicione sombras realistas às imagens de produtos",
+        "shortDesc": "Adicionar sombras realistas"
+      },
+      "smartCrop": {
+        "title": "Corte Inteligente AI",
+        "desc": "Corte automaticamente para a melhor composição",
+        "shortDesc": "Corte inteligente com IA"
+      },
+      "extender": {
+        "title": "Extensor de Imagem AI",
+        "desc": "Estenda as bordas da imagem com conteúdo gerado por IA",
+        "shortDesc": "Estender bordas da imagem"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "Posso processar múltiplas imagens de uma vez?",
         "answer": "Sim. Você pode selecionar múltiplas imagens de uma vez. A ferramenta processará uma por uma, e você pode baixá-las individualmente ou todas juntas."
       }
+    },
+    "category": {
+      "remove": "AI Remover",
+      "enhance": "AI Melhorar",
+      "generate": "AI Gerar",
+      "edit": "Ferramentas de Edição"
+    },
+    "allTools": "Todas as Ferramentas",
+    "dashboard": {
+      "welcome": "Bem-vindo de volta, {{name}}!",
+      "desc": "Selecione uma ferramenta para começar",
+      "tools": "Ferramentas de Imagem",
+      "recentHistory": "Histórico Recente",
+      "viewHistory": "Ver todo o histórico de processamento"
     }
   },
   "removeFakeTransparency": {
@@ -451,5 +522,34 @@
       },
       "cta": "Experimente o removedor de marca d'água IA agora"
     }
+  },
+  "auth": {
+    "login": "Entrar",
+    "logout": "Sair",
+    "email": "E-mail",
+    "emailHint": "Digite o e-mail para obter o código",
+    "sendCode": "Enviar código",
+    "codeSentTo": "Código enviado para {{email}}",
+    "resendCode": "Reenviar código",
+    "changeEmail": "Alterar e-mail",
+    "verify": "Verificar",
+    "verifying": "Verificando...",
+    "codeRequired": "Por favor insira o código",
+    "loginRequired": "Por favor faça login para continuar",
+    "loginToSave": "Faça login para salvar histórico"
+  },
+  "user": {
+    "history": "Histórico",
+    "settings": "Configurações",
+    "logout": "Sair",
+    "account": "Conta"
+  },
+  "history": {
+    "title": "Histórico de processamento",
+    "clearAll": "Limpar tudo",
+    "confirmClear": "Tem certeza de que deseja limpar todo o histórico?",
+    "empty": "Nenhum registro ainda",
+    "emptyHint": "Imagens processadas aparecerão aqui",
+    "delete": "Excluir"
   }
 }

@@ -16,7 +16,10 @@
     "free": "Gratis",
     "relatedTools": "Strumenti Correlati",
     "relatedGuides": "Guide Correlate",
-    "learnMore": "Scopri di Più"
+    "learnMore": "Scopri di Più",
+    "loading": "Caricamento...",
+    "delete": "Elimina",
+    "viewAll": "Vedi tutto"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "Rimuovi Falsa Trasparenza",
     "compress": "Comprimi",
     "resize": "Ridimensiona",
-    "removeWatermark": "Rimuovi Filigrana"
+    "removeWatermark": "Rimuovi Filigrana",
+    "tools": "Strumenti",
+    "history": "Cronologia",
+    "bgRemover": "Rimuovi Sfondo",
+    "upscaler": "Ingrandisci Immagine",
+    "watermarkRemover": "Rimuovi Filigrana",
+    "bgGenerator": "Genera Sfondo",
+    "sharpener": "Nitidezza Immagine",
+    "denoiser": "Riduzione Rumore",
+    "shadowGen": "Genera Ombra",
+    "smartCrop": "Ritaglio Intelligente",
+    "extender": "Estendi Immagine"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "Rimuovi Filigrana",
         "desc": "Rimuovi filigrane, testo, loghi e oggetti indesiderati dalle immagini usando la tecnologia di inpainting basata su IA",
         "demoText": "Dipingi sopra le filigrane per rimuoverle"
+      },
+      "bgRemover": {
+        "title": "Rimuovi Sfondo AI",
+        "desc": "Rimuovi automaticamente lo sfondo con AI",
+        "shortDesc": "Rimuovi sfondo con un clic"
+      },
+      "upscaler": {
+        "title": "Ingranditore Immagine AI",
+        "desc": "Ingrandisci le immagini fino a 4x con AI",
+        "shortDesc": "Ingrandisci fino a 4x"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Rimuovi filigrane in modo intelligente"
+      },
+      "bgGenerator": {
+        "title": "Generatore Sfondo AI",
+        "desc": "Genera sfondi professionali per foto di prodotti",
+        "shortDesc": "Genera sfondi professionali"
+      },
+      "sharpener": {
+        "title": "Nitidezza Immagine AI",
+        "desc": "Migliora la chiarezza e i dettagli delle immagini sfocate",
+        "shortDesc": "Rendi nitide le immagini sfocate"
+      },
+      "denoiser": {
+        "title": "Riduttore Rumore AI",
+        "desc": "Rimuovi rumore e grana dalle immagini",
+        "shortDesc": "Rimuovi rumore immagine"
+      },
+      "shadowGen": {
+        "title": "Generatore Ombre AI",
+        "desc": "Aggiungi ombre realistiche alle immagini dei prodotti",
+        "shortDesc": "Aggiungi ombre realistiche"
+      },
+      "smartCrop": {
+        "title": "Ritaglio Intelligente AI",
+        "desc": "Ritaglia automaticamente alla migliore composizione",
+        "shortDesc": "Ritaglio intelligente con IA"
+      },
+      "extender": {
+        "title": "Estensore Immagine AI",
+        "desc": "Estendi i bordi dell'immagine con contenuto generato da AI",
+        "shortDesc": "Estendi bordi immagine"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "Posso elaborare più immagini contemporaneamente?",
         "answer": "Sì. Puoi selezionare più immagini alla volta. Lo strumento le elaborerà una per una, e puoi scaricarle singolarmente o tutte insieme."
       }
+    },
+    "category": {
+      "remove": "AI Rimuovi",
+      "enhance": "AI Migliora",
+      "generate": "AI Genera",
+      "edit": "Strumenti di Modifica"
+    },
+    "allTools": "Tutti gli Strumenti",
+    "dashboard": {
+      "welcome": "Bentornato, {{name}}!",
+      "desc": "Seleziona uno strumento per iniziare",
+      "tools": "Strumenti Immagine",
+      "recentHistory": "Cronologia Recente",
+      "viewHistory": "Visualizza tutta la cronologia di elaborazione"
     }
   },
   "removeFakeTransparency": {
@@ -459,5 +530,34 @@
       },
       "cta": "Prova lo strumento di rimozione filigrana AI ora"
     }
+  },
+  "auth": {
+    "login": "Accedi",
+    "logout": "Esci",
+    "email": "Email",
+    "emailHint": "Inserisci email per ottenere il codice",
+    "sendCode": "Invia codice",
+    "codeSentTo": "Codice inviato a {{email}}",
+    "resendCode": "Rinvia codice",
+    "changeEmail": "Cambia email",
+    "verify": "Verifica",
+    "verifying": "Verifica in corso...",
+    "codeRequired": "Inserisci il codice",
+    "loginRequired": "Accedi per continuare",
+    "loginToSave": "Accedi per salvare la cronologia"
+  },
+  "user": {
+    "history": "Cronologia",
+    "settings": "Impostazioni",
+    "logout": "Esci",
+    "account": "Account"
+  },
+  "history": {
+    "title": "Cronologia elaborazione",
+    "clearAll": "Cancella tutto",
+    "confirmClear": "Sei sicuro di voler cancellare tutta la cronologia?",
+    "empty": "Nessun record ancora",
+    "emptyHint": "Le immagini elaborate appariranno qui",
+    "delete": "Elimina"
   }
 }

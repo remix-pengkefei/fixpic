@@ -16,7 +16,10 @@
     "free": "無料",
     "relatedTools": "関連ツール",
     "relatedGuides": "関連ガイド",
-    "learnMore": "もっと見る"
+    "learnMore": "もっと見る",
+    "loading": "読み込み中...",
+    "delete": "削除",
+    "viewAll": "すべて表示"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "偽透明除去",
     "compress": "圧縮",
     "resize": "リサイズ",
-    "removeWatermark": "透かし除去"
+    "removeWatermark": "透かし除去",
+    "tools": "ツール",
+    "history": "履歴",
+    "bgRemover": "背景除去",
+    "upscaler": "画像拡大",
+    "watermarkRemover": "透かし除去",
+    "bgGenerator": "背景生成",
+    "sharpener": "画像シャープ化",
+    "denoiser": "ノイズ除去",
+    "shadowGen": "影生成",
+    "smartCrop": "スマートクロップ",
+    "extender": "画像拡張"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "透かしを除去",
         "desc": "AI修復技術を使用して、画像から透かし、テキスト、ロゴ、不要なオブジェクトを削除",
         "demoText": "透かしの上を塗って除去"
+      },
+      "bgRemover": {
+        "title": "AI背景除去",
+        "desc": "AIで自動的に画像の背景を削除",
+        "shortDesc": "ワンクリックで背景削除"
+      },
+      "upscaler": {
+        "title": "AI画像拡大",
+        "desc": "AIで画質を保ちながら画像を最大4倍に拡大",
+        "shortDesc": "最大4倍に拡大"
+      },
+      "watermarkRemover": {
+        "shortDesc": "スマートに透かしを削除"
+      },
+      "bgGenerator": {
+        "title": "AI背景生成",
+        "desc": "商品写真用のプロフェッショナルな背景を生成",
+        "shortDesc": "プロの背景を生成"
+      },
+      "sharpener": {
+        "title": "AI画像シャープ化",
+        "desc": "ぼやけた画像の鮮明さと詳細を向上",
+        "shortDesc": "ぼやけた画像をシャープに"
+      },
+      "denoiser": {
+        "title": "AIノイズ除去",
+        "desc": "画像からノイズと粒子を除去",
+        "shortDesc": "画像ノイズを除去"
+      },
+      "shadowGen": {
+        "title": "AI影生成",
+        "desc": "商品画像にリアルな影を追加",
+        "shortDesc": "リアルな影を追加"
+      },
+      "smartCrop": {
+        "title": "AIスマートクロップ",
+        "desc": "最適な構図に自動的にクロップ",
+        "shortDesc": "AIスマートクロップ"
+      },
+      "extender": {
+        "title": "AI画像拡張",
+        "desc": "AIが生成したコンテンツで画像の境界を拡張",
+        "shortDesc": "画像の境界を拡張"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "一括処理はできますか？",
         "answer": "はい。複数の画像を一度に選択でき、順次処理されます。個別または一括でダウンロード可能です。"
       }
+    },
+    "category": {
+      "remove": "AI削除",
+      "enhance": "AI強化",
+      "generate": "AI生成",
+      "edit": "編集ツール"
+    },
+    "allTools": "すべてのツール",
+    "dashboard": {
+      "welcome": "おかえりなさい、{{name}}！",
+      "desc": "ツールを選択して開始",
+      "tools": "画像ツール",
+      "recentHistory": "最近の履歴",
+      "viewHistory": "すべての処理履歴を表示"
     }
   },
   "removeFakeTransparency": {
@@ -451,5 +522,34 @@
       },
       "cta": "今すぐAI透かし除去ツールを試す"
     }
+  },
+  "auth": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "email": "メール",
+    "emailHint": "認証コードを取得するためにメールを入力",
+    "sendCode": "コードを送信",
+    "codeSentTo": "{{email}} にコードを送信しました",
+    "resendCode": "再送信",
+    "changeEmail": "メールを変更",
+    "verify": "確認",
+    "verifying": "確認中...",
+    "codeRequired": "コードを入力してください",
+    "loginRequired": "続行するにはログインしてください",
+    "loginToSave": "履歴を保存するにはログイン"
+  },
+  "user": {
+    "history": "履歴",
+    "settings": "設定",
+    "logout": "ログアウト",
+    "account": "アカウント"
+  },
+  "history": {
+    "title": "処理履歴",
+    "clearAll": "すべて削除",
+    "confirmClear": "すべての履歴を削除してもよろしいですか？",
+    "empty": "まだ記録がありません",
+    "emptyHint": "処理した画像がここに表示されます",
+    "delete": "削除"
   }
 }

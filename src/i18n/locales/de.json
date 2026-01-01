@@ -16,7 +16,10 @@
     "free": "Kostenlos",
     "relatedTools": "Verwandte Werkzeuge",
     "relatedGuides": "Verwandte Anleitungen",
-    "learnMore": "Mehr erfahren"
+    "learnMore": "Mehr erfahren",
+    "loading": "Laden...",
+    "delete": "Löschen",
+    "viewAll": "Alle anzeigen"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "Falsche Transparenz Entfernen",
     "compress": "Komprimieren",
     "resize": "Größe Ändern",
-    "removeWatermark": "Wasserzeichen Entfernen"
+    "removeWatermark": "Wasserzeichen Entfernen",
+    "tools": "Werkzeuge",
+    "history": "Verlauf",
+    "bgRemover": "Hintergrund entfernen",
+    "upscaler": "Bild vergrößern",
+    "watermarkRemover": "Wasserzeichen entfernen",
+    "bgGenerator": "Hintergrund generieren",
+    "sharpener": "Bild schärfen",
+    "denoiser": "Rauschen entfernen",
+    "shadowGen": "Schatten generieren",
+    "smartCrop": "Intelligenter Zuschnitt",
+    "extender": "Bild erweitern"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "Wasserzeichen Entfernen",
         "desc": "Entfernen Sie Wasserzeichen, Text, Logos und unerwünschte Objekte aus Bildern mit KI-gestützter Inpainting-Technologie",
         "demoText": "Übermalen Sie Wasserzeichen, um sie zu entfernen"
+      },
+      "bgRemover": {
+        "title": "AI Hintergrundentferner",
+        "desc": "Hintergrund automatisch mit KI entfernen",
+        "shortDesc": "Hintergrund mit einem Klick entfernen"
+      },
+      "upscaler": {
+        "title": "AI Bildvergrößerer",
+        "desc": "Bilder mit KI bis zu 4x vergrößern",
+        "shortDesc": "Bis zu 4x vergrößern"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Wasserzeichen intelligent entfernen"
+      },
+      "bgGenerator": {
+        "title": "AI Hintergrundgenerator",
+        "desc": "Professionelle Hintergründe für Produktfotos generieren",
+        "shortDesc": "Professionelle Hintergründe generieren"
+      },
+      "sharpener": {
+        "title": "AI Bildschärfer",
+        "desc": "Verbessern Sie Klarheit und Details unscharfer Bilder",
+        "shortDesc": "Unscharfe Bilder schärfen"
+      },
+      "denoiser": {
+        "title": "AI Rauschentferner",
+        "desc": "Rauschen und Körnung aus Bildern entfernen",
+        "shortDesc": "Bildrauschen entfernen"
+      },
+      "shadowGen": {
+        "title": "AI Schattengenerator",
+        "desc": "Realistische Schatten zu Produktbildern hinzufügen",
+        "shortDesc": "Realistische Schatten hinzufügen"
+      },
+      "smartCrop": {
+        "title": "AI Intelligenter Zuschnitt",
+        "desc": "Automatisch auf die beste Komposition zuschneiden",
+        "shortDesc": "KI-gestütztes intelligentes Zuschneiden"
+      },
+      "extender": {
+        "title": "AI Bilderweiterer",
+        "desc": "Bildränder mit KI-generiertem Inhalt erweitern",
+        "shortDesc": "Bildränder erweitern"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "Kann ich mehrere Bilder gleichzeitig verarbeiten?",
         "answer": "Ja. Sie können mehrere Bilder auf einmal auswählen. Das Werkzeug verarbeitet sie nacheinander, und Sie können sie einzeln oder alle zusammen herunterladen."
       }
+    },
+    "category": {
+      "remove": "AI Entfernen",
+      "enhance": "AI Verbessern",
+      "generate": "AI Generieren",
+      "edit": "Bearbeitungswerkzeuge"
+    },
+    "allTools": "Alle Werkzeuge",
+    "dashboard": {
+      "welcome": "Willkommen zurück, {{name}}!",
+      "desc": "Wählen Sie ein Werkzeug aus",
+      "tools": "Bildwerkzeuge",
+      "recentHistory": "Kürzlicher Verlauf",
+      "viewHistory": "Gesamten Verarbeitungsverlauf anzeigen"
     }
   },
   "removeFakeTransparency": {
@@ -451,5 +522,34 @@
       },
       "cta": "Jetzt den KI-Wasserzeichen-Entferner testen"
     }
+  },
+  "auth": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "email": "E-Mail",
+    "emailHint": "E-Mail eingeben um Code zu erhalten",
+    "sendCode": "Code senden",
+    "codeSentTo": "Code gesendet an {{email}}",
+    "resendCode": "Erneut senden",
+    "changeEmail": "E-Mail ändern",
+    "verify": "Bestätigen",
+    "verifying": "Überprüfung...",
+    "codeRequired": "Bitte Code eingeben",
+    "loginRequired": "Bitte anmelden um fortzufahren",
+    "loginToSave": "Anmelden um Verlauf zu speichern"
+  },
+  "user": {
+    "history": "Verlauf",
+    "settings": "Einstellungen",
+    "logout": "Abmelden",
+    "account": "Konto"
+  },
+  "history": {
+    "title": "Verarbeitungsverlauf",
+    "clearAll": "Alle löschen",
+    "confirmClear": "Möchten Sie den gesamten Verlauf wirklich löschen?",
+    "empty": "Noch keine Einträge",
+    "emptyHint": "Verarbeitete Bilder werden hier angezeigt",
+    "delete": "Löschen"
   }
 }

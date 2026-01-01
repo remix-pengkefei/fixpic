@@ -16,7 +16,10 @@
     "free": "免費",
     "relatedTools": "相關工具",
     "relatedGuides": "相關指南",
-    "learnMore": "了解更多"
+    "learnMore": "了解更多",
+    "loading": "載入中...",
+    "delete": "刪除",
+    "viewAll": "查看全部"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "去假透明",
     "compress": "壓縮圖片",
     "resize": "調整尺寸",
-    "removeWatermark": "去除浮水印"
+    "removeWatermark": "去除浮水印",
+    "tools": "工具",
+    "history": "歷史記錄",
+    "bgRemover": "AI抠圖",
+    "upscaler": "圖片放大",
+    "watermarkRemover": "去水印",
+    "bgGenerator": "背景生成",
+    "sharpener": "圖片銳化",
+    "denoiser": "圖片降噪",
+    "shadowGen": "陰影生成",
+    "smartCrop": "智能裁剪",
+    "extender": "圖片擴展"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "去除浮水印",
         "desc": "使用 AI inpainting 技術移除圖片上的浮水印、文字、Logo 和不需要的物件",
         "demoText": "塗抹浮水印以去除"
+      },
+      "bgRemover": {
+        "title": "AI智能抠圖",
+        "desc": "一鍵自動識別並移除圖片背景",
+        "shortDesc": "一鍵移除背景"
+      },
+      "upscaler": {
+        "title": "AI圖片放大",
+        "desc": "使用AI技術將低解析度圖片放大2-4倍",
+        "shortDesc": "放大圖片至4倍"
+      },
+      "watermarkRemover": {
+        "shortDesc": "智能移除水印"
+      },
+      "bgGenerator": {
+        "title": "AI背景生成",
+        "desc": "為抠圖後的圖片生成專業的產品背景",
+        "shortDesc": "生成專業背景"
+      },
+      "sharpener": {
+        "title": "AI圖片銳化",
+        "desc": "增強模糊圖片的清晰度和細節",
+        "shortDesc": "增強圖片清晰度"
+      },
+      "denoiser": {
+        "title": "AI圖片降噪",
+        "desc": "移除圖片中的噪點和顆粒",
+        "shortDesc": "移除圖片噪點"
+      },
+      "shadowGen": {
+        "title": "AI陰影生成",
+        "desc": "為產品圖片添加自然真實的陰影效果",
+        "shortDesc": "添加自然陰影"
+      },
+      "smartCrop": {
+        "title": "AI智能裁剪",
+        "desc": "智能識別主體，自動裁剪到最佳構圖",
+        "shortDesc": "智能識別裁剪"
+      },
+      "extender": {
+        "title": "AI圖片擴展",
+        "desc": "智能擴展圖片邊界，生成自然延伸內容",
+        "shortDesc": "擴展圖片邊界"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "可以批次處理嗎？",
         "answer": "可以。您可以一次選擇多張圖片，工具會逐一處理，處理完成後可以單獨下載或批次下載。"
       }
+    },
+    "category": {
+      "remove": "AI移除",
+      "enhance": "AI增強",
+      "generate": "AI生成",
+      "edit": "編輯工具"
+    },
+    "allTools": "全部工具",
+    "dashboard": {
+      "welcome": "歡迎回來，{{name}}！",
+      "desc": "選擇工具開始處理",
+      "tools": "圖片工具",
+      "recentHistory": "最近處理",
+      "viewHistory": "查看所有處理歷史"
     }
   },
   "removeFakeTransparency": {
@@ -451,5 +522,34 @@
       },
       "cta": "立即試用 AI 浮水印移除工具"
     }
+  },
+  "auth": {
+    "login": "登入",
+    "logout": "登出",
+    "email": "電子郵件",
+    "emailHint": "輸入郵箱獲取驗證碼",
+    "sendCode": "發送驗證碼",
+    "codeSentTo": "驗證碼已發送至 {{email}}",
+    "resendCode": "重新發送",
+    "changeEmail": "更換郵箱",
+    "verify": "驗證",
+    "verifying": "驗證中...",
+    "codeRequired": "請輸入驗證碼",
+    "loginRequired": "請登入後繼續",
+    "loginToSave": "登入後可保存歷史記錄"
+  },
+  "user": {
+    "history": "歷史記錄",
+    "settings": "設定",
+    "logout": "登出",
+    "account": "帳戶"
+  },
+  "history": {
+    "title": "處理歷史",
+    "clearAll": "清空全部",
+    "confirmClear": "確定要清空所有歷史記錄嗎？",
+    "empty": "暫無記錄",
+    "emptyHint": "處理過的圖片會顯示在這裡",
+    "delete": "刪除"
   }
 }

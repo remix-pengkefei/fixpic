@@ -70,7 +70,17 @@
     "resize": "Resize",
     "removeWatermark": "Remove Watermark",
     "changeBackground": "AI Background",
-    "history": "History"
+    "history": "History",
+    "tools": "Tools",
+    "bgRemover": "Background Remover",
+    "upscaler": "Image Upscaler",
+    "watermarkRemover": "Watermark Remover",
+    "bgGenerator": "Background Generator",
+    "sharpener": "Image Sharpener",
+    "denoiser": "Image Denoiser",
+    "shadowGen": "Shadow Generator",
+    "smartCrop": "Smart Crop",
+    "extender": "Image Extender"
   },
   "home": {
     "seo": {
@@ -115,6 +125,49 @@
         "title": "AI Background",
         "desc": "Remove or change image backgrounds using AI technology",
         "shortDesc": "Remove or change background"
+      },
+      "bgRemover": {
+        "title": "AI Background Remover",
+        "desc": "Automatically remove image background with AI",
+        "shortDesc": "Remove background with one click"
+      },
+      "upscaler": {
+        "title": "AI Image Upscaler",
+        "desc": "Upscale images up to 4x with AI while keeping clarity",
+        "shortDesc": "Enlarge images up to 4x"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Remove watermarks smartly"
+      },
+      "bgGenerator": {
+        "title": "AI Background Generator",
+        "desc": "Generate professional backgrounds for product photos",
+        "shortDesc": "Generate professional backgrounds"
+      },
+      "sharpener": {
+        "title": "AI Image Sharpener",
+        "desc": "Enhance blurry image clarity and details",
+        "shortDesc": "Sharpen blurry images"
+      },
+      "denoiser": {
+        "title": "AI Image Denoiser",
+        "desc": "Remove noise and grain from images",
+        "shortDesc": "Remove image noise"
+      },
+      "shadowGen": {
+        "title": "AI Shadow Generator",
+        "desc": "Add realistic shadows to product images",
+        "shortDesc": "Add realistic shadows"
+      },
+      "smartCrop": {
+        "title": "AI Smart Crop",
+        "desc": "Automatically crop to the best composition",
+        "shortDesc": "AI-powered smart cropping"
+      },
+      "extender": {
+        "title": "AI Image Extender",
+        "desc": "Extend image borders with AI-generated content",
+        "shortDesc": "Extend image borders"
       }
     },
     "showcase": {
@@ -178,7 +231,14 @@
         "question": "Can I batch process multiple images?",
         "answer": "Yes. You can select multiple images at once. The tool will process them one by one, and you can download them individually or all at once."
       }
-    }
+    },
+    "category": {
+      "remove": "AI Remove",
+      "enhance": "AI Enhance",
+      "generate": "AI Generate",
+      "edit": "Edit Tools"
+    },
+    "allTools": "All Tools"
   },
   "removeFakeTransparency": {
     "seo": {

@@ -16,7 +16,10 @@
     "free": "Gratuit",
     "relatedTools": "Outils connexes",
     "relatedGuides": "Guides connexes",
-    "learnMore": "En savoir plus"
+    "learnMore": "En savoir plus",
+    "loading": "Chargement...",
+    "delete": "Supprimer",
+    "viewAll": "Voir tout"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "Supprimer Fausse Transparence",
     "compress": "Compresser",
     "resize": "Redimensionner",
-    "removeWatermark": "Supprimer Filigrane"
+    "removeWatermark": "Supprimer Filigrane",
+    "tools": "Outils",
+    "history": "Historique",
+    "bgRemover": "Supprimer Fond",
+    "upscaler": "Agrandir Image",
+    "watermarkRemover": "Supprimer Filigrane",
+    "bgGenerator": "Générer Fond",
+    "sharpener": "Netteté Image",
+    "denoiser": "Réduire Bruit",
+    "shadowGen": "Générer Ombre",
+    "smartCrop": "Recadrage Intelligent",
+    "extender": "Étendre Image"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "Supprimer Filigrane",
         "desc": "Supprimez filigranes, texte, logos et objets indésirables des images avec la technologie d'inpainting alimentée par IA",
         "demoText": "Peignez sur les filigranes pour les supprimer"
+      },
+      "bgRemover": {
+        "title": "Suppresseur de Fond AI",
+        "desc": "Supprimez automatiquement le fond de l'image avec l'IA",
+        "shortDesc": "Supprimer le fond en un clic"
+      },
+      "upscaler": {
+        "title": "Agrandisseur d'Image AI",
+        "desc": "Agrandissez les images jusqu'à 4x avec l'IA",
+        "shortDesc": "Agrandir jusqu'à 4x"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Supprimer les filigranes intelligemment"
+      },
+      "bgGenerator": {
+        "title": "Générateur de Fond AI",
+        "desc": "Générez des arrière-plans professionnels pour les photos de produits",
+        "shortDesc": "Générer des fonds professionnels"
+      },
+      "sharpener": {
+        "title": "Netteté d'Image AI",
+        "desc": "Améliorez la clarté et les détails des images floues",
+        "shortDesc": "Améliorer les images floues"
+      },
+      "denoiser": {
+        "title": "Réducteur de Bruit AI",
+        "desc": "Supprimez le bruit et le grain des images",
+        "shortDesc": "Supprimer le bruit d'image"
+      },
+      "shadowGen": {
+        "title": "Générateur d'Ombres AI",
+        "desc": "Ajoutez des ombres réalistes aux images de produits",
+        "shortDesc": "Ajouter des ombres réalistes"
+      },
+      "smartCrop": {
+        "title": "Recadrage Intelligent AI",
+        "desc": "Recadrez automatiquement vers la meilleure composition",
+        "shortDesc": "Recadrage intelligent par IA"
+      },
+      "extender": {
+        "title": "Extenseur d'Image AI",
+        "desc": "Étendez les bords de l'image avec du contenu généré par IA",
+        "shortDesc": "Étendre les bords de l'image"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "Puis-je traiter plusieurs images à la fois ?",
         "answer": "Oui. Vous pouvez sélectionner plusieurs images à la fois. L'outil les traitera une par une, et vous pouvez les télécharger individuellement ou toutes ensemble."
       }
+    },
+    "category": {
+      "remove": "AI Supprimer",
+      "enhance": "AI Améliorer",
+      "generate": "AI Générer",
+      "edit": "Outils d'Édition"
+    },
+    "allTools": "Tous les Outils",
+    "dashboard": {
+      "welcome": "Bienvenue, {{name}}!",
+      "desc": "Sélectionnez un outil pour commencer",
+      "tools": "Outils d'Image",
+      "recentHistory": "Historique Récent",
+      "viewHistory": "Voir tout l'historique de traitement"
     }
   },
   "removeFakeTransparency": {
@@ -451,5 +522,34 @@
       },
       "cta": "Essayez le suppresseur de filigrane IA maintenant"
     }
+  },
+  "auth": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "email": "E-mail",
+    "emailHint": "Entrez votre e-mail pour obtenir le code",
+    "sendCode": "Envoyer le code",
+    "codeSentTo": "Code envoyé à {{email}}",
+    "resendCode": "Renvoyer le code",
+    "changeEmail": "Changer d'e-mail",
+    "verify": "Vérifier",
+    "verifying": "Vérification...",
+    "codeRequired": "Veuillez entrer le code",
+    "loginRequired": "Veuillez vous connecter pour continuer",
+    "loginToSave": "Connectez-vous pour sauvegarder l'historique"
+  },
+  "user": {
+    "history": "Historique",
+    "settings": "Paramètres",
+    "logout": "Déconnexion",
+    "account": "Compte"
+  },
+  "history": {
+    "title": "Historique de traitement",
+    "clearAll": "Tout effacer",
+    "confirmClear": "Êtes-vous sûr de vouloir effacer tout l'historique?",
+    "empty": "Aucun enregistrement pour l'instant",
+    "emptyHint": "Les images traitées apparaîtront ici",
+    "delete": "Supprimer"
   }
 }

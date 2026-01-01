@@ -2,7 +2,9 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface StructuredDataProps {
-  type: 'home' | 'removeFakeTransparency' | 'compress' | 'resize' | 'removeWatermark'
+  type: 'home' | 'removeFakeTransparency' | 'compress' | 'resize' | 'removeWatermark' |
+        'backgroundRemover' | 'upscaler' | 'sharpener' | 'denoiser' |
+        'backgroundGenerator' | 'shadowGenerator' | 'extender' | 'smartCrop'
 }
 
 export function StructuredData({ type }: StructuredDataProps) {
@@ -324,6 +326,76 @@ export function StructuredData({ type }: StructuredDataProps) {
       })
     }
 
+    // Generic tool schemas for other tools
+    const toolSchemas: Record<string, { title: string; desc: string; url: string; features: string[] }> = {
+      'backgroundRemover': {
+        title: t('nav.bgRemover'),
+        desc: t('home.tools.bgRemover.shortDesc'),
+        url: 'https://fix-pic.com/background-remover',
+        features: ['AI-powered background removal', 'One-click processing', 'Transparent PNG output', 'High-quality edge detection']
+      },
+      'upscaler': {
+        title: t('nav.upscaler'),
+        desc: t('home.tools.upscaler.shortDesc'),
+        url: 'https://fix-pic.com/image-upscaler',
+        features: ['AI upscaling up to 4x', 'Preserve image quality', 'Enhance details', 'Fast processing']
+      },
+      'sharpener': {
+        title: t('nav.sharpener'),
+        desc: t('home.tools.sharpener.shortDesc'),
+        url: 'https://fix-pic.com/image-sharpener',
+        features: ['AI-powered sharpening', 'Fix blurry images', 'Enhance details', 'Natural results']
+      },
+      'denoiser': {
+        title: t('nav.denoiser'),
+        desc: t('home.tools.denoiser.shortDesc'),
+        url: 'https://fix-pic.com/image-denoiser',
+        features: ['Remove image noise', 'Preserve details', 'Smooth gradients', 'High ISO fix']
+      },
+      'backgroundGenerator': {
+        title: t('nav.bgGenerator'),
+        desc: t('home.tools.bgGenerator.shortDesc'),
+        url: 'https://fix-pic.com/background-generator',
+        features: ['AI background generation', 'Multiple styles', 'Custom prompts', 'High resolution output']
+      },
+      'shadowGenerator': {
+        title: t('nav.shadowGen'),
+        desc: t('home.tools.shadowGen.shortDesc'),
+        url: 'https://fix-pic.com/shadow-generator',
+        features: ['Realistic shadow generation', 'Adjustable intensity', 'Multiple shadow types', 'Professional results']
+      },
+      'extender': {
+        title: t('nav.extender'),
+        desc: t('home.tools.extender.shortDesc'),
+        url: 'https://fix-pic.com/image-extender',
+        features: ['AI image extension', 'Outpainting', 'Seamless expansion', 'Content-aware fill']
+      },
+      'smartCrop': {
+        title: t('nav.smartCrop'),
+        desc: t('home.tools.smartCrop.shortDesc'),
+        url: 'https://fix-pic.com/smart-crop',
+        features: ['AI-powered cropping', 'Subject detection', 'Automatic framing', 'Batch processing']
+      }
+    }
+
+    const toolSchema = toolSchemas[type]
+    if (toolSchema) {
+      scripts.push({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": toolSchema.title + " - FixPic",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": toolSchema.desc,
+        "featureList": toolSchema.features
+      })
+    }
+
     // Add BreadcrumbList for non-home pages
     if (type !== 'home') {
       const breadcrumbMap: Record<string, { name: string; url: string }> = {
@@ -340,8 +412,40 @@ export function StructuredData({ type }: StructuredDataProps) {
           url: 'https://fix-pic.com/resize'
         },
         'removeWatermark': {
-          name: t('nav.removeWatermark'),
-          url: 'https://fix-pic.com/remove-watermark'
+          name: t('nav.watermarkRemover'),
+          url: 'https://fix-pic.com/watermark-remover'
+        },
+        'backgroundRemover': {
+          name: t('nav.bgRemover'),
+          url: 'https://fix-pic.com/background-remover'
+        },
+        'upscaler': {
+          name: t('nav.upscaler'),
+          url: 'https://fix-pic.com/image-upscaler'
+        },
+        'sharpener': {
+          name: t('nav.sharpener'),
+          url: 'https://fix-pic.com/image-sharpener'
+        },
+        'denoiser': {
+          name: t('nav.denoiser'),
+          url: 'https://fix-pic.com/image-denoiser'
+        },
+        'backgroundGenerator': {
+          name: t('nav.bgGenerator'),
+          url: 'https://fix-pic.com/background-generator'
+        },
+        'shadowGenerator': {
+          name: t('nav.shadowGen'),
+          url: 'https://fix-pic.com/shadow-generator'
+        },
+        'extender': {
+          name: t('nav.extender'),
+          url: 'https://fix-pic.com/image-extender'
+        },
+        'smartCrop': {
+          name: t('nav.smartCrop'),
+          url: 'https://fix-pic.com/smart-crop'
         }
       }
 

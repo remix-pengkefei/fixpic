@@ -16,7 +16,10 @@
     "free": "Ücretsiz",
     "relatedTools": "İlgili Araçlar",
     "relatedGuides": "İlgili Kılavuzlar",
-    "learnMore": "Daha fazla bilgi"
+    "learnMore": "Daha fazla bilgi",
+    "loading": "Yükleniyor...",
+    "delete": "Sil",
+    "viewAll": "Tümünü Gör"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "Sahte Şeffaflığı Kaldır",
     "compress": "Sıkıştır",
     "resize": "Yeniden Boyutlandır",
-    "removeWatermark": "Filigran Kaldır"
+    "removeWatermark": "Filigran Kaldır",
+    "tools": "Araçlar",
+    "history": "Geçmiş",
+    "bgRemover": "Arka Plan Kaldır",
+    "upscaler": "Resim Büyüt",
+    "watermarkRemover": "Filigran Kaldır",
+    "bgGenerator": "Arka Plan Oluştur",
+    "sharpener": "Resim Keskinleştir",
+    "denoiser": "Gürültü Azalt",
+    "shadowGen": "Gölge Oluştur",
+    "smartCrop": "Akıllı Kırpma",
+    "extender": "Resim Genişlet"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "Filigran Kaldır",
         "desc": "AI destekli inpainting teknolojisi kullanarak resimlerden filigranları, metinleri, logoları ve istenmeyen nesneleri kaldırın",
         "demoText": "Kaldırmak için filigranların üzerini boyayın"
+      },
+      "bgRemover": {
+        "title": "AI Arka Plan Kaldırıcı",
+        "desc": "AI ile görsel arka planını otomatik olarak kaldırın",
+        "shortDesc": "Tek tıkla arka planı kaldır"
+      },
+      "upscaler": {
+        "title": "AI Görsel Büyütücü",
+        "desc": "AI ile görüntüleri 4x'e kadar büyütün",
+        "shortDesc": "4x'e kadar büyüt"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Filigranları akıllıca kaldır"
+      },
+      "bgGenerator": {
+        "title": "AI Arka Plan Oluşturucu",
+        "desc": "Ürün fotoğrafları için profesyonel arka planlar oluşturun",
+        "shortDesc": "Profesyonel arka planlar oluştur"
+      },
+      "sharpener": {
+        "title": "AI Görsel Keskinleştirici",
+        "desc": "Bulanık görsel netliğini ve detaylarını artırın",
+        "shortDesc": "Bulanık görselleri keskinleştir"
+      },
+      "denoiser": {
+        "title": "AI Gürültü Azaltıcı",
+        "desc": "Görüntülerden gürültü ve grenini kaldırın",
+        "shortDesc": "Görsel gürültüsünü kaldır"
+      },
+      "shadowGen": {
+        "title": "AI Gölge Oluşturucu",
+        "desc": "Ürün görsellerine gerçekçi gölgeler ekleyin",
+        "shortDesc": "Gerçekçi gölgeler ekle"
+      },
+      "smartCrop": {
+        "title": "AI Akıllı Kırpma",
+        "desc": "En iyi kompozisyona otomatik kırp",
+        "shortDesc": "AI destekli akıllı kırpma"
+      },
+      "extender": {
+        "title": "AI Görsel Genişletici",
+        "desc": "Görsel sınırlarını AI tarafından oluşturulan içerikle genişletin",
+        "shortDesc": "Görsel sınırlarını genişlet"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "Birden fazla resmi aynı anda işleyebilir miyim?",
         "answer": "Evet. Aynı anda birden fazla resim seçebilirsiniz. Araç bunları birer birer işleyecek ve tek tek veya hepsini birden indirebilirsiniz."
       }
+    },
+    "category": {
+      "remove": "AI Kaldır",
+      "enhance": "AI İyileştir",
+      "generate": "AI Oluştur",
+      "edit": "Düzenleme Araçları"
+    },
+    "allTools": "Tüm Araçlar",
+    "dashboard": {
+      "welcome": "Tekrar hoş geldiniz, {{name}}!",
+      "desc": "Başlamak için bir araç seçin",
+      "tools": "Görsel Araçları",
+      "recentHistory": "Son Geçmiş",
+      "viewHistory": "Tüm işlem geçmişini görüntüle"
     }
   },
   "removeFakeTransparency": {
@@ -450,5 +521,34 @@
       },
       "cta": "AI Filigran Kaldırma Aracını Şimdi Deneyin"
     }
+  },
+  "auth": {
+    "login": "Giriş",
+    "logout": "Çıkış",
+    "email": "E-posta",
+    "emailHint": "Kod almak için e-posta girin",
+    "sendCode": "Kod Gönder",
+    "codeSentTo": "Kod {{email}} adresine gönderildi",
+    "resendCode": "Tekrar Gönder",
+    "changeEmail": "E-posta Değiştir",
+    "verify": "Doğrula",
+    "verifying": "Doğrulanıyor...",
+    "codeRequired": "Lütfen kodu girin",
+    "loginRequired": "Devam etmek için giriş yapın",
+    "loginToSave": "Geçmişi kaydetmek için giriş yapın"
+  },
+  "user": {
+    "history": "Geçmiş",
+    "settings": "Ayarlar",
+    "logout": "Çıkış",
+    "account": "Hesap"
+  },
+  "history": {
+    "title": "İşlem Geçmişi",
+    "clearAll": "Tümünü Temizle",
+    "confirmClear": "Tüm geçmişi silmek istediğinizden emin misiniz?",
+    "empty": "Henüz kayıt yok",
+    "emptyHint": "İşlenen resimler burada görünecek",
+    "delete": "Sil"
   }
 }

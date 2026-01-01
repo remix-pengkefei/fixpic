@@ -16,7 +16,10 @@
     "free": "Miễn phí",
     "relatedTools": "Công cụ liên quan",
     "relatedGuides": "Hướng dẫn liên quan",
-    "learnMore": "Tìm hiểu thêm"
+    "learnMore": "Tìm hiểu thêm",
+    "loading": "Đang tải...",
+    "delete": "Xóa",
+    "viewAll": "Xem tất cả"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "Xóa Trong suốt Giả",
     "compress": "Nén",
     "resize": "Thay đổi Kích thước",
-    "removeWatermark": "Xóa Watermark"
+    "removeWatermark": "Xóa Watermark",
+    "tools": "Công cụ",
+    "history": "Lịch sử",
+    "bgRemover": "Xóa nền",
+    "upscaler": "Phóng to ảnh",
+    "watermarkRemover": "Xóa watermark",
+    "bgGenerator": "Tạo nền",
+    "sharpener": "Làm nét ảnh",
+    "denoiser": "Khử nhiễu",
+    "shadowGen": "Tạo bóng",
+    "smartCrop": "Cắt thông minh",
+    "extender": "Mở rộng ảnh"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "Xóa Watermark",
         "desc": "Xóa watermark, văn bản, logo và các đối tượng không mong muốn khỏi hình ảnh bằng công nghệ AI inpainting",
         "demoText": "Tô lên watermark để xóa chúng"
+      },
+      "bgRemover": {
+        "title": "AI Xóa nền",
+        "desc": "Tự động xóa nền ảnh bằng AI",
+        "shortDesc": "Xóa nền chỉ với một cú nhấp"
+      },
+      "upscaler": {
+        "title": "AI Phóng to ảnh",
+        "desc": "Phóng to ảnh lên đến 4x với AI",
+        "shortDesc": "Phóng to lên đến 4x"
+      },
+      "watermarkRemover": {
+        "shortDesc": "Xóa watermark thông minh"
+      },
+      "bgGenerator": {
+        "title": "AI Tạo nền",
+        "desc": "Tạo nền chuyên nghiệp cho ảnh sản phẩm",
+        "shortDesc": "Tạo nền chuyên nghiệp"
+      },
+      "sharpener": {
+        "title": "AI Làm nét ảnh",
+        "desc": "Tăng cường độ rõ nét và chi tiết của ảnh mờ",
+        "shortDesc": "Làm nét ảnh mờ"
+      },
+      "denoiser": {
+        "title": "AI Khử nhiễu",
+        "desc": "Loại bỏ nhiễu và hạt từ ảnh",
+        "shortDesc": "Loại bỏ nhiễu ảnh"
+      },
+      "shadowGen": {
+        "title": "AI Tạo bóng",
+        "desc": "Thêm bóng chân thực cho ảnh sản phẩm",
+        "shortDesc": "Thêm bóng chân thực"
+      },
+      "smartCrop": {
+        "title": "AI Cắt thông minh",
+        "desc": "Tự động cắt theo bố cục tốt nhất",
+        "shortDesc": "Cắt thông minh bằng AI"
+      },
+      "extender": {
+        "title": "AI Mở rộng ảnh",
+        "desc": "Mở rộng viền ảnh với nội dung do AI tạo",
+        "shortDesc": "Mở rộng viền ảnh"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "Tôi có thể xử lý nhiều hình ảnh cùng lúc không?",
         "answer": "Có. Bạn có thể chọn nhiều hình ảnh cùng lúc. Công cụ sẽ xử lý từng cái một, và bạn có thể tải xuống riêng lẻ hoặc tất cả cùng lúc."
       }
+    },
+    "category": {
+      "remove": "AI Xóa",
+      "enhance": "AI Nâng cao",
+      "generate": "AI Tạo",
+      "edit": "Công cụ chỉnh sửa"
+    },
+    "allTools": "Tất cả công cụ",
+    "dashboard": {
+      "welcome": "Chào mừng trở lại, {{name}}!",
+      "desc": "Chọn công cụ để bắt đầu",
+      "tools": "Công cụ hình ảnh",
+      "recentHistory": "Lịch sử gần đây",
+      "viewHistory": "Xem tất cả lịch sử xử lý"
     }
   },
   "removeFakeTransparency": {
@@ -450,5 +521,34 @@
       },
       "cta": "Thử Công cụ Xóa Watermark AI Ngay"
     }
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "email": "Email",
+    "emailHint": "Nhập email để nhận mã xác nhận",
+    "sendCode": "Gửi mã",
+    "codeSentTo": "Mã đã gửi đến {{email}}",
+    "resendCode": "Gửi lại mã",
+    "changeEmail": "Đổi email",
+    "verify": "Xác nhận",
+    "verifying": "Đang xác nhận...",
+    "codeRequired": "Vui lòng nhập mã",
+    "loginRequired": "Vui lòng đăng nhập để tiếp tục",
+    "loginToSave": "Đăng nhập để lưu lịch sử"
+  },
+  "user": {
+    "history": "Lịch sử",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "account": "Tài khoản"
+  },
+  "history": {
+    "title": "Lịch sử xử lý",
+    "clearAll": "Xóa tất cả",
+    "confirmClear": "Bạn có chắc chắn muốn xóa tất cả lịch sử?",
+    "empty": "Chưa có bản ghi nào",
+    "emptyHint": "Hình ảnh đã xử lý sẽ xuất hiện ở đây",
+    "delete": "Xóa"
   }
 }

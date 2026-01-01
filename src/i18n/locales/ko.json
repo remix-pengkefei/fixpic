@@ -16,7 +16,10 @@
     "free": "무료",
     "relatedTools": "관련 도구",
     "relatedGuides": "관련 가이드",
-    "learnMore": "더 알아보기"
+    "learnMore": "더 알아보기",
+    "loading": "로딩 중...",
+    "delete": "삭제",
+    "viewAll": "모두 보기"
   },
   "header": {
     "title": "Fix-Pic",
@@ -35,7 +38,18 @@
     "removeFakeTransparency": "가짜 투명 제거",
     "compress": "압축",
     "resize": "크기 조정",
-    "removeWatermark": "워터마크 제거"
+    "removeWatermark": "워터마크 제거",
+    "tools": "도구",
+    "history": "기록",
+    "bgRemover": "배경 제거",
+    "upscaler": "이미지 확대",
+    "watermarkRemover": "워터마크 제거",
+    "bgGenerator": "배경 생성",
+    "sharpener": "이미지 선명화",
+    "denoiser": "노이즈 제거",
+    "shadowGen": "그림자 생성",
+    "smartCrop": "스마트 자르기",
+    "extender": "이미지 확장"
   },
   "home": {
     "seo": {
@@ -64,6 +78,49 @@
         "title": "워터마크 제거",
         "desc": "AI 인페인팅 기술을 사용하여 이미지에서 워터마크, 텍스트, 로고 및 원치 않는 객체 제거",
         "demoText": "워터마크 위에 칠해서 제거"
+      },
+      "bgRemover": {
+        "title": "AI 배경 제거",
+        "desc": "AI로 자동으로 이미지 배경 제거",
+        "shortDesc": "원클릭 배경 제거"
+      },
+      "upscaler": {
+        "title": "AI 이미지 확대",
+        "desc": "AI로 선명도를 유지하면서 최대 4배 확대",
+        "shortDesc": "최대 4배 확대"
+      },
+      "watermarkRemover": {
+        "shortDesc": "스마트 워터마크 제거"
+      },
+      "bgGenerator": {
+        "title": "AI 배경 생성",
+        "desc": "제품 사진용 전문 배경 생성",
+        "shortDesc": "전문 배경 생성"
+      },
+      "sharpener": {
+        "title": "AI 이미지 선명화",
+        "desc": "흐릿한 이미지의 선명도와 세부 사항 향상",
+        "shortDesc": "흐릿한 이미지 선명화"
+      },
+      "denoiser": {
+        "title": "AI 노이즈 제거",
+        "desc": "이미지에서 노이즈와 그레인 제거",
+        "shortDesc": "이미지 노이즈 제거"
+      },
+      "shadowGen": {
+        "title": "AI 그림자 생성",
+        "desc": "제품 이미지에 사실적인 그림자 추가",
+        "shortDesc": "사실적인 그림자 추가"
+      },
+      "smartCrop": {
+        "title": "AI 스마트 자르기",
+        "desc": "최적의 구도로 자동 자르기",
+        "shortDesc": "AI 스마트 자르기"
+      },
+      "extender": {
+        "title": "AI 이미지 확장",
+        "desc": "AI 생성 콘텐츠로 이미지 경계 확장",
+        "shortDesc": "이미지 경계 확장"
       }
     },
     "showcase": {
@@ -127,6 +184,20 @@
         "question": "일괄 처리가 가능한가요?",
         "answer": "네. 여러 이미지를 한 번에 선택할 수 있으며, 도구가 순차적으로 처리합니다. 개별 또는 일괄 다운로드가 가능합니다."
       }
+    },
+    "category": {
+      "remove": "AI 제거",
+      "enhance": "AI 향상",
+      "generate": "AI 생성",
+      "edit": "편집 도구"
+    },
+    "allTools": "모든 도구",
+    "dashboard": {
+      "welcome": "환영합니다, {{name}}!",
+      "desc": "시작할 도구를 선택하세요",
+      "tools": "이미지 도구",
+      "recentHistory": "최근 기록",
+      "viewHistory": "모든 처리 기록 보기"
     }
   },
   "removeFakeTransparency": {
@@ -451,5 +522,34 @@
       },
       "cta": "지금 AI 워터마크 제거 도구 사용하기"
     }
+  },
+  "auth": {
+    "login": "로그인",
+    "logout": "로그아웃",
+    "email": "이메일",
+    "emailHint": "인증 코드를 받으려면 이메일을 입력하세요",
+    "sendCode": "코드 전송",
+    "codeSentTo": "{{email}}로 코드 전송됨",
+    "resendCode": "재전송",
+    "changeEmail": "이메일 변경",
+    "verify": "확인",
+    "verifying": "확인 중...",
+    "codeRequired": "코드를 입력하세요",
+    "loginRequired": "계속하려면 로그인하세요",
+    "loginToSave": "기록을 저장하려면 로그인"
+  },
+  "user": {
+    "history": "기록",
+    "settings": "설정",
+    "logout": "로그아웃",
+    "account": "계정"
+  },
+  "history": {
+    "title": "처리 기록",
+    "clearAll": "모두 지우기",
+    "confirmClear": "모든 기록을 삭제하시겠습니까?",
+    "empty": "아직 기록이 없습니다",
+    "emptyHint": "처리된 이미지가 여기에 표시됩니다",
+    "delete": "삭제"
   }
 }
