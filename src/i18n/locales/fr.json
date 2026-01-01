@@ -408,6 +408,48 @@
         "tip4": "\"white background\" peut être plus efficace que \"no background\""
       },
       "cta": "Supprimer la fausse transparence maintenant"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "Comment supprimer les filigranes des images - Outil de suppression IA | FixPic",
+        "description": "Apprenez à supprimer les filigranes des images grâce à la détection et l'inpainting IA. Prend en charge les filigranes textuels en plusieurs langues. Outil en ligne gratuit.",
+        "keywords": "supprimer filigrane,suppresseur de filigrane,supprimer texte image,suppression filigrane IA,enlever filigrane photo,suppression filigrane image,suppresseur filigrane gratuit"
+      },
+      "title": "Comment supprimer les filigranes des images",
+      "intro": "Les filigranes peuvent être distrayants et gâcher des photos autrement superbes. Notre outil alimenté par l'IA détecte et supprime automatiquement les filigranes textuels tout en préservant la qualité d'image originale.",
+      "whatIs": {
+        "title": "Qu'est-ce que la suppression de filigrane ?",
+        "content": "La suppression de filigrane est le processus de détection et d'élimination de texte, logos ou autres superpositions des images. Notre outil utilise des technologies IA avancées incluant l'OCR (Reconnaissance Optique de Caractères) pour détecter le texte du filigrane et l'inpainting LaMa pour restaurer les zones couvertes de manière transparente."
+      },
+      "howItWorks": {
+        "title": "Comment fonctionne notre suppresseur de filigrane IA",
+        "content": "Notre outil combine deux technologies IA puissantes pour de meilleurs résultats :",
+        "feature1": "EasyOCR détecte les filigranes textuels en plusieurs langues (anglais, chinois et plus)",
+        "feature2": "LaMa (Large Mask Inpainting) remplit naturellement les zones de filigrane",
+        "feature3": "Le résultat préserve la qualité d'image avec un minimum d'artefacts"
+      },
+      "steps": {
+        "title": "Comment supprimer les filigranes (étape par étape)",
+        "step1": "Téléchargez votre image avec des filigranes",
+        "step2": "Notre IA détecte automatiquement tous les filigranes textuels",
+        "step3": "Les filigranes sont supprimés et les zones remplies naturellement",
+        "step4": "Téléchargez votre image propre sans filigrane"
+      },
+      "bestFor": {
+        "title": "Idéal pour ces types de filigranes",
+        "content": "Notre outil fonctionne le mieux avec :",
+        "item1": "Filigranes textuels (noms d'entreprise, mentions de copyright)",
+        "item2": "Superpositions semi-transparentes",
+        "item3": "Filigranes de coin et de bord",
+        "item4": "Tampons de date et horodatages"
+      },
+      "tips": {
+        "title": "Conseils pour de meilleurs résultats",
+        "tip1": "Fonctionne mieux avec des filigranes textuels simples",
+        "tip2": "Les filigranes plus petits qui ne couvrent pas le contenu important sont plus faciles à supprimer",
+        "tip3": "Les filigranes denses et répétitifs peuvent ne pas être entièrement supprimables"
+      },
+      "cta": "Essayez le suppresseur de filigrane IA maintenant"
     }
   }
 }

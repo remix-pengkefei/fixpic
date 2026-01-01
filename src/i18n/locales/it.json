@@ -408,6 +408,56 @@
         "tip4": "\"white background\" può essere più efficace di \"no background\""
       },
       "cta": "Rimuovi falsa trasparenza ora"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "Come rimuovere filigrane dalle immagini - Guida gratuita alla rimozione delle filigrane | FixPic",
+        "description": "Scopri come rimuovere filigrane, loghi e testo indesiderato dalle immagini usando lo strumento di inpainting AI. Guida passo passo gratuita. Funziona nel browser, nessun software richiesto.",
+        "keywords": "rimuovere filigrana,rimozione filigrana,eliminare filigrana da immagine,inpainting AI,rimuovere logo da foto,rimozione testo immagine,strumento filigrana online"
+      },
+      "title": "Come rimuovere filigrane dalle immagini",
+      "intro": "Le filigrane possono rovinare un'immagine altrimenti perfetta. Che tu debba rimuovere un logo stock, un timbro di copyright o un testo indesiderato, questa guida ti mostra come farlo efficacemente usando la tecnologia AI inpainting.",
+      "whatIs": {
+        "title": "Cos'è la rimozione delle filigrane?",
+        "content": "La rimozione delle filigrane utilizza algoritmi AI inpainting per analizzare le aree circostanti di una filigrana e riempire intelligentemente lo spazio dopo la rimozione. Questo crea un risultato naturale dove la filigrana originale era invisibile."
+      },
+      "howItWorks": {
+        "title": "Come funziona",
+        "step1": "Carica l'immagine con la filigrana che vuoi rimuovere",
+        "step2": "Usa lo strumento pennello per dipingere sull'area della filigrana",
+        "step3": "Il nostro algoritmo AI analizza l'immagine e riempie l'area mascherata",
+        "step4": "Scarica la tua immagine pulita senza filigrana"
+      },
+      "steps": {
+        "title": "Guida passo passo",
+        "step1": {
+          "title": "Prepara la tua immagine",
+          "content": "Carica l'immagine con una filigrana. Lo strumento supporta i formati PNG, JPG e WebP."
+        },
+        "step2": {
+          "title": "Maschera la filigrana",
+          "content": "Usa il pennello per dipingere con cura sopra la filigrana. Regola la dimensione del pennello per aree più grandi o più piccole. Copri l'intera filigrana con un po' di overlap per risultati migliori."
+        },
+        "step3": {
+          "title": "Elabora e rivedi",
+          "content": "Clicca su 'Rimuovi Filigrana' per lasciare che l'AI elabori la tua immagine. Rivedi il risultato e ripeti se necessario per sfondi complessi."
+        }
+      },
+      "bestFor": {
+        "title": "Ideale per",
+        "use1": "Rimozione filigrane stock photo per uso personale",
+        "use2": "Pulizia screenshot con overlay indesiderati",
+        "use3": "Rimozione timbri data e timestamp dalle foto",
+        "use4": "Rimozione loghi e testo dalle immagini"
+      },
+      "tips": {
+        "title": "Consigli per risultati migliori",
+        "tip1": "Usa un pennello leggermente più grande della filigrana per bordi migliori",
+        "tip2": "Per sfondi complessi, elabora in più passaggi",
+        "tip3": "I colori a tinta unita danno risultati migliori rispetto a pattern dettagliati",
+        "tip4": "Regola il raggio di inpainting per sfondi più uniformi"
+      },
+      "cta": "Prova lo strumento di rimozione filigrana AI ora"
     }
   }
 }

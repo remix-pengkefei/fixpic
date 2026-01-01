@@ -172,7 +172,7 @@ export function RemoveWatermark() {
         canonicalUrl={`https://fix-pic.com/${currentLang}/remove-watermark`}
         ogImage="/og-watermark.png"
       />
-      <StructuredData type="removeFakeTransparency" />
+      <StructuredData type="removeWatermark" />
 
       <div className="tool-page watermark-page">
         <div className="tool-header">

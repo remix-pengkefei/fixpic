@@ -287,3 +287,39 @@ export async function autoRemoveWatermark(options: AutoRemoveWatermarkOptions): 
     return response.json()
   }
 }
+
+interface ChangeBgAIOptions {
+  image: File
+  numBackgrounds?: number
+}
+
+interface BackgroundResult {
+  image: string
+  prompt: string
+}
+
+interface ChangeBgAIResponse {
+  success: boolean
+  transparent?: string
+  backgrounds?: BackgroundResult[]
+  width?: number
+  height?: number
+  error?: string
+}
+
+/**
+ * AI 智能换背景 - 自动生成匹配的背景
+ */
+export async function changeBgAI(options: ChangeBgAIOptions): Promise<ChangeBgAIResponse> {
+  const imageBase64 = await fileToBase64(options.image)
+
+  const response = await fetch(getModalEndpoint('change-bg-ai'), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      image_base64: imageBase64,
+      num_backgrounds: options.numBackgrounds || 5
+    })
+  })
+  return response.json()
+}

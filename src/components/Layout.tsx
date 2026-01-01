@@ -124,6 +124,12 @@ export function Layout({ children }: LayoutProps) {
           >
             {t('nav.removeWatermark')}
           </Link>
+          <Link
+            to={langLink('/change-background')}
+            className={currentPage === '/change-background' ? 'active' : ''}
+          >
+            {t('nav.changeBackground', 'AI Background')}
+          </Link>
         </nav>
       )}
 
@@ -142,6 +148,7 @@ export function Layout({ children }: LayoutProps) {
           <Link to={langLink('/compress')}>{t('nav.compress')}</Link>
           <Link to={langLink('/resize')}>{t('nav.resize')}</Link>
           <Link to={langLink('/remove-watermark')}>{t('nav.removeWatermark')}</Link>
+          <Link to={langLink('/change-background')}>{t('nav.changeBackground', 'AI Background')}</Link>
         </div>
         <p>{t('footer.description')}</p>
       </footer>

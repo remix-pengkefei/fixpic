@@ -408,6 +408,48 @@
         "tip4": "\"white background\" kann effektiver sein als \"no background\""
       },
       "cta": "Jetzt falsche Transparenz entfernen"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "Wasserzeichen aus Bildern entfernen - KI-Wasserzeichen-Entferner | FixPic",
+        "description": "Erfahren Sie, wie Sie Wasserzeichen aus Bildern mit KI-gestützter Erkennung und Inpainting entfernen. Unterstützt Textwasserzeichen in mehreren Sprachen. Kostenloses Online-Tool.",
+        "keywords": "Wasserzeichen entfernen,Wasserzeichen-Entferner,Text aus Bild entfernen,KI Wasserzeichen-Entfernung,Foto Wasserzeichen entfernen,Bild Wasserzeichen entfernen,kostenloser Wasserzeichen-Entferner"
+      },
+      "title": "Wasserzeichen aus Bildern entfernen",
+      "intro": "Wasserzeichen können störend sein und ansonsten großartige Fotos ruinieren. Unser KI-gestütztes Tool erkennt und entfernt Textwasserzeichen automatisch, während die ursprüngliche Bildqualität erhalten bleibt.",
+      "whatIs": {
+        "title": "Was ist Wasserzeichen-Entfernung?",
+        "content": "Wasserzeichen-Entfernung ist der Prozess der Erkennung und Beseitigung von Text, Logos oder anderen Overlays aus Bildern. Unser Tool verwendet fortschrittliche KI-Technologien einschließlich OCR (Optische Zeichenerkennung) zur Erkennung von Wasserzeichentext und LaMa-Inpainting zur nahtlosen Wiederherstellung der bedeckten Bereiche."
+      },
+      "howItWorks": {
+        "title": "So funktioniert unser KI-Wasserzeichen-Entferner",
+        "content": "Unser Tool kombiniert zwei leistungsstarke KI-Technologien für beste Ergebnisse:",
+        "feature1": "EasyOCR erkennt Textwasserzeichen in mehreren Sprachen (Englisch, Chinesisch und mehr)",
+        "feature2": "LaMa (Large Mask Inpainting) füllt die Wasserzeichenbereiche natürlich aus",
+        "feature3": "Das Ergebnis erhält die Bildqualität mit minimalen Artefakten"
+      },
+      "steps": {
+        "title": "So entfernen Sie Wasserzeichen (Schritt für Schritt)",
+        "step1": "Laden Sie Ihr Bild mit Wasserzeichen hoch",
+        "step2": "Unsere KI erkennt automatisch alle Textwasserzeichen",
+        "step3": "Die Wasserzeichen werden entfernt und Bereiche natürlich gefüllt",
+        "step4": "Laden Sie Ihr sauberes, wasserzeichenfreies Bild herunter"
+      },
+      "bestFor": {
+        "title": "Am besten geeignet für diese Wasserzeichentypen",
+        "content": "Unser Tool funktioniert am besten mit:",
+        "item1": "Textwasserzeichen (Firmennamen, Urheberrechtshinweise)",
+        "item2": "Halbtransparente Overlays",
+        "item3": "Ecken- und Randwasserzeichen",
+        "item4": "Datumsstempel und Zeitstempel"
+      },
+      "tips": {
+        "title": "Tipps für beste Ergebnisse",
+        "tip1": "Funktioniert am besten mit einfachen, textbasierten Wasserzeichen",
+        "tip2": "Kleinere Wasserzeichen, die wichtige Inhalte nicht bedecken, sind einfacher zu entfernen",
+        "tip3": "Dichte, sich wiederholende Wasserzeichen können möglicherweise nicht vollständig entfernt werden"
+      },
+      "cta": "Jetzt den KI-Wasserzeichen-Entferner testen"
     }
   }
 }

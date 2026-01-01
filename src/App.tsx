@@ -11,6 +11,7 @@ const RemoveFakeTransparency = lazy(() => import('./pages/RemoveFakeTransparency
 const Compress = lazy(() => import('./pages/Compress').then(m => ({ default: m.Compress })))
 const Resize = lazy(() => import('./pages/Resize').then(m => ({ default: m.Resize })))
 const RemoveWatermark = lazy(() => import('./pages/RemoveWatermark').then(m => ({ default: m.RemoveWatermark })))
+const ChangeBackground = lazy(() => import('./pages/ChangeBackground').then(m => ({ default: m.ChangeBackground })))
 
 // Guide pages for long-tail SEO
 const RemoveAICheckerboard = lazy(() => import('./pages/guides/RemoveAICheckerboard').then(m => ({ default: m.RemoveAICheckerboard })))
@@ -18,6 +19,7 @@ const CompressWithoutQualityLoss = lazy(() => import('./pages/guides/CompressWit
 const ConvertToWebP = lazy(() => import('./pages/guides/ConvertToWebP').then(m => ({ default: m.ConvertToWebP })))
 const BatchCompress = lazy(() => import('./pages/guides/BatchCompress').then(m => ({ default: m.BatchCompress })))
 const MidjourneyTransparent = lazy(() => import('./pages/guides/MidjourneyTransparent').then(m => ({ default: m.MidjourneyTransparent })))
+const RemoveWatermarkGuide = lazy(() => import('./pages/guides/RemoveWatermark').then(m => ({ default: m.RemoveWatermarkGuide })))
 
 // 404 page
 const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })))
@@ -57,6 +59,7 @@ function LangRoutes() {
         <Route path="/compress" element={<LanguageRedirectPage page="compress" />} />
         <Route path="/resize" element={<LanguageRedirectPage page="resize" />} />
         <Route path="/remove-watermark" element={<LanguageRedirectPage page="remove-watermark" />} />
+        <Route path="/change-background" element={<LanguageRedirectPage page="change-background" />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageRouter><Home /></LanguageRouter>} />
@@ -64,6 +67,7 @@ function LangRoutes() {
         <Route path="/:lang/compress" element={<LanguageRouter><Compress /></LanguageRouter>} />
         <Route path="/:lang/resize" element={<LanguageRouter><Resize /></LanguageRouter>} />
         <Route path="/:lang/remove-watermark" element={<LanguageRouter><RemoveWatermark /></LanguageRouter>} />
+        <Route path="/:lang/change-background" element={<LanguageRouter><ChangeBackground /></LanguageRouter>} />
 
         {/* Guide pages for long-tail SEO */}
         <Route path="/:lang/guides/remove-ai-checkerboard" element={<LanguageRouter><RemoveAICheckerboard /></LanguageRouter>} />
@@ -71,6 +75,7 @@ function LangRoutes() {
         <Route path="/:lang/guides/convert-to-webp" element={<LanguageRouter><ConvertToWebP /></LanguageRouter>} />
         <Route path="/:lang/guides/batch-compress" element={<LanguageRouter><BatchCompress /></LanguageRouter>} />
         <Route path="/:lang/guides/midjourney-transparent" element={<LanguageRouter><MidjourneyTransparent /></LanguageRouter>} />
+        <Route path="/:lang/guides/remove-watermark" element={<LanguageRouter><RemoveWatermarkGuide /></LanguageRouter>} />
 
         {/* 404 Not Found */}
         <Route path="*" element={<NotFound />} />

@@ -399,6 +399,56 @@
         "tip4": "\"white background\" bazen \"no background\"dan daha etkili olabilir"
       },
       "cta": "Sahte Şeffaflığı Şimdi Kaldırın"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "Resimlerden Filigran Nasıl Kaldırılır - Ücretsiz Filigran Kaldırma Kılavuzu | FixPic",
+        "description": "AI inpainting aracını kullanarak resimlerden filigranları, logoları ve istenmeyen metinleri nasıl kaldıracağınızı öğrenin. Ücretsiz adım adım kılavuz. Tarayıcıda çalışır, yazılım gerekmez.",
+        "keywords": "filigran kaldır,filigran kaldırma,resimden filigran sil,AI inpainting,fotoğraftan logo kaldır,resimden metin kaldırma,çevrimiçi filigran aracı"
+      },
+      "title": "Resimlerden Filigran Nasıl Kaldırılır",
+      "intro": "Filigranlar mükemmel bir görüntüyü mahvedebilir. Stok logo, telif hakkı damgası veya istenmeyen metin kaldırmanız gerekip gerekmediğine bakılmaksızın, bu kılavuz AI inpainting teknolojisini kullanarak bunu etkili bir şekilde nasıl yapacağınızı gösterir.",
+      "whatIs": {
+        "title": "Filigran Kaldırma Nedir?",
+        "content": "Filigran kaldırma, filigranın çevresindeki alanları analiz etmek ve kaldırıldıktan sonra alanı akıllıca doldurmak için AI inpainting algoritmaları kullanır. Bu, orijinal filigranın görünmez olduğu doğal görünümlü bir sonuç oluşturur."
+      },
+      "howItWorks": {
+        "title": "Nasıl Çalışır",
+        "step1": "Kaldırmak istediğiniz filigranlı resmi yükleyin",
+        "step2": "Filigran alanının üzerini boyamak için fırça aracını kullanın",
+        "step3": "AI algoritmamız görüntüyü analiz eder ve maskelenmiş alanı doldurur",
+        "step4": "Filigrandan arınmış temiz resminizi indirin"
+      },
+      "steps": {
+        "title": "Adım Adım Kılavuz",
+        "step1": {
+          "title": "Resminizi Hazırlayın",
+          "content": "Filigranlı resmi yükleyin. Araç PNG, JPG ve WebP formatlarını destekler."
+        },
+        "step2": {
+          "title": "Filigranı Maskeleyin",
+          "content": "Filigranın üzerini dikkatli bir şekilde boyamak için fırçayı kullanın. Daha büyük veya daha küçük alanlar için fırça boyutunu ayarlayın. Daha iyi sonuçlar için tüm filigranı biraz taşma ile kaplayın."
+        },
+        "step3": {
+          "title": "İşleyin ve İnceleyin",
+          "content": "AI'nin resminizi işlemesine izin vermek için 'Filigranı Kaldır'a tıklayın. Sonucu inceleyin ve karmaşık arka planlar için gerekirse tekrarlayın."
+        }
+      },
+      "bestFor": {
+        "title": "En Uygun Kullanımlar",
+        "use1": "Kişisel kullanım için stok fotoğraf filigranlarını kaldırma",
+        "use2": "İstenmeyen kaplama içeren ekran görüntülerini temizleme",
+        "use3": "Fotoğraflardan tarih damgaları ve zaman damgalarını kaldırma",
+        "use4": "Resimlerden logo ve metin kaldırma"
+      },
+      "tips": {
+        "title": "Daha İyi Sonuçlar İçin İpuçları",
+        "tip1": "Daha iyi kenarlar için filigrandan biraz daha büyük bir fırça kullanın",
+        "tip2": "Karmaşık arka planlar için birden fazla geçişte işleyin",
+        "tip3": "Düz renkler, ayrıntılı desenlerden daha iyi sonuç verir",
+        "tip4": "Daha pürüzsüz arka planlar için inpaint yarıçapını ayarlayın"
+      },
+      "cta": "AI Filigran Kaldırma Aracını Şimdi Deneyin"
     }
   }
 }

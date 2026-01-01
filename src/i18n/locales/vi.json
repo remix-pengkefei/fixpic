@@ -399,6 +399,56 @@
         "tip4": "\"white background\" đôi khi hiệu quả hơn \"no background\""
       },
       "cta": "Xóa Trong suốt Giả Ngay"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "Cách Xóa Watermark khỏi Hình ảnh - Hướng dẫn Xóa Watermark Miễn phí | FixPic",
+        "description": "Tìm hiểu cách xóa watermark, logo và văn bản không mong muốn khỏi hình ảnh bằng công cụ AI inpainting. Hướng dẫn từng bước miễn phí. Hoạt động trong trình duyệt, không cần phần mềm.",
+        "keywords": "xóa watermark,xóa watermark hình ảnh,loại bỏ watermark,AI inpainting,xóa logo khỏi ảnh,xóa văn bản hình ảnh,công cụ watermark trực tuyến"
+      },
+      "title": "Cách Xóa Watermark khỏi Hình ảnh",
+      "intro": "Watermark có thể làm hỏng một hình ảnh hoàn hảo. Dù bạn cần xóa logo stock, dấu bản quyền hay văn bản không mong muốn, hướng dẫn này sẽ chỉ bạn cách thực hiện hiệu quả bằng công nghệ AI inpainting.",
+      "whatIs": {
+        "title": "Xóa Watermark là gì?",
+        "content": "Xóa watermark sử dụng thuật toán AI inpainting để phân tích các vùng xung quanh watermark và lấp đầy không gian một cách thông minh sau khi xóa. Điều này tạo ra kết quả trông tự nhiên nơi watermark gốc không còn nhìn thấy."
+      },
+      "howItWorks": {
+        "title": "Cách hoạt động",
+        "step1": "Tải lên hình ảnh có watermark bạn muốn xóa",
+        "step2": "Sử dụng công cụ cọ để tô lên vùng watermark",
+        "step3": "Thuật toán AI của chúng tôi phân tích hình ảnh và lấp đầy vùng được đánh dấu",
+        "step4": "Tải xuống hình ảnh sạch không có watermark"
+      },
+      "steps": {
+        "title": "Hướng dẫn Từng Bước",
+        "step1": {
+          "title": "Chuẩn bị Hình ảnh",
+          "content": "Tải lên hình ảnh có watermark. Công cụ hỗ trợ định dạng PNG, JPG và WebP."
+        },
+        "step2": {
+          "title": "Đánh dấu Watermark",
+          "content": "Sử dụng cọ để tô cẩn thận lên watermark. Điều chỉnh kích thước cọ cho các vùng lớn hoặc nhỏ hơn. Bao phủ toàn bộ watermark với một chút chồng lấp để có kết quả tốt hơn."
+        },
+        "step3": {
+          "title": "Xử lý và Xem lại",
+          "content": "Nhấp 'Xóa Watermark' để AI xử lý hình ảnh. Xem lại kết quả và lặp lại nếu cần cho các nền phức tạp."
+        }
+      },
+      "bestFor": {
+        "title": "Tốt nhất cho",
+        "use1": "Xóa watermark ảnh stock để sử dụng cá nhân",
+        "use2": "Làm sạch ảnh chụp màn hình có overlay không mong muốn",
+        "use3": "Xóa dấu ngày tháng và timestamp khỏi ảnh",
+        "use4": "Xóa logo và văn bản khỏi hình ảnh"
+      },
+      "tips": {
+        "title": "Mẹo để Có Kết quả Tốt hơn",
+        "tip1": "Sử dụng cọ hơi lớn hơn watermark để có viền tốt hơn",
+        "tip2": "Với nền phức tạp, xử lý theo nhiều lượt",
+        "tip3": "Màu đơn sắc cho kết quả tốt hơn so với họa tiết chi tiết",
+        "tip4": "Điều chỉnh bán kính inpaint để có nền mượt hơn"
+      },
+      "cta": "Thử Công cụ Xóa Watermark AI Ngay"
     }
   }
 }

@@ -399,6 +399,56 @@
         "tip4": "\"white background\" kadang lebih efektif dari \"no background\""
       },
       "cta": "Hapus Transparansi Palsu Sekarang"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "Cara Menghapus Tanda Air dari Gambar - Panduan Penghapusan Tanda Air Gratis | FixPic",
+        "description": "Pelajari cara menghapus tanda air, logo, dan teks yang tidak diinginkan dari gambar menggunakan alat AI inpainting. Panduan langkah demi langkah gratis. Bekerja di browser, tanpa perlu software.",
+        "keywords": "hapus tanda air,penghapusan tanda air,hapus watermark dari gambar,AI inpainting,hapus logo dari foto,penghapusan teks gambar,alat watermark online"
+      },
+      "title": "Cara Menghapus Tanda Air dari Gambar",
+      "intro": "Tanda air dapat merusak gambar yang sempurna. Apakah Anda perlu menghapus logo stok, cap hak cipta, atau teks yang tidak diinginkan, panduan ini menunjukkan cara melakukannya secara efektif menggunakan teknologi AI inpainting.",
+      "whatIs": {
+        "title": "Apa itu Penghapusan Tanda Air?",
+        "content": "Penghapusan tanda air menggunakan algoritma AI inpainting untuk menganalisis area di sekitar tanda air dan mengisi ruang secara cerdas setelah dihapus. Ini menciptakan hasil yang terlihat alami di mana tanda air asli tidak terlihat."
+      },
+      "howItWorks": {
+        "title": "Cara Kerjanya",
+        "step1": "Unggah gambar dengan tanda air yang ingin Anda hapus",
+        "step2": "Gunakan alat kuas untuk melukis di atas area tanda air",
+        "step3": "Algoritma AI kami menganalisis gambar dan mengisi area yang dimasker",
+        "step4": "Unduh gambar bersih Anda tanpa tanda air"
+      },
+      "steps": {
+        "title": "Panduan Langkah demi Langkah",
+        "step1": {
+          "title": "Siapkan Gambar Anda",
+          "content": "Unggah gambar dengan tanda air. Alat ini mendukung format PNG, JPG, dan WebP."
+        },
+        "step2": {
+          "title": "Masker Tanda Air",
+          "content": "Gunakan kuas untuk melukis dengan hati-hati di atas tanda air. Sesuaikan ukuran kuas untuk area yang lebih besar atau lebih kecil. Tutupi seluruh tanda air dengan sedikit tumpang tindih untuk hasil yang lebih baik."
+        },
+        "step3": {
+          "title": "Proses dan Tinjau",
+          "content": "Klik 'Hapus Tanda Air' untuk membiarkan AI memproses gambar Anda. Tinjau hasilnya dan ulangi jika diperlukan untuk latar belakang yang kompleks."
+        }
+      },
+      "bestFor": {
+        "title": "Terbaik Untuk",
+        "use1": "Menghapus tanda air foto stok untuk penggunaan pribadi",
+        "use2": "Membersihkan tangkapan layar dengan overlay yang tidak diinginkan",
+        "use3": "Menghapus cap tanggal dan stempel waktu dari foto",
+        "use4": "Menghapus logo dan teks dari gambar"
+      },
+      "tips": {
+        "title": "Tips untuk Hasil Lebih Baik",
+        "tip1": "Gunakan kuas sedikit lebih besar dari tanda air untuk tepi yang lebih baik",
+        "tip2": "Untuk latar belakang kompleks, proses dalam beberapa tahap",
+        "tip3": "Warna solid memberikan hasil lebih baik daripada pola detail",
+        "tip4": "Sesuaikan radius inpaint untuk latar belakang yang lebih halus"
+      },
+      "cta": "Coba Alat Penghapus Tanda Air AI Sekarang"
     }
   }
 }

@@ -408,6 +408,48 @@
         "tip4": "\"white background\" pode ser mais eficaz que \"no background\""
       },
       "cta": "Remover falsa transparência agora"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "Como remover marcas d'água de imagens - Removedor IA | FixPic",
+        "description": "Aprenda a remover marcas d'água de imagens usando detecção e inpainting com IA. Suporta marcas d'água de texto em vários idiomas. Ferramenta online gratuita.",
+        "keywords": "remover marca d'água,removedor marca d'água,remover texto imagem,remoção marca d'água IA,tirar marca d'água foto,remover marca d'água imagem,removedor marca d'água grátis"
+      },
+      "title": "Como remover marcas d'água de imagens",
+      "intro": "Marcas d'água podem ser distrativas e arruinar fotos que de outra forma seriam ótimas. Nossa ferramenta alimentada por IA detecta e remove automaticamente marcas d'água de texto enquanto preserva a qualidade original da imagem.",
+      "whatIs": {
+        "title": "O que é remoção de marca d'água?",
+        "content": "Remoção de marca d'água é o processo de detectar e eliminar texto, logos ou outras sobreposições de imagens. Nossa ferramenta usa tecnologias avançadas de IA incluindo OCR (Reconhecimento Óptico de Caracteres) para detectar o texto da marca d'água e inpainting LaMa para restaurar as áreas cobertas de forma perfeita."
+      },
+      "howItWorks": {
+        "title": "Como funciona nosso removedor de marca d'água IA",
+        "content": "Nossa ferramenta combina duas tecnologias de IA poderosas para melhores resultados:",
+        "feature1": "EasyOCR detecta marcas d'água de texto em vários idiomas (inglês, chinês e mais)",
+        "feature2": "LaMa (Large Mask Inpainting) preenche as áreas de marca d'água naturalmente",
+        "feature3": "O resultado preserva a qualidade da imagem com artefatos mínimos"
+      },
+      "steps": {
+        "title": "Como remover marcas d'água (passo a passo)",
+        "step1": "Faça upload da sua imagem com marcas d'água",
+        "step2": "Nossa IA detecta automaticamente todas as marcas d'água de texto",
+        "step3": "As marcas d'água são removidas e as áreas preenchidas naturalmente",
+        "step4": "Baixe sua imagem limpa sem marcas d'água"
+      },
+      "bestFor": {
+        "title": "Ideal para estes tipos de marcas d'água",
+        "content": "Nossa ferramenta funciona melhor com:",
+        "item1": "Marcas d'água de texto (nomes de empresas, avisos de copyright)",
+        "item2": "Sobreposições semitransparentes",
+        "item3": "Marcas d'água de canto e borda",
+        "item4": "Carimbos de data e marcas de tempo"
+      },
+      "tips": {
+        "title": "Dicas para melhores resultados",
+        "tip1": "Funciona melhor com marcas d'água simples baseadas em texto",
+        "tip2": "Marcas d'água menores que não cobrem conteúdo importante são mais fáceis de remover",
+        "tip3": "Marcas d'água densas e repetitivas podem não ser totalmente removíveis"
+      },
+      "cta": "Experimente o removedor de marca d'água IA agora"
     }
   }
 }

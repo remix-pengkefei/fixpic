@@ -401,6 +401,48 @@
         "tip4": "For best results, use our tool to fix the output"
       },
       "cta": "Fix Your Midjourney Images Now"
+    },
+    "removeWatermark": {
+      "seo": {
+        "title": "How to Remove Watermarks from Images - AI Watermark Remover | FixPic",
+        "description": "Learn how to remove watermarks from images using AI-powered detection and inpainting. Supports text watermarks in multiple languages. Free online tool.",
+        "keywords": "remove watermark,watermark remover,remove text from image,AI watermark removal,photo watermark remover,image watermark removal,free watermark remover"
+      },
+      "title": "How to Remove Watermarks from Images",
+      "intro": "Watermarks can be distracting and ruin otherwise great photos. Our AI-powered tool automatically detects and removes text watermarks while preserving the original image quality.",
+      "whatIs": {
+        "title": "What is Watermark Removal?",
+        "content": "Watermark removal is the process of detecting and eliminating text, logos, or other overlays from images. Our tool uses advanced AI technologies including OCR (Optical Character Recognition) to detect watermark text and LaMa inpainting to seamlessly restore the covered areas."
+      },
+      "howItWorks": {
+        "title": "How Our AI Watermark Remover Works",
+        "content": "Our tool combines two powerful AI technologies for best results:",
+        "feature1": "EasyOCR detects text watermarks in multiple languages (English, Chinese, and more)",
+        "feature2": "LaMa (Large Mask Inpainting) fills in the watermark areas naturally",
+        "feature3": "The result preserves image quality with minimal artifacts"
+      },
+      "steps": {
+        "title": "How to Remove Watermarks (Step by Step)",
+        "step1": "Upload your image with watermarks",
+        "step2": "Our AI automatically detects all text watermarks",
+        "step3": "The watermarks are removed and areas are filled naturally",
+        "step4": "Download your clean, watermark-free image"
+      },
+      "bestFor": {
+        "title": "Best For These Types of Watermarks",
+        "content": "Our tool works best with:",
+        "item1": "Text watermarks (company names, copyright notices)",
+        "item2": "Semi-transparent overlays",
+        "item3": "Corner and edge watermarks",
+        "item4": "Date stamps and timestamps"
+      },
+      "tips": {
+        "title": "Tips for Best Results",
+        "tip1": "Works best with simple, text-based watermarks",
+        "tip2": "Smaller watermarks that don't cover important content are easier to remove",
+        "tip3": "Dense, repeating watermarks may not be fully removable"
+      },
+      "cta": "Try the AI Watermark Remover Now"
     }
   }
 }
