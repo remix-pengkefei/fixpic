@@ -52,27 +52,33 @@ export function Layout({ children }: LayoutProps) {
     navigate(newPath)
   }
 
-  // All Tools
+  // All Tools with anchor IDs
   const toolItems = [
-    { path: '/background-remover', label: t('nav.bgRemover', 'Background Remover'), icon: '🎨' },
-    { path: '/image-upscaler', label: t('nav.upscaler', 'Image Upscaler'), icon: '🔍' },
-    { path: '/watermark-remover', label: t('nav.watermarkRemover', 'Watermark Remover'), icon: '💧' },
-    { path: '/background-generator', label: t('nav.bgGenerator', 'Background Generator'), icon: '✨' },
-    { path: '/image-sharpener', label: t('nav.sharpener', 'Image Sharpener'), icon: '🔬' },
-    { path: '/image-denoiser', label: t('nav.denoiser', 'Image Denoiser'), icon: '🔇' },
-    { path: '/shadow-generator', label: t('nav.shadowGen', 'Shadow Generator'), icon: '🌓' },
-    { path: '/smart-crop', label: t('nav.smartCrop', 'Smart Crop'), icon: '✂️' },
-    { path: '/image-extender', label: t('nav.extender', 'Image Extender'), icon: '↔️' },
-    { path: '/remove-fake-transparency', label: t('nav.removeFakeTransparency'), icon: '🔲' },
-    { path: '/compress', label: t('nav.compress'), icon: '📦' },
-    { path: '/resize', label: t('nav.resize'), icon: '📐' },
+    { path: '/background-remover', label: t('nav.bgRemover', 'Background Remover'), icon: '🎨', anchor: 'tool-background-remover' },
+    { path: '/image-upscaler', label: t('nav.upscaler', 'Image Upscaler'), icon: '🔍', anchor: 'tool-image-upscaler' },
+    { path: '/watermark-remover', label: t('nav.watermarkRemover', 'Watermark Remover'), icon: '💧', anchor: 'tool-watermark-remover' },
+    { path: '/background-generator', label: t('nav.bgGenerator', 'Background Generator'), icon: '✨', anchor: 'tool-background-generator' },
+    { path: '/image-sharpener', label: t('nav.sharpener', 'Image Sharpener'), icon: '🔬', anchor: 'tool-image-sharpener' },
+    { path: '/image-denoiser', label: t('nav.denoiser', 'Image Denoiser'), icon: '🔇', anchor: 'tool-image-denoiser' },
+    { path: '/shadow-generator', label: t('nav.shadowGen', 'Shadow Generator'), icon: '🌓', anchor: 'tool-shadow-generator' },
+    { path: '/smart-crop', label: t('nav.smartCrop', 'Smart Crop'), icon: '✂️', anchor: 'tool-smart-crop' },
+    { path: '/image-extender', label: t('nav.extender', 'Image Extender'), icon: '↔️', anchor: 'tool-image-extender' },
+    { path: '/remove-fake-transparency', label: t('nav.removeFakeTransparency'), icon: '🔲', anchor: 'tool-remove-fake-transparency' },
+    { path: '/compress', label: t('nav.compress'), icon: '📦', anchor: 'tool-compress' },
+    { path: '/resize', label: t('nav.resize'), icon: '📐', anchor: 'tool-resize' },
   ]
 
-  // For header nav (show first 5 tools)
-  const navItems = toolItems.slice(0, 5)
+  // Show all tools in nav
+  const navItems = toolItems
 
-  const handleNavClick = (_e: React.MouseEvent, _item: typeof navItems[0]) => {
-    // Navigation handled by Link component
+  const handleNavClick = (e: React.MouseEvent, item: typeof navItems[0]) => {
+    if (isHome && item.anchor) {
+      e.preventDefault()
+      const element = document.getElementById(item.anchor)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }
   }
 
   // Logged-in layout with sidebar

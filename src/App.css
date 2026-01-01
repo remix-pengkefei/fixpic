@@ -245,14 +245,23 @@
 .pr-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  overflow-x: auto;
+  max-width: 60vw;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pr-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .pr-nav-link {
-  padding: 8px 16px;
+  padding: 6px 10px;
   color: #666;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
+  white-space: nowrap;
   font-weight: 500;
   border-radius: 8px;
   transition: all 0.2s;

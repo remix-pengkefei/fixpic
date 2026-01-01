@@ -19,10 +19,11 @@ export function Home() {
 
   const langLink = (path: string) => `/${currentLang}${path}`
 
-  // All tools with their showcase images
+  // All tools with their showcase images and anchor IDs
   const tools = [
     {
       path: '/background-remover',
+      anchor: 'tool-background-remover',
       icon: '🎨',
       name: t('nav.bgRemover', 'Background Remover'),
       desc: t('home.tools.bgRemover.shortDesc', 'Remove image backgrounds with AI'),
@@ -31,6 +32,7 @@ export function Home() {
     },
     {
       path: '/image-upscaler',
+      anchor: 'tool-image-upscaler',
       icon: '🔍',
       name: t('nav.upscaler', 'Image Upscaler'),
       desc: t('home.tools.upscaler.shortDesc', 'Enlarge images up to 4x'),
@@ -39,6 +41,7 @@ export function Home() {
     },
     {
       path: '/watermark-remover',
+      anchor: 'tool-watermark-remover',
       icon: '💧',
       name: t('nav.watermarkRemover', 'Watermark Remover'),
       desc: t('home.tools.watermarkRemover.shortDesc', 'Remove watermarks and logos'),
@@ -47,6 +50,7 @@ export function Home() {
     },
     {
       path: '/background-generator',
+      anchor: 'tool-background-generator',
       icon: '✨',
       name: t('nav.bgGenerator', 'Background Generator'),
       desc: t('home.tools.bgGenerator.shortDesc', 'Generate AI backgrounds'),
@@ -55,6 +59,7 @@ export function Home() {
     },
     {
       path: '/image-sharpener',
+      anchor: 'tool-image-sharpener',
       icon: '🔬',
       name: t('nav.sharpener', 'Image Sharpener'),
       desc: t('home.tools.sharpener.shortDesc', 'Sharpen blurry images'),
@@ -63,6 +68,7 @@ export function Home() {
     },
     {
       path: '/image-denoiser',
+      anchor: 'tool-image-denoiser',
       icon: '🔇',
       name: t('nav.denoiser', 'Image Denoiser'),
       desc: t('home.tools.denoiser.shortDesc', 'Remove noise and artifacts'),
@@ -71,6 +77,7 @@ export function Home() {
     },
     {
       path: '/shadow-generator',
+      anchor: 'tool-shadow-generator',
       icon: '🌓',
       name: t('nav.shadowGen', 'Shadow Generator'),
       desc: t('home.tools.shadowGen.shortDesc', 'Add realistic shadows'),
@@ -79,6 +86,7 @@ export function Home() {
     },
     {
       path: '/smart-crop',
+      anchor: 'tool-smart-crop',
       icon: '✂️',
       name: t('nav.smartCrop', 'Smart Crop'),
       desc: t('home.tools.smartCrop.shortDesc', 'AI-powered smart cropping'),
@@ -87,6 +95,7 @@ export function Home() {
     },
     {
       path: '/image-extender',
+      anchor: 'tool-image-extender',
       icon: '↔️',
       name: t('nav.extender', 'Image Extender'),
       desc: t('home.tools.extender.shortDesc', 'Extend image borders'),
@@ -95,6 +104,7 @@ export function Home() {
     },
     {
       path: '/remove-fake-transparency',
+      anchor: 'tool-remove-fake-transparency',
       icon: '🔲',
       name: t('nav.removeFakeTransparency'),
       desc: t('home.tools.removeFakeTransparency.shortDesc', 'Remove checkerboard background'),
@@ -103,6 +113,7 @@ export function Home() {
     },
     {
       path: '/compress',
+      anchor: 'tool-compress',
       icon: '📦',
       name: t('nav.compress'),
       desc: t('home.tools.compress.shortDesc', 'Compress & convert to WebP'),
@@ -113,6 +124,7 @@ export function Home() {
     },
     {
       path: '/resize',
+      anchor: 'tool-resize',
       icon: '📐',
       name: t('nav.resize'),
       desc: t('home.tools.resize.shortDesc', 'Resize images precisely'),
@@ -160,7 +172,7 @@ export function Home() {
           // Not logged-in: Show effect showcases with BeforeAfterSlider
           <section className="effects-showcase">
             {tools.map(tool => (
-              <div key={tool.path} className="effect-item">
+              <div key={tool.path} id={tool.anchor} className="effect-item">
                 <div className="effect-preview">
                   <BeforeAfterSlider
                     beforeImage={tool.beforeImage}
