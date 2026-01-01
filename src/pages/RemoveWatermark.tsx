@@ -81,7 +81,11 @@ export function RemoveWatermark() {
 
       // Convert data URL to blob
       const imageData = response.image!
-      const base64 = imageData.split(',')[1]
+      // 处理有无 data URL 前缀的情况
+      const base64 = imageData.includes(',') ? imageData.split(',')[1] : imageData
+      if (!base64) {
+        throw new Error('Invalid image data')
+      }
       const binaryString = atob(base64)
       const bytes = new Uint8Array(binaryString.length)
       for (let i = 0; i < binaryString.length; i++) {

@@ -101,6 +101,18 @@ export function Layout({ children }: LayoutProps) {
       {!isHome && (
         <nav className="tool-nav">
           <Link
+            to={langLink('/remove-watermark')}
+            className={currentPage === '/remove-watermark' ? 'active' : ''}
+          >
+            {t('nav.removeWatermark')}
+          </Link>
+          <Link
+            to={langLink('/change-background')}
+            className={currentPage === '/change-background' ? 'active' : ''}
+          >
+            {t('nav.changeBackground', 'AI Background')}
+          </Link>
+          <Link
             to={langLink('/remove-fake-transparency')}
             className={currentPage === '/remove-fake-transparency' ? 'active' : ''}
           >
@@ -118,18 +130,6 @@ export function Layout({ children }: LayoutProps) {
           >
             {t('nav.resize')}
           </Link>
-          <Link
-            to={langLink('/remove-watermark')}
-            className={currentPage === '/remove-watermark' ? 'active' : ''}
-          >
-            {t('nav.removeWatermark')}
-          </Link>
-          <Link
-            to={langLink('/change-background')}
-            className={currentPage === '/change-background' ? 'active' : ''}
-          >
-            {t('nav.changeBackground', 'AI Background')}
-          </Link>
         </nav>
       )}
 
@@ -144,11 +144,11 @@ export function Layout({ children }: LayoutProps) {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-links">
+          <Link to={langLink('/remove-watermark')}>{t('nav.removeWatermark')}</Link>
+          <Link to={langLink('/change-background')}>{t('nav.changeBackground', 'AI Background')}</Link>
           <Link to={langLink('/remove-fake-transparency')}>{t('nav.removeFakeTransparency')}</Link>
           <Link to={langLink('/compress')}>{t('nav.compress')}</Link>
           <Link to={langLink('/resize')}>{t('nav.resize')}</Link>
-          <Link to={langLink('/remove-watermark')}>{t('nav.removeWatermark')}</Link>
-          <Link to={langLink('/change-background')}>{t('nav.changeBackground', 'AI Background')}</Link>
         </div>
         <p>{t('footer.description')}</p>
       </footer>
