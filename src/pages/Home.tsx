@@ -2,11 +2,14 @@ import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
 import { StructuredData } from '../components/StructuredData'
+import { BeforeAfterSlider } from '../components/BeforeAfterSlider'
 import { languages } from '../i18n'
+import { useAuth } from '../contexts/AuthContext'
 
 export function Home() {
   const { t, i18n } = useTranslation()
   const location = useLocation()
+  const { user } = useAuth()
 
   // Get current language from URL
   const pathParts = location.pathname.split('/').filter(Boolean)
@@ -15,6 +18,110 @@ export function Home() {
   const currentLang = urlLang || i18n.language || 'en'
 
   const langLink = (path: string) => `/${currentLang}${path}`
+
+  // All tools with their showcase images
+  const tools = [
+    {
+      path: '/background-remover',
+      icon: '🎨',
+      name: t('nav.bgRemover', 'Background Remover'),
+      desc: t('home.tools.bgRemover.shortDesc', 'Remove image backgrounds with AI'),
+      beforeImage: '/examples/background-before.png',
+      afterImage: '/examples/background-after.png',
+    },
+    {
+      path: '/image-upscaler',
+      icon: '🔍',
+      name: t('nav.upscaler', 'Image Upscaler'),
+      desc: t('home.tools.upscaler.shortDesc', 'Enlarge images up to 4x'),
+      beforeImage: '/examples/upscaler-before.png',
+      afterImage: '/examples/upscaler-after.png',
+    },
+    {
+      path: '/watermark-remover',
+      icon: '💧',
+      name: t('nav.watermarkRemover', 'Watermark Remover'),
+      desc: t('home.tools.watermarkRemover.shortDesc', 'Remove watermarks and logos'),
+      beforeImage: '/examples/watermark-before.png',
+      afterImage: '/examples/watermark-after.png',
+    },
+    {
+      path: '/background-generator',
+      icon: '✨',
+      name: t('nav.bgGenerator', 'Background Generator'),
+      desc: t('home.tools.bgGenerator.shortDesc', 'Generate AI backgrounds'),
+      beforeImage: '/examples/bg-generator-before.png',
+      afterImage: '/examples/bg-generator-after.png',
+    },
+    {
+      path: '/image-sharpener',
+      icon: '🔬',
+      name: t('nav.sharpener', 'Image Sharpener'),
+      desc: t('home.tools.sharpener.shortDesc', 'Sharpen blurry images'),
+      beforeImage: '/examples/sharpener-before.png',
+      afterImage: '/examples/sharpener-after.png',
+    },
+    {
+      path: '/image-denoiser',
+      icon: '🔇',
+      name: t('nav.denoiser', 'Image Denoiser'),
+      desc: t('home.tools.denoiser.shortDesc', 'Remove noise and artifacts'),
+      beforeImage: '/examples/denoiser-before.png',
+      afterImage: '/examples/denoiser-after.png',
+    },
+    {
+      path: '/shadow-generator',
+      icon: '🌓',
+      name: t('nav.shadowGen', 'Shadow Generator'),
+      desc: t('home.tools.shadowGen.shortDesc', 'Add realistic shadows'),
+      beforeImage: '/examples/shadow-before.png',
+      afterImage: '/examples/shadow-after.png',
+    },
+    {
+      path: '/smart-crop',
+      icon: '✂️',
+      name: t('nav.smartCrop', 'Smart Crop'),
+      desc: t('home.tools.smartCrop.shortDesc', 'AI-powered smart cropping'),
+      beforeImage: '/examples/smartcrop-before.png',
+      afterImage: '/examples/smartcrop-after.png',
+    },
+    {
+      path: '/image-extender',
+      icon: '↔️',
+      name: t('nav.extender', 'Image Extender'),
+      desc: t('home.tools.extender.shortDesc', 'Extend image borders'),
+      beforeImage: '/examples/extender-before.png',
+      afterImage: '/examples/extender-after.png',
+    },
+    {
+      path: '/remove-fake-transparency',
+      icon: '🔲',
+      name: t('nav.removeFakeTransparency'),
+      desc: t('home.tools.removeFakeTransparency.shortDesc', 'Remove checkerboard background'),
+      beforeImage: '/examples/transparency-before.png',
+      afterImage: '/examples/transparency-after.png',
+    },
+    {
+      path: '/compress',
+      icon: '📦',
+      name: t('nav.compress'),
+      desc: t('home.tools.compress.shortDesc', 'Compress & convert to WebP'),
+      beforeImage: '/examples/compress-before.png',
+      afterImage: '/examples/compress-after.webp',
+      beforeLabel: '470 KB',
+      afterLabel: '6 KB',
+    },
+    {
+      path: '/resize',
+      icon: '📐',
+      name: t('nav.resize'),
+      desc: t('home.tools.resize.shortDesc', 'Resize images precisely'),
+      beforeImage: '/examples/resize-before.png',
+      afterImage: '/examples/resize-after.png',
+      beforeLabel: '1200×800',
+      afterLabel: '600×400',
+    },
+  ]
 
   return (
     <>
@@ -34,72 +141,47 @@ export function Home() {
           <p className="hero-desc">{t('home.hero.desc')}</p>
         </section>
 
-        {/* All Tools Section */}
-        <section className="tools-section">
-          <h2>{t('nav.tools', 'Tools')}</h2>
-          <div className="tool-cards-grid">
-            <Link to={langLink('/background-remover')} className="tool-card">
-              <span className="tool-card-icon">🎨</span>
-              <span className="tool-card-name">{t('nav.bgRemover', 'Background Remover')}</span>
-              <span className="tool-card-desc">{t('home.tools.bgRemover.shortDesc', 'Remove image backgrounds with AI')}</span>
-            </Link>
-            <Link to={langLink('/image-upscaler')} className="tool-card">
-              <span className="tool-card-icon">🔍</span>
-              <span className="tool-card-name">{t('nav.upscaler', 'Image Upscaler')}</span>
-              <span className="tool-card-desc">{t('home.tools.upscaler.shortDesc', 'Enlarge images up to 4x')}</span>
-            </Link>
-            <Link to={langLink('/watermark-remover')} className="tool-card">
-              <span className="tool-card-icon">💧</span>
-              <span className="tool-card-name">{t('nav.watermarkRemover', 'Watermark Remover')}</span>
-              <span className="tool-card-desc">{t('home.tools.watermarkRemover.shortDesc', 'Remove watermarks and logos')}</span>
-            </Link>
-            <Link to={langLink('/background-generator')} className="tool-card">
-              <span className="tool-card-icon">✨</span>
-              <span className="tool-card-name">{t('nav.bgGenerator', 'Background Generator')}</span>
-              <span className="tool-card-desc">{t('home.tools.bgGenerator.shortDesc', 'Generate AI backgrounds')}</span>
-            </Link>
-            <Link to={langLink('/image-sharpener')} className="tool-card">
-              <span className="tool-card-icon">🔬</span>
-              <span className="tool-card-name">{t('nav.sharpener', 'Image Sharpener')}</span>
-              <span className="tool-card-desc">{t('home.tools.sharpener.shortDesc', 'Sharpen blurry images')}</span>
-            </Link>
-            <Link to={langLink('/image-denoiser')} className="tool-card">
-              <span className="tool-card-icon">🔇</span>
-              <span className="tool-card-name">{t('nav.denoiser', 'Image Denoiser')}</span>
-              <span className="tool-card-desc">{t('home.tools.denoiser.shortDesc', 'Remove noise and artifacts')}</span>
-            </Link>
-            <Link to={langLink('/shadow-generator')} className="tool-card">
-              <span className="tool-card-icon">🌓</span>
-              <span className="tool-card-name">{t('nav.shadowGen', 'Shadow Generator')}</span>
-              <span className="tool-card-desc">{t('home.tools.shadowGen.shortDesc', 'Add realistic shadows')}</span>
-            </Link>
-            <Link to={langLink('/smart-crop')} className="tool-card">
-              <span className="tool-card-icon">✂️</span>
-              <span className="tool-card-name">{t('nav.smartCrop', 'Smart Crop')}</span>
-              <span className="tool-card-desc">{t('home.tools.smartCrop.shortDesc', 'AI-powered smart cropping')}</span>
-            </Link>
-            <Link to={langLink('/image-extender')} className="tool-card">
-              <span className="tool-card-icon">↔️</span>
-              <span className="tool-card-name">{t('nav.extender', 'Image Extender')}</span>
-              <span className="tool-card-desc">{t('home.tools.extender.shortDesc', 'Extend image borders')}</span>
-            </Link>
-            <Link to={langLink('/remove-fake-transparency')} className="tool-card">
-              <span className="tool-card-icon">🔲</span>
-              <span className="tool-card-name">{t('nav.removeFakeTransparency')}</span>
-              <span className="tool-card-desc">{t('home.tools.removeFakeTransparency.shortDesc', 'Remove checkerboard background')}</span>
-            </Link>
-            <Link to={langLink('/compress')} className="tool-card">
-              <span className="tool-card-icon">📦</span>
-              <span className="tool-card-name">{t('nav.compress')}</span>
-              <span className="tool-card-desc">{t('home.tools.compress.shortDesc', 'Compress & convert to WebP')}</span>
-            </Link>
-            <Link to={langLink('/resize')} className="tool-card">
-              <span className="tool-card-icon">📐</span>
-              <span className="tool-card-name">{t('nav.resize')}</span>
-              <span className="tool-card-desc">{t('home.tools.resize.shortDesc', 'Resize images precisely')}</span>
-            </Link>
-          </div>
-        </section>
+        {/* Tools Showcase */}
+        {user ? (
+          // Logged-in: Show tool cards grid
+          <section className="tools-section">
+            <h2>{t('nav.tools', 'Tools')}</h2>
+            <div className="tool-cards-grid">
+              {tools.map(tool => (
+                <Link key={tool.path} to={langLink(tool.path)} className="tool-card">
+                  <span className="tool-card-icon">{tool.icon}</span>
+                  <span className="tool-card-name">{tool.name}</span>
+                  <span className="tool-card-desc">{tool.desc}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : (
+          // Not logged-in: Show effect showcases with BeforeAfterSlider
+          <section className="effects-showcase">
+            {tools.map(tool => (
+              <div key={tool.path} className="effect-item">
+                <div className="effect-preview">
+                  <BeforeAfterSlider
+                    beforeImage={tool.beforeImage}
+                    afterImage={tool.afterImage}
+                    beforeLabel={tool.beforeLabel || t('home.showcase.before')}
+                    afterLabel={tool.afterLabel || t('home.showcase.after')}
+                    beforeAlt={`${tool.name} - Before`}
+                    afterAlt={`${tool.name} - After`}
+                  />
+                </div>
+                <div className="effect-info">
+                  <h3>{tool.name}</h3>
+                  <p>{tool.desc}</p>
+                  <Link to={langLink(tool.path)} className="effect-btn">
+                    {t('common.useNow')}
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </section>
+        )}
 
         {/* Features - compact */}
         <section className="features-compact">
