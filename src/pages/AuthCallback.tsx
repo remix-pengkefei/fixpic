@@ -7,78 +7,59 @@ export function AuthCallback() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const handleAuthCallback = async () => {
-      try {
-        // Get URL parameters
-        const params = new URLSearchParams(window.location.search)
-        const hashParams = new URLSearchParams(window.location.hash.substring(1))
+    // Check for error in URL first
+    const params = new URLSearchParams(window.location.search)
+    const hashParams = new URLSearchParams(window.location.hash.substring(1))
 
-        // Check for error
-        const errorParam = params.get('error') || hashParams.get('error')
-        const errorDescription = params.get('error_description') || hashParams.get('error_description')
+    const errorParam = params.get('error') || hashParams.get('error')
+    const errorDescription = params.get('error_description') || hashParams.get('error_description')
 
-        if (errorParam) {
-          setError(errorDescription || errorParam)
-          return
-        }
+    if (errorParam) {
+      setError(errorDescription || errorParam)
+      return
+    }
 
-        // Handle PKCE code exchange
-        const code = params.get('code')
-        if (code) {
-          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
-          if (exchangeError) {
-            console.error('Code exchange error:', exchangeError)
-            setError(exchangeError.message)
-            return
-          }
-          if (data.session) {
-            // Success! Redirect to home
-            navigate('/', { replace: true })
-            return
-          }
-        }
+    // Subscribe to auth state changes
+    // Supabase with detectSessionInUrl: true will automatically handle the code exchange
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        console.log('Auth callback event:', event)
 
-        // Check for hash tokens (implicit flow / magic link)
-        const accessToken = hashParams.get('access_token')
-        const refreshToken = hashParams.get('refresh_token')
-
-        if (accessToken) {
-          const { data, error: sessionError } = await supabase.auth.setSession({
-            access_token: accessToken,
-            refresh_token: refreshToken || ''
-          })
-
-          if (sessionError) {
-            console.error('Session error:', sessionError)
-            setError(sessionError.message)
-            return
-          }
-
-          if (data.session) {
-            navigate('/', { replace: true })
-            return
-          }
-        }
-
-        // If no code or tokens, check if session already exists
-        const { data: { session } } = await supabase.auth.getSession()
-
-        if (session) {
+        if (event === 'SIGNED_IN' && session) {
+          // Successfully logged in
           navigate('/', { replace: true })
-          return
         }
+      }
+    )
 
-        // Nothing worked
-        setError('Login failed. Please try again.')
-      } catch (err) {
-        console.error('Auth callback error:', err)
-        setError('An unexpected error occurred')
+    // Also check if session already exists (in case event fired before we subscribed)
+    const checkSession = async () => {
+      // Wait for Supabase to process the URL
+      await new Promise(resolve => setTimeout(resolve, 500))
+
+      const { data: { session } } = await supabase.auth.getSession()
+
+      if (session) {
+        navigate('/', { replace: true })
+      } else {
+        // Wait a bit more and check again
+        await new Promise(resolve => setTimeout(resolve, 1500))
+
+        const { data: { session: retrySession } } = await supabase.auth.getSession()
+
+        if (retrySession) {
+          navigate('/', { replace: true })
+        } else {
+          setError('Login failed. Please try again.')
+        }
       }
     }
 
-    // Small delay to ensure Supabase client is ready
-    const timer = setTimeout(handleAuthCallback, 100)
-    return () => clearTimeout(timer)
+    checkSession()
+
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [navigate])
 
   if (error) {
