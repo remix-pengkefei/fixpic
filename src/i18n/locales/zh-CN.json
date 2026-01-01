@@ -65,12 +65,22 @@
     "tryTools": "试试我们的工具："
   },
   "nav": {
+    "tools": "工具",
     "removeFakeTransparency": "去假透明",
     "compress": "压缩图片",
     "resize": "调整尺寸",
     "removeWatermark": "去水印",
     "changeBackground": "AI换背景",
-    "history": "历史记录"
+    "history": "历史记录",
+    "bgRemover": "AI抠图",
+    "upscaler": "图片放大",
+    "watermarkRemover": "去水印",
+    "bgGenerator": "背景生成",
+    "sharpener": "图片锐化",
+    "denoiser": "图片降噪",
+    "shadowGen": "阴影生成",
+    "smartCrop": "智能裁剪",
+    "extender": "图片扩展"
   },
   "home": {
     "seo": {
@@ -81,6 +91,18 @@
     "hero": {
       "title": "免费在线图片处理工具",
       "desc": "本地浏览器处理，无需上传服务器，保护您的隐私"
+    },
+    "category": {
+      "remove": "AI移除",
+      "enhance": "AI增强",
+      "generate": "AI生成",
+      "edit": "编辑工具"
+    },
+    "allTools": "全部工具",
+    "showcase": {
+      "title": "效果展示",
+      "before": "处理前",
+      "after": "处理后"
     },
     "dashboard": {
       "welcome": "欢迎回来，{{name}}！",
@@ -115,6 +137,51 @@
         "title": "AI换背景",
         "desc": "使用 AI 技术去除或更换图片背景",
         "shortDesc": "去除或更换背景"
+      },
+      "bgRemover": {
+        "title": "AI智能抠图",
+        "desc": "一键自动识别并移除图片背景，保留主体",
+        "shortDesc": "一键移除背景"
+      },
+      "upscaler": {
+        "title": "AI图片放大",
+        "desc": "使用AI技术将低分辨率图片放大2-4倍，保持清晰度",
+        "shortDesc": "放大图片至4倍"
+      },
+      "watermarkRemover": {
+        "title": "AI去水印",
+        "desc": "智能识别并移除图片中的水印和Logo",
+        "shortDesc": "智能移除水印"
+      },
+      "bgGenerator": {
+        "title": "AI背景生成",
+        "desc": "为抠图后的图片生成专业的产品背景",
+        "shortDesc": "生成专业背景"
+      },
+      "sharpener": {
+        "title": "AI图片锐化",
+        "desc": "增强模糊图片的清晰度和细节",
+        "shortDesc": "增强图片清晰度"
+      },
+      "denoiser": {
+        "title": "AI图片降噪",
+        "desc": "移除图片中的噪点和颗粒",
+        "shortDesc": "移除图片噪点"
+      },
+      "shadowGen": {
+        "title": "AI阴影生成",
+        "desc": "为产品图片添加自然真实的阴影效果",
+        "shortDesc": "添加自然阴影"
+      },
+      "smartCrop": {
+        "title": "AI智能裁剪",
+        "desc": "智能识别主体，自动裁剪到最佳构图",
+        "shortDesc": "智能识别裁剪"
+      },
+      "extender": {
+        "title": "AI图片扩展",
+        "desc": "智能扩展图片边界，生成自然延伸内容",
+        "shortDesc": "扩展图片边界"
       }
     },
     "showcase": {

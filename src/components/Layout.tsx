@@ -11,6 +11,50 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
+// Tool categories for navigation
+const toolCategories = [
+  {
+    key: 'remove',
+    labelKey: 'home.category.remove',
+    defaultLabel: 'AI Remove',
+    tools: [
+      { path: '/background-remover', labelKey: 'nav.bgRemover', icon: '🎨' },
+      { path: '/watermark-remover', labelKey: 'nav.watermarkRemover', icon: '💧' },
+      { path: '/remove-fake-transparency', labelKey: 'nav.removeFakeTransparency', icon: '🔲' },
+    ],
+  },
+  {
+    key: 'enhance',
+    labelKey: 'home.category.enhance',
+    defaultLabel: 'AI Enhance',
+    tools: [
+      { path: '/image-upscaler', labelKey: 'nav.upscaler', icon: '🔍' },
+      { path: '/image-sharpener', labelKey: 'nav.sharpener', icon: '🔬' },
+      { path: '/image-denoiser', labelKey: 'nav.denoiser', icon: '🔇' },
+    ],
+  },
+  {
+    key: 'generate',
+    labelKey: 'home.category.generate',
+    defaultLabel: 'AI Generate',
+    tools: [
+      { path: '/background-generator', labelKey: 'nav.bgGenerator', icon: '✨' },
+      { path: '/shadow-generator', labelKey: 'nav.shadowGen', icon: '🌓' },
+      { path: '/image-extender', labelKey: 'nav.extender', icon: '↔️' },
+    ],
+  },
+  {
+    key: 'edit',
+    labelKey: 'home.category.edit',
+    defaultLabel: 'Edit Tools',
+    tools: [
+      { path: '/smart-crop', labelKey: 'nav.smartCrop', icon: '✂️' },
+      { path: '/compress', labelKey: 'nav.compress', icon: '📦' },
+      { path: '/resize', labelKey: 'nav.resize', icon: '📐' },
+    ],
+  },
+]
+
 export function Layout({ children }: LayoutProps) {
   const location = useLocation()
   const navigate = useNavigate()
@@ -18,7 +62,10 @@ export function Layout({ children }: LayoutProps) {
   const { user, loading } = useAuth()
   const [showLangMenu, setShowLangMenu] = useState(false)
   const [showAuthModal, setShowAuthModal] = useState(false)
+  const [showToolsMenu, setShowToolsMenu] = useState(false)
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
   const langMenuRef = useRef<HTMLDivElement>(null)
+  const toolsMenuRef = useRef<HTMLDivElement>(null)
 
   const pathParts = location.pathname.split('/').filter(Boolean)
   const validLangCodes = languages.map(l => l.code)
@@ -34,10 +81,18 @@ export function Layout({ children }: LayoutProps) {
       if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
         setShowLangMenu(false)
       }
+      if (toolsMenuRef.current && !toolsMenuRef.current.contains(event.target as Node)) {
+        setShowToolsMenu(false)
+      }
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  // Close mobile menu on navigation
+  useEffect(() => {
+    setShowMobileMenu(false)
+  }, [location.pathname])
 
   const changeLanguage = async (code: string) => {
     setShowLangMenu(false)
@@ -51,48 +106,33 @@ export function Layout({ children }: LayoutProps) {
     navigate(newPath)
   }
 
-  // All Tools with anchor IDs
-  const toolItems = [
-    { path: '/background-remover', label: t('nav.bgRemover', 'Background Remover'), icon: '🎨', anchor: 'tool-background-remover' },
-    { path: '/image-upscaler', label: t('nav.upscaler', 'Image Upscaler'), icon: '🔍', anchor: 'tool-image-upscaler' },
-    { path: '/watermark-remover', label: t('nav.watermarkRemover', 'Watermark Remover'), icon: '💧', anchor: 'tool-watermark-remover' },
-    { path: '/background-generator', label: t('nav.bgGenerator', 'Background Generator'), icon: '✨', anchor: 'tool-background-generator' },
-    { path: '/image-sharpener', label: t('nav.sharpener', 'Image Sharpener'), icon: '🔬', anchor: 'tool-image-sharpener' },
-    { path: '/image-denoiser', label: t('nav.denoiser', 'Image Denoiser'), icon: '🔇', anchor: 'tool-image-denoiser' },
-    { path: '/shadow-generator', label: t('nav.shadowGen', 'Shadow Generator'), icon: '🌓', anchor: 'tool-shadow-generator' },
-    { path: '/smart-crop', label: t('nav.smartCrop', 'Smart Crop'), icon: '✂️', anchor: 'tool-smart-crop' },
-    { path: '/image-extender', label: t('nav.extender', 'Image Extender'), icon: '↔️', anchor: 'tool-image-extender' },
-    { path: '/remove-fake-transparency', label: t('nav.removeFakeTransparency'), icon: '🔲', anchor: 'tool-remove-fake-transparency' },
-    { path: '/compress', label: t('nav.compress'), icon: '📦', anchor: 'tool-compress' },
-    { path: '/resize', label: t('nav.resize'), icon: '📐', anchor: 'tool-resize' },
-  ]
-
-
   // Logged-in layout with sidebar
   if (user) {
     return (
       <div className="app-dashboard">
         {/* Sidebar */}
-        <aside className="dash-sidebar">
+        <aside className={`dash-sidebar ${showMobileMenu ? 'open' : ''}`}>
           <Link to={langLink('')} className="dash-logo">
             <span className="dash-logo-icon">F</span>
             <span className="dash-logo-text">ixPic</span>
           </Link>
 
           <nav className="dash-nav">
-            <div className="dash-nav-section">
-              <span className="dash-nav-label">{t('nav.tools', 'Tools')}</span>
-              {toolItems.map(item => (
-                <Link
-                  key={item.path}
-                  to={langLink(item.path)}
-                  className={`dash-nav-item ${currentPage === item.path ? 'active' : ''}`}
-                >
-                  <span className="dash-nav-icon">{item.icon}</span>
-                  <span>{item.label}</span>
-                </Link>
-              ))}
-            </div>
+            {toolCategories.map(category => (
+              <div key={category.key} className="dash-nav-section">
+                <span className="dash-nav-label">{t(category.labelKey, category.defaultLabel)}</span>
+                {category.tools.map(tool => (
+                  <Link
+                    key={tool.path}
+                    to={langLink(tool.path)}
+                    className={`dash-nav-item ${currentPage === tool.path ? 'active' : ''}`}
+                  >
+                    <span className="dash-nav-icon">{tool.icon}</span>
+                    <span>{t(tool.labelKey)}</span>
+                  </Link>
+                ))}
+              </div>
+            ))}
 
             <div className="dash-nav-section">
               <span className="dash-nav-label">{t('user.account', 'Account')}</span>
@@ -132,6 +172,25 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </aside>
 
+        {/* Mobile Header */}
+        <div className="dash-mobile-header">
+          <button className="dash-menu-toggle" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          </button>
+          <Link to={langLink('')} className="dash-mobile-logo">
+            <span className="dash-logo-icon">F</span>
+            <span className="dash-logo-text">ixPic</span>
+          </Link>
+          <div style={{ width: 40 }} />
+        </div>
+
+        {/* Overlay for mobile */}
+        {showMobileMenu && (
+          <div className="dash-overlay" onClick={() => setShowMobileMenu(false)} />
+        )}
+
         {/* Main Content Area */}
         <main className="dash-main">
           {!isHome && <Breadcrumb />}
@@ -155,6 +214,43 @@ export function Layout({ children }: LayoutProps) {
             <span className="pr-logo-icon">F</span>
             <span className="pr-logo-text">ixPic</span>
           </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="pr-nav-desktop">
+            <div className="pr-tools-dropdown" ref={toolsMenuRef}>
+              <button
+                className="pr-tools-btn"
+                onClick={() => setShowToolsMenu(!showToolsMenu)}
+              >
+                <span>{t('nav.tools', 'Tools')}</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                  <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                </svg>
+              </button>
+              {showToolsMenu && (
+                <div className="pr-tools-menu">
+                  {toolCategories.map(category => (
+                    <div key={category.key} className="pr-tools-category">
+                      <span className="pr-tools-category-label">
+                        {t(category.labelKey, category.defaultLabel)}
+                      </span>
+                      {category.tools.map(tool => (
+                        <Link
+                          key={tool.path}
+                          to={langLink(tool.path)}
+                          className="pr-tools-item"
+                          onClick={() => setShowToolsMenu(false)}
+                        >
+                          <span className="pr-tools-icon">{tool.icon}</span>
+                          <span>{t(tool.labelKey)}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
 
           <div className="pr-header-actions">
             <div className="pr-lang" ref={langMenuRef}>
@@ -185,8 +281,38 @@ export function Layout({ children }: LayoutProps) {
                 {t('auth.login')}
               </button>
             )}
+
+            {/* Mobile menu toggle */}
+            <button className="pr-mobile-toggle" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {showMobileMenu && (
+          <div className="pr-mobile-nav">
+            {toolCategories.map(category => (
+              <div key={category.key} className="pr-mobile-category">
+                <span className="pr-mobile-category-label">
+                  {t(category.labelKey, category.defaultLabel)}
+                </span>
+                {category.tools.map(tool => (
+                  <Link
+                    key={tool.path}
+                    to={langLink(tool.path)}
+                    className="pr-mobile-nav-link"
+                  >
+                    <span>{tool.icon}</span>
+                    <span>{t(tool.labelKey)}</span>
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
       </header>
 
       <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
@@ -207,12 +333,14 @@ export function Layout({ children }: LayoutProps) {
             <p className="pr-footer-desc">{t('footer.description')}</p>
           </div>
           <div className="pr-footer-links">
-            <div className="pr-footer-col">
-              <h4>{t('nav.tools', 'Tools')}</h4>
-              {toolItems.map(item => (
-                <Link key={item.path} to={langLink(item.path)}>{item.label}</Link>
-              ))}
-            </div>
+            {toolCategories.map(category => (
+              <div key={category.key} className="pr-footer-col">
+                <h4>{t(category.labelKey, category.defaultLabel)}</h4>
+                {category.tools.map(tool => (
+                  <Link key={tool.path} to={langLink(tool.path)}>{t(tool.labelKey)}</Link>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
         <div className="pr-footer-bottom">

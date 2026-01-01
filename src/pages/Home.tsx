@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEO } from '../components/SEO'
@@ -6,10 +7,144 @@ import { BeforeAfterSlider } from '../components/BeforeAfterSlider'
 import { languages } from '../i18n'
 import { useAuth } from '../contexts/AuthContext'
 
+// Tool category types
+type CategoryKey = 'remove' | 'enhance' | 'generate' | 'edit'
+
+interface Tool {
+  path: string
+  icon: string
+  nameKey: string
+  descKey: string
+  beforeImage: string
+  afterImage: string
+  beforeLabel?: string
+  afterLabel?: string
+}
+
+// Tools organized by category
+const toolsByCategory: Record<CategoryKey, Tool[]> = {
+  remove: [
+    {
+      path: '/background-remover',
+      icon: '🎨',
+      nameKey: 'nav.bgRemover',
+      descKey: 'home.tools.bgRemover.shortDesc',
+      beforeImage: '/examples/background-before.png',
+      afterImage: '/examples/background-after.png',
+    },
+    {
+      path: '/watermark-remover',
+      icon: '💧',
+      nameKey: 'nav.watermarkRemover',
+      descKey: 'home.tools.watermarkRemover.shortDesc',
+      beforeImage: '/examples/watermark-before.webp',
+      afterImage: '/examples/watermark-after.png',
+    },
+    {
+      path: '/remove-fake-transparency',
+      icon: '🔲',
+      nameKey: 'nav.removeFakeTransparency',
+      descKey: 'home.tools.removeFakeTransparency.shortDesc',
+      beforeImage: '/examples/transparency-before.webp',
+      afterImage: '/examples/transparency-after.webp',
+    },
+  ],
+  enhance: [
+    {
+      path: '/image-upscaler',
+      icon: '🔍',
+      nameKey: 'nav.upscaler',
+      descKey: 'home.tools.upscaler.shortDesc',
+      beforeImage: '/examples/upscaler-before.webp',
+      afterImage: '/examples/upscaler-after.webp',
+    },
+    {
+      path: '/image-sharpener',
+      icon: '🔬',
+      nameKey: 'nav.sharpener',
+      descKey: 'home.tools.sharpener.shortDesc',
+      beforeImage: '/examples/sharpener-before.webp',
+      afterImage: '/examples/sharpener-after.webp',
+    },
+    {
+      path: '/image-denoiser',
+      icon: '🔇',
+      nameKey: 'nav.denoiser',
+      descKey: 'home.tools.denoiser.shortDesc',
+      beforeImage: '/examples/denoiser-before.webp',
+      afterImage: '/examples/denoiser-after.webp',
+    },
+  ],
+  generate: [
+    {
+      path: '/background-generator',
+      icon: '✨',
+      nameKey: 'nav.bgGenerator',
+      descKey: 'home.tools.bgGenerator.shortDesc',
+      beforeImage: '/examples/bg-generator-before.png',
+      afterImage: '/examples/bg-generator-after.png',
+    },
+    {
+      path: '/shadow-generator',
+      icon: '🌓',
+      nameKey: 'nav.shadowGen',
+      descKey: 'home.tools.shadowGen.shortDesc',
+      beforeImage: '/examples/shadow-before.png',
+      afterImage: '/examples/shadow-after.png',
+    },
+    {
+      path: '/image-extender',
+      icon: '↔️',
+      nameKey: 'nav.extender',
+      descKey: 'home.tools.extender.shortDesc',
+      beforeImage: '/examples/extender-before.webp',
+      afterImage: '/examples/extender-after.webp',
+    },
+  ],
+  edit: [
+    {
+      path: '/smart-crop',
+      icon: '✂️',
+      nameKey: 'nav.smartCrop',
+      descKey: 'home.tools.smartCrop.shortDesc',
+      beforeImage: '/examples/smartcrop-before.webp',
+      afterImage: '/examples/smartcrop-after.webp',
+    },
+    {
+      path: '/compress',
+      icon: '📦',
+      nameKey: 'nav.compress',
+      descKey: 'home.tools.compress.shortDesc',
+      beforeImage: '/examples/compress-before.webp',
+      afterImage: '/examples/compress-after.webp',
+      beforeLabel: '470 KB',
+      afterLabel: '6 KB',
+    },
+    {
+      path: '/resize',
+      icon: '📐',
+      nameKey: 'nav.resize',
+      descKey: 'home.tools.resize.shortDesc',
+      beforeImage: '/examples/resize-before.webp',
+      afterImage: '/examples/resize-after.webp',
+      beforeLabel: '1200×800',
+      afterLabel: '600×400',
+    },
+  ],
+}
+
+const categories: { key: CategoryKey; icon: string; labelKey: string }[] = [
+  { key: 'remove', icon: '🎨', labelKey: 'home.category.remove' },
+  { key: 'enhance', icon: '✨', labelKey: 'home.category.enhance' },
+  { key: 'generate', icon: '🖼️', labelKey: 'home.category.generate' },
+  { key: 'edit', icon: '📐', labelKey: 'home.category.edit' },
+]
+
 export function Home() {
   const { t, i18n } = useTranslation()
   const location = useLocation()
   const { user } = useAuth()
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('remove')
 
   // Get current language from URL
   const pathParts = location.pathname.split('/').filter(Boolean)
@@ -19,121 +154,8 @@ export function Home() {
 
   const langLink = (path: string) => `/${currentLang}${path}`
 
-  // All tools with their showcase images and anchor IDs
-  const tools = [
-    {
-      path: '/background-remover',
-      anchor: 'tool-background-remover',
-      icon: '🎨',
-      name: t('nav.bgRemover', 'Background Remover'),
-      desc: t('home.tools.bgRemover.shortDesc', 'Remove image backgrounds with AI'),
-      beforeImage: '/examples/background-before.png',
-      afterImage: '/examples/background-after.png',
-    },
-    {
-      path: '/image-upscaler',
-      anchor: 'tool-image-upscaler',
-      icon: '🔍',
-      name: t('nav.upscaler', 'Image Upscaler'),
-      desc: t('home.tools.upscaler.shortDesc', 'Enlarge images up to 4x'),
-      beforeImage: '/examples/upscaler-before.webp',
-      afterImage: '/examples/upscaler-after.webp',
-    },
-    {
-      path: '/watermark-remover',
-      anchor: 'tool-watermark-remover',
-      icon: '💧',
-      name: t('nav.watermarkRemover', 'Watermark Remover'),
-      desc: t('home.tools.watermarkRemover.shortDesc', 'Remove watermarks and logos'),
-      beforeImage: '/examples/watermark-before.webp',
-      afterImage: '/examples/watermark-after.png',
-    },
-    {
-      path: '/background-generator',
-      anchor: 'tool-background-generator',
-      icon: '✨',
-      name: t('nav.bgGenerator', 'Background Generator'),
-      desc: t('home.tools.bgGenerator.shortDesc', 'Generate AI backgrounds'),
-      beforeImage: '/examples/bg-generator-before.png',
-      afterImage: '/examples/bg-generator-after.png',
-    },
-    {
-      path: '/image-sharpener',
-      anchor: 'tool-image-sharpener',
-      icon: '🔬',
-      name: t('nav.sharpener', 'Image Sharpener'),
-      desc: t('home.tools.sharpener.shortDesc', 'Sharpen blurry images'),
-      beforeImage: '/examples/sharpener-before.webp',
-      afterImage: '/examples/sharpener-after.webp',
-    },
-    {
-      path: '/image-denoiser',
-      anchor: 'tool-image-denoiser',
-      icon: '🔇',
-      name: t('nav.denoiser', 'Image Denoiser'),
-      desc: t('home.tools.denoiser.shortDesc', 'Remove noise and artifacts'),
-      beforeImage: '/examples/denoiser-before.webp',
-      afterImage: '/examples/denoiser-after.webp',
-    },
-    {
-      path: '/shadow-generator',
-      anchor: 'tool-shadow-generator',
-      icon: '🌓',
-      name: t('nav.shadowGen', 'Shadow Generator'),
-      desc: t('home.tools.shadowGen.shortDesc', 'Add realistic shadows'),
-      beforeImage: '/examples/shadow-before.png',
-      afterImage: '/examples/shadow-after.png',
-    },
-    {
-      path: '/smart-crop',
-      anchor: 'tool-smart-crop',
-      icon: '✂️',
-      name: t('nav.smartCrop', 'Smart Crop'),
-      desc: t('home.tools.smartCrop.shortDesc', 'AI-powered smart cropping'),
-      beforeImage: '/examples/smartcrop-before.webp',
-      afterImage: '/examples/smartcrop-after.webp',
-    },
-    {
-      path: '/image-extender',
-      anchor: 'tool-image-extender',
-      icon: '↔️',
-      name: t('nav.extender', 'Image Extender'),
-      desc: t('home.tools.extender.shortDesc', 'Extend image borders'),
-      beforeImage: '/examples/extender-before.webp',
-      afterImage: '/examples/extender-after.webp',
-    },
-    {
-      path: '/remove-fake-transparency',
-      anchor: 'tool-remove-fake-transparency',
-      icon: '🔲',
-      name: t('nav.removeFakeTransparency'),
-      desc: t('home.tools.removeFakeTransparency.shortDesc', 'Remove checkerboard background'),
-      beforeImage: '/examples/transparency-before.webp',
-      afterImage: '/examples/transparency-after.webp',
-    },
-    {
-      path: '/compress',
-      anchor: 'tool-compress',
-      icon: '📦',
-      name: t('nav.compress'),
-      desc: t('home.tools.compress.shortDesc', 'Compress & convert to WebP'),
-      beforeImage: '/examples/compress-before.webp',
-      afterImage: '/examples/compress-after.webp',
-      beforeLabel: '470 KB',
-      afterLabel: '6 KB',
-    },
-    {
-      path: '/resize',
-      anchor: 'tool-resize',
-      icon: '📐',
-      name: t('nav.resize'),
-      desc: t('home.tools.resize.shortDesc', 'Resize images precisely'),
-      beforeImage: '/examples/resize-before.webp',
-      afterImage: '/examples/resize-after.webp',
-      beforeLabel: '1200×800',
-      afterLabel: '600×400',
-    },
-  ]
+  // Get all tools for quick access grid
+  const allTools = Object.values(toolsByCategory).flat()
 
   return (
     <>
@@ -147,73 +169,104 @@ export function Home() {
       <StructuredData type="home" />
 
       <div className="home-page">
-        {/* Hero Section - Compact */}
-        <section className="hero hero-compact">
-          <h1>{t('home.hero.title')}</h1>
-          <p className="hero-desc">{t('home.hero.desc')}</p>
+        {/* Hero Section */}
+        <section className="hero-section">
+          <h1 className="hero-title">{t('home.hero.title')}</h1>
+          <p className="hero-subtitle">{t('home.hero.desc')}</p>
         </section>
 
-        {/* Tools Grid - First Screen */}
-        <section className="tools-grid-section">
-          <div className="tools-grid">
-            {tools.map(tool => (
-              <Link key={tool.path} to={langLink(tool.path)} className="tool-grid-card" id={tool.anchor}>
-                <span className="tool-grid-icon">{tool.icon}</span>
-                <span className="tool-grid-name">{tool.name}</span>
-              </Link>
+        {/* Category Tabs */}
+        <section className="category-section">
+          <div className="category-tabs">
+            {categories.map(cat => (
+              <button
+                key={cat.key}
+                className={`category-tab ${activeCategory === cat.key ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat.key)}
+              >
+                <span className="category-icon">{cat.icon}</span>
+                <span className="category-label">
+                  {t(cat.labelKey, cat.key === 'remove' ? 'AI Remove' :
+                    cat.key === 'enhance' ? 'AI Enhance' :
+                    cat.key === 'generate' ? 'AI Generate' : 'Edit Tools')}
+                </span>
+              </button>
             ))}
           </div>
-        </section>
 
-        {/* Effect Showcases - Below the fold */}
-        {!user && (
-          <section className="effects-showcase">
-            <h2 className="showcase-title">{t('home.showcase.title', 'See the Magic')}</h2>
-            {tools.slice(0, 6).map(tool => (
-              <div key={tool.path} className="effect-item">
-                <div className="effect-preview">
+          {/* Tools in active category */}
+          <div className="category-tools">
+            {toolsByCategory[activeCategory].map(tool => (
+              <Link key={tool.path} to={langLink(tool.path)} className="tool-item">
+                <div className="tool-item-preview">
                   <BeforeAfterSlider
                     beforeImage={tool.beforeImage}
                     afterImage={tool.afterImage}
                     beforeLabel={tool.beforeLabel || t('home.showcase.before')}
                     afterLabel={tool.afterLabel || t('home.showcase.after')}
-                    beforeAlt={`${tool.name} - Before`}
-                    afterAlt={`${tool.name} - After`}
+                    beforeAlt={`${t(tool.nameKey)} - Before`}
+                    afterAlt={`${t(tool.nameKey)} - After`}
                   />
                 </div>
-                <div className="effect-info">
-                  <h3>{tool.name}</h3>
-                  <p>{tool.desc}</p>
-                  <Link to={langLink(tool.path)} className="effect-btn">
-                    {t('common.useNow')}
-                  </Link>
+                <div className="tool-item-info">
+                  <span className="tool-item-icon">{tool.icon}</span>
+                  <h3 className="tool-item-name">{t(tool.nameKey)}</h3>
+                  <p className="tool-item-desc">{t(tool.descKey)}</p>
+                  <span className="tool-item-cta">{t('common.useNow', 'Use Now')} →</span>
                 </div>
-              </div>
+              </Link>
             ))}
-          </section>
-        )}
-
-        {/* Features - compact */}
-        <section className="features-compact">
-          <div className="features-row">
-            <div className="feature-badge">
-              <span>🔒</span>
-              <span>{t('home.features.privacy.title')}</span>
-            </div>
-            <div className="feature-badge">
-              <span>⚡</span>
-              <span>{t('home.features.fast.title')}</span>
-            </div>
-            <div className="feature-badge">
-              <span>💰</span>
-              <span>{t('home.features.free.title')}</span>
-            </div>
-            <div className="feature-badge">
-              <span>📱</span>
-              <span>{t('home.features.crossPlatform.title')}</span>
-            </div>
           </div>
         </section>
+
+        {/* Quick Access Grid - All Tools */}
+        <section className="quick-access-section">
+          <h2 className="section-title">{t('home.allTools', 'All Tools')}</h2>
+          <div className="quick-access-grid">
+            {allTools.map(tool => (
+              <Link key={tool.path} to={langLink(tool.path)} className="quick-tool">
+                <span className="quick-tool-icon">{tool.icon}</span>
+                <span className="quick-tool-name">{t(tool.nameKey)}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Features Section */}
+        {!user && (
+          <section className="features-section">
+            <div className="features-list">
+              <div className="feature-badge">
+                <span className="feature-icon">🔒</span>
+                <div className="feature-text">
+                  <span className="feature-title">{t('home.features.privacy.title')}</span>
+                  <span className="feature-desc">{t('home.features.privacy.desc', 'Your images are processed securely')}</span>
+                </div>
+              </div>
+              <div className="feature-badge">
+                <span className="feature-icon">⚡</span>
+                <div className="feature-text">
+                  <span className="feature-title">{t('home.features.fast.title')}</span>
+                  <span className="feature-desc">{t('home.features.fast.desc', 'Process in seconds with AI')}</span>
+                </div>
+              </div>
+              <div className="feature-badge">
+                <span className="feature-icon">💰</span>
+                <div className="feature-text">
+                  <span className="feature-title">{t('home.features.free.title')}</span>
+                  <span className="feature-desc">{t('home.features.free.desc', 'Free to use, no hidden fees')}</span>
+                </div>
+              </div>
+              <div className="feature-badge">
+                <span className="feature-icon">📱</span>
+                <div className="feature-text">
+                  <span className="feature-title">{t('home.features.crossPlatform.title')}</span>
+                  <span className="feature-desc">{t('home.features.crossPlatform.desc', 'Works on any device')}</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
       </div>
     </>
   )
