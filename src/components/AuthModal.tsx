@@ -9,35 +9,23 @@ interface AuthModalProps {
 
 export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const { t } = useTranslation()
-  const [step, setStep] = useState<'email' | 'code'>('email')
+  const [step, setStep] = useState<'email' | 'sent'>('email')
   const [email, setEmail] = useState('')
-  const [code, setCode] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [countdown, setCountdown] = useState(0)
-
-  // Countdown timer for resend
-  useEffect(() => {
-    if (countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 1000)
-      return () => clearTimeout(timer)
-    }
-  }, [countdown])
 
   // Reset state when modal closes
   useEffect(() => {
     if (!isOpen) {
       setStep('email')
       setEmail('')
-      setCode('')
       setError('')
-      setCountdown(0)
     }
   }, [isOpen])
 
   if (!isOpen) return null
 
-  const handleSendCode = async (e: React.FormEvent) => {
+  const handleSendLink = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) return
 
@@ -47,57 +35,33 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        shouldCreateUser: true
+        shouldCreateUser: true,
+        emailRedirectTo: `${window.location.origin}/auth/callback`
       }
     })
 
     if (error) {
       setError(error.message)
     } else {
-      setStep('code')
-      setCountdown(60)
+      setStep('sent')
     }
     setLoading(false)
   }
 
-  const handleVerifyCode = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!code) return
-
-    setLoading(true)
-    setError('')
-
-    const { error } = await supabase.auth.verifyOtp({
-      email,
-      token: code,
-      type: 'email'
-    })
-
-    if (error) {
-      setError(error.message)
-    } else {
-      onClose()
-    }
-    setLoading(false)
-  }
-
-  const handleResendCode = async () => {
-    if (countdown > 0) return
-
+  const handleResend = async () => {
     setLoading(true)
     setError('')
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        shouldCreateUser: true
+        shouldCreateUser: true,
+        emailRedirectTo: `${window.location.origin}/auth/callback`
       }
     })
 
     if (error) {
       setError(error.message)
-    } else {
-      setCountdown(60)
     }
     setLoading(false)
   }
@@ -110,7 +74,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         <h2>{t('auth.login')}</h2>
 
         {step === 'email' ? (
-          <form onSubmit={handleSendCode} className="auth-form">
+          <form onSubmit={handleSendLink} className="auth-form">
             <p className="auth-hint">{t('auth.emailHint')}</p>
             <input
               type="email"
@@ -124,47 +88,36 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             {error && <p className="auth-error">{error}</p>}
 
             <button type="submit" className="auth-submit-btn" disabled={loading}>
-              {loading ? t('common.loading') : t('auth.sendCode')}
+              {loading ? t('common.loading') : t('auth.sendLink')}
             </button>
           </form>
         ) : (
-          <form onSubmit={handleVerifyCode} className="auth-form">
-            <p className="auth-hint">{t('auth.codeHint', { email })}</p>
-            <input
-              type="text"
-              placeholder={t('auth.enterCode')}
-              value={code}
-              onChange={e => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              required
-              autoFocus
-              maxLength={6}
-              className="auth-code-input"
-            />
+          <div className="auth-sent">
+            <div className="auth-sent-icon">✉️</div>
+            <h3>{t('auth.checkInbox')}</h3>
+            <p className="auth-sent-text">{t('auth.linkSentTo', { email })}</p>
+            <p className="auth-sent-hint">{t('auth.clickLinkHint')}</p>
 
             {error && <p className="auth-error">{error}</p>}
 
-            <button type="submit" className="auth-submit-btn" disabled={loading || code.length < 6}>
-              {loading ? t('common.loading') : t('auth.verify')}
-            </button>
-
-            <p className="auth-resend">
-              {countdown > 0 ? (
-                <span>{t('auth.resendIn', { seconds: countdown })}</span>
-              ) : (
-                <button type="button" onClick={handleResendCode} disabled={loading}>
-                  {t('auth.resendCode')}
-                </button>
-              )}
-            </p>
-
-            <button
-              type="button"
-              className="auth-back-btn"
-              onClick={() => { setStep('email'); setCode(''); setError('') }}
-            >
-              {t('auth.changeEmail')}
-            </button>
-          </form>
+            <div className="auth-sent-actions">
+              <button
+                type="button"
+                className="auth-resend-btn"
+                onClick={handleResend}
+                disabled={loading}
+              >
+                {loading ? t('common.loading') : t('auth.resendLink')}
+              </button>
+              <button
+                type="button"
+                className="auth-back-btn"
+                onClick={() => { setStep('email'); setError('') }}
+              >
+                {t('auth.changeEmail')}
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </div>
