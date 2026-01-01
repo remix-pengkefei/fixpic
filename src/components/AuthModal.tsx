@@ -131,7 +131,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               ref={codeInputRef}
               type="text"
               inputMode="numeric"
-              placeholder="000000"
+              placeholder="123456"
               value={code}
               onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
               className="auth-code-single-input"
