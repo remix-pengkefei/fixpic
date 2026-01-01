@@ -7,59 +7,57 @@ export function AuthCallback() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Check for error in URL first
-    const params = new URLSearchParams(window.location.search)
-    const hashParams = new URLSearchParams(window.location.hash.substring(1))
+    const handleAuthCallback = async () => {
+      try {
+        const params = new URLSearchParams(window.location.search)
+        const hashParams = new URLSearchParams(window.location.hash.substring(1))
 
-    const errorParam = params.get('error') || hashParams.get('error')
-    const errorDescription = params.get('error_description') || hashParams.get('error_description')
+        // Check for error in URL
+        const errorParam = params.get('error') || hashParams.get('error')
+        const errorDescription = params.get('error_description') || hashParams.get('error_description')
 
-    if (errorParam) {
-      setError(errorDescription || errorParam)
-      return
-    }
-
-    // Subscribe to auth state changes
-    // Supabase with detectSessionInUrl: true will automatically handle the code exchange
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        console.log('Auth callback event:', event)
-
-        if (event === 'SIGNED_IN' && session) {
-          // Successfully logged in
-          navigate('/', { replace: true })
+        if (errorParam) {
+          console.error('Auth error from URL:', errorParam, errorDescription)
+          setError(errorDescription || errorParam)
+          return
         }
-      }
-    )
 
-    // Also check if session already exists (in case event fired before we subscribed)
-    const checkSession = async () => {
-      // Wait for Supabase to process the URL
-      await new Promise(resolve => setTimeout(resolve, 500))
+        // Handle PKCE code exchange (Magic Link flow)
+        const code = params.get('code')
+        if (code) {
+          console.log('Exchanging code for session...')
+          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
 
-      const { data: { session } } = await supabase.auth.getSession()
+          if (exchangeError) {
+            console.error('Code exchange error:', exchangeError)
+            setError(exchangeError.message)
+            return
+          }
 
-      if (session) {
-        navigate('/', { replace: true })
-      } else {
-        // Wait a bit more and check again
-        await new Promise(resolve => setTimeout(resolve, 1500))
-
-        const { data: { session: retrySession } } = await supabase.auth.getSession()
-
-        if (retrySession) {
-          navigate('/', { replace: true })
-        } else {
-          setError('Login failed. Please try again.')
+          if (data.session) {
+            console.log('Login successful!')
+            navigate('/', { replace: true })
+            return
+          }
         }
+
+        // Fallback: check if session already exists
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session) {
+          console.log('Session already exists')
+          navigate('/', { replace: true })
+          return
+        }
+
+        // No code and no session
+        setError('Login failed. Please try again.')
+      } catch (err) {
+        console.error('Auth callback error:', err)
+        setError('An unexpected error occurred')
       }
     }
 
-    checkSession()
-
-    return () => {
-      subscription.unsubscribe()
-    }
+    handleAuthCallback()
   }, [navigate])
 
   if (error) {
