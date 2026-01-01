@@ -34,9 +34,9 @@ export function Home() {
           <p className="hero-desc">{t('home.hero.desc')}</p>
         </section>
 
-        {/* AI Tools Section */}
+        {/* All Tools Section */}
         <section className="tools-section">
-          <h2>{t('nav.aiTools', 'AI Tools')}</h2>
+          <h2>{t('nav.tools', 'Tools')}</h2>
           <div className="tool-cards-grid">
             <Link to={langLink('/background-remover')} className="tool-card">
               <span className="tool-card-icon">🎨</span>
@@ -83,13 +83,6 @@ export function Home() {
               <span className="tool-card-name">{t('nav.extender', 'Image Extender')}</span>
               <span className="tool-card-desc">{t('home.tools.extender.shortDesc', 'Extend image borders')}</span>
             </Link>
-          </div>
-        </section>
-
-        {/* Free Tools Section */}
-        <section className="tools-section">
-          <h2>{t('nav.freeTools', 'Free Tools')}</h2>
-          <div className="tool-cards-grid">
             <Link to={langLink('/remove-fake-transparency')} className="tool-card">
               <span className="tool-card-icon">🔲</span>
               <span className="tool-card-name">{t('nav.removeFakeTransparency')}</span>
