@@ -7,55 +7,79 @@ export function AuthCallback() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Check for error in URL first
-    const params = new URLSearchParams(window.location.search)
-    const hashParams = new URLSearchParams(window.location.hash.substring(1))
+    const handleAuth = async () => {
+      try {
+        const params = new URLSearchParams(window.location.search)
+        const hashParams = new URLSearchParams(window.location.hash.substring(1))
 
-    const errorParam = params.get('error') || hashParams.get('error')
-    const errorDescription = params.get('error_description') || hashParams.get('error_description')
+        console.log('Auth callback - URL:', window.location.href)
+        console.log('Auth callback - search params:', window.location.search)
+        console.log('Auth callback - hash:', window.location.hash)
 
-    if (errorParam) {
-      setError(errorDescription || errorParam)
-      return
-    }
+        // Check for error in URL
+        const errorParam = params.get('error') || hashParams.get('error')
+        const errorDescription = params.get('error_description') || hashParams.get('error_description')
 
-    // Listen for auth state changes
-    // With detectSessionInUrl: true and implicit flow, Supabase auto-detects tokens in URL hash
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        console.log('Auth event:', event)
+        if (errorParam) {
+          console.error('Auth error:', errorParam, errorDescription)
+          setError(errorDescription || errorParam)
+          return
+        }
+
+        // Method 1: Handle PKCE code (if present in query params)
+        const code = params.get('code')
+        if (code) {
+          console.log('Found code in URL, exchanging...')
+          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
+          if (exchangeError) {
+            console.error('Code exchange failed:', exchangeError.message)
+            // Don't return error yet, try other methods
+          } else if (data.session) {
+            console.log('Code exchange successful!')
+            navigate('/', { replace: true })
+            return
+          }
+        }
+
+        // Method 2: Handle implicit flow tokens (if present in hash)
+        const accessToken = hashParams.get('access_token')
+        const refreshToken = hashParams.get('refresh_token')
+        if (accessToken) {
+          console.log('Found access_token in hash, setting session...')
+          const { data, error: sessionError } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken || ''
+          })
+          if (sessionError) {
+            console.error('Set session failed:', sessionError.message)
+          } else if (data.session) {
+            console.log('Session set successfully!')
+            navigate('/', { replace: true })
+            return
+          }
+        }
+
+        // Method 3: Check if session was auto-detected by Supabase
+        console.log('Checking for existing session...')
+        await new Promise(resolve => setTimeout(resolve, 1000))
+
+        const { data: { session } } = await supabase.auth.getSession()
         if (session) {
-          // Successfully logged in
+          console.log('Session found!')
           navigate('/', { replace: true })
+          return
         }
-      }
-    )
 
-    // Check for session after a short delay (gives Supabase time to process URL)
-    const checkSession = async () => {
-      // Wait for Supabase to process the URL hash
-      await new Promise(resolve => setTimeout(resolve, 500))
-
-      const { data: { session } } = await supabase.auth.getSession()
-      if (session) {
-        navigate('/', { replace: true })
-      } else {
-        // Give it more time
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        const { data: { session: retrySession } } = await supabase.auth.getSession()
-        if (retrySession) {
-          navigate('/', { replace: true })
-        } else {
-          setError('Login failed. Please try again.')
-        }
+        // Nothing worked
+        console.error('All auth methods failed')
+        setError('Login failed. Please try again.')
+      } catch (err) {
+        console.error('Auth callback error:', err)
+        setError('An unexpected error occurred')
       }
     }
 
-    checkSession()
-
-    return () => {
-      subscription.unsubscribe()
-    }
+    handleAuth()
   }, [navigate])
 
   if (error) {
