@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Herramientas de imagen online gratis | Eliminar fondo IA, quitar marca de agua, comprimir",
-    "description": "Herramientas de imagen online gratis: eliminar fondo con IA, quitar marca de agua, eliminar falsa transparencia, comprimir, redimensionar. Rápido, gratis y privado."
+    "description": "Herramientas de imagen online gratis: eliminar fondo con IA, quitar marca de agua, eliminar falsa transparencia, comprimir, redimensionar. Rápido, gratis y privado.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "Eliminador de Fondo AI - Eliminar Fondo de Imagen Automáticamente | FixPic",
+        "description": "Herramienta gratuita de eliminación de fondo con IA. Detecta y elimina automáticamente cualquier fondo, crea PNG transparentes en segundos. Sin registro."
+      },
+      "remove-watermark": {
+        "title": "Eliminador de Marca de Agua AI - Eliminar Marca de Agua Gratis | FixPic",
+        "description": "Herramienta gratuita de eliminación de marcas de agua con IA. Detecta y elimina automáticamente marcas de agua, logos y texto de imágenes."
+      },
+      "remove-fake-transparency": {
+        "title": "Eliminar Falsa Transparencia - Corregir Fondo de Tablero | FixPic",
+        "description": "Convierte fondos falsos transparentes (tablero gris-blanco) de herramientas AI como Midjourney, Lovart a PNG realmente transparente."
+      },
+      "compress": {
+        "title": "Compresor de Imágenes - Comprimir PNG, JPG, WebP Online Gratis | FixPic",
+        "description": "Herramienta gratuita de compresión de imágenes online. Reduce el tamaño del archivo sin perder calidad. Soporta conversión PNG, JPG, WebP."
+      },
+      "resize": {
+        "title": "Redimensionar Imágenes - Cambiar Tamaño de Imagen Online Gratis | FixPic",
+        "description": "Redimensionador de imágenes online gratuito. Cambia las dimensiones precisamente manteniendo la proporción. Soporta PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

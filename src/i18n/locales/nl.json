@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Gratis Online Afbeelding Tools | AI Achtergrond Verwijderen, Watermerk, Comprimeren",
-    "description": "Gratis online afbeelding tools: AI achtergrondverwijdering, watermerk, valse transparantie, comprimeren, formaat wijzigen. Snel, gratis en privé."
+    "description": "Gratis online afbeelding tools: AI achtergrondverwijdering, watermerk, valse transparantie, comprimeren, formaat wijzigen. Snel, gratis en privé.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI Achtergrond Verwijderaar - Verwijder Afbeeldingsachtergrond Automatisch | FixPic",
+        "description": "Gratis AI-achtergrondverwijderingstool. Detecteert en verwijdert automatisch elke achtergrond, maakt transparante PNG's in seconden. Geen registratie."
+      },
+      "remove-watermark": {
+        "title": "AI Watermerk Verwijderaar - Verwijder Watermerk Gratis | FixPic",
+        "description": "Gratis AI-watermerkverwijderingstool. Detecteert en verwijdert automatisch watermerken, logo's en tekst uit afbeeldingen."
+      },
+      "remove-fake-transparency": {
+        "title": "Valse Transparantie Verwijderen - Dambordachtergrond Corrigeren | FixPic",
+        "description": "Converteert valse transparante achtergronden (grijs-wit dambord) van AI-tools zoals Midjourney, Lovart naar echt transparante PNG."
+      },
+      "compress": {
+        "title": "Afbeeldingscompressor - Comprimeer PNG, JPG, WebP Online Gratis | FixPic",
+        "description": "Gratis online afbeeldingscompressietool. Vermindert bestandsgrootte zonder kwaliteitsverlies. Ondersteunt PNG, JPG, WebP conversie."
+      },
+      "resize": {
+        "title": "Afbeeldingen Verkleinen - Verklein Afbeeldingen Online Gratis | FixPic",
+        "description": "Gratis online afbeeldingsverkleiner. Wijzigt dimensies nauwkeurig met beeldverhouding behoud. Ondersteunt PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

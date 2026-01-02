@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Alat Gambar Online Gratis | Hapus Latar AI, Tanda Air, Kompres",
-    "description": "Alat gambar online gratis: hapus latar belakang AI, tanda air, transparansi palsu, kompres, ubah ukuran. Cepat, gratis dan privat."
+    "description": "Alat gambar online gratis: hapus latar belakang AI, tanda air, transparansi palsu, kompres, ubah ukuran. Cepat, gratis dan privat.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "Penghapus Latar Belakang AI - Hapus Latar Belakang Gambar Otomatis | FixPic",
+        "description": "Alat penghapus latar belakang AI gratis. Deteksi dan hapus latar belakang apa pun secara otomatis, buat PNG transparan dalam hitungan detik. Tanpa pendaftaran."
+      },
+      "remove-watermark": {
+        "title": "Penghapus Watermark AI - Hapus Watermark Gratis | FixPic",
+        "description": "Alat penghapus watermark AI gratis. Deteksi dan hapus watermark, logo, dan teks dari gambar secara otomatis."
+      },
+      "remove-fake-transparency": {
+        "title": "Hapus Transparansi Palsu - Perbaiki Latar Belakang Kotak-kotak | FixPic",
+        "description": "Konversi latar belakang transparan palsu (kotak-kotak abu-putih) dari alat AI seperti Midjourney, Lovart ke PNG transparan asli."
+      },
+      "compress": {
+        "title": "Kompresor Gambar - Kompres PNG, JPG, WebP Online Gratis | FixPic",
+        "description": "Alat kompresi gambar online gratis. Kurangi ukuran file tanpa kehilangan kualitas. Mendukung konversi PNG, JPG, WebP."
+      },
+      "resize": {
+        "title": "Pengubah Ukuran Gambar - Ubah Ukuran Gambar Online Gratis | FixPic",
+        "description": "Pengubah ukuran gambar online gratis. Ubah dimensi dengan tepat dengan mempertahankan rasio aspek. Mendukung PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

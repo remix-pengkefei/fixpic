@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Ingyenes Online Képeszközök | AI Háttér Eltávolítás, Vízjel, Tömörítés",
-    "description": "Ingyenes online képeszközök: AI háttéreltávolítás, vízjel, hamis átlátszóság, tömörítés, átméretezés. Gyors, ingyenes és privát."
+    "description": "Ingyenes online képeszközök: AI háttéreltávolítás, vízjel, hamis átlátszóság, tömörítés, átméretezés. Gyors, ingyenes és privát.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI Háttér Eltávolító - Automatikus Képháttér Eltávolítás | FixPic",
+        "description": "Ingyenes AI háttéreltávolító eszköz. Automatikusan felismeri és eltávolítja bármilyen hátteret, másodpercek alatt átlátszó PNG-t készít. Regisztráció nélkül."
+      },
+      "remove-watermark": {
+        "title": "AI Vízjel Eltávolító - Vízjel Eltávolítás Ingyen | FixPic",
+        "description": "Ingyenes AI vízjeleltávolító eszköz. Automatikusan felismeri és eltávolítja a vízjeleket, logókat és szövegeket a képekről."
+      },
+      "remove-fake-transparency": {
+        "title": "Hamis Átlátszóság Eltávolítása - Sakktábla Háttér Javítása | FixPic",
+        "description": "A hamis átlátszó hátteret (szürke-fehér sakktábla) AI eszközökből mint Midjourney, Lovart valódi átlátszó PNG-vé alakítja."
+      },
+      "compress": {
+        "title": "Képtömörítő - PNG, JPG, WebP Online Tömörítés Ingyen | FixPic",
+        "description": "Ingyenes online képtömörítő eszköz. Csökkenti a fájlméretet minőségromlás nélkül. Támogatja a PNG, JPG, WebP konverziót."
+      },
+      "resize": {
+        "title": "Képátméretező - Képméret Változtatás Online Ingyen | FixPic",
+        "description": "Ingyenes online képátméretező eszköz. Pontosan változtatja a méreteket képarány megtartásával. Támogatja a PNG, JPG, WebP formátumokat."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - 免费在线图片工具 | AI抠图、去水印、压缩、调整尺寸",
-    "description": "免费在线图片处理工具：AI智能抠图、去水印、去假透明背景、图片压缩、调整尺寸。快速、免费、保护隐私。"
+    "description": "免费在线图片处理工具：AI智能抠图、去水印、去假透明背景、图片压缩、调整尺寸。快速、免费、保护隐私。",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI抠图 - 免费在线自动去除图片背景 | FixPic",
+        "description": "免费AI智能抠图工具，自动识别并移除任意背景，一键生成透明PNG图片。无需注册，即开即用。"
+      },
+      "remove-watermark": {
+        "title": "AI去水印 - 免费在线去除图片水印 | FixPic",
+        "description": "免费AI智能去水印工具，自动识别并去除图片中的水印、Logo、文字。效果干净，秒级完成。"
+      },
+      "remove-fake-transparency": {
+        "title": "去假透明 - 修复棋盘格背景转透明PNG | FixPic",
+        "description": "将Midjourney、Lovart等AI工具导出的假透明背景（灰白棋盘格）转换为真正的透明PNG。免费在线工具。"
+      },
+      "compress": {
+        "title": "图片压缩 - 免费在线压缩PNG、JPG、WebP | FixPic",
+        "description": "免费在线图片压缩工具，无损压缩减小文件大小。支持PNG、JPG、WebP格式转换，快速简单。"
+      },
+      "resize": {
+        "title": "调整图片尺寸 - 免费在线修改图片大小 | FixPic",
+        "description": "免费在线图片尺寸调整工具，精确修改图片宽高，支持保持宽高比。支持PNG、JPG、WebP格式。"
+      }
+    }
   },
   "app": {
     "title": "FixPic",

@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Alat Imej Dalam Talian Percuma | Buang Latar AI, Tera Air, Mampat",
-    "description": "Alat imej dalam talian percuma: buang latar belakang AI, tera air, ketelusan palsu, mampat, ubah saiz. Pantas, percuma dan peribadi."
+    "description": "Alat imej dalam talian percuma: buang latar belakang AI, tera air, ketelusan palsu, mampat, ubah saiz. Pantas, percuma dan peribadi.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "Pembuang Latar Belakang AI - Buang Latar Belakang Imej Automatik | FixPic",
+        "description": "Alat pembuangan latar belakang AI percuma. Kesan dan buang sebarang latar belakang secara automatik, cipta PNG telus dalam beberapa saat. Tanpa pendaftaran."
+      },
+      "remove-watermark": {
+        "title": "Pembuang Tera Air AI - Buang Tera Air Percuma | FixPic",
+        "description": "Alat pembuangan tera air AI percuma. Kesan dan buang tera air, logo dan teks dari imej secara automatik."
+      },
+      "remove-fake-transparency": {
+        "title": "Buang Ketelusan Palsu - Betulkan Latar Belakang Papan Dam | FixPic",
+        "description": "Tukar latar belakang telus palsu (papan dam kelabu-putih) dari alat AI seperti Midjourney, Lovart ke PNG telus sebenar."
+      },
+      "compress": {
+        "title": "Pemampat Imej - Mampat PNG, JPG, WebP Dalam Talian Percuma | FixPic",
+        "description": "Alat pemampatan imej dalam talian percuma. Kurangkan saiz fail tanpa kehilangan kualiti. Menyokong penukaran PNG, JPG, WebP."
+      },
+      "resize": {
+        "title": "Pengubah Saiz Imej - Ubah Saiz Imej Dalam Talian Percuma | FixPic",
+        "description": "Pengubah saiz imej dalam talian percuma. Ubah dimensi dengan tepat mengekalkan nisbah aspek. Menyokong PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

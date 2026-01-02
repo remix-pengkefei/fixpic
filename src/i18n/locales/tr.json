@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Ücretsiz Çevrimiçi Görüntü Araçları | AI Arka Plan Kaldır, Filigran, Sıkıştır",
-    "description": "Ücretsiz çevrimiçi görüntü araçları: AI arka plan kaldırma, filigran, sahte saydamlık, sıkıştırma, yeniden boyutlandırma. Hızlı, ücretsiz ve gizli."
+    "description": "Ücretsiz çevrimiçi görüntü araçları: AI arka plan kaldırma, filigran, sahte saydamlık, sıkıştırma, yeniden boyutlandırma. Hızlı, ücretsiz ve gizli.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI Arka Plan Kaldırıcı - Görsel Arka Planını Otomatik Kaldır | FixPic",
+        "description": "Ücretsiz AI arka plan kaldırma aracı. Her türlü arka planı otomatik algılayıp kaldırır, saniyeler içinde şeffaf PNG oluşturur. Kayıt gerektirmez."
+      },
+      "remove-watermark": {
+        "title": "AI Filigran Kaldırıcı - Filigranı Ücretsiz Kaldır | FixPic",
+        "description": "Ücretsiz AI filigran kaldırma aracı. Görsellerden filigran, logo ve metni otomatik algılayıp kaldırır."
+      },
+      "remove-fake-transparency": {
+        "title": "Sahte Şeffaflığı Kaldır - Dama Tahtası Arka Planı Düzelt | FixPic",
+        "description": "Midjourney, Lovart gibi AI araçlarından gelen sahte şeffaf arka planları (gri-beyaz dama tahtası) gerçek şeffaf PNG'ye dönüştürür."
+      },
+      "compress": {
+        "title": "Görsel Sıkıştırıcı - PNG, JPG, WebP Çevrimiçi Ücretsiz Sıkıştır | FixPic",
+        "description": "Ücretsiz çevrimiçi görsel sıkıştırma aracı. Kalite kaybı olmadan dosya boyutunu küçültür. PNG, JPG, WebP dönüştürmeyi destekler."
+      },
+      "resize": {
+        "title": "Görsel Boyutlandırıcı - Görsel Boyutunu Çevrimiçi Ücretsiz Değiştir | FixPic",
+        "description": "Ücretsiz çevrimiçi görsel boyutlandırıcı. En-boy oranını koruyarak boyutları hassas şekilde değiştirir. PNG, JPG, WebP destekler."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

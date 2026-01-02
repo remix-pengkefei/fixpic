@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Ferramentas de imagem online grátis | Remover fundo IA, tirar marca d'água, comprimir",
-    "description": "Ferramentas de imagem online grátis: remover fundo com IA, tirar marca d'água, remover falsa transparência, comprimir, redimensionar. Rápido, grátis e privado."
+    "description": "Ferramentas de imagem online grátis: remover fundo com IA, tirar marca d'água, remover falsa transparência, comprimir, redimensionar. Rápido, grátis e privado.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "Removedor de Fundo AI - Remover Fundo de Imagem Automaticamente | FixPic",
+        "description": "Ferramenta gratuita de remoção de fundo com IA. Detecta e remove automaticamente qualquer fundo, cria PNGs transparentes em segundos. Sem cadastro."
+      },
+      "remove-watermark": {
+        "title": "Removedor de Marca d'Água AI - Remover Marca d'Água Grátis | FixPic",
+        "description": "Ferramenta gratuita de remoção de marca d'água com IA. Detecta e remove automaticamente marcas d'água, logos e texto de imagens."
+      },
+      "remove-fake-transparency": {
+        "title": "Remover Falsa Transparência - Corrigir Fundo Xadrez | FixPic",
+        "description": "Converte fundos falsos transparentes (xadrez cinza-branco) de ferramentas AI como Midjourney, Lovart para PNG realmente transparente."
+      },
+      "compress": {
+        "title": "Compressor de Imagens - Comprimir PNG, JPG, WebP Online Grátis | FixPic",
+        "description": "Ferramenta gratuita de compressão de imagens online. Reduz o tamanho do arquivo sem perder qualidade. Suporta conversão PNG, JPG, WebP."
+      },
+      "resize": {
+        "title": "Redimensionar Imagens - Alterar Tamanho de Imagem Online Grátis | FixPic",
+        "description": "Redimensionador de imagens online gratuito. Altera dimensões precisamente mantendo proporção. Suporta PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

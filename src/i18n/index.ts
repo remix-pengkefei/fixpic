@@ -94,8 +94,8 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'navigator', 'querystring'],
-      lookupQuerystring: 'lang',
+      // 移除 querystring，现在使用 URL 路径
+      order: ['localStorage', 'navigator'],
       lookupLocalStorage: 'fixpic-language',
       caches: ['localStorage'],
       // 将浏览器语言映射到我们支持的语言

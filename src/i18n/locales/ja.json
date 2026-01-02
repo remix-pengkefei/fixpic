@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - 無料オンライン画像ツール | AI背景除去、透かし除去、圧縮、リサイズ",
-    "description": "無料オンライン画像ツール：AI背景除去、透かし除去、偽透明除去、画像圧縮、サイズ変更。高速、無料、プライバシー保護。"
+    "description": "無料オンライン画像ツール：AI背景除去、透かし除去、偽透明除去、画像圧縮、サイズ変更。高速、無料、プライバシー保護。",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI背景除去 - 画像の背景を自動で削除 | FixPic",
+        "description": "無料のAI背景除去ツール。あらゆる背景を自動検出・削除し、透明PNGを数秒で作成。登録不要。"
+      },
+      "remove-watermark": {
+        "title": "AI透かし除去 - 画像の透かしを無料で削除 | FixPic",
+        "description": "無料のAI透かし除去ツール。画像から透かし、ロゴ、テキストを自動検出・削除。数秒できれいな結果。"
+      },
+      "remove-fake-transparency": {
+        "title": "偽透明除去 - チェッカーボード背景を修正 | FixPic",
+        "description": "Midjourney、Lovartなどのツールから出力された偽透明背景（グレー白のチェッカーボード）を本物の透明PNGに変換。"
+      },
+      "compress": {
+        "title": "画像圧縮 - PNG、JPG、WebPをオンラインで圧縮 | FixPic",
+        "description": "無料のオンライン画像圧縮ツール。品質を落とさずファイルサイズを削減。PNG、JPG、WebP変換対応。"
+      },
+      "resize": {
+        "title": "画像リサイズ - オンラインで画像サイズを変更 | FixPic",
+        "description": "無料のオンライン画像リサイザー。アスペクト比を維持しながら正確にサイズ変更。PNG、JPG、WebP対応。"
+      }
+    }
   },
   "app": {
     "title": "FixPic",

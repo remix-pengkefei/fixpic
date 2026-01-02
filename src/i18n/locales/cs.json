@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Bezplatné Online Nástroje pro Obrázky | AI Odstranění Pozadí, Vodoznak, Komprese",
-    "description": "Bezplatné online nástroje pro obrázky: AI odstranění pozadí, vodoznak, falešná průhlednost, komprese, změna velikosti. Rychlé, bezplatné a soukromé."
+    "description": "Bezplatné online nástroje pro obrázky: AI odstranění pozadí, vodoznak, falešná průhlednost, komprese, změna velikosti. Rychlé, bezplatné a soukromé.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI Odstranění Pozadí - Automatické Odstranění Pozadí Obrázku | FixPic",
+        "description": "Bezplatný nástroj pro odstranění pozadí pomocí AI. Automaticky detekuje a odstraňuje jakékoli pozadí, vytváří průhledné PNG během sekund. Bez registrace."
+      },
+      "remove-watermark": {
+        "title": "AI Odstranění Vodoznaku - Odstranění Vodoznaku Zdarma | FixPic",
+        "description": "Bezplatný nástroj pro odstranění vodoznaku pomocí AI. Automaticky detekuje a odstraňuje vodoznaky, loga a text z obrázků."
+      },
+      "remove-fake-transparency": {
+        "title": "Odstranění Falešné Průhlednosti - Oprava Šachovnicového Pozadí | FixPic",
+        "description": "Převádí falešně průhledná pozadí (šedo-bílá šachovnice) z AI nástrojů jako Midjourney, Lovart na skutečně průhledné PNG."
+      },
+      "compress": {
+        "title": "Komprese Obrázků - Komprese PNG, JPG, WebP Online Zdarma | FixPic",
+        "description": "Bezplatný online nástroj pro kompresi obrázků. Snižuje velikost souboru bez ztráty kvality. Podporuje konverzi PNG, JPG, WebP."
+      },
+      "resize": {
+        "title": "Změna Velikosti Obrázků - Změna Velikosti Online Zdarma | FixPic",
+        "description": "Bezplatný online nástroj pro změnu velikosti obrázků. Přesně mění rozměry se zachováním poměru stran. Podporuje PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

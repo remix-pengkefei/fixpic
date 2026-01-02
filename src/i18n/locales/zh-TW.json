@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - 免費線上圖片工具 | AI去背、去浮水印、壓縮、調整尺寸",
-    "description": "免費線上圖片處理工具：AI智慧去背、去浮水印、去假透明背景、圖片壓縮、調整尺寸。快速、免費、保護隱私。"
+    "description": "免費線上圖片處理工具：AI智慧去背、去浮水印、去假透明背景、圖片壓縮、調整尺寸。快速、免費、保護隱私。",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI去背 - 免費線上自動移除圖片背景 | FixPic",
+        "description": "免費AI智能去背工具，自動識別並移除任意背景，一鍵生成透明PNG圖片。無需註冊，即開即用。"
+      },
+      "remove-watermark": {
+        "title": "AI去浮水印 - 免費線上移除圖片浮水印 | FixPic",
+        "description": "免費AI智能去浮水印工具，自動識別並去除圖片中的浮水印、Logo、文字。效果乾淨，秒級完成。"
+      },
+      "remove-fake-transparency": {
+        "title": "去假透明 - 修復棋盤格背景轉透明PNG | FixPic",
+        "description": "將Midjourney、Lovart等AI工具匯出的假透明背景（灰白棋盤格）轉換為真正的透明PNG。免費線上工具。"
+      },
+      "compress": {
+        "title": "圖片壓縮 - 免費線上壓縮PNG、JPG、WebP | FixPic",
+        "description": "免費線上圖片壓縮工具，無損壓縮減小檔案大小。支援PNG、JPG、WebP格式轉換，快速簡單。"
+      },
+      "resize": {
+        "title": "調整圖片尺寸 - 免費線上修改圖片大小 | FixPic",
+        "description": "免費線上圖片尺寸調整工具，精確修改圖片寬高，支援保持寬高比。支援PNG、JPG、WebP格式。"
+      }
+    }
   },
   "app": {
     "title": "FixPic",

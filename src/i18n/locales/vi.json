@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Công cụ hình ảnh trực tuyến miễn phí | Xóa nền AI, watermark, nén ảnh",
-    "description": "Công cụ hình ảnh trực tuyến miễn phí: xóa nền AI, watermark, trong suốt giả, nén, thay đổi kích thước. Nhanh, miễn phí và bảo mật."
+    "description": "Công cụ hình ảnh trực tuyến miễn phí: xóa nền AI, watermark, trong suốt giả, nén, thay đổi kích thước. Nhanh, miễn phí và bảo mật.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "Xóa Nền AI - Tự Động Xóa Nền Ảnh | FixPic",
+        "description": "Công cụ xóa nền AI miễn phí. Tự động phát hiện và xóa mọi nền, tạo PNG trong suốt trong vài giây. Không cần đăng ký."
+      },
+      "remove-watermark": {
+        "title": "Xóa Watermark AI - Xóa Watermark Miễn Phí | FixPic",
+        "description": "Công cụ xóa watermark AI miễn phí. Tự động phát hiện và xóa watermark, logo, chữ khỏi ảnh."
+      },
+      "remove-fake-transparency": {
+        "title": "Xóa Trong Suốt Giả - Sửa Nền Ca Rô | FixPic",
+        "description": "Chuyển đổi nền trong suốt giả (ô ca rô xám trắng) từ công cụ AI như Midjourney, Lovart thành PNG trong suốt thực."
+      },
+      "compress": {
+        "title": "Nén Ảnh - Nén PNG, JPG, WebP Trực Tuyến Miễn Phí | FixPic",
+        "description": "Công cụ nén ảnh trực tuyến miễn phí. Giảm kích thước file không mất chất lượng. Hỗ trợ chuyển đổi PNG, JPG, WebP."
+      },
+      "resize": {
+        "title": "Thay Đổi Kích Thước Ảnh - Resize Ảnh Trực Tuyến Miễn Phí | FixPic",
+        "description": "Công cụ thay đổi kích thước ảnh trực tuyến miễn phí. Thay đổi kích thước chính xác giữ tỷ lệ. Hỗ trợ PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

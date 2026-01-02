@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Kostenlose Online-Bildtools | KI Hintergrund entfernen, Wasserzeichen, komprimieren",
-    "description": "Kostenlose Online-Bildtools: KI-Hintergrundentfernung, Wasserzeichen entfernen, falsche Transparenz, komprimieren, Größe ändern. Schnell, kostenlos und privat."
+    "description": "Kostenlose Online-Bildtools: KI-Hintergrundentfernung, Wasserzeichen entfernen, falsche Transparenz, komprimieren, Größe ändern. Schnell, kostenlos und privat.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI Hintergrund Entferner - Bildhintergrund Automatisch Entfernen | FixPic",
+        "description": "Kostenloses AI-Hintergrundentfernungstool. Erkennt und entfernt automatisch jeden Hintergrund, erstellt transparente PNGs in Sekunden. Keine Anmeldung."
+      },
+      "remove-watermark": {
+        "title": "AI Wasserzeichen Entferner - Wasserzeichen Kostenlos Entfernen | FixPic",
+        "description": "Kostenloses AI-Wasserzeichenentfernungstool. Erkennt und entfernt automatisch Wasserzeichen, Logos und Text aus Bildern."
+      },
+      "remove-fake-transparency": {
+        "title": "Falsche Transparenz Entfernen - Schachbretthintergrund Korrigieren | FixPic",
+        "description": "Konvertiert falsche transparente Hintergründe (grau-weißes Schachbrett) von AI-Tools wie Midjourney, Lovart zu echtem transparentem PNG."
+      },
+      "compress": {
+        "title": "Bildkompressor - PNG, JPG, WebP Online Kostenlos Komprimieren | FixPic",
+        "description": "Kostenloses Online-Bildkomprimierungstool. Reduziert Dateigröße ohne Qualitätsverlust. Unterstützt PNG, JPG, WebP Konvertierung."
+      },
+      "resize": {
+        "title": "Bildgrößenänderer - Bildgröße Online Kostenlos Ändern | FixPic",
+        "description": "Kostenloser Online-Bildgrößenänderer. Ändert Dimensionen präzise mit Seitenverhältniserhaltung. Unterstützt PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

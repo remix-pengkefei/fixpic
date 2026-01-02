@@ -1,9 +1,32 @@
 import { useState, useCallback, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { languages } from './i18n'
 import './App.css'
 
 type Tool = 'ai-remove-bg' | 'remove-watermark' | 'remove-bg' | 'compress' | 'resize'
+
+// URL 路径与工具 ID 映射
+const urlToTool: Record<string, Tool> = {
+  'ai-remove-background': 'ai-remove-bg',
+  'remove-watermark': 'remove-watermark',
+  'remove-fake-transparency': 'remove-bg',
+  'compress': 'compress',
+  'resize': 'resize'
+}
+
+const toolToUrl: Record<Tool, string> = {
+  'ai-remove-bg': 'ai-remove-background',
+  'remove-watermark': 'remove-watermark',
+  'remove-bg': 'remove-fake-transparency',
+  'compress': 'compress',
+  'resize': 'resize'
+}
+
+const supportedLangs = [
+  'en', 'zh-CN', 'zh-TW', 'ja', 'ko', 'es', 'pt', 'fr', 'de', 'it', 'ru',
+  'vi', 'th', 'id', 'ms', 'tr', 'nl', 'el', 'cs', 'hu', 'uk', 'ar'
+]
 
 interface PendingFile {
   file: File
@@ -20,8 +43,20 @@ interface ProcessedImage {
 
 function App() {
   const { t, i18n } = useTranslation()
+  const { lang, tool } = useParams<{ lang: string; tool: string }>()
+  const navigate = useNavigate()
   const [showLanguageMenu, setShowLanguageMenu] = useState(false)
-  const [activeTool, setActiveTool] = useState<Tool>('ai-remove-bg')
+
+  // 从 URL 解析当前工具
+  const activeTool: Tool = tool && urlToTool[tool] ? urlToTool[tool] : 'ai-remove-bg'
+
+  // 同步 URL 语言到 i18n
+  useEffect(() => {
+    if (lang && supportedLangs.includes(lang) && lang !== i18n.language) {
+      i18n.changeLanguage(lang)
+      localStorage.setItem('fixpic-language', lang)
+    }
+  }, [lang, i18n])
   const [isDragging, setIsDragging] = useState(false)
   const [processing, setProcessing] = useState(false)
   const [processingIndex, setProcessingIndex] = useState<number | null>(null)
@@ -63,30 +98,110 @@ function App() {
 
   // 动态更新 SEO 元数据
   useEffect(() => {
-    document.title = t('seo.title')
+    // 获取当前工具的 URL 名称
+    const currentToolUrl = toolToUrl[activeTool]
+    // 尝试获取工具特定的 SEO 内容，如果没有则使用默认
+    const toolTitle = t(`seo.tools.${currentToolUrl}.title`, { defaultValue: '' }) || t('seo.title')
+    const toolDescription = t(`seo.tools.${currentToolUrl}.description`, { defaultValue: '' }) || t('seo.description')
+
+    document.title = toolTitle
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {
-      metaDescription.setAttribute('content', t('seo.description'))
+      metaDescription.setAttribute('content', toolDescription)
     }
     const ogTitle = document.querySelector('meta[property="og:title"]')
     if (ogTitle) {
-      ogTitle.setAttribute('content', t('seo.title'))
+      ogTitle.setAttribute('content', toolTitle)
     }
     const ogDescription = document.querySelector('meta[property="og:description"]')
     if (ogDescription) {
-      ogDescription.setAttribute('content', t('seo.description'))
+      ogDescription.setAttribute('content', toolDescription)
     }
     const twitterTitle = document.querySelector('meta[name="twitter:title"]')
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', t('seo.title'))
+      twitterTitle.setAttribute('content', toolTitle)
     }
     const twitterDescription = document.querySelector('meta[name="twitter:description"]')
     if (twitterDescription) {
-      twitterDescription.setAttribute('content', t('seo.description'))
+      twitterDescription.setAttribute('content', toolDescription)
     }
     // 更新 html lang 属性
-    document.documentElement.lang = i18n.language
-  }, [i18n.language, t])
+    document.documentElement.lang = lang || i18n.language
+
+    // 更新 canonical URL
+    const currentUrl = `https://fix-pic.com/${lang || 'en'}/${currentToolUrl}`
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
+    if (canonicalLink) {
+      canonicalLink.href = currentUrl
+    }
+
+    // 更新 og:url
+    const ogUrl = document.querySelector('meta[property="og:url"]')
+    if (ogUrl) {
+      ogUrl.setAttribute('content', currentUrl)
+    }
+
+    // 更新 JSON-LD 结构化数据
+    const toolNames: Record<string, { en: string; type: string }> = {
+      'ai-remove-background': { en: 'AI Background Remover', type: 'ImageEditorApplication' },
+      'remove-watermark': { en: 'AI Watermark Remover', type: 'ImageEditorApplication' },
+      'remove-fake-transparency': { en: 'Fake Transparency Remover', type: 'ImageEditorApplication' },
+      'compress': { en: 'Image Compressor', type: 'ImageEditorApplication' },
+      'resize': { en: 'Image Resizer', type: 'ImageEditorApplication' }
+    }
+
+    const toolInfo = toolNames[currentToolUrl] || toolNames['ai-remove-background']
+
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebApplication',
+          '@id': `${currentUrl}#app`,
+          name: `FixPic - ${toolInfo.en}`,
+          description: toolDescription,
+          url: currentUrl,
+          applicationCategory: toolInfo.type,
+          operatingSystem: 'Web Browser',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          },
+          provider: {
+            '@type': 'Organization',
+            name: 'FixPic',
+            url: 'https://fix-pic.com'
+          }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'FixPic',
+              item: 'https://fix-pic.com'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: toolInfo.en,
+              item: currentUrl
+            }
+          ]
+        }
+      ]
+    }
+
+    let jsonLdScript = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement
+    if (!jsonLdScript) {
+      jsonLdScript = document.createElement('script')
+      jsonLdScript.type = 'application/ld+json'
+      document.head.appendChild(jsonLdScript)
+    }
+    jsonLdScript.textContent = JSON.stringify(jsonLd)
+  }, [i18n.language, t, activeTool, lang])
 
   // AI 背景移除
   const aiRemoveBackground = useCallback(async (file: File): Promise<string> => {
@@ -549,9 +664,10 @@ function App() {
     return `${bytes} B`
   }
 
-  // 切换工具时清理状态
-  const switchTool = useCallback((tool: Tool) => {
-    setActiveTool(tool)
+  // 切换工具时清理状态并导航
+  const switchTool = useCallback((newTool: Tool) => {
+    const currentLang = lang && supportedLangs.includes(lang) ? lang : 'en'
+    navigate(`/${currentLang}/${toolToUrl[newTool]}`)
     setResults([])
     clearPendingFiles()
     setUploadedImage(null)
@@ -561,14 +677,15 @@ function App() {
     setWmUploadedFile(null)
     setWmResultImage(null)
     setError(null)
-  }, [clearPendingFiles])
+  }, [clearPendingFiles, lang, navigate])
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng)
+    const currentTool = toolToUrl[activeTool]
+    navigate(`/${lng}/${currentTool}`)
     setShowLanguageMenu(false)
   }
 
-  const currentLang = languages.find(l => l.code === i18n.language) || languages.find(l => l.code === 'en')!
+  const currentLang = languages.find(l => l.code === (lang || i18n.language)) || languages.find(l => l.code === 'en')!
 
   return (
     <div className="app">

@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Free Online Image Tools | AI Background Removal, Watermark Removal, Compress",
-    "description": "Free online image tools: AI background removal, watermark removal, fake transparency removal, compression, and resizing. Fast, free, and privacy-safe."
+    "description": "Free online image tools: AI background removal, watermark removal, fake transparency removal, compression, and resizing. Fast, free, and privacy-safe.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "AI Background Remover - Remove Image Background Automatically | FixPic",
+        "description": "Free AI-powered background removal tool. Automatically detect and remove any background from photos, create transparent PNG images in seconds. No signup required."
+      },
+      "remove-watermark": {
+        "title": "AI Watermark Remover - Remove Watermark from Images Free | FixPic",
+        "description": "Free AI watermark removal tool. Automatically detect and remove watermarks, logos, and text from images. Clean results in seconds."
+      },
+      "remove-fake-transparency": {
+        "title": "Remove Fake Transparency - Fix Checkerboard Background | FixPic",
+        "description": "Convert fake transparent backgrounds (gray-white checkerboard) from AI tools like Midjourney, Lovart to real transparent PNG. Free online tool."
+      },
+      "compress": {
+        "title": "Image Compressor - Compress PNG, JPG, WebP Online Free | FixPic",
+        "description": "Free online image compression tool. Reduce image file size without losing quality. Supports PNG, JPG, WebP conversion. Fast and easy."
+      },
+      "resize": {
+        "title": "Image Resizer - Resize Images Online Free | FixPic",
+        "description": "Free online image resizer. Change image dimensions precisely with aspect ratio preservation. Supports PNG, JPG, WebP formats."
+      }
+    }
   },
   "app": {
     "title": "FixPic",

@@ -1,7 +1,29 @@
 {
   "seo": {
     "title": "FixPic - Strumenti immagine online gratuiti | Rimuovi sfondo IA, filigrana, comprimi",
-    "description": "Strumenti immagine online gratuiti: rimozione sfondo IA, filigrana, falsa trasparenza, compressione, ridimensionamento. Veloce, gratuito e privato."
+    "description": "Strumenti immagine online gratuiti: rimozione sfondo IA, filigrana, falsa trasparenza, compressione, ridimensionamento. Veloce, gratuito e privato.",
+    "tools": {
+      "ai-remove-background": {
+        "title": "Rimuovi Sfondo AI - Rimuovi Sfondo Immagine Automaticamente | FixPic",
+        "description": "Strumento gratuito per rimuovere sfondi con AI. Rileva e rimuove automaticamente qualsiasi sfondo, crea PNG trasparenti in secondi. Senza registrazione."
+      },
+      "remove-watermark": {
+        "title": "Rimuovi Filigrana AI - Rimuovi Filigrana Gratis | FixPic",
+        "description": "Strumento gratuito per rimuovere filigrane con AI. Rileva e rimuove automaticamente filigrane, loghi e testo dalle immagini."
+      },
+      "remove-fake-transparency": {
+        "title": "Rimuovi Falsa Trasparenza - Correggi Sfondo a Scacchiera | FixPic",
+        "description": "Converte sfondi falsamente trasparenti (scacchiera grigio-bianca) da strumenti AI come Midjourney, Lovart in PNG realmente trasparente."
+      },
+      "compress": {
+        "title": "Compressore Immagini - Comprimi PNG, JPG, WebP Online Gratis | FixPic",
+        "description": "Strumento gratuito di compressione immagini online. Riduce dimensione file senza perdita di qualità. Supporta conversione PNG, JPG, WebP."
+      },
+      "resize": {
+        "title": "Ridimensiona Immagini - Ridimensiona Immagini Online Gratis | FixPic",
+        "description": "Ridimensionatore immagini online gratuito. Cambia dimensioni precisamente mantenendo proporzioni. Supporta PNG, JPG, WebP."
+      }
+    }
   },
   "app": {
     "title": "FixPic",
