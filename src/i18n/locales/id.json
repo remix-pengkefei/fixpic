@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "Kotak Alat Gambar AI untuk Pengembang",
+    "footer": "FixPic - Penghapusan latar belakang AI oleh Replicate, penghapusan tanda air oleh Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "AI Hapus Latar",
+    "removeWatermark": "Hapus Tanda Air",
+    "removeFakeTransparency": "Hapus Transparansi Palsu",
+    "compress": "Kompres",
+    "resize": "Ubah Ukuran"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Penghapusan latar belakang cerdas AI, secara otomatis mendeteksi dan menghapus latar belakang apa pun, menghasilkan PNG transparan",
+    "removeWatermark": "Penghapusan tanda air cerdas AI, secara otomatis mendeteksi dan menghapus tanda air, logo, dan teks dari gambar",
+    "removeFakeTransparency": "Mengubah latar belakang transparan palsu (kotak-kotak abu-putih) dari alat AI seperti Lovart, Midjourney menjadi PNG transparan asli",
+    "compress": "Kompres gambar dan konversi format, mendukung WebP, PNG, JPEG",
+    "resize": "Sesuaikan dimensi gambar dengan tepat, mendukung mempertahankan rasio aspek"
+  },
+  "upload": {
+    "title": "Unggah Gambar",
+    "dragDrop": "Klik atau seret untuk mengunggah gambar",
+    "dragDropHint": "Mendukung PNG, JPG, WebP, maksimal 10MB",
+    "dropHere": "Seret gambar ke sini, atau klik untuk memilih",
+    "batchHint": "Mendukung PNG, JPG, WebP, pemrosesan batch tersedia"
+  },
+  "process": {
+    "result": "Hasil",
+    "resultPlaceholder": "Hasil akan ditampilkan di sini",
+    "processing": "Memproses...",
+    "aiProcessing": "AI sedang memproses...",
+    "processingHint": "Ini mungkin membutuhkan beberapa detik",
+    "failed": "Pemrosesan gagal",
+    "download": "Unduh",
+    "removeBackground": "Hapus Latar Belakang",
+    "removeWatermark": "Hapus Tanda Air"
+  },
+  "options": {
+    "removeText": "Hapus teks juga",
+    "yes": "Ya",
+    "no": "Tidak",
+    "outputFormat": "Format Output",
+    "compression": "Kompresi",
+    "highQuality": "Kualitas tinggi",
+    "slightLoss": "Sedikit kehilangan",
+    "poorQuality": "Kualitas buruk",
+    "pngLossless": "PNG tanpa kehilangan, tidak perlu kompresi",
+    "width": "Lebar",
+    "height": "Tinggi",
+    "auto": "Otomatis",
+    "keepAspectRatio": "Pertahankan Rasio",
+    "px": "px"
+  },
+  "pending": {
+    "title": "File Tertunda",
+    "clear": "Hapus",
+    "processAll": "Proses Semua",
+    "processing": "Memproses...",
+    "process": "Proses"
+  },
+  "results": {
+    "title": "Selesai",
+    "downloadAll": "Unduh Semua",
+    "download": "Unduh",
+    "saved": "dihemat",
+    "increased": "bertambah"
+  },
+  "language": {
+    "select": "Pilih Bahasa"
+  }
+}

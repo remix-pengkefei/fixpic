@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "Geliştiriciler için AI Görüntü Araç Kutusu",
+    "footer": "FixPic - AI arka plan kaldırma Replicate tarafından, filigran kaldırma Dewatermark.ai tarafından sağlanmaktadır"
+  },
+  "tools": {
+    "aiRemoveBg": "AI Arka Plan Kaldır",
+    "removeWatermark": "Filigran Kaldır",
+    "removeFakeTransparency": "Sahte Saydamlık Kaldır",
+    "compress": "Sıkıştır",
+    "resize": "Yeniden Boyutlandır"
+  },
+  "descriptions": {
+    "aiRemoveBg": "AI ile akıllı arka plan kaldırma, herhangi bir arka planı otomatik algılar ve kaldırır, saydam PNG oluşturur",
+    "removeWatermark": "AI ile akıllı filigran kaldırma, görüntülerden filigranları, logoları ve metinleri otomatik algılar ve kaldırır",
+    "removeFakeTransparency": "Lovart, Midjourney gibi AI araçlarından sahte saydam arka planları (gri-beyaz dama tahtası) gerçek saydam PNG'ye dönüştürür",
+    "compress": "Görüntüleri sıkıştırır ve formatları dönüştürür, WebP, PNG, JPEG destekler",
+    "resize": "Görüntü boyutlarını hassas şekilde ayarlar, en boy oranını korumayı destekler"
+  },
+  "upload": {
+    "title": "Görüntü Yükle",
+    "dragDrop": "Görüntü yüklemek için tıklayın veya sürükleyin",
+    "dragDropHint": "PNG, JPG, WebP destekler, maksimum 10MB",
+    "dropHere": "Görüntüleri buraya sürükleyin veya seçmek için tıklayın",
+    "batchHint": "PNG, JPG, WebP destekler, toplu işleme mevcuttur"
+  },
+  "process": {
+    "result": "Sonuç",
+    "resultPlaceholder": "Sonuç burada gösterilecek",
+    "processing": "İşleniyor...",
+    "aiProcessing": "AI işliyor...",
+    "processingHint": "Bu birkaç saniye sürebilir",
+    "failed": "İşlem başarısız",
+    "download": "İndir",
+    "removeBackground": "Arka Planı Kaldır",
+    "removeWatermark": "Filigranı Kaldır"
+  },
+  "options": {
+    "removeText": "Metni de kaldır",
+    "yes": "Evet",
+    "no": "Hayır",
+    "outputFormat": "Çıktı Formatı",
+    "compression": "Sıkıştırma",
+    "highQuality": "Yüksek kalite",
+    "slightLoss": "Hafif kayıp",
+    "poorQuality": "Düşük kalite",
+    "pngLossless": "PNG kayıpsız, sıkıştırma gerekli değil",
+    "width": "Genişlik",
+    "height": "Yükseklik",
+    "auto": "Otomatik",
+    "keepAspectRatio": "Oranı Koru",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Bekleyen Dosyalar",
+    "clear": "Temizle",
+    "processAll": "Tümünü İşle",
+    "processing": "İşleniyor...",
+    "process": "İşle"
+  },
+  "results": {
+    "title": "Tamamlandı",
+    "downloadAll": "Tümünü İndir",
+    "download": "İndir",
+    "saved": "tasarruf",
+    "increased": "artış"
+  },
+  "language": {
+    "select": "Dil Seçin"
+  }
+}

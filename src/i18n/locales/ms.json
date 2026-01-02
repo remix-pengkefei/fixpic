@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "Kotak Alat Imej AI untuk Pembangun",
+    "footer": "FixPic - Penyingkiran latar belakang AI oleh Replicate, penyingkiran tera air oleh Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "AI Buang Latar",
+    "removeWatermark": "Buang Tera Air",
+    "removeFakeTransparency": "Buang Ketelusan Palsu",
+    "compress": "Mampat",
+    "resize": "Ubah Saiz"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Penyingkiran latar belakang pintar AI, secara automatik mengesan dan menyingkirkan sebarang latar belakang, menjana PNG lutsinar",
+    "removeWatermark": "Penyingkiran tera air pintar AI, secara automatik mengesan dan menyingkirkan tera air, logo, dan teks daripada imej",
+    "removeFakeTransparency": "Menukar latar belakang lutsinar palsu (kotak-kotak kelabu-putih) daripada alat AI seperti Lovart, Midjourney kepada PNG lutsinar sebenar",
+    "compress": "Memampatkan imej dan menukar format, menyokong WebP, PNG, JPEG",
+    "resize": "Melaraskan dimensi imej dengan tepat, menyokong mengekalkan nisbah aspek"
+  },
+  "upload": {
+    "title": "Muat Naik Imej",
+    "dragDrop": "Klik atau seret untuk memuat naik imej",
+    "dragDropHint": "Menyokong PNG, JPG, WebP, maksimum 10MB",
+    "dropHere": "Seret imej ke sini, atau klik untuk memilih",
+    "batchHint": "Menyokong PNG, JPG, WebP, pemprosesan kelompok tersedia"
+  },
+  "process": {
+    "result": "Hasil",
+    "resultPlaceholder": "Hasil akan dipaparkan di sini",
+    "processing": "Memproses...",
+    "aiProcessing": "AI sedang memproses...",
+    "processingHint": "Ini mungkin mengambil beberapa saat",
+    "failed": "Pemprosesan gagal",
+    "download": "Muat Turun",
+    "removeBackground": "Buang Latar Belakang",
+    "removeWatermark": "Buang Tera Air"
+  },
+  "options": {
+    "removeText": "Buang teks juga",
+    "yes": "Ya",
+    "no": "Tidak",
+    "outputFormat": "Format Output",
+    "compression": "Mampatan",
+    "highQuality": "Kualiti tinggi",
+    "slightLoss": "Kehilangan sedikit",
+    "poorQuality": "Kualiti rendah",
+    "pngLossless": "PNG tanpa kehilangan, tidak perlu mampatan",
+    "width": "Lebar",
+    "height": "Tinggi",
+    "auto": "Auto",
+    "keepAspectRatio": "Kekalkan Nisbah",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Fail Menunggu",
+    "clear": "Kosongkan",
+    "processAll": "Proses Semua",
+    "processing": "Memproses...",
+    "process": "Proses"
+  },
+  "results": {
+    "title": "Selesai",
+    "downloadAll": "Muat Turun Semua",
+    "download": "Muat Turun",
+    "saved": "dijimatkan",
+    "increased": "bertambah"
+  },
+  "language": {
+    "select": "Pilih Bahasa"
+  }
+}

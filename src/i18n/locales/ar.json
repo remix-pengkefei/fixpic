@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "صندوق أدوات الصور بالذكاء الاصطناعي للمطورين",
+    "footer": "FixPic - إزالة الخلفية بالذكاء الاصطناعي بواسطة Replicate، إزالة العلامة المائية بواسطة Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "إزالة الخلفية AI",
+    "removeWatermark": "إزالة العلامة المائية",
+    "removeFakeTransparency": "إزالة الشفافية الوهمية",
+    "compress": "ضغط",
+    "resize": "تغيير الحجم"
+  },
+  "descriptions": {
+    "aiRemoveBg": "إزالة ذكية للخلفية بالذكاء الاصطناعي، يكتشف ويزيل أي خلفية تلقائياً، ينشئ PNG شفاف",
+    "removeWatermark": "إزالة ذكية للعلامة المائية بالذكاء الاصطناعي، يكتشف ويزيل العلامات المائية والشعارات والنصوص من الصور تلقائياً",
+    "removeFakeTransparency": "يحول الخلفيات الشفافة الوهمية (رقعة الشطرنج الرمادية البيضاء) من أدوات AI مثل Lovart، Midjourney إلى PNG شفاف حقيقي",
+    "compress": "يضغط الصور ويحول الصيغ، يدعم WebP، PNG، JPEG",
+    "resize": "يضبط أبعاد الصورة بدقة، يدعم الحفاظ على نسبة العرض إلى الارتفاع"
+  },
+  "upload": {
+    "title": "رفع الصورة",
+    "dragDrop": "انقر أو اسحب لرفع الصورة",
+    "dragDropHint": "يدعم PNG، JPG، WebP، الحد الأقصى 10 ميجابايت",
+    "dropHere": "اسحب الصور هنا، أو انقر للاختيار",
+    "batchHint": "يدعم PNG، JPG، WebP، المعالجة الدفعية متاحة"
+  },
+  "process": {
+    "result": "النتيجة",
+    "resultPlaceholder": "ستظهر النتيجة هنا",
+    "processing": "جاري المعالجة...",
+    "aiProcessing": "الذكاء الاصطناعي يعالج...",
+    "processingHint": "قد يستغرق هذا بضع ثوان",
+    "failed": "فشلت المعالجة",
+    "download": "تحميل",
+    "removeBackground": "إزالة الخلفية",
+    "removeWatermark": "إزالة العلامة المائية"
+  },
+  "options": {
+    "removeText": "إزالة النص أيضاً",
+    "yes": "نعم",
+    "no": "لا",
+    "outputFormat": "صيغة الإخراج",
+    "compression": "الضغط",
+    "highQuality": "جودة عالية",
+    "slightLoss": "فقدان طفيف",
+    "poorQuality": "جودة منخفضة",
+    "pngLossless": "PNG بدون فقدان، لا حاجة للضغط",
+    "width": "العرض",
+    "height": "الارتفاع",
+    "auto": "تلقائي",
+    "keepAspectRatio": "الحفاظ على النسبة",
+    "px": "بكسل"
+  },
+  "pending": {
+    "title": "الملفات المعلقة",
+    "clear": "مسح",
+    "processAll": "معالجة الكل",
+    "processing": "جاري المعالجة...",
+    "process": "معالجة"
+  },
+  "results": {
+    "title": "مكتمل",
+    "downloadAll": "تحميل الكل",
+    "download": "تحميل",
+    "saved": "تم التوفير",
+    "increased": "زاد"
+  },
+  "language": {
+    "select": "اختر اللغة"
+  }
+}

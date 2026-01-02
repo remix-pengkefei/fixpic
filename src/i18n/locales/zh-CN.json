@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "AI 开发者的图片工具箱",
+    "footer": "FixPic - AI 抠图由 Replicate 提供支持，去水印由 Dewatermark.ai 提供支持"
+  },
+  "tools": {
+    "aiRemoveBg": "AI 抠图",
+    "removeWatermark": "去水印",
+    "removeFakeTransparency": "去假透明",
+    "compress": "压缩",
+    "resize": "调整尺寸"
+  },
+  "descriptions": {
+    "aiRemoveBg": "AI 智能抠图，自动识别并移除任意背景，生成透明 PNG",
+    "removeWatermark": "AI 智能去水印，自动识别并去除图片中的水印、Logo、文字",
+    "removeFakeTransparency": "将 Lovart、Midjourney 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG",
+    "compress": "压缩图片并转换格式，支持 WebP、PNG、JPEG",
+    "resize": "精确调整图片尺寸，支持保持宽高比"
+  },
+  "upload": {
+    "title": "上传图片",
+    "dragDrop": "点击或拖拽上传图片",
+    "dragDropHint": "支持 PNG、JPG、WebP，最大 10MB",
+    "dropHere": "拖拽图片到这里，或点击选择",
+    "batchHint": "支持 PNG、JPG、WebP，可批量处理"
+  },
+  "process": {
+    "result": "处理结果",
+    "resultPlaceholder": "处理结果将显示在这里",
+    "processing": "处理中...",
+    "aiProcessing": "AI 正在处理...",
+    "processingHint": "这可能需要几秒钟",
+    "failed": "处理失败",
+    "download": "下载",
+    "removeBackground": "移除背景",
+    "removeWatermark": "去除水印"
+  },
+  "options": {
+    "removeText": "同时去除文字",
+    "yes": "是",
+    "no": "否",
+    "outputFormat": "输出格式",
+    "compression": "图片压缩",
+    "highQuality": "高质量",
+    "slightLoss": "轻微损失",
+    "poorQuality": "画质较差",
+    "pngLossless": "PNG 无损，无需压缩",
+    "width": "宽度",
+    "height": "高度",
+    "auto": "自动",
+    "keepAspectRatio": "保持比例",
+    "px": "px"
+  },
+  "pending": {
+    "title": "待处理文件",
+    "clear": "清空",
+    "processAll": "全部处理",
+    "processing": "处理中...",
+    "process": "处理"
+  },
+  "results": {
+    "title": "处理完成",
+    "downloadAll": "全部下载",
+    "download": "下载",
+    "saved": "已节省",
+    "increased": "已增加"
+  },
+  "language": {
+    "select": "选择语言"
+  }
+}

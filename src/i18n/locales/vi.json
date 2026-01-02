@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "Hộp công cụ hình ảnh AI cho nhà phát triển",
+    "footer": "FixPic - Xóa nền AI bởi Replicate, xóa watermark bởi Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "Xóa nền AI",
+    "removeWatermark": "Xóa watermark",
+    "removeFakeTransparency": "Xóa trong suốt giả",
+    "compress": "Nén",
+    "resize": "Thay đổi kích thước"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Xóa nền thông minh bằng AI, tự động phát hiện và xóa mọi nền, tạo PNG trong suốt",
+    "removeWatermark": "Xóa watermark thông minh bằng AI, tự động phát hiện và xóa watermark, logo, chữ khỏi hình ảnh",
+    "removeFakeTransparency": "Chuyển đổi nền trong suốt giả (ô cờ xám-trắng) từ các công cụ AI như Lovart, Midjourney sang PNG trong suốt thực sự",
+    "compress": "Nén hình ảnh và chuyển đổi định dạng, hỗ trợ WebP, PNG, JPEG",
+    "resize": "Điều chỉnh chính xác kích thước hình ảnh, hỗ trợ giữ tỷ lệ"
+  },
+  "upload": {
+    "title": "Tải lên hình ảnh",
+    "dragDrop": "Nhấp hoặc kéo để tải lên hình ảnh",
+    "dragDropHint": "Hỗ trợ PNG, JPG, WebP, tối đa 10MB",
+    "dropHere": "Kéo hình ảnh vào đây, hoặc nhấp để chọn",
+    "batchHint": "Hỗ trợ PNG, JPG, WebP, xử lý hàng loạt có sẵn"
+  },
+  "process": {
+    "result": "Kết quả",
+    "resultPlaceholder": "Kết quả sẽ được hiển thị ở đây",
+    "processing": "Đang xử lý...",
+    "aiProcessing": "AI đang xử lý...",
+    "processingHint": "Có thể mất vài giây",
+    "failed": "Xử lý thất bại",
+    "download": "Tải xuống",
+    "removeBackground": "Xóa nền",
+    "removeWatermark": "Xóa watermark"
+  },
+  "options": {
+    "removeText": "Đồng thời xóa chữ",
+    "yes": "Có",
+    "no": "Không",
+    "outputFormat": "Định dạng đầu ra",
+    "compression": "Nén",
+    "highQuality": "Chất lượng cao",
+    "slightLoss": "Mất mát nhẹ",
+    "poorQuality": "Chất lượng kém",
+    "pngLossless": "PNG không mất dữ liệu, không cần nén",
+    "width": "Chiều rộng",
+    "height": "Chiều cao",
+    "auto": "Tự động",
+    "keepAspectRatio": "Giữ tỷ lệ",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Tệp đang chờ",
+    "clear": "Xóa",
+    "processAll": "Xử lý tất cả",
+    "processing": "Đang xử lý...",
+    "process": "Xử lý"
+  },
+  "results": {
+    "title": "Hoàn thành",
+    "downloadAll": "Tải xuống tất cả",
+    "download": "Tải xuống",
+    "saved": "đã tiết kiệm",
+    "increased": "đã tăng"
+  },
+  "language": {
+    "select": "Chọn ngôn ngữ"
+  }
+}

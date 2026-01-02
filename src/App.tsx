@@ -1,4 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { languages } from './i18n'
 import './App.css'
 
 type Tool = 'ai-remove-bg' | 'remove-watermark' | 'remove-bg' | 'compress' | 'resize'
@@ -17,6 +19,8 @@ interface ProcessedImage {
 }
 
 function App() {
+  const { t, i18n } = useTranslation()
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false)
   const [activeTool, setActiveTool] = useState<Tool>('ai-remove-bg')
   const [isDragging, setIsDragging] = useState(false)
   const [processing, setProcessing] = useState(false)
@@ -532,15 +536,48 @@ function App() {
     setError(null)
   }, [clearPendingFiles])
 
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng)
+    setShowLanguageMenu(false)
+  }
+
+  const currentLang = languages.find(l => l.code === i18n.language) || languages.find(l => l.code === 'en')!
+
   return (
     <div className="app">
       {/* Header */}
       <header className="header">
-        <div className="logo">
-          <span className="logo-icon">F</span>
-          <span className="logo-text">ix-Pic</span>
+        <div className="header-content">
+          <div className="logo">
+            <span className="logo-icon">F</span>
+            <span className="logo-text">ix-Pic</span>
+          </div>
+          <p className="tagline">{t('app.tagline')}</p>
         </div>
-        <p className="tagline">AI 开发者的图片工具箱</p>
+        <div className="language-switcher">
+          <button
+            className="language-btn"
+            onClick={() => setShowLanguageMenu(!showLanguageMenu)}
+          >
+            <span className="lang-flag">{currentLang.flag}</span>
+            <span className="lang-name">{currentLang.name}</span>
+            <span className="lang-arrow">▼</span>
+          </button>
+          {showLanguageMenu && (
+            <div className="language-menu">
+              {languages.map(lang => (
+                <button
+                  key={lang.code}
+                  className={`language-option ${lang.code === i18n.language ? 'active' : ''}`}
+                  onClick={() => changeLanguage(lang.code)}
+                >
+                  <span className="lang-flag">{lang.flag}</span>
+                  <span>{lang.name}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Tool Selector */}
@@ -550,50 +587,50 @@ function App() {
           onClick={() => switchTool('ai-remove-bg')}
         >
           <span className="tool-icon">✨</span>
-          <span>AI 抠图</span>
+          <span>{t('tools.aiRemoveBg')}</span>
         </button>
         <button
           className={`tool-btn ${activeTool === 'remove-watermark' ? 'active' : ''}`}
           onClick={() => switchTool('remove-watermark')}
         >
           <span className="tool-icon">💧</span>
-          <span>去水印</span>
+          <span>{t('tools.removeWatermark')}</span>
         </button>
         <button
           className={`tool-btn ${activeTool === 'remove-bg' ? 'active' : ''}`}
           onClick={() => switchTool('remove-bg')}
         >
           <span className="tool-icon">🔲</span>
-          <span>去假透明</span>
+          <span>{t('tools.removeFakeTransparency')}</span>
         </button>
         <button
           className={`tool-btn ${activeTool === 'compress' ? 'active' : ''}`}
           onClick={() => switchTool('compress')}
         >
           <span className="tool-icon">📦</span>
-          <span>压缩</span>
+          <span>{t('tools.compress')}</span>
         </button>
         <button
           className={`tool-btn ${activeTool === 'resize' ? 'active' : ''}`}
           onClick={() => switchTool('resize')}
         >
           <span className="tool-icon">📐</span>
-          <span>调整尺寸</span>
+          <span>{t('tools.resize')}</span>
         </button>
       </div>
 
       {/* Tool Description */}
       <div className="tool-description">
         {activeTool === 'ai-remove-bg' ? (
-          <p>AI 智能抠图，自动识别并移除任意背景，生成透明 PNG</p>
+          <p>{t('descriptions.aiRemoveBg')}</p>
         ) : activeTool === 'remove-watermark' ? (
-          <p>AI 智能去水印，自动识别并去除图片中的水印、Logo、文字</p>
+          <p>{t('descriptions.removeWatermark')}</p>
         ) : activeTool === 'remove-bg' ? (
-          <p>将 Lovart、Midjourney 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG</p>
+          <p>{t('descriptions.removeFakeTransparency')}</p>
         ) : activeTool === 'resize' ? (
-          <p>精确调整图片尺寸，支持保持宽高比</p>
+          <p>{t('descriptions.resize')}</p>
         ) : (
-          <p>压缩图片并转换格式，支持 WebP、PNG、JPEG</p>
+          <p>{t('descriptions.compress')}</p>
         )}
       </div>
 
@@ -604,7 +641,7 @@ function App() {
             {/* Upload Panel */}
             <div className="ai-panel">
               <div className="ai-panel-header">
-                <h3>上传图片</h3>
+                <h3>{t('upload.title')}</h3>
               </div>
               <div
                 className={`ai-upload-zone ${isDragging ? 'dragging' : ''} ${uploadedImage ? 'has-image' : ''}`}
@@ -625,8 +662,8 @@ function App() {
                 ) : (
                   <div className="ai-upload-placeholder">
                     <div className="ai-upload-icon">📤</div>
-                    <p>点击或拖拽上传图片</p>
-                    <p className="ai-upload-hint">支持 PNG、JPG、WebP，最大 10MB</p>
+                    <p>{t('upload.dragDrop')}</p>
+                    <p className="ai-upload-hint">{t('upload.dragDropHint')}</p>
                   </div>
                 )}
               </div>
@@ -638,10 +675,10 @@ function App() {
                 {aiProcessing ? (
                   <>
                     <span className="spinner-inline"></span>
-                    处理中...
+                    {t('process.processing')}
                   </>
                 ) : (
-                  <>✨ 移除背景</>
+                  <>✨ {t('process.removeBackground')}</>
                 )}
               </button>
             </div>
@@ -649,10 +686,10 @@ function App() {
             {/* Result Panel */}
             <div className="ai-panel">
               <div className="ai-panel-header">
-                <h3>处理结果</h3>
+                <h3>{t('process.result')}</h3>
                 {resultImage && (
                   <button className="ai-download-btn" onClick={downloadAiResult}>
-                    下载
+                    {t('process.download')}
                   </button>
                 )}
               </div>
@@ -660,20 +697,20 @@ function App() {
                 {aiProcessing ? (
                   <div className="ai-processing">
                     <div className="spinner"></div>
-                    <p>AI 正在处理...</p>
-                    <p className="ai-processing-hint">这可能需要几秒钟</p>
+                    <p>{t('process.aiProcessing')}</p>
+                    <p className="ai-processing-hint">{t('process.processingHint')}</p>
                   </div>
                 ) : resultImage ? (
                   <img src={resultImage} alt="Result" className="ai-result-image" />
                 ) : error ? (
                   <div className="ai-error">
-                    <p>处理失败</p>
+                    <p>{t('process.failed')}</p>
                     <p className="ai-error-detail">{error}</p>
                   </div>
                 ) : (
                   <div className="ai-result-placeholder">
                     <div className="ai-result-icon">🖼️</div>
-                    <p>处理结果将显示在这里</p>
+                    <p>{t('process.resultPlaceholder')}</p>
                   </div>
                 )}
               </div>
@@ -685,22 +722,22 @@ function App() {
       {/* Remove Watermark Tool */}
       {activeTool === 'remove-watermark' && (
         <div className="ai-remove-bg-container">
-          {/* 选项区域 */}
+          {/* Options */}
           <div className="options" style={{ marginBottom: '20px' }}>
             <div className="option-group">
-              <label>同时去除文字</label>
+              <label>{t('options.removeText')}</label>
               <div className="format-btns">
                 <button
                   className={wmRemoveText ? 'active' : ''}
                   onClick={() => setWmRemoveText(true)}
                 >
-                  是
+                  {t('options.yes')}
                 </button>
                 <button
                   className={!wmRemoveText ? 'active' : ''}
                   onClick={() => setWmRemoveText(false)}
                 >
-                  否
+                  {t('options.no')}
                 </button>
               </div>
             </div>
@@ -710,7 +747,7 @@ function App() {
             {/* Upload Panel */}
             <div className="ai-panel">
               <div className="ai-panel-header">
-                <h3>上传图片</h3>
+                <h3>{t('upload.title')}</h3>
               </div>
               <div
                 className={`ai-upload-zone ${isDragging ? 'dragging' : ''} ${wmUploadedImage ? 'has-image' : ''}`}
@@ -731,8 +768,8 @@ function App() {
                 ) : (
                   <div className="ai-upload-placeholder">
                     <div className="ai-upload-icon">📤</div>
-                    <p>点击或拖拽上传图片</p>
-                    <p className="ai-upload-hint">支持 PNG、JPG、WebP，最大 10MB</p>
+                    <p>{t('upload.dragDrop')}</p>
+                    <p className="ai-upload-hint">{t('upload.dragDropHint')}</p>
                   </div>
                 )}
               </div>
@@ -744,10 +781,10 @@ function App() {
                 {wmProcessing ? (
                   <>
                     <span className="spinner-inline"></span>
-                    处理中...
+                    {t('process.processing')}
                   </>
                 ) : (
-                  <>💧 去除水印</>
+                  <>💧 {t('process.removeWatermark')}</>
                 )}
               </button>
             </div>
@@ -755,10 +792,10 @@ function App() {
             {/* Result Panel */}
             <div className="ai-panel">
               <div className="ai-panel-header">
-                <h3>处理结果</h3>
+                <h3>{t('process.result')}</h3>
                 {wmResultImage && (
                   <button className="ai-download-btn" onClick={downloadWmResult}>
-                    下载
+                    {t('process.download')}
                   </button>
                 )}
               </div>
@@ -766,20 +803,20 @@ function App() {
                 {wmProcessing ? (
                   <div className="ai-processing">
                     <div className="spinner"></div>
-                    <p>AI 正在处理...</p>
-                    <p className="ai-processing-hint">这可能需要几秒钟</p>
+                    <p>{t('process.aiProcessing')}</p>
+                    <p className="ai-processing-hint">{t('process.processingHint')}</p>
                   </div>
                 ) : wmResultImage ? (
                   <img src={wmResultImage} alt="Result" className="ai-result-image" />
                 ) : error ? (
                   <div className="ai-error">
-                    <p>处理失败</p>
+                    <p>{t('process.failed')}</p>
                     <p className="ai-error-detail">{error}</p>
                   </div>
                 ) : (
                   <div className="ai-result-placeholder">
                     <div className="ai-result-icon">🖼️</div>
-                    <p>处理结果将显示在这里</p>
+                    <p>{t('process.resultPlaceholder')}</p>
                   </div>
                 )}
               </div>
@@ -792,7 +829,7 @@ function App() {
       {activeTool === 'compress' && (
         <div className="options">
           <div className="option-group">
-            <label>输出格式</label>
+            <label>{t('options.outputFormat')}</label>
             <div className="format-btns">
               {(['webp', 'jpeg', 'png'] as const).map(fmt => (
                 <button
@@ -808,12 +845,12 @@ function App() {
 
           <div className="option-group">
             <label>
-              图片压缩 {outputFormat === 'png'
+              {t('options.compression')} {outputFormat === 'png'
                 ? ''
-                : `${quality}%${quality >= 80 ? ' (高质量)' : quality >= 50 ? ' (轻微损失)' : ' (画质较差)'}`}
+                : `${quality}%${quality >= 80 ? ` (${t('options.highQuality')})` : quality >= 50 ? ` (${t('options.slightLoss')})` : ` (${t('options.poorQuality')})`}`}
             </label>
             {outputFormat === 'png' ? (
-              <div style={{ fontSize: '12px', color: '#999' }}>PNG 无损，无需压缩</div>
+              <div style={{ fontSize: '12px', color: '#999' }}>{t('options.pngLossless')}</div>
             ) : (
               <input
                 type="range"
@@ -831,51 +868,51 @@ function App() {
       {activeTool === 'resize' && (
         <div className="options">
           <div className="option-group">
-            <label>宽度</label>
+            <label>{t('options.width')}</label>
             <div className="width-input">
               <input
                 type="number"
-                placeholder="自动"
+                placeholder={t('options.auto')}
                 value={resizeWidth || ''}
                 onChange={e => setResizeWidth(e.target.value ? Number(e.target.value) : null)}
               />
-              <span>px</span>
+              <span>{t('options.px')}</span>
             </div>
           </div>
 
           <div className="option-group">
-            <label>高度</label>
+            <label>{t('options.height')}</label>
             <div className="width-input">
               <input
                 type="number"
-                placeholder="自动"
+                placeholder={t('options.auto')}
                 value={resizeHeight || ''}
                 onChange={e => setResizeHeight(e.target.value ? Number(e.target.value) : null)}
               />
-              <span>px</span>
+              <span>{t('options.px')}</span>
             </div>
           </div>
 
           <div className="option-group">
-            <label>保持比例</label>
+            <label>{t('options.keepAspectRatio')}</label>
             <div className="format-btns">
               <button
                 className={keepAspectRatio ? 'active' : ''}
                 onClick={() => setKeepAspectRatio(true)}
               >
-                是
+                {t('options.yes')}
               </button>
               <button
                 className={!keepAspectRatio ? 'active' : ''}
                 onClick={() => setKeepAspectRatio(false)}
               >
-                否
+                {t('options.no')}
               </button>
             </div>
           </div>
 
           <div className="option-group">
-            <label>输出格式</label>
+            <label>{t('options.outputFormat')}</label>
             <div className="format-btns">
               {(['png', 'webp', 'jpeg'] as const).map(fmt => (
                 <button
@@ -912,25 +949,25 @@ function App() {
             <div className="drop-icon">
               {activeTool === 'remove-bg' ? '🖼️' : activeTool === 'resize' ? '📐' : '📁'}
             </div>
-            <p className="drop-text">拖拽图片到这里，或点击选择</p>
-            <p className="drop-hint">支持 PNG、JPG、WebP，可批量处理</p>
+            <p className="drop-text">{t('upload.dropHere')}</p>
+            <p className="drop-hint">{t('upload.batchHint')}</p>
           </div>
 
           {/* Pending Files */}
           {pendingFiles.length > 0 && (
             <div className="pending-section">
               <div className="pending-header">
-                <h3>待处理文件 ({pendingFiles.length})</h3>
+                <h3>{t('pending.title')} ({pendingFiles.length})</h3>
                 <div className="pending-actions">
                   <button className="clear-btn" onClick={clearPendingFiles}>
-                    清空
+                    {t('pending.clear')}
                   </button>
                   <button
                     className="process-all-btn"
                     onClick={processAllFiles}
                     disabled={processing}
                   >
-                    {processing ? '处理中...' : '全部处理'}
+                    {processing ? t('pending.processing') : t('pending.processAll')}
                   </button>
                 </div>
               </div>
@@ -956,7 +993,7 @@ function App() {
                       onClick={() => processSingleFile(i)}
                       disabled={processing || processingIndex !== null}
                     >
-                      处理
+                      {t('pending.process')}
                     </button>
                   </div>
                 ))}
@@ -968,9 +1005,9 @@ function App() {
           {results.length > 0 && (
             <div className="results">
               <div className="results-header">
-                <h3>处理完成 ({results.length})</h3>
+                <h3>{t('results.title')} ({results.length})</h3>
                 <button className="download-all-btn" onClick={downloadAll}>
-                  全部下载
+                  {t('results.downloadAll')}
                 </button>
               </div>
 
@@ -986,14 +1023,14 @@ function App() {
                         {formatSize(r.originalSize)} → {formatSize(r.resultSize)}
                         <span className={r.resultSize < r.originalSize ? 'saved' : 'increased'}>
                           {r.resultSize < r.originalSize
-                            ? ` (-${Math.round((1 - r.resultSize / r.originalSize) * 100)}%)`
-                            : ` (+${Math.round((r.resultSize / r.originalSize - 1) * 100)}%)`
+                            ? ` (${t('results.saved')} ${Math.round((1 - r.resultSize / r.originalSize) * 100)}%)`
+                            : ` (${t('results.increased')} ${Math.round((r.resultSize / r.originalSize - 1) * 100)}%)`
                           }
                         </span>
                       </p>
                     </div>
                     <button className="download-btn" onClick={() => downloadFile(r)}>
-                      下载
+                      {t('results.download')}
                     </button>
                   </div>
                 ))}
@@ -1005,7 +1042,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>FixPic - AI 抠图由 Replicate 提供支持，去水印由 Dewatermark.ai 提供支持</p>
+        <p>{t('app.footer')}</p>
       </footer>
     </div>
   )

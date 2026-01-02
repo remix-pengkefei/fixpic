@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "AI Afbeelding Toolbox voor Ontwikkelaars",
+    "footer": "FixPic - AI achtergrondverwijdering door Replicate, watermerkverwijdering door Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "AI Achtergrond Verwijderen",
+    "removeWatermark": "Watermerk Verwijderen",
+    "removeFakeTransparency": "Valse Transparantie Verwijderen",
+    "compress": "Comprimeren",
+    "resize": "Formaat Wijzigen"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Slimme AI achtergrondverwijdering, detecteert en verwijdert automatisch elke achtergrond, genereert transparante PNG",
+    "removeWatermark": "Slimme AI watermerkverwijdering, detecteert en verwijdert automatisch watermerken, logo's en tekst van afbeeldingen",
+    "removeFakeTransparency": "Converteert valse transparante achtergronden (grijs-wit dambord) van AI-tools zoals Lovart, Midjourney naar echte transparante PNG",
+    "compress": "Comprimeert afbeeldingen en converteert formaten, ondersteunt WebP, PNG, JPEG",
+    "resize": "Past afbeeldingsafmetingen nauwkeurig aan, ondersteunt beeldverhouding behouden"
+  },
+  "upload": {
+    "title": "Afbeelding Uploaden",
+    "dragDrop": "Klik of sleep om afbeelding te uploaden",
+    "dragDropHint": "Ondersteunt PNG, JPG, WebP, maximaal 10MB",
+    "dropHere": "Sleep afbeeldingen hierheen, of klik om te selecteren",
+    "batchHint": "Ondersteunt PNG, JPG, WebP, batchverwerking beschikbaar"
+  },
+  "process": {
+    "result": "Resultaat",
+    "resultPlaceholder": "Het resultaat wordt hier weergegeven",
+    "processing": "Verwerken...",
+    "aiProcessing": "AI verwerkt...",
+    "processingHint": "Dit kan een paar seconden duren",
+    "failed": "Verwerking mislukt",
+    "download": "Downloaden",
+    "removeBackground": "Achtergrond Verwijderen",
+    "removeWatermark": "Watermerk Verwijderen"
+  },
+  "options": {
+    "removeText": "Ook tekst verwijderen",
+    "yes": "Ja",
+    "no": "Nee",
+    "outputFormat": "Uitvoerformaat",
+    "compression": "Compressie",
+    "highQuality": "Hoge kwaliteit",
+    "slightLoss": "Licht verlies",
+    "poorQuality": "Slechte kwaliteit",
+    "pngLossless": "PNG lossless, geen compressie nodig",
+    "width": "Breedte",
+    "height": "Hoogte",
+    "auto": "Auto",
+    "keepAspectRatio": "Verhouding Behouden",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Wachtende Bestanden",
+    "clear": "Wissen",
+    "processAll": "Alles Verwerken",
+    "processing": "Verwerken...",
+    "process": "Verwerken"
+  },
+  "results": {
+    "title": "Voltooid",
+    "downloadAll": "Alles Downloaden",
+    "download": "Downloaden",
+    "saved": "bespaard",
+    "increased": "verhoogd"
+  },
+  "language": {
+    "select": "Taal Selecteren"
+  }
+}

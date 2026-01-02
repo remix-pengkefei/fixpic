@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "AI 開發者的圖片工具箱",
+    "footer": "FixPic - AI 去背由 Replicate 提供支援，去浮水印由 Dewatermark.ai 提供支援"
+  },
+  "tools": {
+    "aiRemoveBg": "AI 去背",
+    "removeWatermark": "去浮水印",
+    "removeFakeTransparency": "去假透明",
+    "compress": "壓縮",
+    "resize": "調整尺寸"
+  },
+  "descriptions": {
+    "aiRemoveBg": "AI 智慧去背，自動識別並移除任意背景，產生透明 PNG",
+    "removeWatermark": "AI 智慧去浮水印，自動識別並去除圖片中的浮水印、Logo、文字",
+    "removeFakeTransparency": "將 Lovart、Midjourney 等 AI 工具匯出的假透明背景（灰白棋盤格）轉換為真正的透明 PNG",
+    "compress": "壓縮圖片並轉換格式，支援 WebP、PNG、JPEG",
+    "resize": "精確調整圖片尺寸，支援保持寬高比"
+  },
+  "upload": {
+    "title": "上傳圖片",
+    "dragDrop": "點擊或拖曳上傳圖片",
+    "dragDropHint": "支援 PNG、JPG、WebP，最大 10MB",
+    "dropHere": "拖曳圖片到這裡，或點擊選擇",
+    "batchHint": "支援 PNG、JPG、WebP，可批次處理"
+  },
+  "process": {
+    "result": "處理結果",
+    "resultPlaceholder": "處理結果將顯示在這裡",
+    "processing": "處理中...",
+    "aiProcessing": "AI 正在處理...",
+    "processingHint": "這可能需要幾秒鐘",
+    "failed": "處理失敗",
+    "download": "下載",
+    "removeBackground": "移除背景",
+    "removeWatermark": "去除浮水印"
+  },
+  "options": {
+    "removeText": "同時去除文字",
+    "yes": "是",
+    "no": "否",
+    "outputFormat": "輸出格式",
+    "compression": "圖片壓縮",
+    "highQuality": "高品質",
+    "slightLoss": "輕微損失",
+    "poorQuality": "畫質較差",
+    "pngLossless": "PNG 無損，無需壓縮",
+    "width": "寬度",
+    "height": "高度",
+    "auto": "自動",
+    "keepAspectRatio": "保持比例",
+    "px": "px"
+  },
+  "pending": {
+    "title": "待處理檔案",
+    "clear": "清空",
+    "processAll": "全部處理",
+    "processing": "處理中...",
+    "process": "處理"
+  },
+  "results": {
+    "title": "處理完成",
+    "downloadAll": "全部下載",
+    "download": "下載",
+    "saved": "已節省",
+    "increased": "已增加"
+  },
+  "language": {
+    "select": "選擇語言"
+  }
+}

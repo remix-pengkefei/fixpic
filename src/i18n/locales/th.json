@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "กล่องเครื่องมือรูปภาพ AI สำหรับนักพัฒนา",
+    "footer": "FixPic - การลบพื้นหลัง AI โดย Replicate, การลบลายน้ำโดย Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "AI ลบพื้นหลัง",
+    "removeWatermark": "ลบลายน้ำ",
+    "removeFakeTransparency": "ลบความโปร่งใสปลอม",
+    "compress": "บีบอัด",
+    "resize": "ปรับขนาด"
+  },
+  "descriptions": {
+    "aiRemoveBg": "การลบพื้นหลังอัจฉริยะด้วย AI ตรวจจับและลบพื้นหลังใดๆ โดยอัตโนมัติ สร้าง PNG โปร่งใส",
+    "removeWatermark": "การลบลายน้ำอัจฉริยะด้วย AI ตรวจจับและลบลายน้ำ โลโก้ และข้อความจากภาพโดยอัตโนมัติ",
+    "removeFakeTransparency": "แปลงพื้นหลังโปร่งใสปลอม (ตารางหมากรุกเทา-ขาว) จากเครื่องมือ AI เช่น Lovart, Midjourney เป็น PNG โปร่งใสจริง",
+    "compress": "บีบอัดภาพและแปลงรูปแบบ รองรับ WebP, PNG, JPEG",
+    "resize": "ปรับขนาดภาพอย่างแม่นยำ รองรับการรักษาอัตราส่วน"
+  },
+  "upload": {
+    "title": "อัปโหลดรูปภาพ",
+    "dragDrop": "คลิกหรือลากเพื่ออัปโหลดรูปภาพ",
+    "dragDropHint": "รองรับ PNG, JPG, WebP สูงสุด 10MB",
+    "dropHere": "ลากรูปภาพมาที่นี่ หรือคลิกเพื่อเลือก",
+    "batchHint": "รองรับ PNG, JPG, WebP ประมวลผลเป็นชุดได้"
+  },
+  "process": {
+    "result": "ผลลัพธ์",
+    "resultPlaceholder": "ผลลัพธ์จะแสดงที่นี่",
+    "processing": "กำลังประมวลผล...",
+    "aiProcessing": "AI กำลังประมวลผล...",
+    "processingHint": "อาจใช้เวลาสักครู่",
+    "failed": "ประมวลผลล้มเหลว",
+    "download": "ดาวน์โหลด",
+    "removeBackground": "ลบพื้นหลัง",
+    "removeWatermark": "ลบลายน้ำ"
+  },
+  "options": {
+    "removeText": "ลบข้อความด้วย",
+    "yes": "ใช่",
+    "no": "ไม่",
+    "outputFormat": "รูปแบบผลลัพธ์",
+    "compression": "การบีบอัด",
+    "highQuality": "คุณภาพสูง",
+    "slightLoss": "สูญเสียเล็กน้อย",
+    "poorQuality": "คุณภาพต่ำ",
+    "pngLossless": "PNG ไม่สูญเสียข้อมูล ไม่ต้องบีบอัด",
+    "width": "ความกว้าง",
+    "height": "ความสูง",
+    "auto": "อัตโนมัติ",
+    "keepAspectRatio": "รักษาอัตราส่วน",
+    "px": "px"
+  },
+  "pending": {
+    "title": "ไฟล์ที่รอดำเนินการ",
+    "clear": "ล้าง",
+    "processAll": "ประมวลผลทั้งหมด",
+    "processing": "กำลังประมวลผล...",
+    "process": "ประมวลผล"
+  },
+  "results": {
+    "title": "เสร็จสิ้น",
+    "downloadAll": "ดาวน์โหลดทั้งหมด",
+    "download": "ดาวน์โหลด",
+    "saved": "ประหยัด",
+    "increased": "เพิ่มขึ้น"
+  },
+  "language": {
+    "select": "เลือกภาษา"
+  }
+}

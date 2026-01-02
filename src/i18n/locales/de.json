@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "KI-Bildwerkzeugkasten für Entwickler",
+    "footer": "FixPic - KI-Hintergrundentfernung von Replicate, Wasserzeichenentfernung von Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "KI Hintergrund entfernen",
+    "removeWatermark": "Wasserzeichen entfernen",
+    "removeFakeTransparency": "Falsche Transparenz entfernen",
+    "compress": "Komprimieren",
+    "resize": "Größe ändern"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Intelligente KI-Hintergrundentfernung, erkennt und entfernt automatisch jeden Hintergrund, erzeugt transparentes PNG",
+    "removeWatermark": "Intelligente KI-Wasserzeichenentfernung, erkennt und entfernt automatisch Wasserzeichen, Logos und Text aus Bildern",
+    "removeFakeTransparency": "Konvertiert falsche transparente Hintergründe (grau-weißes Schachbrett) von KI-Tools wie Lovart, Midjourney in echtes transparentes PNG",
+    "compress": "Komprimiert Bilder und konvertiert Formate, unterstützt WebP, PNG, JPEG",
+    "resize": "Passt Bildabmessungen präzise an, unterstützt Seitenverhältnis beibehalten"
+  },
+  "upload": {
+    "title": "Bild hochladen",
+    "dragDrop": "Klicken oder ziehen zum Hochladen",
+    "dragDropHint": "Unterstützt PNG, JPG, WebP, maximal 10MB",
+    "dropHere": "Bilder hierher ziehen oder klicken zum Auswählen",
+    "batchHint": "Unterstützt PNG, JPG, WebP, Stapelverarbeitung verfügbar"
+  },
+  "process": {
+    "result": "Ergebnis",
+    "resultPlaceholder": "Das Ergebnis wird hier angezeigt",
+    "processing": "Verarbeitung...",
+    "aiProcessing": "KI verarbeitet...",
+    "processingHint": "Dies kann einige Sekunden dauern",
+    "failed": "Verarbeitung fehlgeschlagen",
+    "download": "Herunterladen",
+    "removeBackground": "Hintergrund entfernen",
+    "removeWatermark": "Wasserzeichen entfernen"
+  },
+  "options": {
+    "removeText": "Auch Text entfernen",
+    "yes": "Ja",
+    "no": "Nein",
+    "outputFormat": "Ausgabeformat",
+    "compression": "Kompression",
+    "highQuality": "Hohe Qualität",
+    "slightLoss": "Leichter Verlust",
+    "poorQuality": "Schlechte Qualität",
+    "pngLossless": "PNG verlustfrei, keine Kompression nötig",
+    "width": "Breite",
+    "height": "Höhe",
+    "auto": "Auto",
+    "keepAspectRatio": "Seitenverhältnis beibehalten",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Ausstehende Dateien",
+    "clear": "Löschen",
+    "processAll": "Alle verarbeiten",
+    "processing": "Verarbeitung...",
+    "process": "Verarbeiten"
+  },
+  "results": {
+    "title": "Abgeschlossen",
+    "downloadAll": "Alle herunterladen",
+    "download": "Herunterladen",
+    "saved": "gespart",
+    "increased": "erhöht"
+  },
+  "language": {
+    "select": "Sprache auswählen"
+  }
+}

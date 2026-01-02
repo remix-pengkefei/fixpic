@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "AI Nástroje pro Obrázky pro Vývojáře",
+    "footer": "FixPic - AI odstranění pozadí od Replicate, odstranění vodoznaku od Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "AI Odstranit Pozadí",
+    "removeWatermark": "Odstranit Vodoznak",
+    "removeFakeTransparency": "Odstranit Falešnou Průhlednost",
+    "compress": "Komprimovat",
+    "resize": "Změnit Velikost"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Inteligentní AI odstranění pozadí, automaticky detekuje a odstraní jakékoli pozadí, generuje průhledný PNG",
+    "removeWatermark": "Inteligentní AI odstranění vodoznaku, automaticky detekuje a odstraní vodoznaky, loga a text z obrázků",
+    "removeFakeTransparency": "Převádí falešná průhledná pozadí (šedo-bílá šachovnice) z AI nástrojů jako Lovart, Midjourney na skutečný průhledný PNG",
+    "compress": "Komprimuje obrázky a převádí formáty, podporuje WebP, PNG, JPEG",
+    "resize": "Přesně upravuje rozměry obrázku, podporuje zachování poměru stran"
+  },
+  "upload": {
+    "title": "Nahrát Obrázek",
+    "dragDrop": "Klikněte nebo přetáhněte pro nahrání obrázku",
+    "dragDropHint": "Podporuje PNG, JPG, WebP, maximálně 10MB",
+    "dropHere": "Přetáhněte obrázky sem, nebo klikněte pro výběr",
+    "batchHint": "Podporuje PNG, JPG, WebP, dávkové zpracování dostupné"
+  },
+  "process": {
+    "result": "Výsledek",
+    "resultPlaceholder": "Výsledek bude zobrazen zde",
+    "processing": "Zpracování...",
+    "aiProcessing": "AI zpracovává...",
+    "processingHint": "Může to trvat několik sekund",
+    "failed": "Zpracování selhalo",
+    "download": "Stáhnout",
+    "removeBackground": "Odstranit Pozadí",
+    "removeWatermark": "Odstranit Vodoznak"
+  },
+  "options": {
+    "removeText": "Také odstranit text",
+    "yes": "Ano",
+    "no": "Ne",
+    "outputFormat": "Výstupní Formát",
+    "compression": "Komprese",
+    "highQuality": "Vysoká kvalita",
+    "slightLoss": "Mírná ztráta",
+    "poorQuality": "Nízká kvalita",
+    "pngLossless": "PNG bezztrátový, komprese není nutná",
+    "width": "Šířka",
+    "height": "Výška",
+    "auto": "Auto",
+    "keepAspectRatio": "Zachovat Poměr",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Čekající Soubory",
+    "clear": "Vymazat",
+    "processAll": "Zpracovat Vše",
+    "processing": "Zpracování...",
+    "process": "Zpracovat"
+  },
+  "results": {
+    "title": "Dokončeno",
+    "downloadAll": "Stáhnout Vše",
+    "download": "Stáhnout",
+    "saved": "ušetřeno",
+    "increased": "zvýšeno"
+  },
+  "language": {
+    "select": "Vybrat Jazyk"
+  }
+}

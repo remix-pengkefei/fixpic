@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "Caja de herramientas de imágenes con IA para desarrolladores",
+    "footer": "FixPic - Eliminación de fondo con IA por Replicate, eliminación de marca de agua por Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "Eliminar fondo IA",
+    "removeWatermark": "Eliminar marca de agua",
+    "removeFakeTransparency": "Eliminar falsa transparencia",
+    "compress": "Comprimir",
+    "resize": "Cambiar tamaño"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Eliminación inteligente de fondo con IA, detecta y elimina automáticamente cualquier fondo, genera PNG transparente",
+    "removeWatermark": "Eliminación inteligente de marca de agua con IA, detecta y elimina automáticamente marcas de agua, logotipos y texto de las imágenes",
+    "removeFakeTransparency": "Convierte fondos de falsa transparencia (cuadrícula gris-blanca) de herramientas de IA como Lovart, Midjourney a PNG verdaderamente transparente",
+    "compress": "Comprime imágenes y convierte formatos, soporta WebP, PNG, JPEG",
+    "resize": "Ajusta precisamente las dimensiones de la imagen, soporta mantener relación de aspecto"
+  },
+  "upload": {
+    "title": "Subir imagen",
+    "dragDrop": "Haz clic o arrastra para subir imagen",
+    "dragDropHint": "Soporta PNG, JPG, WebP, máximo 10MB",
+    "dropHere": "Arrastra imágenes aquí, o haz clic para seleccionar",
+    "batchHint": "Soporta PNG, JPG, WebP, procesamiento por lotes disponible"
+  },
+  "process": {
+    "result": "Resultado",
+    "resultPlaceholder": "El resultado se mostrará aquí",
+    "processing": "Procesando...",
+    "aiProcessing": "IA procesando...",
+    "processingHint": "Esto puede tardar unos segundos",
+    "failed": "Procesamiento fallido",
+    "download": "Descargar",
+    "removeBackground": "Eliminar fondo",
+    "removeWatermark": "Eliminar marca de agua"
+  },
+  "options": {
+    "removeText": "También eliminar texto",
+    "yes": "Sí",
+    "no": "No",
+    "outputFormat": "Formato de salida",
+    "compression": "Compresión",
+    "highQuality": "Alta calidad",
+    "slightLoss": "Pérdida leve",
+    "poorQuality": "Baja calidad",
+    "pngLossless": "PNG sin pérdida, no necesita compresión",
+    "width": "Ancho",
+    "height": "Alto",
+    "auto": "Auto",
+    "keepAspectRatio": "Mantener proporción",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Archivos pendientes",
+    "clear": "Limpiar",
+    "processAll": "Procesar todo",
+    "processing": "Procesando...",
+    "process": "Procesar"
+  },
+  "results": {
+    "title": "Completado",
+    "downloadAll": "Descargar todo",
+    "download": "Descargar",
+    "saved": "ahorrado",
+    "increased": "aumentado"
+  },
+  "language": {
+    "select": "Seleccionar idioma"
+  }
+}

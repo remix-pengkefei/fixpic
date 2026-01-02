@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "AI Image Toolbox for Developers",
+    "footer": "FixPic - AI background removal powered by Replicate, watermark removal powered by Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "AI Remove BG",
+    "removeWatermark": "Remove Watermark",
+    "removeFakeTransparency": "Remove Fake Transparency",
+    "compress": "Compress",
+    "resize": "Resize"
+  },
+  "descriptions": {
+    "aiRemoveBg": "AI-powered background removal, automatically detect and remove any background, generate transparent PNG",
+    "removeWatermark": "AI-powered watermark removal, automatically detect and remove watermarks, logos, and text from images",
+    "removeFakeTransparency": "Convert fake transparent backgrounds (gray-white checkerboard) from AI tools like Lovart, Midjourney to real transparent PNG",
+    "compress": "Compress images and convert formats, supports WebP, PNG, JPEG",
+    "resize": "Precisely adjust image dimensions, supports aspect ratio preservation"
+  },
+  "upload": {
+    "title": "Upload Image",
+    "dragDrop": "Click or drag to upload image",
+    "dragDropHint": "Supports PNG, JPG, WebP, max 10MB",
+    "dropHere": "Drag images here, or click to select",
+    "batchHint": "Supports PNG, JPG, WebP, batch processing available"
+  },
+  "process": {
+    "result": "Result",
+    "resultPlaceholder": "Result will be displayed here",
+    "processing": "Processing...",
+    "aiProcessing": "AI is processing...",
+    "processingHint": "This may take a few seconds",
+    "failed": "Processing failed",
+    "download": "Download",
+    "removeBackground": "Remove Background",
+    "removeWatermark": "Remove Watermark"
+  },
+  "options": {
+    "removeText": "Also remove text",
+    "yes": "Yes",
+    "no": "No",
+    "outputFormat": "Output Format",
+    "compression": "Compression",
+    "highQuality": "High quality",
+    "slightLoss": "Slight loss",
+    "poorQuality": "Poor quality",
+    "pngLossless": "PNG is lossless, no compression needed",
+    "width": "Width",
+    "height": "Height",
+    "auto": "Auto",
+    "keepAspectRatio": "Keep Aspect Ratio",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Pending Files",
+    "clear": "Clear",
+    "processAll": "Process All",
+    "processing": "Processing...",
+    "process": "Process"
+  },
+  "results": {
+    "title": "Completed",
+    "downloadAll": "Download All",
+    "download": "Download",
+    "saved": "saved",
+    "increased": "increased"
+  },
+  "language": {
+    "select": "Select Language"
+  }
+}

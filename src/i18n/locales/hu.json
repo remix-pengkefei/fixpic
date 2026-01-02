@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "AI Képeszközök Fejlesztőknek",
+    "footer": "FixPic - AI háttéreltávolítás a Replicate-től, vízjeleltávolítás a Dewatermark.ai-tól"
+  },
+  "tools": {
+    "aiRemoveBg": "AI Háttér Eltávolítás",
+    "removeWatermark": "Vízjel Eltávolítás",
+    "removeFakeTransparency": "Hamis Átlátszóság Eltávolítás",
+    "compress": "Tömörítés",
+    "resize": "Átméretezés"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Intelligens AI háttéreltávolítás, automatikusan felismeri és eltávolítja bármilyen hátteret, átlátszó PNG-t generál",
+    "removeWatermark": "Intelligens AI vízjeleltávolítás, automatikusan felismeri és eltávolítja a vízjeleket, logókat és szöveget a képekről",
+    "removeFakeTransparency": "Átalakítja a hamis átlátszó háttereket (szürke-fehér sakktábla) AI eszközökből, mint Lovart, Midjourney valódi átlátszó PNG-vé",
+    "compress": "Tömöríti a képeket és konvertálja a formátumokat, támogatja a WebP, PNG, JPEG formátumokat",
+    "resize": "Pontosan beállítja a kép méreteit, támogatja a képarány megtartását"
+  },
+  "upload": {
+    "title": "Kép Feltöltése",
+    "dragDrop": "Kattintson vagy húzza a képet a feltöltéshez",
+    "dragDropHint": "Támogatja a PNG, JPG, WebP formátumokat, maximum 10MB",
+    "dropHere": "Húzza ide a képeket, vagy kattintson a kiválasztáshoz",
+    "batchHint": "Támogatja a PNG, JPG, WebP formátumokat, kötegelt feldolgozás elérhető"
+  },
+  "process": {
+    "result": "Eredmény",
+    "resultPlaceholder": "Az eredmény itt jelenik meg",
+    "processing": "Feldolgozás...",
+    "aiProcessing": "AI feldolgozás...",
+    "processingHint": "Ez eltarthat néhány másodpercig",
+    "failed": "A feldolgozás sikertelen",
+    "download": "Letöltés",
+    "removeBackground": "Háttér Eltávolítása",
+    "removeWatermark": "Vízjel Eltávolítása"
+  },
+  "options": {
+    "removeText": "Szöveget is eltávolít",
+    "yes": "Igen",
+    "no": "Nem",
+    "outputFormat": "Kimeneti Formátum",
+    "compression": "Tömörítés",
+    "highQuality": "Magas minőség",
+    "slightLoss": "Enyhe veszteség",
+    "poorQuality": "Gyenge minőség",
+    "pngLossless": "PNG veszteségmentes, nincs szükség tömörítésre",
+    "width": "Szélesség",
+    "height": "Magasság",
+    "auto": "Automatikus",
+    "keepAspectRatio": "Arány Megtartása",
+    "px": "px"
+  },
+  "pending": {
+    "title": "Várakozó Fájlok",
+    "clear": "Törlés",
+    "processAll": "Összes Feldolgozása",
+    "processing": "Feldolgozás...",
+    "process": "Feldolgozás"
+  },
+  "results": {
+    "title": "Befejezve",
+    "downloadAll": "Összes Letöltése",
+    "download": "Letöltés",
+    "saved": "megtakarítva",
+    "increased": "növekedett"
+  },
+  "language": {
+    "select": "Nyelv Kiválasztása"
+  }
+}

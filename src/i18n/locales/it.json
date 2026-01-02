@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "Strumenti immagine IA per sviluppatori",
+    "footer": "FixPic - Rimozione sfondo IA da Replicate, rimozione filigrana da Dewatermark.ai"
+  },
+  "tools": {
+    "aiRemoveBg": "Rimuovi sfondo IA",
+    "removeWatermark": "Rimuovi filigrana",
+    "removeFakeTransparency": "Rimuovi falsa trasparenza",
+    "compress": "Comprimi",
+    "resize": "Ridimensiona"
+  },
+  "descriptions": {
+    "aiRemoveBg": "Rimozione intelligente dello sfondo con IA, rileva e rimuove automaticamente qualsiasi sfondo, genera PNG trasparente",
+    "removeWatermark": "Rimozione intelligente della filigrana con IA, rileva e rimuove automaticamente filigrane, loghi e testo dalle immagini",
+    "removeFakeTransparency": "Converte sfondi di falsa trasparenza (griglia grigio-bianca) da strumenti IA come Lovart, Midjourney in vero PNG trasparente",
+    "compress": "Comprime le immagini e converte i formati, supporta WebP, PNG, JPEG",
+    "resize": "Regola precisamente le dimensioni dell'immagine, supporta il mantenimento delle proporzioni"
+  },
+  "upload": {
+    "title": "Carica immagine",
+    "dragDrop": "Clicca o trascina per caricare l'immagine",
+    "dragDropHint": "Supporta PNG, JPG, WebP, massimo 10MB",
+    "dropHere": "Trascina le immagini qui, o clicca per selezionare",
+    "batchHint": "Supporta PNG, JPG, WebP, elaborazione batch disponibile"
+  },
+  "process": {
+    "result": "Risultato",
+    "resultPlaceholder": "Il risultato sarà visualizzato qui",
+    "processing": "Elaborazione...",
+    "aiProcessing": "IA in elaborazione...",
+    "processingHint": "Potrebbe richiedere alcuni secondi",
+    "failed": "Elaborazione fallita",
+    "download": "Scarica",
+    "removeBackground": "Rimuovi sfondo",
+    "removeWatermark": "Rimuovi filigrana"
+  },
+  "options": {
+    "removeText": "Rimuovi anche il testo",
+    "yes": "Sì",
+    "no": "No",
+    "outputFormat": "Formato di output",
+    "compression": "Compressione",
+    "highQuality": "Alta qualità",
+    "slightLoss": "Perdita lieve",
+    "poorQuality": "Bassa qualità",
+    "pngLossless": "PNG senza perdita, nessuna compressione necessaria",
+    "width": "Larghezza",
+    "height": "Altezza",
+    "auto": "Auto",
+    "keepAspectRatio": "Mantieni proporzioni",
+    "px": "px"
+  },
+  "pending": {
+    "title": "File in attesa",
+    "clear": "Cancella",
+    "processAll": "Elabora tutto",
+    "processing": "Elaborazione...",
+    "process": "Elabora"
+  },
+  "results": {
+    "title": "Completato",
+    "downloadAll": "Scarica tutto",
+    "download": "Scarica",
+    "saved": "risparmiato",
+    "increased": "aumentato"
+  },
+  "language": {
+    "select": "Seleziona lingua"
+  }
+}

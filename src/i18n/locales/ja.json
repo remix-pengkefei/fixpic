@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "FixPic",
+    "tagline": "AI 開発者向け画像ツールボックス",
+    "footer": "FixPic - AI 背景除去は Replicate、透かし除去は Dewatermark.ai を使用"
+  },
+  "tools": {
+    "aiRemoveBg": "AI 背景除去",
+    "removeWatermark": "透かし除去",
+    "removeFakeTransparency": "疑似透過除去",
+    "compress": "圧縮",
+    "resize": "サイズ変更"
+  },
+  "descriptions": {
+    "aiRemoveBg": "AI スマート背景除去、あらゆる背景を自動検出して除去、透明 PNG を生成",
+    "removeWatermark": "AI スマート透かし除去、画像内の透かし、ロゴ、テキストを自動検出して除去",
+    "removeFakeTransparency": "Lovart、Midjourney などの AI ツールからエクスポートされた疑似透明背景（グレー白のチェッカーボード）を本物の透明 PNG に変換",
+    "compress": "画像を圧縮してフォーマット変換、WebP、PNG、JPEG をサポート",
+    "resize": "画像サイズを正確に調整、アスペクト比維持をサポート"
+  },
+  "upload": {
+    "title": "画像をアップロード",
+    "dragDrop": "クリックまたはドラッグして画像をアップロード",
+    "dragDropHint": "PNG、JPG、WebP をサポート、最大 10MB",
+    "dropHere": "ここに画像をドラッグ、またはクリックして選択",
+    "batchHint": "PNG、JPG、WebP をサポート、一括処理可能"
+  },
+  "process": {
+    "result": "処理結果",
+    "resultPlaceholder": "処理結果がここに表示されます",
+    "processing": "処理中...",
+    "aiProcessing": "AI 処理中...",
+    "processingHint": "数秒かかる場合があります",
+    "failed": "処理に失敗しました",
+    "download": "ダウンロード",
+    "removeBackground": "背景を除去",
+    "removeWatermark": "透かしを除去"
+  },
+  "options": {
+    "removeText": "テキストも除去",
+    "yes": "はい",
+    "no": "いいえ",
+    "outputFormat": "出力フォーマット",
+    "compression": "画像圧縮",
+    "highQuality": "高品質",
+    "slightLoss": "わずかな劣化",
+    "poorQuality": "低品質",
+    "pngLossless": "PNG は可逆圧縮、圧縮不要",
+    "width": "幅",
+    "height": "高さ",
+    "auto": "自動",
+    "keepAspectRatio": "アスペクト比を維持",
+    "px": "px"
+  },
+  "pending": {
+    "title": "保留中のファイル",
+    "clear": "クリア",
+    "processAll": "すべて処理",
+    "processing": "処理中...",
+    "process": "処理"
+  },
+  "results": {
+    "title": "処理完了",
+    "downloadAll": "すべてダウンロード",
+    "download": "ダウンロード",
+    "saved": "節約",
+    "increased": "増加"
+  },
+  "language": {
+    "select": "言語を選択"
+  }
+}
