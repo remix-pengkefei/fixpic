@@ -1,85 +1,8 @@
-# FixPic - Free Online AI Image Tools
-# https://fix-pic.com
-
-# Host directive
-Host: https://fix-pic.com
-
 User-agent: *
 Allow: /
 
-# Allow all language versions
-Allow: /en/
-Allow: /de/
-Allow: /es/
-Allow: /fr/
-Allow: /it/
-Allow: /ja/
-Allow: /ko/
-Allow: /pt/
-Allow: /ru/
-Allow: /th/
-Allow: /tr/
-Allow: /vi/
-Allow: /id/
-Allow: /zh-CN/
-Allow: /zh-TW/
-
-# Allow all tool pages
-Allow: /*/background-remover
-Allow: /*/watermark-remover
-Allow: /*/remove-fake-transparency
-Allow: /*/image-upscaler
-Allow: /*/image-sharpener
-Allow: /*/image-denoiser
-Allow: /*/background-generator
-Allow: /*/shadow-generator
-Allow: /*/image-extender
-Allow: /*/smart-crop
-Allow: /*/compress
-Allow: /*/resize
-
-# Allow guide pages
-Allow: /*/guides/
-
-# Disallow internal/admin paths
-Disallow: /api/
-Disallow: /_/
-Disallow: /assets/*.map
-Disallow: /history
-Disallow: /*/history
+# Sitemap
+Sitemap: https://fix-pic.com/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
-
-# Sitemap location
-Sitemap: https://fix-pic.com/sitemap.xml
-
-# Google specific
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Bing specific
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Baidu specific (important for Chinese market)
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 2
-
-# Yandex specific (important for Russian market)
-User-agent: Yandex
-Allow: /
-Crawl-delay: 2
-
-# Sogou (Chinese search engine)
-User-agent: Sogou
-Allow: /
-Crawl-delay: 2
-
-# Naver (Korean search engine)
-User-agent: Yeti
-Allow: /
-Crawl-delay: 2

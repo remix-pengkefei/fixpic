@@ -61,6 +61,33 @@ function App() {
     }
   }, [])
 
+  // 动态更新 SEO 元数据
+  useEffect(() => {
+    document.title = t('seo.title')
+    const metaDescription = document.querySelector('meta[name="description"]')
+    if (metaDescription) {
+      metaDescription.setAttribute('content', t('seo.description'))
+    }
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) {
+      ogTitle.setAttribute('content', t('seo.title'))
+    }
+    const ogDescription = document.querySelector('meta[property="og:description"]')
+    if (ogDescription) {
+      ogDescription.setAttribute('content', t('seo.description'))
+    }
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]')
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', t('seo.title'))
+    }
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]')
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', t('seo.description'))
+    }
+    // 更新 html lang 属性
+    document.documentElement.lang = i18n.language
+  }, [i18n.language, t])
+
   // AI 背景移除
   const aiRemoveBackground = useCallback(async (file: File): Promise<string> => {
     const formData = new FormData()
