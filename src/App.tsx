@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import './App.css'
 
-type Tool = 'ai-remove-bg' | 'remove-bg' | 'compress' | 'resize'
+type Tool = 'ai-remove-bg' | 'remove-watermark' | 'remove-bg' | 'compress' | 'resize'
 
 interface PendingFile {
   file: File
@@ -30,6 +30,13 @@ function App() {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   const [resultImage, setResultImage] = useState<string | null>(null)
   const [aiProcessing, setAiProcessing] = useState(false)
+
+  // 去水印状态
+  const [wmUploadedImage, setWmUploadedImage] = useState<string | null>(null)
+  const [wmUploadedFile, setWmUploadedFile] = useState<File | null>(null)
+  const [wmResultImage, setWmResultImage] = useState<string | null>(null)
+  const [wmProcessing, setWmProcessing] = useState(false)
+  const [wmRemoveText, setWmRemoveText] = useState(false)
 
   // 压缩选项
   const [quality, setQuality] = useState(85)
@@ -119,6 +126,73 @@ function App() {
       setAiProcessing(false)
     }
   }, [uploadedFile, aiRemoveBackground])
+
+  // 去水印 API
+  const removeWatermark = useCallback(async (file: File, removeText: boolean): Promise<string> => {
+    const formData = new FormData()
+    formData.append('image', file)
+    if (removeText) {
+      formData.append('remove_text', 'true')
+    }
+
+    const response = await fetch('/api/remove-watermark', {
+      method: 'POST',
+      body: formData,
+    })
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Failed to process image')
+    }
+
+    if (data.status === 'success') {
+      return data.output
+    }
+
+    throw new Error('Unexpected response')
+  }, [])
+
+  // 处理去水印
+  const handleRemoveWatermark = useCallback(async () => {
+    if (!wmUploadedFile) return
+
+    setWmProcessing(true)
+    setError(null)
+    setWmResultImage(null)
+
+    try {
+      const result = await removeWatermark(wmUploadedFile, wmRemoveText)
+      setWmResultImage(result)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Processing failed')
+    } finally {
+      setWmProcessing(false)
+    }
+  }, [wmUploadedFile, wmRemoveText, removeWatermark])
+
+  // 下载去水印结果
+  const downloadWmResult = useCallback(async () => {
+    if (!wmResultImage || !wmUploadedFile) return
+
+    try {
+      const response = await fetch(wmResultImage)
+      const blob = await response.blob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      const baseName = wmUploadedFile.name.replace(/\.[^.]+$/, '')
+      link.download = `${baseName}_no_watermark.png`
+      link.href = url
+      link.click()
+      URL.revokeObjectURL(url)
+    } catch {
+      const link = document.createElement('a')
+      const baseName = wmUploadedFile.name.replace(/\.[^.]+$/, '')
+      link.download = `${baseName}_no_watermark.png`
+      link.href = wmResultImage
+      link.click()
+    }
+  }, [wmResultImage, wmUploadedFile])
 
   // 下载 AI 结果
   const downloadAiResult = useCallback(async () => {
@@ -381,6 +455,14 @@ function App() {
           setResultImage(null)
           setError(null)
         }
+      } else if (activeTool === 'remove-watermark') {
+        const file = e.dataTransfer.files[0]
+        if (file.type.startsWith('image/')) {
+          setWmUploadedFile(file)
+          setWmUploadedImage(URL.createObjectURL(file))
+          setWmResultImage(null)
+          setError(null)
+        }
       } else {
         addFiles(e.dataTransfer.files)
       }
@@ -395,6 +477,14 @@ function App() {
           setUploadedFile(file)
           setUploadedImage(URL.createObjectURL(file))
           setResultImage(null)
+          setError(null)
+        }
+      } else if (activeTool === 'remove-watermark') {
+        const file = e.target.files[0]
+        if (file.type.startsWith('image/')) {
+          setWmUploadedFile(file)
+          setWmUploadedImage(URL.createObjectURL(file))
+          setWmResultImage(null)
           setError(null)
         }
       } else {
@@ -436,6 +526,9 @@ function App() {
     setUploadedImage(null)
     setUploadedFile(null)
     setResultImage(null)
+    setWmUploadedImage(null)
+    setWmUploadedFile(null)
+    setWmResultImage(null)
     setError(null)
   }, [clearPendingFiles])
 
@@ -458,6 +551,13 @@ function App() {
         >
           <span className="tool-icon">✨</span>
           <span>AI 抠图</span>
+        </button>
+        <button
+          className={`tool-btn ${activeTool === 'remove-watermark' ? 'active' : ''}`}
+          onClick={() => switchTool('remove-watermark')}
+        >
+          <span className="tool-icon">💧</span>
+          <span>去水印</span>
         </button>
         <button
           className={`tool-btn ${activeTool === 'remove-bg' ? 'active' : ''}`}
@@ -486,6 +586,8 @@ function App() {
       <div className="tool-description">
         {activeTool === 'ai-remove-bg' ? (
           <p>AI 智能抠图，自动识别并移除任意背景，生成透明 PNG</p>
+        ) : activeTool === 'remove-watermark' ? (
+          <p>AI 智能去水印，自动识别并去除图片中的水印、Logo、文字</p>
         ) : activeTool === 'remove-bg' ? (
           <p>将 Lovart、Midjourney 等 AI 工具导出的假透明背景（灰白棋盘格）转换为真正的透明 PNG</p>
         ) : activeTool === 'resize' ? (
@@ -563,6 +665,112 @@ function App() {
                   </div>
                 ) : resultImage ? (
                   <img src={resultImage} alt="Result" className="ai-result-image" />
+                ) : error ? (
+                  <div className="ai-error">
+                    <p>处理失败</p>
+                    <p className="ai-error-detail">{error}</p>
+                  </div>
+                ) : (
+                  <div className="ai-result-placeholder">
+                    <div className="ai-result-icon">🖼️</div>
+                    <p>处理结果将显示在这里</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Remove Watermark Tool */}
+      {activeTool === 'remove-watermark' && (
+        <div className="ai-remove-bg-container">
+          {/* 选项区域 */}
+          <div className="options" style={{ marginBottom: '20px' }}>
+            <div className="option-group">
+              <label>同时去除文字</label>
+              <div className="format-btns">
+                <button
+                  className={wmRemoveText ? 'active' : ''}
+                  onClick={() => setWmRemoveText(true)}
+                >
+                  是
+                </button>
+                <button
+                  className={!wmRemoveText ? 'active' : ''}
+                  onClick={() => setWmRemoveText(false)}
+                >
+                  否
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="ai-panels">
+            {/* Upload Panel */}
+            <div className="ai-panel">
+              <div className="ai-panel-header">
+                <h3>上传图片</h3>
+              </div>
+              <div
+                className={`ai-upload-zone ${isDragging ? 'dragging' : ''} ${wmUploadedImage ? 'has-image' : ''}`}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                onClick={() => document.getElementById('wm-file-input')?.click()}
+              >
+                <input
+                  id="wm-file-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileSelect}
+                  style={{ display: 'none' }}
+                />
+                {wmUploadedImage ? (
+                  <img src={wmUploadedImage} alt="Uploaded" className="ai-preview-image" />
+                ) : (
+                  <div className="ai-upload-placeholder">
+                    <div className="ai-upload-icon">📤</div>
+                    <p>点击或拖拽上传图片</p>
+                    <p className="ai-upload-hint">支持 PNG、JPG、WebP，最大 10MB</p>
+                  </div>
+                )}
+              </div>
+              <button
+                className="ai-process-btn"
+                onClick={handleRemoveWatermark}
+                disabled={!wmUploadedFile || wmProcessing}
+              >
+                {wmProcessing ? (
+                  <>
+                    <span className="spinner-inline"></span>
+                    处理中...
+                  </>
+                ) : (
+                  <>💧 去除水印</>
+                )}
+              </button>
+            </div>
+
+            {/* Result Panel */}
+            <div className="ai-panel">
+              <div className="ai-panel-header">
+                <h3>处理结果</h3>
+                {wmResultImage && (
+                  <button className="ai-download-btn" onClick={downloadWmResult}>
+                    下载
+                  </button>
+                )}
+              </div>
+              <div className="ai-result-zone">
+                {wmProcessing ? (
+                  <div className="ai-processing">
+                    <div className="spinner"></div>
+                    <p>AI 正在处理...</p>
+                    <p className="ai-processing-hint">这可能需要几秒钟</p>
+                  </div>
+                ) : wmResultImage ? (
+                  <img src={wmResultImage} alt="Result" className="ai-result-image" />
                 ) : error ? (
                   <div className="ai-error">
                     <p>处理失败</p>
@@ -684,7 +892,7 @@ function App() {
       )}
 
       {/* Drop Zone for other tools */}
-      {activeTool !== 'ai-remove-bg' && (
+      {activeTool !== 'ai-remove-bg' && activeTool !== 'remove-watermark' && (
         <>
           <div
             className={`drop-zone ${isDragging ? 'dragging' : ''}`}
@@ -797,7 +1005,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>FixPic - AI 抠图由 Replicate 提供支持</p>
+        <p>FixPic - AI 抠图由 Replicate 提供支持，去水印由 Dewatermark.ai 提供支持</p>
       </footer>
     </div>
   )
