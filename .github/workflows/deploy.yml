@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - main
 
 jobs:
   deploy:
@@ -11,7 +12,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-
+    name: Deploy to Cloudflare Pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,14 +28,10 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          VITE_API_URL: https://remix-pengkefei--fixpic-api-fixpicapi
-          VITE_SUPABASE_URL: https://fweaxqebiokzkklmvpai.supabase.co
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=fix-pic
+          command: pages deploy dist --project-name=fixpic --branch=${{ github.ref_name }} --commit-message="deploy"
