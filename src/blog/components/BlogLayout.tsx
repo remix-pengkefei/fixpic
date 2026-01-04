@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'
 import { languages } from '../../i18n'
 import './Blog.css'
 
@@ -18,11 +19,23 @@ const categories = [
 ]
 
 export function BlogLayout({ children, title: _title, description: _description }: BlogLayoutProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { lang } = useParams<{ lang: string }>()
+  const navigate = useNavigate()
+  const location = useLocation()
   const currentLang = lang || 'en'
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false)
 
   const currentLangInfo = languages.find(l => l.code === currentLang) || languages[0]
+
+  const changeLanguage = (newLang: string) => {
+    // Replace current lang in path with new lang
+    const newPath = location.pathname.replace(`/${currentLang}/`, `/${newLang}/`)
+    i18n.changeLanguage(newLang)
+    localStorage.setItem('fixpic-language', newLang)
+    navigate(newPath)
+    setShowLanguageMenu(false)
+  }
 
   return (
     <div className="blog-layout">
@@ -47,6 +60,30 @@ export function BlogLayout({ children, title: _title, description: _description 
           <Link to={`/${currentLang}/ai-remove-background`} className="blog-cta">
             Try Free Tool
           </Link>
+          <div className="blog-language-switcher">
+            <button
+              className="blog-language-btn"
+              onClick={() => setShowLanguageMenu(!showLanguageMenu)}
+            >
+              <span className="lang-flag">{currentLangInfo.flag}</span>
+              <span className="lang-name">{currentLangInfo.name}</span>
+              <span className="lang-arrow">▼</span>
+            </button>
+            {showLanguageMenu && (
+              <div className="blog-language-menu">
+                {languages.map(language => (
+                  <button
+                    key={language.code}
+                    className={`blog-language-option ${language.code === currentLang ? 'active' : ''}`}
+                    onClick={() => changeLanguage(language.code)}
+                  >
+                    <span className="lang-flag">{language.flag}</span>
+                    <span>{language.name}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
