@@ -59,6 +59,38 @@ export function CategoryPage() {
     if (metaDesc) {
       metaDesc.setAttribute('content', meta.description)
     }
+
+    // 更新 html lang
+    document.documentElement.lang = currentLang
+
+    // 更新 canonical URL
+    const currentUrl = `https://fix-pic.com/${currentLang}/blog/${currentCategory}`
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
+    if (canonicalLink) {
+      canonicalLink.href = currentUrl
+    }
+
+    // 动态更新 hreflang 标签
+    const supportedLanguages = [
+      'en', 'zh-CN', 'zh-TW', 'ja', 'ko', 'es', 'pt', 'fr', 'de', 'it', 'ru',
+      'vi', 'th', 'id', 'ms', 'tr', 'nl', 'el', 'cs', 'hu', 'uk', 'ar'
+    ]
+
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove())
+
+    supportedLanguages.forEach(langCode => {
+      const link = document.createElement('link')
+      link.rel = 'alternate'
+      link.hreflang = langCode
+      link.href = `https://fix-pic.com/${langCode}/blog/${currentCategory}`
+      document.head.appendChild(link)
+    })
+
+    const xDefaultLink = document.createElement('link')
+    xDefaultLink.rel = 'alternate'
+    xDefaultLink.hreflang = 'x-default'
+    xDefaultLink.href = `https://fix-pic.com/en/blog/${currentCategory}`
+    document.head.appendChild(xDefaultLink)
   }, [currentLang, currentCategory, meta])
 
   return (

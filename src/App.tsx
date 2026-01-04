@@ -142,6 +142,31 @@ function App() {
       ogUrl.setAttribute('content', currentUrl)
     }
 
+    // 动态更新 hreflang 标签
+    const supportedLanguages = [
+      'en', 'zh-CN', 'zh-TW', 'ja', 'ko', 'es', 'pt', 'fr', 'de', 'it', 'ru',
+      'vi', 'th', 'id', 'ms', 'tr', 'nl', 'el', 'cs', 'hu', 'uk', 'ar'
+    ]
+
+    // 移除旧的 hreflang 标签
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove())
+
+    // 添加新的 hreflang 标签
+    supportedLanguages.forEach(langCode => {
+      const link = document.createElement('link')
+      link.rel = 'alternate'
+      link.hreflang = langCode
+      link.href = `https://fix-pic.com/${langCode}/${currentToolUrl}`
+      document.head.appendChild(link)
+    })
+
+    // 添加 x-default
+    const xDefaultLink = document.createElement('link')
+    xDefaultLink.rel = 'alternate'
+    xDefaultLink.hreflang = 'x-default'
+    xDefaultLink.href = `https://fix-pic.com/en/${currentToolUrl}`
+    document.head.appendChild(xDefaultLink)
+
     // 更新 JSON-LD 结构化数据
     const toolNames: Record<string, { en: string; type: string }> = {
       'ai-remove-background': { en: 'AI Background Remover', type: 'ImageEditorApplication' },
