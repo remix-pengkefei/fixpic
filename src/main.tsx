@@ -1,10 +1,28 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import * as Sentry from '@sentry/react'
 import './i18n'
 import './index.css'
 import App from './App.tsx'
 import { BlogHome, CategoryPage, ArticlePage } from './blog/components'
+
+// 初始化 Sentry 错误监控
+Sentry.init({
+  dsn: "https://2599f26441c97006303c8e20d38949fb@o4510651679375360.ingest.us.sentry.io/4510652342337536",
+  integrations: [
+    Sentry.browserTracingIntegration(),
+    Sentry.replayIntegration(),
+  ],
+  // 性能监控采样率
+  tracesSampleRate: 0.1,
+  // Session Replay 采样率
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1.0,
+})
+
+// 暴露 Sentry 到全局用于调试
+;(window as unknown as { Sentry: typeof Sentry }).Sentry = Sentry
 
 // 支持的语言列表
 const supportedLangs = [

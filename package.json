@@ -13,6 +13,7 @@
     "generate:sitemap": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
+    "@sentry/react": "^10.32.1",
     "i18next": "^25.7.3",
     "i18next-browser-languagedetector": "^8.2.0",
     "react": "^19.2.0",

@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import * as Sentry from '@sentry/react'
 import { languages } from './i18n'
 import './App.css'
 
@@ -267,7 +268,12 @@ function App() {
       const result = await aiRemoveBackground(uploadedFile)
       setResultImage(result)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Processing failed')
+      const errorMessage = err instanceof Error ? err.message : 'Processing failed'
+      setError(errorMessage)
+      Sentry.captureException(err, {
+        tags: { api: 'ai-remove-background' },
+        extra: { fileName: uploadedFile.name, fileSize: uploadedFile.size }
+      })
     } finally {
       setAiProcessing(false)
     }
@@ -311,7 +317,12 @@ function App() {
       const result = await removeWatermark(wmUploadedFile, wmRemoveText)
       setWmResultImage(result)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Processing failed')
+      const errorMessage = err instanceof Error ? err.message : 'Processing failed'
+      setError(errorMessage)
+      Sentry.captureException(err, {
+        tags: { api: 'remove-watermark' },
+        extra: { fileName: wmUploadedFile.name, fileSize: wmUploadedFile.size, removeText: wmRemoveText }
+      })
     } finally {
       setWmProcessing(false)
     }
@@ -527,6 +538,10 @@ function App() {
       setPendingFiles(prev => prev.filter((_, i) => i !== index))
     } catch (err) {
       console.error('处理失败:', pending.file.name, err)
+      Sentry.captureException(err, {
+        tags: { api: activeTool },
+        extra: { fileName: pending.file.name, fileSize: pending.file.size }
+      })
     }
     setProcessingIndex(null)
   }, [pendingFiles, activeTool, removeFakeTransparency, compressImage, resizeImage])
@@ -555,6 +570,10 @@ function App() {
         })
       } catch (err) {
         console.error('处理失败:', pending.file.name, err)
+        Sentry.captureException(err, {
+          tags: { api: activeTool, batch: true },
+          extra: { fileName: pending.file.name, fileSize: pending.file.size }
+        })
       }
     }
 
