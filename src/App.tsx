@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { languages } from './i18n'
 import './App.css'
@@ -698,7 +698,11 @@ function App() {
           </div>
           <p className="tagline">{t('app.tagline')}</p>
         </div>
-        <div className="language-switcher">
+        <div className="header-right">
+          <Link to={`/${lang || 'en'}/blog`} className="blog-link">
+            Blog
+          </Link>
+          <div className="language-switcher">
           <button
             className="language-btn"
             onClick={() => setShowLanguageMenu(!showLanguageMenu)}
@@ -721,6 +725,7 @@ function App() {
               ))}
             </div>
           )}
+          </div>
         </div>
       </header>
 
