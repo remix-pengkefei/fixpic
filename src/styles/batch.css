@@ -1,0 +1,258 @@
+/* Pending Section */
+.pending-section {
+  margin-bottom: 24px;
+}
+
+.pending-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pending-header h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.pending-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.clear-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  background: #fff;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  border-color: #999;
+}
+
+.process-all-btn {
+  padding: 8px 20px;
+  font-size: 13px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.process-all-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.pending-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pending-card.processing {
+  border-color: #667eea;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.pending-card:hover .remove-btn {
+  opacity: 1;
+}
+
+.pending-preview {
+  position: relative;
+  height: 100px;
+  background: repeating-conic-gradient(#f0f0f0 0% 25%, white 0% 50%) 50% / 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pending-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pending-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pending-info {
+  padding: 10px;
+}
+
+.pending-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.pending-size {
+  font-size: 11px;
+  color: #999;
+}
+
+.process-btn {
+  width: 100%;
+  padding: 8px;
+  font-size: 12px;
+  background: #f5f5f7;
+  border: none;
+  border-top: 1px solid #eee;
+  cursor: pointer;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.process-btn:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+}
+
+.process-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Results */
+.results {
+  margin-bottom: 24px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.results-header h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.download-all-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.result-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.result-preview {
+  height: 140px;
+  background: repeating-conic-gradient(#f0f0f0 0% 25%, white 0% 50%) 50% / 14px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.result-info {
+  padding: 12px;
+}
+
+.result-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.result-size {
+  font-size: 12px;
+  color: #666;
+}
+
+.result-size .saved {
+  color: #22c55e;
+  font-weight: 500;
+}
+
+.result-size .increased {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+.download-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  background: #f5f5f7;
+  border: none;
+  border-top: 1px solid #eee;
+  cursor: pointer;
+  color: #333;
+}
+
+.download-btn:hover {
+  background: #667eea;
+  color: white;
+}

@@ -1,0 +1,178 @@
+/* AI Remove Background */
+.ai-remove-bg-container {
+  margin-bottom: 24px;
+}
+
+.ai-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ai-panel {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.ai-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.ai-panel-header h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.ai-upload-zone {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fafafa;
+}
+
+.ai-upload-zone:hover {
+  background: #f5f5f5;
+}
+
+.ai-upload-zone.dragging {
+  background: #f0f0ff;
+}
+
+.ai-upload-zone.has-image {
+  background: repeating-conic-gradient(#e5e5e5 0% 25%, #fff 0% 50%) 50% / 16px 16px;
+}
+
+.ai-upload-placeholder {
+  text-align: center;
+  color: #666;
+}
+
+.ai-upload-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.ai-upload-placeholder p {
+  margin-bottom: 6px;
+}
+
+.ai-upload-hint {
+  font-size: 12px;
+  color: #999;
+}
+
+.ai-preview-image {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.ai-process-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ai-process-btn:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.ai-process-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ai-result-zone {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-conic-gradient(#e5e5e5 0% 25%, #fff 0% 50%) 50% / 16px 16px;
+}
+
+.ai-result-placeholder {
+  text-align: center;
+  color: #999;
+}
+
+.ai-result-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.ai-result-placeholder p {
+  font-size: 13px;
+}
+
+.ai-result-image {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.ai-processing {
+  text-align: center;
+  color: #666;
+}
+
+.ai-processing .spinner {
+  margin: 0 auto 12px;
+}
+
+.ai-processing p {
+  margin-bottom: 4px;
+}
+
+.ai-processing-hint {
+  font-size: 12px;
+  color: #999;
+}
+
+.ai-error {
+  text-align: center;
+  color: #ff4d4f;
+}
+
+.ai-error p {
+  margin-bottom: 6px;
+}
+
+.ai-error-detail {
+  font-size: 12px;
+  color: #999;
+}
+
+.ai-download-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ai-download-btn:hover {
+  background: #5a6fd6;
+}

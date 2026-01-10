@@ -1,0 +1,145 @@
+/* Header */
+.header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header-content {
+  text-align: center;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.logo-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 4px;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Header Right */
+.header-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Language Switcher */
+.language-switcher {
+  position: relative;
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.language-btn:hover {
+  border-color: #667eea;
+}
+
+.lang-flag {
+  font-size: 18px;
+}
+
+.lang-name {
+  color: #333;
+}
+
+.lang-arrow {
+  font-size: 10px;
+  color: #999;
+}
+
+.language-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  max-height: 400px;
+  overflow-y: auto;
+  min-width: 360px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.language-option:hover {
+  background: #f5f5f5;
+}
+
+.language-option.active {
+  background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+  color: #667eea;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #999;
+  font-size: 12px;
+}
+
+.footer-blog-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #999;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.footer-blog-link:hover {
+  color: #667eea;
+}
