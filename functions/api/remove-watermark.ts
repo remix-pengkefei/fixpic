@@ -9,33 +9,44 @@ interface Env {
   DEWATERMARK_API_KEY: string;
 }
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
+const allowedOrigins = [
+  "https://fix-pic.com",
+  "https://www.fix-pic.com",
+  "http://localhost:5173", // 本地开发
+];
 
-function jsonResponse(data: unknown, status = 200) {
+function getCorsHeaders(origin: string | null) {
+  const isAllowed = origin && allowedOrigins.some(o => origin === o || origin.endsWith(".fixpic.pages.dev"));
+  return {
+    "Access-Control-Allow-Origin": isAllowed ? origin : allowedOrigins[0],
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+function jsonResponse(data: unknown, origin: string | null, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       "Content-Type": "application/json",
-      ...corsHeaders,
+      ...getCorsHeaders(origin),
     },
   });
 }
 
-export const onRequestOptions: PagesFunction = async () => {
-  return new Response(null, { headers: corsHeaders });
+export const onRequestOptions: PagesFunction = async (context) => {
+  const origin = context.request.headers.get("Origin");
+  return new Response(null, { headers: getCorsHeaders(origin) });
 };
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { request, env } = context;
+  const origin = request.headers.get("Origin");
 
   try {
     // 检查 API Key
     if (!env.DEWATERMARK_API_KEY) {
-      return jsonResponse({ error: "DEWATERMARK_API_KEY not configured" }, 500);
+      return jsonResponse({ error: "DEWATERMARK_API_KEY not configured" }, origin, 500);
     }
 
     // 解析 FormData
@@ -44,17 +55,17 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const removeText = formData.get("remove_text") as string | null;
 
     if (!imageFile) {
-      return jsonResponse({ error: "No image provided" }, 400);
+      return jsonResponse({ error: "No image provided" }, origin, 400);
     }
 
     // 检查文件类型
     if (!imageFile.type.startsWith("image/")) {
-      return jsonResponse({ error: "Invalid file type" }, 400);
+      return jsonResponse({ error: "Invalid file type" }, origin, 400);
     }
 
     // 检查文件大小 (最大 10MB)
     if (imageFile.size > 10 * 1024 * 1024) {
-      return jsonResponse({ error: "File too large, max 10MB" }, 400);
+      return jsonResponse({ error: "File too large, max 10MB" }, origin, 400);
     }
 
     // 将图片转换为 JPEG 格式的 Blob（Dewatermark API 要求 JPEG）
@@ -101,6 +112,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           error: result.message || result.error || "Failed to process image",
           details: result
         },
+        origin,
         response.status
       );
     }
@@ -112,17 +124,19 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         status: "success",
         output: `data:image/png;base64,${result.edited_image.image}`,
         session_id: result.session_id,
-      });
+      }, origin);
     }
 
     return jsonResponse(
       { error: "No result returned from API", details: result },
+      origin,
       500
     );
   } catch (error) {
     console.error("Error:", error);
     return jsonResponse(
       { error: "Internal server error", details: String(error) },
+      origin,
       500
     );
   }
