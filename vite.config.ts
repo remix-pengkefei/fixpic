@@ -22,4 +22,18 @@ function copyContentPlugin() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), copyContentPlugin()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // 把 Sentry 单独打包，延迟加载
+          'sentry': ['@sentry/react'],
+          // React 相关
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          // i18n 相关
+          'i18n': ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
+        }
+      }
+    }
+  }
 })

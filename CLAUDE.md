@@ -1,0 +1,161 @@
+# FixPic 项目文档
+
+## 项目概述
+
+FixPic 是一个免费在线图片处理工具网站，提供以下功能：
+- AI 智能抠图 (ai-remove-background)
+- AI 去水印 (remove-watermark)
+- 去假透明背景 (remove-fake-transparency)
+- 图片压缩 (compress)
+- 图片调整尺寸 (resize)
+
+**线上地址**: https://fix-pic.com
+**部署平台**: Cloudflare Pages
+
+## 技术栈
+
+- **前端**: React + TypeScript + Vite
+- **样式**: TailwindCSS
+- **路由**: React Router
+- **国际化**: 自定义 i18n 方案（22 种语言）
+- **后端 API**: Cloudflare Pages Functions
+- **错误监控**: Sentry
+- **分析**: Google Analytics (G-6GK9T6FE75)
+
+## 目录结构
+
+```
+fixpic/
+├── src/                    # 前端源码
+│   ├── components/         # React 组件
+│   ├── locales/           # 多语言翻译文件
+│   ├── blog/              # 博客系统组件
+│   └── main.tsx           # 入口文件
+├── functions/             # Cloudflare Pages Functions (API)
+│   └── api/
+│       ├── remove-watermark.ts    # 去水印 API
+│       ├── remove-background.ts   # 抠图 API
+│       └── ...
+├── content/               # 博客内容
+│   └── blog/
+│       ├── articles/      # 文章 JSON (22种语言)
+│       └── index/         # 文章索引
+├── public/                # 静态资源
+│   ├── sitemap-index.xml
+│   └── sitemap-*.xml
+└── scripts/               # 构建脚本
+```
+
+## 支持的语言 (22种)
+
+en, zh-CN, zh-TW, ja, ko, es, pt, fr, de, it, ru, vi, th, id, ms, tr, nl, el, cs, hu, uk, ar
+
+## 外部 API 依赖
+
+### 1. Dewatermark.ai (去水印)
+- **用途**: AI 去水印功能
+- **API 端点**: `https://platform.dewatermark.ai/api/object_removal/v2/erase_watermark`
+- **认证**: X-API-KEY header
+- **环境变量**: `DEWATERMARK_API_KEY`
+- **后台管理**: https://platform.dewatermark.ai
+- **注意**: 按量计费，需定期检查余额
+
+### 2. Remove.bg 或类似服务 (抠图)
+- **环境变量**: 检查 Cloudflare 环境变量配置
+
+## SEO 博客系统
+
+### 已完成
+- 500+ 篇英文博客文章
+- 22 种语言翻译版本
+- 总计 11,154 个可索引 URL
+- Sitemap 已提交 Google Search Console
+
+### URL 结构
+```
+/en/blog                              # 博客首页
+/en/blog/{category}                   # 分类页
+/en/blog/{category}/{slug}            # 文章页
+```
+
+### 博客分类
+- background-removal (抠图教程)
+- watermark-removal (去水印教程)
+- fake-transparency (去假透明教程)
+- compression (压缩教程)
+- resize (调整尺寸教程)
+
+## 部署流程
+
+```bash
+# 本地开发
+npm run dev
+
+# 构建
+npm run build
+
+# 部署到 Cloudflare Pages
+npx wrangler pages deploy dist --project-name=fixpic
+```
+
+## 环境变量 (Cloudflare)
+
+需要在 Cloudflare Pages 设置以下环境变量：
+- `DEWATERMARK_API_KEY` - Dewatermark.ai API 密钥
+- 其他 API 密钥...
+
+## 经验教训
+
+### 1. API 余额监控
+- Dewatermark.ai API 按量计费，余额耗尽会导致 "Insufficient Balance" 错误
+- 建议：定期检查余额，设置 Sentry 告警
+
+### 2. SEO 博客内容
+- 文章存储为 JSON 格式，便于多语言管理
+- 每篇文章包含: title, description, content (markdown), keywords
+- 索引文件按语言分开: `/content/blog/index/{lang}.json`
+
+### 3. 多语言处理
+- 翻译文件位于 `src/locales/{lang}/`
+- 博客文章翻译位于 `content/blog/articles/{lang}/`
+- hreflang 标签在组件中动态生成
+
+### 4. Cloudflare Pages Functions
+- API 函数位于 `functions/api/` 目录
+- 文件名即路由: `remove-watermark.ts` -> `/api/remove-watermark`
+- 环境变量通过 `context.env` 访问
+
+### 5. Sentry 错误监控
+- 已配置 Sentry 用于捕获前端和 API 错误
+- 收到错误邮件时检查具体错误类型和位置
+
+## 常用命令
+
+```bash
+# 开发
+npm run dev
+
+# 类型检查
+npm run type-check
+
+# 构建
+npm run build
+
+# 预览构建结果
+npm run preview
+
+# 部署
+npm run deploy
+```
+
+## 待办/未来计划
+
+- [ ] 添加更多博客文章
+- [ ] 优化图片处理性能
+- [ ] 添加用户反馈收集
+- [ ] 考虑添加更多图片工具
+
+## 联系方式
+
+- 网站: https://fix-pic.com
+- Sentry: 查看 Cloudflare 环境变量中的 DSN

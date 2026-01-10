@@ -49,20 +49,6 @@ body {
   gap: 16px;
 }
 
-.blog-link {
-  padding: 8px 16px;
-  color: #667eea;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  border-radius: 8px;
-  transition: all 0.2s;
-}
-
-.blog-link:hover {
-  background: rgba(102, 126, 234, 0.1);
-}
-
 /* Language Switcher */
 .language-switcher {
   position: relative;
@@ -807,6 +793,18 @@ body {
   margin-top: 40px;
   color: #999;
   font-size: 12px;
+}
+
+.footer-blog-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #999;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.footer-blog-link:hover {
+  color: #667eea;
 }
 
 /* Responsive */

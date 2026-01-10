@@ -743,9 +743,6 @@ function App() {
           <p className="tagline">{t('app.tagline')}</p>
         </div>
         <div className="header-right">
-          <Link to={`/${lang || 'en'}/blog`} className="blog-link">
-            Blog
-          </Link>
           <div className="language-switcher">
           <button
             className="language-btn"
@@ -1236,6 +1233,9 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <p>{t('app.footer')}</p>
+        <Link to={`/${lang || 'en'}/blog`} className="footer-blog-link">
+          Blog
+        </Link>
       </footer>
     </div>
   )
