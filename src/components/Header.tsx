@@ -28,8 +28,6 @@ export function Header({ lang, showLanguageMenu, setShowLanguageMenu, onLanguage
             onClick={() => setShowLanguageMenu(!showLanguageMenu)}
           >
             <span className="lang-flag">{currentLang.flag}</span>
-            <span className="lang-name">{currentLang.name}</span>
-            <span className="lang-arrow">▼</span>
           </button>
           {showLanguageMenu && (
             <div className="language-menu">

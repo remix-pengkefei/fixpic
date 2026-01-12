@@ -94,9 +94,13 @@ npm run dev
 # 构建
 npm run build
 
-# 部署到 Cloudflare Pages
-npx wrangler pages deploy dist --project-name=fixpic
+# 部署到 Cloudflare Pages (生产环境)
+npx wrangler pages deploy dist --project-name=fixpic --branch=main
 ```
+
+**重要**: 必须使用 `--branch=main` 才能部署到生产环境 (fix-pic.com)。
+- `--branch=main` → Production 环境 → fix-pic.com
+- `--branch=master` 或不指定 → Preview 环境 → 只生成预览链接，不更新正式域名
 
 ## 环境变量 (Cloudflare)
 
@@ -128,6 +132,15 @@ npx wrangler pages deploy dist --project-name=fixpic
 ### 5. Sentry 错误监控
 - 已配置 Sentry 用于捕获前端和 API 错误
 - 收到错误邮件时检查具体错误类型和位置
+
+### 6. Cloudflare Pages 部署分支
+- **问题**: 部署后线上没有更新，预览链接正常但 fix-pic.com 不变
+- **原因**: Cloudflare Pages 区分 Production 和 Preview 环境
+  - 本地 git 分支是 `master`，但 Cloudflare Pages 生产分支配置为 `main`
+  - 不指定 `--branch` 或使用 `--branch=master` 会部署到 Preview 环境
+  - 只有 `--branch=main` 才会部署到 Production 环境
+- **解决**: 始终使用 `npx wrangler pages deploy dist --project-name=fixpic --branch=main`
+- **验证**: 部署后检查 `curl -s "https://fix-pic.com/" | grep -o 'index-[^"]*\.js'` 确认 JS 文件 hash 已更新
 
 ## 常用命令
 
