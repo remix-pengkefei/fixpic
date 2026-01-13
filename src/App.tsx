@@ -451,7 +451,7 @@ function App() {
         />
       )}
 
-      <Footer lang={lang} />
+      <Footer />
     </div>
   )
 }

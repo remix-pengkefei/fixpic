@@ -5,7 +5,6 @@ import * as Sentry from '@sentry/react'
 import './i18n'
 import './index.css'
 import App from './App.tsx'
-import { BlogHome, CategoryPage, ArticlePage } from './blog/components'
 
 // 初始化 Sentry 错误监控
 Sentry.init({
@@ -47,11 +46,6 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* Blog routes - must be before :tool to avoid conflicts */}
-        <Route path="/:lang/blog" element={<BlogHome />} />
-        <Route path="/:lang/blog/:category" element={<CategoryPage />} />
-        <Route path="/:lang/blog/:category/:slug" element={<ArticlePage />} />
-
         {/* Tool routes */}
         <Route path="/:lang/:tool" element={<App />} />
         <Route path="/:lang" element={<Navigate to={`/${getDefaultLang()}/ai-remove-background`} replace />} />

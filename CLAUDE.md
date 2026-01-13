@@ -28,21 +28,15 @@ FixPic 是一个免费在线图片处理工具网站，提供以下功能：
 fixpic/
 ├── src/                    # 前端源码
 │   ├── components/         # React 组件
-│   ├── locales/           # 多语言翻译文件
-│   ├── blog/              # 博客系统组件
+│   ├── i18n/              # 多语言翻译文件
 │   └── main.tsx           # 入口文件
 ├── functions/             # Cloudflare Pages Functions (API)
 │   └── api/
 │       ├── remove-watermark.ts    # 去水印 API
 │       ├── remove-background.ts   # 抠图 API
 │       └── ...
-├── content/               # 博客内容
-│   └── blog/
-│       ├── articles/      # 文章 JSON (22种语言)
-│       └── index/         # 文章索引
 ├── public/                # 静态资源
-│   ├── sitemap-index.xml
-│   └── sitemap-*.xml
+│   └── sitemap*.xml
 └── scripts/               # 构建脚本
 ```
 
@@ -63,28 +57,6 @@ en, zh-CN, zh-TW, ja, ko, es, pt, fr, de, it, ru, vi, th, id, ms, tr, nl, el, cs
 
 ### 2. Remove.bg 或类似服务 (抠图)
 - **环境变量**: 检查 Cloudflare 环境变量配置
-
-## SEO 博客系统
-
-### 已完成
-- 500+ 篇英文博客文章
-- 22 种语言翻译版本
-- 总计 11,154 个可索引 URL
-- Sitemap 已提交 Google Search Console
-
-### URL 结构
-```
-/en/blog                              # 博客首页
-/en/blog/{category}                   # 分类页
-/en/blog/{category}/{slug}            # 文章页
-```
-
-### 博客分类
-- background-removal (抠图教程)
-- watermark-removal (去水印教程)
-- fake-transparency (去假透明教程)
-- compression (压缩教程)
-- resize (调整尺寸教程)
 
 ## 部署流程
 
@@ -127,26 +99,20 @@ npx wrangler pages deploy dist --project-name=fixpic --branch=main
   3. Sentry 报告的偶发 500 错误可能是第三方服务的临时问题，需要多次测试确认
   4. 保持测试文件的有效性，定期清理无效的测试数据
 
-### 3. SEO 博客内容
-- 文章存储为 JSON 格式，便于多语言管理
-- 每篇文章包含: title, description, content (markdown), keywords
-- 索引文件按语言分开: `/content/blog/index/{lang}.json`
-
-### 4. 多语言处理
-- 翻译文件位于 `src/locales/{lang}/`
-- 博客文章翻译位于 `content/blog/articles/{lang}/`
+### 3. 多语言处理
+- 翻译文件位于 `src/i18n/locales/{lang}.json`
 - hreflang 标签在组件中动态生成
 
-### 5. Cloudflare Pages Functions
+### 4. Cloudflare Pages Functions
 - API 函数位于 `functions/api/` 目录
 - 文件名即路由: `remove-watermark.ts` -> `/api/remove-watermark`
 - 环境变量通过 `context.env` 访问
 
-### 6. Sentry 错误监控
+### 5. Sentry 错误监控
 - 已配置 Sentry 用于捕获前端和 API 错误
 - 收到错误邮件时检查具体错误类型和位置
 
-### 7. Cloudflare Pages 部署分支
+### 6. Cloudflare Pages 部署分支
 - **问题**: 部署后线上没有更新，预览链接正常但 fix-pic.com 不变
 - **原因**: Cloudflare Pages 区分 Production 和 Preview 环境
   - 本地 git 分支是 `master`，但 Cloudflare Pages 生产分支配置为 `main`
@@ -176,7 +142,6 @@ npm run deploy
 
 ## 待办/未来计划
 
-- [ ] 添加更多博客文章
 - [ ] 优化图片处理性能
 - [ ] 添加用户反馈收集
 - [ ] 考虑添加更多图片工具
