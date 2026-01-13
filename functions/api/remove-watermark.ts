@@ -84,6 +84,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     }
 
     // 调用 Dewatermark API
+    // 注意：platform.dewatermark.ai 的 API 仍在使用，但服务可能不稳定
     const response = await fetch(
       "https://platform.dewatermark.ai/api/object_removal/v2/erase_watermark",
       {
@@ -107,13 +108,18 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     if (!response.ok) {
       console.error("Dewatermark API error:", result);
+      // 提供更友好的错误信息
+      let errorMsg = result.message || result.error || "Failed to process image";
+      if (response.status === 500) {
+        errorMsg = "Watermark removal service is temporarily unavailable. Please try again later.";
+      }
       return jsonResponse(
         {
-          error: result.message || result.error || "Failed to process image",
+          error: errorMsg,
           details: result
         },
         origin,
-        response.status
+        response.status >= 500 ? 503 : response.status
       );
     }
 

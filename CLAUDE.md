@@ -57,8 +57,9 @@ en, zh-CN, zh-TW, ja, ko, es, pt, fr, de, it, ru, vi, th, id, ms, tr, nl, el, cs
 - **API 端点**: `https://platform.dewatermark.ai/api/object_removal/v2/erase_watermark`
 - **认证**: X-API-KEY header
 - **环境变量**: `DEWATERMARK_API_KEY`
-- **后台管理**: https://platform.dewatermark.ai
+- **后台管理**: https://dewatermark.ai (登录后进入 API Management)
 - **注意**: 按量计费，需定期检查余额
+- **状态**: 正常工作 (2026-01-13 已验证)
 
 ### 2. Remove.bg 或类似服务 (抠图)
 - **环境变量**: 检查 Cloudflare 环境变量配置
@@ -114,26 +115,38 @@ npx wrangler pages deploy dist --project-name=fixpic --branch=main
 - Dewatermark.ai API 按量计费，余额耗尽会导致 "Insufficient Balance" 错误
 - 建议：定期检查余额，设置 Sentry 告警
 
-### 2. SEO 博客内容
+### 2. API 调试注意事项 (2026-01-13 教训)
+- **问题**: Sentry 报告去水印 API 500 错误，调试时误判为 API 端点/认证问题
+- **实际原因**:
+  1. test_images 目录中部分测试图片是空文件或损坏文件（如 shutterstock_test.jpg 为 0 字节）
+  2. 使用无效测试文件导致 API 返回错误，误以为是服务端问题
+  3. Dewatermark API 偶尔会有短暂的 500 错误（服务不稳定）
+- **教训**:
+  1. 调试前先验证测试数据有效性（`ls -la` 检查文件大小，`file` 命令检查文件类型）
+  2. 不要急于修改 API 端点/认证方式，先用已知有效的数据测试
+  3. Sentry 报告的偶发 500 错误可能是第三方服务的临时问题，需要多次测试确认
+  4. 保持测试文件的有效性，定期清理无效的测试数据
+
+### 3. SEO 博客内容
 - 文章存储为 JSON 格式，便于多语言管理
 - 每篇文章包含: title, description, content (markdown), keywords
 - 索引文件按语言分开: `/content/blog/index/{lang}.json`
 
-### 3. 多语言处理
+### 4. 多语言处理
 - 翻译文件位于 `src/locales/{lang}/`
 - 博客文章翻译位于 `content/blog/articles/{lang}/`
 - hreflang 标签在组件中动态生成
 
-### 4. Cloudflare Pages Functions
+### 5. Cloudflare Pages Functions
 - API 函数位于 `functions/api/` 目录
 - 文件名即路由: `remove-watermark.ts` -> `/api/remove-watermark`
 - 环境变量通过 `context.env` 访问
 
-### 5. Sentry 错误监控
+### 6. Sentry 错误监控
 - 已配置 Sentry 用于捕获前端和 API 错误
 - 收到错误邮件时检查具体错误类型和位置
 
-### 6. Cloudflare Pages 部署分支
+### 7. Cloudflare Pages 部署分支
 - **问题**: 部署后线上没有更新，预览链接正常但 fix-pic.com 不变
 - **原因**: Cloudflare Pages 区分 Production 和 Preview 环境
   - 本地 git 分支是 `master`，但 Cloudflare Pages 生产分支配置为 `main`
