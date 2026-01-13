@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Gratis Online Afbeelding Tools | AI Achtergrond Verwijderen, Watermerk, Comprimeren",
-    "description": "Gratis online afbeelding tools: AI achtergrondverwijdering, watermerk, valse transparantie, comprimeren, formaat wijzigen. Snel, gratis en privé.",
+    "title": "FixPic - Gratis Online Afbeeldingstool | AI Achtergrondverwijdering, Watermerk Verwijdering, Compressie, Formaat Wijzigen",
+    "description": "Gratis Online Afbeeldingsverwerkingstool: AI Slimme Achtergrondverwijdering, Watermerkverwijdering, Verwijdering van Nepdoorzichtig Achtergrond, Afbeeldingscompressie en Resizing. Snel, gratis en privacyvriendelijk.",
     "tools": {
       "ai-remove-background": {
-        "title": "AI Achtergrond Verwijderaar - Verwijder Afbeeldingsachtergrond Automatisch | FixPic",
-        "description": "Gratis AI-achtergrondverwijderingstool. Detecteert en verwijdert automatisch elke achtergrond, maakt transparante PNG's in seconden. Geen registratie."
+        "title": "AI Achtergrondverwijderaar - Gratis Online Automatische Verwijdering van Afbeelding Achtergronden | FixPic",
+        "description": "Gratis AI-gestuurd achtergrondverwijderingshulpmiddel dat automatisch elke achtergrond identificeert en verwijdert, en met één klik transparante PNG-afbeeldingen genereert. Geen registratie vereist—begin er direct mee!"
       },
       "remove-watermark": {
-        "title": "AI Watermerk Verwijderaar - Verwijder Watermerk Gratis | FixPic",
-        "description": "Gratis AI-watermerkverwijderingstool. Detecteert en verwijdert automatisch watermerken, logo's en tekst uit afbeeldingen."
+        "title": "AI Watermark Verwijderaar - Gratis Online Afbeelding Watermerk Verwijdering | FixPic",
+        "description": "Gratis AI-gestuurd hulpmiddel voor het verwijderen van watermerken dat automatisch watermerken, logo's en tekst uit afbeeldingen detecteert en verwijdert. Ervaar schone resultaten in slechts enkele seconden."
       },
       "remove-fake-transparency": {
-        "title": "Valse Transparantie Verwijderen - Dambordachtergrond Corrigeren | FixPic",
-        "description": "Converteert valse transparante achtergronden (grijs-wit dambord) van AI-tools zoals Midjourney, Lovart naar echt transparante PNG."
+        "title": "Verwijder Valse Transparantie - Herstel Checkerboard Achtergrond naar Transparante PNG | FixPic",
+        "description": "Converteer de nep doorzichtige achtergronden (grijs en wit dambordpatroon) die zijn geëxporteerd uit AI-tools zoals Midjourney en Lovart naar echte doorzichtige PNG's. Een gratis online tool."
       },
       "compress": {
-        "title": "Afbeeldingscompressor - Comprimeer PNG, JPG, WebP Online Gratis | FixPic",
-        "description": "Gratis online afbeeldingscompressietool. Vermindert bestandsgrootte zonder kwaliteitsverlies. Ondersteunt PNG, JPG, WebP conversie."
+        "title": "Afbeeldingscompressie - Gratis Online Compressie voor PNG, JPG, WebP | FixPic",
+        "description": "Gratis online afbeeldingcompressietool voor verliesloze bestandsgrootte-reductie. Ondersteunt conversie van PNG-, JPG- en WebP-formaten, waardoor het snel en eenvoudig te gebruiken is."
       },
       "resize": {
-        "title": "Afbeeldingen Verkleinen - Verklein Afbeeldingen Online Gratis | FixPic",
-        "description": "Gratis online afbeeldingsverkleiner. Wijzigt dimensies nauwkeurig met beeldverhouding behoud. Ondersteunt PNG, JPG, WebP."
-      }
-    }
+        "title": "Afbeeldingen Resizen - Gratis Online Afbeeldingsvergroter | FixPic",
+        "description": "Gratis online afbeelding resize-tool waarmee je de breedte en hoogte van je afbeeldingen nauwkeurig kunt aanpassen, terwijl de verhoudingen behouden blijven. Ondersteunt PNG-, JPG- en WebP-formaten."
+      ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
   },
   "app": {
     "title": "FixPic",
-    "tagline": "AI Afbeelding Toolbox voor Ontwikkelaars",
-    "footer": "FixPic - AI achtergrondverwijdering door Replicate, watermerkverwijdering door Dewatermark.ai"
+    "tagline": "AI Ontwikkelaarsafbeelding Toolbox",
+    "footer": "FixPic - AI-achtergrondverwijdering aangedreven door Replicate, watermerkverwijdering ondersteund door Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "AI Achtergrond Verwijderen",
-    "removeWatermark": "Watermerk Verwijderen",
-    "removeFakeTransparency": "Valse Transparantie Verwijderen",
+    "aiRemoveBg": "AI Achtergrondverwijdering",
+    "removeWatermark": "Verwijder Watermerk",
+    "removeFakeTransparency": "Verwijder Transparantie",
     "compress": "Comprimeren",
-    "resize": "Formaat Wijzigen"
+    "resize": "Afmeting wijzigen"
   },
   "descriptions": {
-    "aiRemoveBg": "Slimme AI achtergrondverwijdering, detecteert en verwijdert automatisch elke achtergrond, genereert transparante PNG",
-    "removeWatermark": "Slimme AI watermerkverwijdering, detecteert en verwijdert automatisch watermerken, logo's en tekst van afbeeldingen",
-    "removeFakeTransparency": "Converteert valse transparante achtergronden (grijs-wit dambord) van AI-tools zoals Lovart, Midjourney naar echte transparante PNG",
-    "compress": "Comprimeert afbeeldingen en converteert formaten, ondersteunt WebP, PNG, JPEG",
-    "resize": "Past afbeeldingsafmetingen nauwkeurig aan, ondersteunt beeldverhouding behouden"
+    "aiRemoveBg": "AI-gestuurde achtergrondverwijdering identificeert en verwijdert automatisch elke achtergrond, waardoor een transparante PNG wordt gegenereerd.",
+    "removeWatermark": "AI Slimme Watermerk Verwijdering: Identificeer en verwijder automatisch watermerken, logo's en tekst uit afbeeldingen.",
+    "removeFakeTransparency": "Zet de nep-transparante achtergronden (grijs en wit dambordpatroon) die zijn geëxporteerd door AI-tools zoals Lovart en Midjourney om naar echte transparante PNG's.",
+    "compress": "Comprimeer afbeeldingen en converteer formaten, met ondersteuning voor WebP, PNG en JPEG.",
+    "resize": "Pas de afbeeldingsafmetingen nauwkeurig aan terwijl de beeldverhouding behouden blijft."
   },
   "upload": {
     "title": "Afbeelding Uploaden",
-    "dragDrop": "Klik of sleep om afbeelding te uploaden",
-    "dragDropHint": "Ondersteunt PNG, JPG, WebP, maximaal 10MB",
-    "dropHere": "Sleep afbeeldingen hierheen, of klik om te selecteren",
-    "batchHint": "Ondersteunt PNG, JPG, WebP, batchverwerking beschikbaar"
+    "dragDrop": "Klik of sleep om je afbeelding te uploaden.",
+    "dragDropHint": "Ondersteunt PNG-, JPG- en WebP-indelingen, met een maximale bestandsgrootte van 10 MB.",
+    "dropHere": "Sleep uw afbeelding hierheen of klik om te selecteren.",
+    "batchHint": "Ondersteunt PNG-, JPG- en WebP-indelingen, met mogelijkheden voor batchverwerking."
   },
   "process": {
-    "result": "Resultaat",
-    "resultPlaceholder": "Het resultaat wordt hier weergegeven",
-    "processing": "Verwerken...",
-    "aiProcessing": "AI verwerkt...",
-    "processingHint": "Dit kan een paar seconden duren",
-    "failed": "Verwerking mislukt",
+    "result": "Verwerkingsresultaten",
+    "resultPlaceholder": "De resultaten worden hier weergegeven.",
+    "processing": "Bezig met verwerken...",
+    "aiProcessing": "AI is aan het verwerken...",
+    "processingHint": "Dit kan een paar seconden duren.",
+    "failed": "Verwerking mislukt.",
     "download": "Downloaden",
     "removeBackground": "Achtergrond Verwijderen",
-    "removeWatermark": "Watermerk Verwijderen"
+    "removeWatermark": "Verwijder Watermerk"
   },
   "options": {
-    "removeText": "Ook tekst verwijderen",
+    "removeText": "Verwijder tekst gelijktijdig",
     "yes": "Ja",
     "no": "Nee",
     "outputFormat": "Uitvoerformaat",
-    "compression": "Compressie",
-    "highQuality": "Hoge kwaliteit",
-    "slightLoss": "Licht verlies",
-    "poorQuality": "Slechte kwaliteit",
-    "pngLossless": "PNG lossless, geen compressie nodig",
+    "compression": "Afbeeldingscompressie",
+    "highQuality": "Hoge Kwaliteit",
+    "slightLoss": "Lichte Verlies",
+    "poorQuality": "Lage beeldkwaliteit",
+    "pngLossless": "PNG: Verliesvrij en geen compressie nodig.",
     "width": "Breedte",
     "height": "Hoogte",
-    "auto": "Auto",
-    "keepAspectRatio": "Verhouding Behouden",
+    "auto": "Automatisch",
+    "keepAspectRatio": "Behoud Verhouding",
     "px": "px"
   },
   "pending": {
-    "title": "Wachtende Bestanden",
-    "clear": "Wissen",
-    "processAll": "Alles Verwerken",
-    "processing": "Verwerken...",
+    "title": "Bestanden in afwachting van verwerking",
+    "clear": "Alles wissen",
+    "processAll": "Alles verwerken",
+    "processing": "Bezig met verwerken...",
     "process": "Verwerken"
   },
   "results": {
-    "title": "Voltooid",
+    "title": "Verwerking voltooid.",
     "downloadAll": "Alles Downloaden",
     "download": "Downloaden",
-    "saved": "bespaard",
-    "increased": "verhoogd"
+    "saved": "Succesvol Opgeslagen",
+    "increased": "Succesvol toegevoegd."
   },
   "language": {
-    "select": "Taal Selecteren"
+    "select": "Selecteer Taal"
+  ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

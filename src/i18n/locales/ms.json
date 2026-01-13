@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Alat Imej Dalam Talian Percuma | Buang Latar AI, Tera Air, Mampat",
-    "description": "Alat imej dalam talian percuma: buang latar belakang AI, tera air, ketelusan palsu, mampat, ubah saiz. Pantas, percuma dan peribadi.",
+    "title": "FixPic - Alat Gambar Dalam Talian Percuma | Pembuangan Latar Belakang AI, Pembuangan Tanda Air, Pemampatan, Saiz Semula",
+    "description": "Alat Pemprosesan Imej Dalam Talian Percuma: Penghapusan Latar Belakang Pintar AI, Penghapusan Tanda Air, Penghapusan Latar Belakang Transparan Palsu, Pemampatan Imej, dan Pengubahan Saiz. Pantas, percuma, dan mesra privasi.",
     "tools": {
       "ai-remove-background": {
-        "title": "Pembuang Latar Belakang AI - Buang Latar Belakang Imej Automatik | FixPic",
-        "description": "Alat pembuangan latar belakang AI percuma. Kesan dan buang sebarang latar belakang secara automatik, cipta PNG telus dalam beberapa saat. Tanpa pendaftaran."
+        "title": "Penghapus Latar Belakang AI - Penghapusan Latar Belakang Imej Automatik Dalam Talian Percuma | FixPic",
+        "description": "Alat penghapusan latar belakang berkuasa AI percuma yang secara automatik mengenal pasti dan menghapus sebarang latar belakang, menghasilkan imej PNG telus hanya dengan satu klik. Tiada pendaftaran diperlukan—mula menggunakannya sekarang!"
       },
       "remove-watermark": {
-        "title": "Pembuang Tera Air AI - Buang Tera Air Percuma | FixPic",
-        "description": "Alat pembuangan tera air AI percuma. Kesan dan buang tera air, logo dan teks dari imej secara automatik."
+        "title": "Pembuang Tanda Air AI - Penyingkiran Tanda Air Imej Dalam Talian Percuma | FixPic",
+        "description": "Alat penanggalan tanda air berkuasa AI percuma yang secara automatik mengesan dan menghapus tanda air, logo, dan teks daripada imej. Alami hasil yang bersih dalam hanya beberapa saat."
       },
       "remove-fake-transparency": {
-        "title": "Buang Ketelusan Palsu - Betulkan Latar Belakang Papan Dam | FixPic",
-        "description": "Tukar latar belakang telus palsu (papan dam kelabu-putih) dari alat AI seperti Midjourney, Lovart ke PNG telus sebenar."
+        "title": "Buang Ketelusan Palsu - Betulkan Latar Belakang Papan Catur kepada PNG Telus | FixPic",
+        "description": "Tukarkan latar belakang transparan palsu (papan catur kelabu dan putih) yang dieksport dari alat AI seperti Midjourney dan Lovart kepada PNG sebenar yang transparan. Alat dalam talian percuma."
       },
       "compress": {
-        "title": "Pemampat Imej - Mampat PNG, JPG, WebP Dalam Talian Percuma | FixPic",
-        "description": "Alat pemampatan imej dalam talian percuma. Kurangkan saiz fail tanpa kehilangan kualiti. Menyokong penukaran PNG, JPG, WebP."
+        "title": "Pemampatan Imej - Pemampatan Dalam Talian Percuma untuk PNG, JPG, WebP | FixPic",
+        "description": "Alat pemampatan imej dalam talian percuma untuk pengurangan saiz fail tanpa kehilangan kualiti. Menyokong penukaran format PNG, JPG, dan WebP, menjadikannya cepat dan mudah digunakan."
       },
       "resize": {
-        "title": "Pengubah Saiz Imej - Ubah Saiz Imej Dalam Talian Percuma | FixPic",
-        "description": "Pengubah saiz imej dalam talian percuma. Ubah dimensi dengan tepat mengekalkan nisbah aspek. Menyokong PNG, JPG, WebP."
-      }
-    }
+        "title": "Ubah Saiz Gambar Anda - Penukar Saiz Gambar Dalam Talian Percuma | FixPic",
+        "description": "Alat penyesuaian saiz imej dalam talian percuma yang membolehkan anda menyesuaikan lebar dan tinggi imej dengan tepat sambil mengekalkan nisbah aspek. Menyokong format PNG, JPG, dan WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
   },
   "app": {
     "title": "FixPic",
-    "tagline": "Kotak Alat Imej AI untuk Pembangun",
-    "footer": "FixPic - Penyingkiran latar belakang AI oleh Replicate, penyingkiran tera air oleh Dewatermark.ai"
+    "tagline": "Kotak Alat Gambar Pembangun AI",
+    "footer": "FixPic - Penghapusan latar belakang berkuasa AI yang disokong oleh Replicate, penghapusan tanda air disokong oleh Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "AI Buang Latar",
-    "removeWatermark": "Buang Tera Air",
-    "removeFakeTransparency": "Buang Ketelusan Palsu",
-    "compress": "Mampat",
+    "aiRemoveBg": "Penghapusan Latar Belakang AI",
+    "removeWatermark": "Buang Tanda Air",
+    "removeFakeTransparency": "Buang Ketelusan",
+    "compress": "Kompres",
     "resize": "Ubah Saiz"
   },
   "descriptions": {
-    "aiRemoveBg": "Penyingkiran latar belakang pintar AI, secara automatik mengesan dan menyingkirkan sebarang latar belakang, menjana PNG lutsinar",
-    "removeWatermark": "Penyingkiran tera air pintar AI, secara automatik mengesan dan menyingkirkan tera air, logo, dan teks daripada imej",
-    "removeFakeTransparency": "Menukar latar belakang lutsinar palsu (kotak-kotak kelabu-putih) daripada alat AI seperti Lovart, Midjourney kepada PNG lutsinar sebenar",
-    "compress": "Memampatkan imej dan menukar format, menyokong WebP, PNG, JPEG",
-    "resize": "Melaraskan dimensi imej dengan tepat, menyokong mengekalkan nisbah aspek"
+    "aiRemoveBg": "Penghapusan latar belakang berkuasa AI secara automatik mengenal pasti dan menghapuskan sebarang latar belakang, menghasilkan PNG telus.",
+    "removeWatermark": "Penghapusan Watermark Pintar AI: Kenal pasti dan hapuskan watermark, logo, dan teks secara automatik daripada gambar.",
+    "removeFakeTransparency": "Tukarkan latar belakang separuh telus (papan catur kelabu dan putih) yang dieksport oleh alat AI seperti Lovart dan Midjourney kepada PNG sebenar yang telus.",
+    "compress": "Kompres gambar dan tukar format, menyokong WebP, PNG, dan JPEG.",
+    "resize": "Sesuaikan dimensi imej dengan tepat sambil mengekalkan nisbah aspek."
   },
   "upload": {
     "title": "Muat Naik Imej",
-    "dragDrop": "Klik atau seret untuk memuat naik imej",
-    "dragDropHint": "Menyokong PNG, JPG, WebP, maksimum 10MB",
-    "dropHere": "Seret imej ke sini, atau klik untuk memilih",
-    "batchHint": "Menyokong PNG, JPG, WebP, pemprosesan kelompok tersedia"
+    "dragDrop": "Klik atau seret untuk memuat naik imej anda.",
+    "dragDropHint": "Menyokong format PNG, JPG, dan WebP, dengan saiz fail maksimum 10MB.",
+    "dropHere": "Seret dan lepas imej anda di sini, atau klik untuk memilih.",
+    "batchHint": "Menyokong format PNG, JPG, dan WebP, dengan keupayaan pemprosesan berkelompok."
   },
   "process": {
-    "result": "Hasil",
-    "resultPlaceholder": "Hasil akan dipaparkan di sini",
+    "result": "Keputusan Pemprosesan",
+    "resultPlaceholder": "Keputusan akan dipaparkan di sini.",
     "processing": "Memproses...",
     "aiProcessing": "AI sedang memproses...",
-    "processingHint": "Ini mungkin mengambil beberapa saat",
-    "failed": "Pemprosesan gagal",
+    "processingHint": "Ini mungkin mengambil masa beberapa saat.",
+    "failed": "Pemprosesan gagal.",
     "download": "Muat Turun",
     "removeBackground": "Buang Latar Belakang",
-    "removeWatermark": "Buang Tera Air"
+    "removeWatermark": "Buang Tanda Air"
   },
   "options": {
-    "removeText": "Buang teks juga",
+    "removeText": "Buang Teks Secara Serentak",
     "yes": "Ya",
     "no": "Tidak",
     "outputFormat": "Format Output",
-    "compression": "Mampatan",
-    "highQuality": "Kualiti tinggi",
-    "slightLoss": "Kehilangan sedikit",
-    "poorQuality": "Kualiti rendah",
-    "pngLossless": "PNG tanpa kehilangan, tidak perlu mampatan",
+    "compression": "Pemampatan Imej",
+    "highQuality": "Kualiti Tinggi",
+    "slightLoss": "Kehilangan Sedikit",
+    "poorQuality": "Kualiti imej rendah",
+    "pngLossless": "PNG: Tanpa kehilangan dan tiada pemampatan diperlukan.",
     "width": "Lebar",
     "height": "Tinggi",
-    "auto": "Auto",
-    "keepAspectRatio": "Kekalkan Nisbah",
+    "auto": "Automatik",
+    "keepAspectRatio": "Kekalkan Nisbah Aspek",
     "px": "px"
   },
   "pending": {
-    "title": "Fail Menunggu",
-    "clear": "Kosongkan",
+    "title": "Fail Menunggu Pemprosesan",
+    "clear": "Bersihkan Semua",
     "processAll": "Proses Semua",
     "processing": "Memproses...",
     "process": "Proses"
   },
   "results": {
-    "title": "Selesai",
+    "title": "Pemprosesan selesai.",
     "downloadAll": "Muat Turun Semua",
     "download": "Muat Turun",
-    "saved": "dijimatkan",
-    "increased": "bertambah"
+    "saved": "Disimpan Dengan Jayanya",
+    "increased": "Ditambahkan dengan jayanya."
   },
   "language": {
     "select": "Pilih Bahasa"
+  ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

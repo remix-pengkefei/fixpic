@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Ingyenes Online Képeszközök | AI Háttér Eltávolítás, Vízjel, Tömörítés",
-    "description": "Ingyenes online képeszközök: AI háttéreltávolítás, vízjel, hamis átlátszóság, tömörítés, átméretezés. Gyors, ingyenes és privát.",
+    "title": "FixPic - Ingyenes Online Képkezelő Eszköz | AI Háttéreltávolítás, Vízjel Eltávolítás, Tömörítés, Méretezés",
+    "description": "Ingyenes Online Képkezelő Eszköz: AI Okos Háttéreltávolítás, Vízjel Eltávolítás, Hamis Átlátszó Háttér Eltávolítás, Képkompresszió és Átméretezés. Gyors, ingyenes és adatbarát.",
     "tools": {
       "ai-remove-background": {
-        "title": "AI Háttér Eltávolító - Automatikus Képháttér Eltávolítás | FixPic",
-        "description": "Ingyenes AI háttéreltávolító eszköz. Automatikusan felismeri és eltávolítja bármilyen hátteret, másodpercek alatt átlátszó PNG-t készít. Regisztráció nélkül."
+        "title": "AI Háttéreltávolító - Ingyenes Online Automatikus Kép Háttéreltávolítás | FixPic",
+        "description": "Ingyenes, mesterséges intelligenciával működő háttér eltávolító eszköz, amely automatikusan azonosítja és eltávolítja a háttér elemeit, így egyetlen kattintással átlátszó PNG képeket generál. Regisztrációra nincs szükség – azonnal elkezdheted használni!"
       },
       "remove-watermark": {
-        "title": "AI Vízjel Eltávolító - Vízjel Eltávolítás Ingyen | FixPic",
-        "description": "Ingyenes AI vízjeleltávolító eszköz. Automatikusan felismeri és eltávolítja a vízjeleket, logókat és szövegeket a képekről."
+        "title": "AI Vízjel Eltávolító - Ingyenes Online Kép Vízjel Eltávolítás | FixPic",
+        "description": "Ingyenes, mesterséges intelligenciával működő vízjel eltávolító eszköz, amely automatikusan észleli és eltávolítja a vízjeleket, logókat és szövegeket a képekről. Tapasztalja meg a tiszta eredményeket mindössze másodpercek alatt."
       },
       "remove-fake-transparency": {
-        "title": "Hamis Átlátszóság Eltávolítása - Sakktábla Háttér Javítása | FixPic",
-        "description": "A hamis átlátszó hátteret (szürke-fehér sakktábla) AI eszközökből mint Midjourney, Lovart valódi átlátszó PNG-vé alakítja."
+        "title": "Töröld a Hamis Átlátszóságot - Javítsd a Kockás Háttérből Átlátszó PNG-t | FixPic",
+        "description": "Konvertáld az AI eszközök, mint a Midjourney és Lovart által exportált hamis átlátszó háttereket (szürke és fehér sakktábla) valódi átlátszó PNG-ké. Egy ingyenes online eszköz."
       },
       "compress": {
-        "title": "Képtömörítő - PNG, JPG, WebP Online Tömörítés Ingyen | FixPic",
-        "description": "Ingyenes online képtömörítő eszköz. Csökkenti a fájlméretet minőségromlás nélkül. Támogatja a PNG, JPG, WebP konverziót."
+        "title": "Képkompresszió - Ingyenes online tömörítés PNG, JPG, WebP formátumokhoz | FixPic",
+        "description": "Ingyenes online képkonvertáló eszköz, amely veszteségmentes fájlméret-csökkentést kínál. Támogatja a PNG, JPG és WebP formátumok átalakítását, így gyors és egyszerű a használata."
       },
       "resize": {
-        "title": "Képátméretező - Képméret Változtatás Online Ingyen | FixPic",
-        "description": "Ingyenes online képátméretező eszköz. Pontosan változtatja a méreteket képarány megtartásával. Támogatja a PNG, JPG, WebP formátumokat."
-      }
-    }
+        "title": "Képek Átméretezése - Ingyenes Online Képátméretező | FixPic",
+        "description": "Ingyenes online képméret-állító eszköz, amely lehetővé teszi, hogy pontosan beállítsd a képek szélességét és magasságát, miközben megőrzi a képarányt. Támogatja a PNG, JPG és WebP formátumokat."
+      ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
   },
   "app": {
     "title": "FixPic",
-    "tagline": "AI Képeszközök Fejlesztőknek",
-    "footer": "FixPic - AI háttéreltávolítás a Replicate-től, vízjeleltávolítás a Dewatermark.ai-tól"
+    "tagline": "AI Fejlesztők Kép Eszköztára",
+    "footer": "FixPic - AI háttér eltávolítás a Replicate által, vízjel eltávolítás a Dewatermark.ai támogatásával."
   },
   "tools": {
-    "aiRemoveBg": "AI Háttér Eltávolítás",
-    "removeWatermark": "Vízjel Eltávolítás",
-    "removeFakeTransparency": "Hamis Átlátszóság Eltávolítás",
+    "aiRemoveBg": "AI Háttéreltávolítás",
+    "removeWatermark": "Vízjel eltávolítása",
+    "removeFakeTransparency": "Átlátszóság eltávolítása",
     "compress": "Tömörítés",
-    "resize": "Átméretezés"
+    "resize": "Kép átméretezése"
   },
   "descriptions": {
-    "aiRemoveBg": "Intelligens AI háttéreltávolítás, automatikusan felismeri és eltávolítja bármilyen hátteret, átlátszó PNG-t generál",
-    "removeWatermark": "Intelligens AI vízjeleltávolítás, automatikusan felismeri és eltávolítja a vízjeleket, logókat és szöveget a képekről",
-    "removeFakeTransparency": "Átalakítja a hamis átlátszó háttereket (szürke-fehér sakktábla) AI eszközökből, mint Lovart, Midjourney valódi átlátszó PNG-vé",
-    "compress": "Tömöríti a képeket és konvertálja a formátumokat, támogatja a WebP, PNG, JPEG formátumokat",
-    "resize": "Pontosan beállítja a kép méreteit, támogatja a képarány megtartását"
+    "aiRemoveBg": "AI-alapú háttéreltávolítás automatikusan azonosítja és eltávolítja a háttér elemeit, így átlátszó PNG-t hoz létre.",
+    "removeWatermark": "AI Okos Vízjel Eltávolítás: Automatikusan azonosítja és eltávolítja a vízjeleket, logókat és szövegeket a képekről.",
+    "removeFakeTransparency": "Konvertáld az AI eszközök, mint a Lovart és a Midjourney által exportált hamis átlátszó háttereket (szürke és fehér sakktábla) valódi átlátszó PNG-ké.",
+    "compress": "Képek tömörítése és formátumok átkonvertálása, támogatva a WebP, PNG és JPEG formátumokat.",
+    "resize": "Pontos képméret-beállítás az arányok megőrzésével."
   },
   "upload": {
-    "title": "Kép Feltöltése",
-    "dragDrop": "Kattintson vagy húzza a képet a feltöltéshez",
-    "dragDropHint": "Támogatja a PNG, JPG, WebP formátumokat, maximum 10MB",
-    "dropHere": "Húzza ide a képeket, vagy kattintson a kiválasztáshoz",
-    "batchHint": "Támogatja a PNG, JPG, WebP formátumokat, kötegelt feldolgozás elérhető"
+    "title": "Kép feltöltése",
+    "dragDrop": "Kattints vagy húzd ide a képed feltöltéséhez.",
+    "dragDropHint": "Támogatja a PNG, JPG és WebP formátumokat, maximálisan 10 MB fájlméretig.",
+    "dropHere": "Húzza ide a képet, vagy kattintson a kiválasztáshoz.",
+    "batchHint": "Támogatja a PNG, JPG és WebP formátumokat, valamint tömeges feldolgozási lehetőségeket kínál."
   },
   "process": {
-    "result": "Eredmény",
-    "resultPlaceholder": "Az eredmény itt jelenik meg",
+    "result": "Feldolgozási Eredmények",
+    "resultPlaceholder": "Az eredmények itt fognak megjelenni.",
     "processing": "Feldolgozás...",
-    "aiProcessing": "AI feldolgozás...",
-    "processingHint": "Ez eltarthat néhány másodpercig",
-    "failed": "A feldolgozás sikertelen",
+    "aiProcessing": "Az AI feldolgozza...",
+    "processingHint": "Ez néhány másodpercet igénybe vehet.",
+    "failed": "A feldolgozás meghiúsult.",
     "download": "Letöltés",
-    "removeBackground": "Háttér Eltávolítása",
-    "removeWatermark": "Vízjel Eltávolítása"
+    "removeBackground": "Háttér eltávolítása",
+    "removeWatermark": "Vízjel eltávolítása"
   },
   "options": {
-    "removeText": "Szöveget is eltávolít",
+    "removeText": "Szöveg eltávolítása párhuzamosan",
     "yes": "Igen",
     "no": "Nem",
-    "outputFormat": "Kimeneti Formátum",
-    "compression": "Tömörítés",
+    "outputFormat": "Kimeneti formátum",
+    "compression": "Kép tömörítés",
     "highQuality": "Magas minőség",
-    "slightLoss": "Enyhe veszteség",
-    "poorQuality": "Gyenge minőség",
-    "pngLossless": "PNG veszteségmentes, nincs szükség tömörítésre",
+    "slightLoss": "Kis veszteség",
+    "poorQuality": "Alacsony képminőség",
+    "pngLossless": "PNG: Tömörítés nélküli, veszteségmentes formátum.",
     "width": "Szélesség",
     "height": "Magasság",
     "auto": "Automatikus",
-    "keepAspectRatio": "Arány Megtartása",
+    "keepAspectRatio": "Arányok megőrzése",
     "px": "px"
   },
   "pending": {
-    "title": "Várakozó Fájlok",
-    "clear": "Törlés",
-    "processAll": "Összes Feldolgozása",
+    "title": "Feldolgozásra váró fájlok",
+    "clear": "Összes törlése",
+    "processAll": "Összes feldolgozása",
     "processing": "Feldolgozás...",
     "process": "Feldolgozás"
   },
   "results": {
-    "title": "Befejezve",
-    "downloadAll": "Összes Letöltése",
+    "title": "A feldolgozás befejeződött.",
+    "downloadAll": "Összes letöltése",
     "download": "Letöltés",
-    "saved": "megtakarítva",
-    "increased": "növekedett"
+    "saved": "Sikeresen mentve",
+    "increased": "Sikeresen hozzáadva."
   },
   "language": {
-    "select": "Nyelv Kiválasztása"
+    "select": "Válassza ki a nyelvet"
+  ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

@@ -94,5 +94,8 @@
   },
   "language": {
     "select": "选择语言"
+  },
+  "errors": {
+    "fileTooLarge": "文件过大，最大支持 10MB"
   }
 }

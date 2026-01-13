@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Bezplatné Online Nástroje pro Obrázky | AI Odstranění Pozadí, Vodoznak, Komprese",
-    "description": "Bezplatné online nástroje pro obrázky: AI odstranění pozadí, vodoznak, falešná průhlednost, komprese, změna velikosti. Rychlé, bezplatné a soukromé.",
+    "title": "FixPic - Bezplatný online nástroj pro obrázky | AI odstranění pozadí, odstranění vodoznaku, komprese, změna velikosti",
+    "description": "Bezplatný online nástroj pro zpracování obrázků: AI chytré odstranění pozadí, odstranění vodoznaku, odstranění falešného průhledného pozadí, komprese obrázků a změna velikosti. Rychlé, bezplatné a šetrné k soukromí.",
     "tools": {
       "ai-remove-background": {
-        "title": "AI Odstranění Pozadí - Automatické Odstranění Pozadí Obrázku | FixPic",
-        "description": "Bezplatný nástroj pro odstranění pozadí pomocí AI. Automaticky detekuje a odstraňuje jakékoli pozadí, vytváří průhledné PNG během sekund. Bez registrace."
+        "title": "AI Odstraňovač Pozadí - Bezplatné Online Automatické Odstranění Pozadí Obrázků | FixPic",
+        "description": "Bezplatný nástroj pro odstranění pozadí poháněný AI, který automaticky identifikuje a odstraňuje jakékoli pozadí, a vytváří průhledné PNG obrázky jedním kliknutím. Registrace není potřebná – začněte ho používat hned teď!"
       },
       "remove-watermark": {
-        "title": "AI Odstranění Vodoznaku - Odstranění Vodoznaku Zdarma | FixPic",
-        "description": "Bezplatný nástroj pro odstranění vodoznaku pomocí AI. Automaticky detekuje a odstraňuje vodoznaky, loga a text z obrázků."
+        "title": "AI Odstraňovač Vodoznaků - Bezplatné Online Odstranění Vodoznaků z Obrázků | FixPic",
+        "description": "Bezplatný nástroj pro odstranění vodoznaků poháněný umělou inteligencí, který automaticky detekuje a odstraňuje vodoznaky, loga a text z obrázků. Užijte si čisté výsledky během několika sekund."
       },
       "remove-fake-transparency": {
-        "title": "Odstranění Falešné Průhlednosti - Oprava Šachovnicového Pozadí | FixPic",
-        "description": "Převádí falešně průhledná pozadí (šedo-bílá šachovnice) z AI nástrojů jako Midjourney, Lovart na skutečně průhledné PNG."
+        "title": "Odstranit falešnou průhlednost - Opravit šachovnicové pozadí na průhledné PNG | FixPic",
+        "description": "Převádějte falešné průhledné pozadí (šedobílé kostkované) exportované z AI nástrojů jako Midjourney a Lovart na skutečné průhledné PNG. Bezplatný online nástroj."
       },
       "compress": {
-        "title": "Komprese Obrázků - Komprese PNG, JPG, WebP Online Zdarma | FixPic",
-        "description": "Bezplatný online nástroj pro kompresi obrázků. Snižuje velikost souboru bez ztráty kvality. Podporuje konverzi PNG, JPG, WebP."
+        "title": "Kompresce obrázků - Bezplatná online komprese pro PNG, JPG, WebP | FixPic",
+        "description": "Bezplatný online nástroj pro kompresi obrázků pro bezztrátové zmenšení velikosti souboru. Podporuje konverzi formátů PNG, JPG a WebP, což z něj činí rychlý a snadno použitelný nástroj."
       },
       "resize": {
-        "title": "Změna Velikosti Obrázků - Změna Velikosti Online Zdarma | FixPic",
-        "description": "Bezplatný online nástroj pro změnu velikosti obrázků. Přesně mění rozměry se zachováním poměru stran. Podporuje PNG, JPG, WebP."
-      }
-    }
+        "title": "Změňte velikost svých obrázků - Bezplatný online nástroj pro změnu velikosti obrázků | FixPic",
+        "description": "Bezplatný online nástroj pro změnu velikosti obrázků, který vám umožní přesně upravit šířku a výšku vašich obrázků při zachování poměru stran. Podporuje formáty PNG, JPG a WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
   },
   "app": {
-    "title": "FixPic",
-    "tagline": "AI Nástroje pro Obrázky pro Vývojáře",
-    "footer": "FixPic - AI odstranění pozadí od Replicate, odstranění vodoznaku od Dewatermark.ai"
+    "title": "OpravitFotku",
+    "tagline": "Nástroj pro obrázky pro vývojáře AI",
+    "footer": "FixPic - AI odstranění pozadí poháněné technologií Replicate, podpora odstranění vodoznaků díky Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "AI Odstranit Pozadí",
-    "removeWatermark": "Odstranit Vodoznak",
-    "removeFakeTransparency": "Odstranit Falešnou Průhlednost",
+    "aiRemoveBg": "Odstranění pozadí pomocí AI",
+    "removeWatermark": "Odstranit vodoznak",
+    "removeFakeTransparency": "Odstranit průhlednost",
     "compress": "Komprimovat",
-    "resize": "Změnit Velikost"
+    "resize": "Změnit velikost"
   },
   "descriptions": {
-    "aiRemoveBg": "Inteligentní AI odstranění pozadí, automaticky detekuje a odstraní jakékoli pozadí, generuje průhledný PNG",
-    "removeWatermark": "Inteligentní AI odstranění vodoznaku, automaticky detekuje a odstraní vodoznaky, loga a text z obrázků",
-    "removeFakeTransparency": "Převádí falešná průhledná pozadí (šedo-bílá šachovnice) z AI nástrojů jako Lovart, Midjourney na skutečný průhledný PNG",
-    "compress": "Komprimuje obrázky a převádí formáty, podporuje WebP, PNG, JPEG",
-    "resize": "Přesně upravuje rozměry obrázku, podporuje zachování poměru stran"
+    "aiRemoveBg": "Odstranění pozadí poháněné AI automaticky identifikuje a eliminuje jakékoli pozadí, čímž vytváří průhledný PNG.",
+    "removeWatermark": "AI Chytré Odstranění Vodoznaků: Automaticky identifikujte a odstraňte vodoznaky, loga a text z obrázků.",
+    "removeFakeTransparency": "Převeďte falešné průhledné pozadí (šedobílé kostkované) exportované nástroji AI, jako jsou Lovart a Midjourney, na skutečné průhledné PNG.",
+    "compress": "Kompresujte obrázky a převádějte formáty, podporujeme WebP, PNG a JPEG.",
+    "resize": "Přesně upravte rozměry obrázku při zachování poměru stran."
   },
   "upload": {
-    "title": "Nahrát Obrázek",
-    "dragDrop": "Klikněte nebo přetáhněte pro nahrání obrázku",
-    "dragDropHint": "Podporuje PNG, JPG, WebP, maximálně 10MB",
-    "dropHere": "Přetáhněte obrázky sem, nebo klikněte pro výběr",
-    "batchHint": "Podporuje PNG, JPG, WebP, dávkové zpracování dostupné"
+    "title": "Nahrát obrázek",
+    "dragDrop": "Klikněte nebo přetáhněte pro nahrání vašeho obrázku.",
+    "dragDropHint": "Podporuje formáty PNG, JPG a WebP s maximální velikostí souboru 10 MB.",
+    "dropHere": "Přetáhněte sem svůj obrázek, nebo klikněte pro výběr.",
+    "batchHint": "Podporuje formáty PNG, JPG a WebP s možností hromadného zpracování."
   },
   "process": {
-    "result": "Výsledek",
-    "resultPlaceholder": "Výsledek bude zobrazen zde",
-    "processing": "Zpracování...",
+    "result": "Výsledky zpracování",
+    "resultPlaceholder": "Výsledky budou zobrazeny zde.",
+    "processing": "Zpracovávám...",
     "aiProcessing": "AI zpracovává...",
-    "processingHint": "Může to trvat několik sekund",
-    "failed": "Zpracování selhalo",
+    "processingHint": "Toto může trvat několik sekund.",
+    "failed": "Zpracování selhalo.",
     "download": "Stáhnout",
-    "removeBackground": "Odstranit Pozadí",
-    "removeWatermark": "Odstranit Vodoznak"
+    "removeBackground": "Odstranit pozadí",
+    "removeWatermark": "Odstranit vodoznak"
   },
   "options": {
-    "removeText": "Také odstranit text",
+    "removeText": "Odstranit text současně",
     "yes": "Ano",
-    "no": "Ne",
-    "outputFormat": "Výstupní Formát",
-    "compression": "Komprese",
+    "no": "Ne.",
+    "outputFormat": "Formát výstupu",
+    "compression": "Kompresce obrázků",
     "highQuality": "Vysoká kvalita",
     "slightLoss": "Mírná ztráta",
-    "poorQuality": "Nízká kvalita",
-    "pngLossless": "PNG bezztrátový, komprese není nutná",
+    "poorQuality": "Nízká kvalita obrázku",
+    "pngLossless": "PNG: Bezztrátový formát, který nevyžaduje kompresi.",
     "width": "Šířka",
     "height": "Výška",
-    "auto": "Auto",
-    "keepAspectRatio": "Zachovat Poměr",
+    "auto": "Automatický",
+    "keepAspectRatio": "Zachovat poměr stran",
     "px": "px"
   },
   "pending": {
-    "title": "Čekající Soubory",
-    "clear": "Vymazat",
-    "processAll": "Zpracovat Vše",
-    "processing": "Zpracování...",
+    "title": "Soubory čekající na zpracování",
+    "clear": "Vymazat vše",
+    "processAll": "Zpracovat vše",
+    "processing": "Zpracovávám...",
     "process": "Zpracovat"
   },
   "results": {
-    "title": "Dokončeno",
-    "downloadAll": "Stáhnout Vše",
+    "title": "Zpracování dokončeno.",
+    "downloadAll": "Stáhnout vše",
     "download": "Stáhnout",
-    "saved": "ušetřeno",
-    "increased": "zvýšeno"
+    "saved": "Úspěšně uloženo",
+    "increased": "Úspěšně přidáno."
   },
   "language": {
-    "select": "Vybrat Jazyk"
+    "select": "Vyberte jazyk"
+  ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

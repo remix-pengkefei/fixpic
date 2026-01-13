@@ -1,98 +1,101 @@
 {
   "seo": {
-    "title": "FixPic - Free Online Image Tools | AI Background Removal, Watermark Removal, Compress",
-    "description": "Free online image tools: AI background removal, watermark removal, fake transparency removal, compression, and resizing. Fast, free, and privacy-safe.",
+    "title": "FixPic - Free Online Image Tool | AI Background Removal, Watermark Removal, Compression, Resize",
+    "description": "Free Online Image Processing Tool: AI Smart Background Removal, Watermark Removal, Fake Transparent Background Removal, Image Compression, and Resizing. Fast, free, and privacy-friendly.",
     "tools": {
       "ai-remove-background": {
-        "title": "AI Background Remover - Remove Image Background Automatically | FixPic",
-        "description": "Free AI-powered background removal tool. Automatically detect and remove any background from photos, create transparent PNG images in seconds. No signup required."
+        "title": "AI Background Remover - Free Online Automatic Image Background Removal | FixPic",
+        "description": "Free AI-powered background removal tool that automatically identifies and removes any background, generating transparent PNG images with just one click. No registration required—start using it right away!"
       },
       "remove-watermark": {
-        "title": "AI Watermark Remover - Remove Watermark from Images Free | FixPic",
-        "description": "Free AI watermark removal tool. Automatically detect and remove watermarks, logos, and text from images. Clean results in seconds."
+        "title": "AI Watermark Remover - Free Online Image Watermark Removal | FixPic",
+        "description": "Free AI-powered watermark removal tool that automatically detects and removes watermarks, logos, and text from images. Experience clean results in just seconds."
       },
       "remove-fake-transparency": {
-        "title": "Remove Fake Transparency - Fix Checkerboard Background | FixPic",
-        "description": "Convert fake transparent backgrounds (gray-white checkerboard) from AI tools like Midjourney, Lovart to real transparent PNG. Free online tool."
+        "title": "Remove Fake Transparency - Repair Checkerboard Background to Transparent PNG | FixPic",
+        "description": "Convert the fake transparent backgrounds (gray and white checkerboard) exported from AI tools like Midjourney and Lovart into true transparent PNGs. A free online tool."
       },
       "compress": {
-        "title": "Image Compressor - Compress PNG, JPG, WebP Online Free | FixPic",
-        "description": "Free online image compression tool. Reduce image file size without losing quality. Supports PNG, JPG, WebP conversion. Fast and easy."
+        "title": "Image Compression - Free Online Compression for PNG, JPG, WebP | FixPic",
+        "description": "Free online image compression tool for lossless reduction of file size. Supports conversion of PNG, JPG, and WebP formats, making it fast and easy to use."
       },
       "resize": {
-        "title": "Image Resizer - Resize Images Online Free | FixPic",
-        "description": "Free online image resizer. Change image dimensions precisely with aspect ratio preservation. Supports PNG, JPG, WebP formats."
+        "title": "Resize Your Images - Free Online Image Resizer | FixPic",
+        "description": "Free online image resizing tool that allows you to precisely adjust the width and height of your images while maintaining the aspect ratio. Supports PNG, JPG, and WebP formats."
       }
     }
   },
   "app": {
     "title": "FixPic",
-    "tagline": "AI Image Toolbox for Developers",
-    "footer": "FixPic - AI background removal powered by Replicate, watermark removal powered by Dewatermark.ai"
+    "tagline": "AI Developer's Image Toolbox",
+    "footer": "FixPic - AI background removal powered by Replicate, watermark removal supported by Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "AI Remove BG",
+    "aiRemoveBg": "AI Background Removal",
     "removeWatermark": "Remove Watermark",
-    "removeFakeTransparency": "Remove Fake Transparency",
+    "removeFakeTransparency": "Remove Transparency",
     "compress": "Compress",
     "resize": "Resize"
   },
   "descriptions": {
-    "aiRemoveBg": "AI-powered background removal, automatically detect and remove any background, generate transparent PNG",
-    "removeWatermark": "AI-powered watermark removal, automatically detect and remove watermarks, logos, and text from images",
-    "removeFakeTransparency": "Convert fake transparent backgrounds (gray-white checkerboard) from AI tools like Lovart, Midjourney to real transparent PNG",
-    "compress": "Compress images and convert formats, supports WebP, PNG, JPEG",
-    "resize": "Precisely adjust image dimensions, supports aspect ratio preservation"
+    "aiRemoveBg": "AI-powered background removal automatically identifies and eliminates any background, generating a transparent PNG.",
+    "removeWatermark": "AI Smart Watermark Removal: Automatically identify and eliminate watermarks, logos, and text from images.",
+    "removeFakeTransparency": "Convert the faux transparent backgrounds (gray and white checkerboard) exported by AI tools like Lovart and Midjourney into true transparent PNGs.",
+    "compress": "Compress images and convert formats, supporting WebP, PNG, and JPEG.",
+    "resize": "Precisely adjust image dimensions while maintaining the aspect ratio."
   },
   "upload": {
     "title": "Upload Image",
-    "dragDrop": "Click or drag to upload image",
-    "dragDropHint": "Supports PNG, JPG, WebP, max 10MB",
-    "dropHere": "Drag images here, or click to select",
-    "batchHint": "Supports PNG, JPG, WebP, batch processing available"
+    "dragDrop": "Click or drag to upload your image.",
+    "dragDropHint": "Supports PNG, JPG, and WebP formats, with a maximum file size of 10MB.",
+    "dropHere": "Drag and drop your image here, or click to select.",
+    "batchHint": "Supports PNG, JPG, and WebP formats, with batch processing capabilities."
   },
   "process": {
-    "result": "Result",
-    "resultPlaceholder": "Result will be displayed here",
+    "result": "Processing Results",
+    "resultPlaceholder": "The results will be displayed here.",
     "processing": "Processing...",
     "aiProcessing": "AI is processing...",
-    "processingHint": "This may take a few seconds",
-    "failed": "Processing failed",
+    "processingHint": "This may take a few seconds.",
+    "failed": "Processing failed.",
     "download": "Download",
     "removeBackground": "Remove Background",
     "removeWatermark": "Remove Watermark"
   },
   "options": {
-    "removeText": "Also remove text",
+    "removeText": "Remove Text Simultaneously",
     "yes": "Yes",
     "no": "No",
     "outputFormat": "Output Format",
-    "compression": "Compression",
-    "highQuality": "High quality",
-    "slightLoss": "Slight loss",
-    "poorQuality": "Poor quality",
-    "pngLossless": "PNG is lossless, no compression needed",
+    "compression": "Image Compression",
+    "highQuality": "High Quality",
+    "slightLoss": "Slight Loss",
+    "poorQuality": "Low image quality",
+    "pngLossless": "PNG: Lossless and no compression required.",
     "width": "Width",
     "height": "Height",
-    "auto": "Auto",
-    "keepAspectRatio": "Keep Aspect Ratio",
+    "auto": "Automatic",
+    "keepAspectRatio": "Maintain Aspect Ratio",
     "px": "px"
   },
   "pending": {
-    "title": "Pending Files",
-    "clear": "Clear",
+    "title": "Files Pending Processing",
+    "clear": "Clear All",
     "processAll": "Process All",
     "processing": "Processing...",
     "process": "Process"
   },
   "results": {
-    "title": "Completed",
+    "title": "Processing complete.",
     "downloadAll": "Download All",
     "download": "Download",
-    "saved": "saved",
-    "increased": "increased"
+    "saved": "Saved Successfully",
+    "increased": "Added successfully."
   },
   "language": {
     "select": "Select Language"
+  },
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

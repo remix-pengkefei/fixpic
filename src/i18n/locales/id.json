@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Alat Gambar Online Gratis | Hapus Latar AI, Tanda Air, Kompres",
-    "description": "Alat gambar online gratis: hapus latar belakang AI, tanda air, transparansi palsu, kompres, ubah ukuran. Cepat, gratis dan privat.",
+    "title": "FixPic - Alat Gambar Daring Gratis | Penghapusan Latar Belakang AI, Penghapusan Watermark, Kompresi, Ukuran Ulang",
+    "description": "Alat Pengolah Gambar Daring Gratis: Penghapusan Latar Belakang Cerdas AI, Penghapusan Tanda Air, Penghapusan Latar Belakang Transparan Palsu, Kompresi Gambar, dan Pengubahan Ukuran. Cepat, gratis, dan ramah privasi.",
     "tools": {
       "ai-remove-background": {
-        "title": "Penghapus Latar Belakang AI - Hapus Latar Belakang Gambar Otomatis | FixPic",
-        "description": "Alat penghapus latar belakang AI gratis. Deteksi dan hapus latar belakang apa pun secara otomatis, buat PNG transparan dalam hitungan detik. Tanpa pendaftaran."
+        "title": "Penghapus Latar Belakang AI - Penghapusan Latar Belakang Gambar Otomatis Gratis Secara Daring | FixPic",
+        "description": "Alat penghapus latar belakang bertenaga AI gratis yang secara otomatis mengidentifikasi dan menghapus latar belakang, menghasilkan gambar PNG transparan hanya dengan satu klik. Tanpa perlu registrasi—mulai gunakan sekarang juga!"
       },
       "remove-watermark": {
-        "title": "Penghapus Watermark AI - Hapus Watermark Gratis | FixPic",
-        "description": "Alat penghapus watermark AI gratis. Deteksi dan hapus watermark, logo, dan teks dari gambar secara otomatis."
+        "title": "Penghapus Watermark AI - Penghapusan Watermark Gambar Online Gratis | FixPic",
+        "description": "Alat penghapus watermark bertenaga AI gratis yang secara otomatis mendeteksi dan menghapus watermark, logo, dan teks dari gambar. Rasakan hasil bersih hanya dalam hitungan detik."
       },
       "remove-fake-transparency": {
-        "title": "Hapus Transparansi Palsu - Perbaiki Latar Belakang Kotak-kotak | FixPic",
-        "description": "Konversi latar belakang transparan palsu (kotak-kotak abu-putih) dari alat AI seperti Midjourney, Lovart ke PNG transparan asli."
+        "title": "Hapus Transparansi Palsu - Perbaiki Latar Belakang Kotak Catur Menjadi PNG Transparan | FixPic",
+        "description": "Ubah latar belakang transparan palsu (papan catur abu-abu dan putih) yang diekspor dari alat AI seperti Midjourney dan Lovart menjadi PNG transparan yang sebenarnya. Alat online gratis."
       },
       "compress": {
-        "title": "Kompresor Gambar - Kompres PNG, JPG, WebP Online Gratis | FixPic",
-        "description": "Alat kompresi gambar online gratis. Kurangi ukuran file tanpa kehilangan kualitas. Mendukung konversi PNG, JPG, WebP."
+        "title": "Kompresi Gambar - Kompresi Online Gratis untuk PNG, JPG, WebP | FixPic",
+        "description": "Alat kompresi gambar online gratis untuk pengurangan ukuran file tanpa kehilangan kualitas. Mendukung konversi format PNG, JPG, dan WebP, menjadikannya cepat dan mudah digunakan."
       },
       "resize": {
-        "title": "Pengubah Ukuran Gambar - Ubah Ukuran Gambar Online Gratis | FixPic",
-        "description": "Pengubah ukuran gambar online gratis. Ubah dimensi dengan tepat dengan mempertahankan rasio aspek. Mendukung PNG, JPG, WebP."
-      }
-    }
+        "title": "Ubah Ukuran Gambar Anda - Pengubah Ukuran Gambar Gratis Online | FixPic",
+        "description": "Alat pengubah ukuran gambar online gratis yang memungkinkan Anda menyesuaikan lebar dan tinggi gambar dengan tepat sambil mempertahankan rasio aspek. Mendukung format PNG, JPG, dan WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
   },
   "app": {
-    "title": "FixPic",
-    "tagline": "Kotak Alat Gambar AI untuk Pengembang",
-    "footer": "FixPic - Penghapusan latar belakang AI oleh Replicate, penghapusan tanda air oleh Dewatermark.ai"
+    "title": "PerbaikiGambar",
+    "tagline": "Kotak Alat Gambar Pengembang AI",
+    "footer": "FixPic - Penghapusan latar belakang berbasis AI yang didukung oleh Replicate, penghapusan watermark didukung oleh Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "AI Hapus Latar",
-    "removeWatermark": "Hapus Tanda Air",
-    "removeFakeTransparency": "Hapus Transparansi Palsu",
+    "aiRemoveBg": "Penghapusan Latar Belakang AI",
+    "removeWatermark": "Hapus Watermark",
+    "removeFakeTransparency": "Hapus Transparansi",
     "compress": "Kompres",
     "resize": "Ubah Ukuran"
   },
   "descriptions": {
-    "aiRemoveBg": "Penghapusan latar belakang cerdas AI, secara otomatis mendeteksi dan menghapus latar belakang apa pun, menghasilkan PNG transparan",
-    "removeWatermark": "Penghapusan tanda air cerdas AI, secara otomatis mendeteksi dan menghapus tanda air, logo, dan teks dari gambar",
-    "removeFakeTransparency": "Mengubah latar belakang transparan palsu (kotak-kotak abu-putih) dari alat AI seperti Lovart, Midjourney menjadi PNG transparan asli",
-    "compress": "Kompres gambar dan konversi format, mendukung WebP, PNG, JPEG",
-    "resize": "Sesuaikan dimensi gambar dengan tepat, mendukung mempertahankan rasio aspek"
+    "aiRemoveBg": "Penghapusan latar belakang yang didukung AI secara otomatis mengidentifikasi dan menghilangkan latar belakang apa pun, menghasilkan file PNG transparan.",
+    "removeWatermark": "Penghapusan Watermark Cerdas AI: Secara otomatis mengidentifikasi dan menghilangkan watermark, logo, dan teks dari gambar.",
+    "removeFakeTransparency": "Ubah latar belakang transparan palsu (kotak-kotak abu-abu dan putih) yang diekspor oleh alat AI seperti Lovart dan Midjourney menjadi PNG transparan yang sebenarnya.",
+    "compress": "Kompres gambar dan konversi format, mendukung WebP, PNG, dan JPEG.",
+    "resize": "Sesuaikan dimensi gambar dengan tepat sambil mempertahankan rasio aspek."
   },
   "upload": {
     "title": "Unggah Gambar",
-    "dragDrop": "Klik atau seret untuk mengunggah gambar",
-    "dragDropHint": "Mendukung PNG, JPG, WebP, maksimal 10MB",
-    "dropHere": "Seret gambar ke sini, atau klik untuk memilih",
-    "batchHint": "Mendukung PNG, JPG, WebP, pemrosesan batch tersedia"
+    "dragDrop": "Klik atau seret untuk mengunggah gambar Anda.",
+    "dragDropHint": "Mendukung format PNG, JPG, dan WebP, dengan ukuran file maksimum 10MB.",
+    "dropHere": "Seret dan lepas gambar Anda di sini, atau klik untuk memilih.",
+    "batchHint": "Mendukung format PNG, JPG, dan WebP, dengan kemampuan pemrosesan batch."
   },
   "process": {
-    "result": "Hasil",
-    "resultPlaceholder": "Hasil akan ditampilkan di sini",
-    "processing": "Memproses...",
+    "result": "Hasil Pemrosesan",
+    "resultPlaceholder": "Hasil akan ditampilkan di sini.",
+    "processing": "Sedang memproses...",
     "aiProcessing": "AI sedang memproses...",
-    "processingHint": "Ini mungkin membutuhkan beberapa detik",
-    "failed": "Pemrosesan gagal",
+    "processingHint": "Ini mungkin memerlukan beberapa detik.",
+    "failed": "Pemrosesan gagal.",
     "download": "Unduh",
     "removeBackground": "Hapus Latar Belakang",
-    "removeWatermark": "Hapus Tanda Air"
+    "removeWatermark": "Hapus Watermark"
   },
   "options": {
-    "removeText": "Hapus teks juga",
+    "removeText": "Hapus Teks Secara Bersamaan",
     "yes": "Ya",
     "no": "Tidak",
-    "outputFormat": "Format Output",
-    "compression": "Kompresi",
-    "highQuality": "Kualitas tinggi",
-    "slightLoss": "Sedikit kehilangan",
-    "poorQuality": "Kualitas buruk",
-    "pngLossless": "PNG tanpa kehilangan, tidak perlu kompresi",
+    "outputFormat": "Format Keluaran",
+    "compression": "Kompresi Gambar",
+    "highQuality": "Kualitas Tinggi",
+    "slightLoss": "Kehilangan Sedikit",
+    "poorQuality": "Kualitas gambar rendah",
+    "pngLossless": "PNG: Tanpa kehilangan dan tidak memerlukan kompresi.",
     "width": "Lebar",
     "height": "Tinggi",
     "auto": "Otomatis",
-    "keepAspectRatio": "Pertahankan Rasio",
+    "keepAspectRatio": "Pertahankan Rasio Aspek",
     "px": "px"
   },
   "pending": {
-    "title": "File Tertunda",
-    "clear": "Hapus",
+    "title": "Berkas Menunggu Proses",
+    "clear": "Bersihkan Semua",
     "processAll": "Proses Semua",
     "processing": "Memproses...",
     "process": "Proses"
   },
   "results": {
-    "title": "Selesai",
+    "title": "Pemrosesan selesai.",
     "downloadAll": "Unduh Semua",
     "download": "Unduh",
-    "saved": "dihemat",
-    "increased": "bertambah"
+    "saved": "Disimpan dengan Sukses",
+    "increased": "Berhasil ditambahkan."
   },
   "language": {
     "select": "Pilih Bahasa"
+  ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

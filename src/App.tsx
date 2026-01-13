@@ -93,6 +93,8 @@ function App() {
     setIsDragging(false)
   }, [])
 
+  const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
+
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault()
     setIsDragging(false)
@@ -100,6 +102,10 @@ function App() {
       if (activeTool === 'ai-remove-bg') {
         const file = e.dataTransfer.files[0]
         if (file.type.startsWith('image/')) {
+          if (file.size > MAX_FILE_SIZE) {
+            setError(t('errors.fileTooLarge'))
+            return
+          }
           setUploadedFile(file)
           setUploadedImage(URL.createObjectURL(file))
           setResultImage(null)
@@ -108,6 +114,10 @@ function App() {
       } else if (activeTool === 'remove-watermark') {
         const file = e.dataTransfer.files[0]
         if (file.type.startsWith('image/')) {
+          if (file.size > MAX_FILE_SIZE) {
+            setError(t('errors.fileTooLarge'))
+            return
+          }
           setWmUploadedFile(file)
           setWmUploadedImage(URL.createObjectURL(file))
           setWmResultImage(null)
@@ -117,13 +127,18 @@ function App() {
         addFiles(e.dataTransfer.files)
       }
     }
-  }, [activeTool])
+  }, [activeTool, t])
 
   const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       if (activeTool === 'ai-remove-bg') {
         const file = e.target.files[0]
         if (file.type.startsWith('image/')) {
+          if (file.size > MAX_FILE_SIZE) {
+            setError(t('errors.fileTooLarge'))
+            e.target.value = ''
+            return
+          }
           setUploadedFile(file)
           setUploadedImage(URL.createObjectURL(file))
           setResultImage(null)
@@ -132,6 +147,11 @@ function App() {
       } else if (activeTool === 'remove-watermark') {
         const file = e.target.files[0]
         if (file.type.startsWith('image/')) {
+          if (file.size > MAX_FILE_SIZE) {
+            setError(t('errors.fileTooLarge'))
+            e.target.value = ''
+            return
+          }
           setWmUploadedFile(file)
           setWmUploadedImage(URL.createObjectURL(file))
           setWmResultImage(null)
@@ -142,7 +162,7 @@ function App() {
       }
       e.target.value = ''
     }
-  }, [activeTool])
+  }, [activeTool, t])
 
   // AI 抠图处理
   const handleAiRemoveBg = useCallback(async () => {

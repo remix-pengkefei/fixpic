@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Outils d'image en ligne gratuits | Supprimer fond IA, filigrane, compresser",
-    "description": "Outils d'image en ligne gratuits : suppression de fond IA, filigrane, fausse transparence, compression, redimensionnement. Rapide, gratuit et privé.",
+    "title": "FixPic - Outil d'Image en Ligne Gratuit | Suppression de Fond par IA, Suppression de Filigrane, Compression, Redimensionnement",
+    "description": "Outil de traitement d'image en ligne gratuit : suppression intelligente de l'arrière-plan par IA, suppression de filigrane, suppression de faux arrière-plans transparents, compression et redimensionnement d'images. Rapide, gratuit et respectueux de votre vie privée.",
     "tools": {
       "ai-remove-background": {
-        "title": "Suppresseur de Fond AI - Supprimer le Fond d'Image Automatiquement | FixPic",
-        "description": "Outil gratuit de suppression de fond par IA. Détecte et supprime automatiquement tout fond, crée des PNG transparents en secondes. Sans inscription."
+        "title": "Supprimeur d'Arrière-plan IA - Outil en Ligne Gratuit pour la Suppression Automatique d'Arrière-plan d'Image | FixPic",
+        "description": "Outil de suppression d'arrière-plan alimenté par l'IA, gratuit et capable d'identifier et de retirer automatiquement tout arrière-plan, générant des images PNG transparentes en un seul clic. Aucune inscription requise : commencez à l'utiliser immédiatement !"
       },
       "remove-watermark": {
-        "title": "Suppresseur de Filigrane AI - Supprimer Filigrane Gratuit | FixPic",
-        "description": "Outil gratuit de suppression de filigrane par IA. Détecte et supprime automatiquement filigranes, logos et texte des images."
+        "title": "Supprimeur de Filigrane IA - Suppression de Filigrane d'Image en Ligne Gratuite | FixPic",
+        "description": "Outil de suppression de filigrane alimenté par l'IA, qui détecte et élimine automatiquement les filigranes, logos et textes des images. Découvrez des résultats impeccables en quelques secondes seulement."
       },
       "remove-fake-transparency": {
-        "title": "Supprimer Fausse Transparence - Corriger Fond Damier | FixPic",
-        "description": "Convertit les fonds faussement transparents (damier gris-blanc) des outils AI comme Midjourney, Lovart en PNG vraiment transparent."
+        "title": "Supprimer la transparence factice - Réparer l'arrière-plan en damier pour un PNG transparent | FixPic",
+        "description": "Convertissez les faux arrière-plans transparents (damier gris et blanc) exportés depuis des outils d'IA comme Midjourney et Lovart en véritables PNG transparents. Un outil en ligne gratuit."
       },
       "compress": {
-        "title": "Compresseur d'Images - Compresser PNG, JPG, WebP en Ligne Gratuit | FixPic",
-        "description": "Outil gratuit de compression d'images en ligne. Réduit la taille du fichier sans perte de qualité. Supporte conversion PNG, JPG, WebP."
+        "title": "Compression d'images - Compression en ligne gratuite pour PNG, JPG, WebP | FixPic",
+        "description": "Outil de compression d'image en ligne gratuit pour une réduction sans perte de la taille des fichiers. Prend en charge la conversion des formats PNG, JPG et WebP, rendant son utilisation rapide et facile."
       },
       "resize": {
-        "title": "Redimensionneur d'Images - Redimensionner Images en Ligne Gratuit | FixPic",
-        "description": "Redimensionneur d'images en ligne gratuit. Change les dimensions précisément en conservant le ratio. Supporte PNG, JPG, WebP."
-      }
-    }
+        "title": "Redimensionnez vos images - Redimensionneur d'images en ligne gratuit | FixPic",
+        "description": "Outil de redimensionnement d'images en ligne gratuit qui vous permet d'ajuster précisément la largeur et la hauteur de vos images tout en préservant le rapport d'aspect. Prend en charge les formats PNG, JPG et WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "Fichier trop volumineux. La taille maximale est de 10 Mo."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "Fichier trop volumineux. La taille maximale est de 10 Mo."
+  }
+}
   },
   "app": {
     "title": "FixPic",
-    "tagline": "Boîte à outils d'images IA pour développeurs",
-    "footer": "FixPic - Suppression d'arrière-plan IA par Replicate, suppression de filigrane par Dewatermark.ai"
+    "tagline": "Boîte à outils d'images pour développeurs IA",
+    "footer": "FixPic - Suppression de fond par IA propulsée par Replicate, suppression de filigrane prise en charge par Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "Supprimer fond IA",
-    "removeWatermark": "Supprimer filigrane",
-    "removeFakeTransparency": "Supprimer fausse transparence",
+    "aiRemoveBg": "Suppression de Fond par IA",
+    "removeWatermark": "Supprimer le filigrane",
+    "removeFakeTransparency": "Supprimer la transparence",
     "compress": "Compresser",
     "resize": "Redimensionner"
   },
   "descriptions": {
-    "aiRemoveBg": "Suppression intelligente d'arrière-plan par IA, détecte et supprime automatiquement tout arrière-plan, génère un PNG transparent",
-    "removeWatermark": "Suppression intelligente de filigrane par IA, détecte et supprime automatiquement les filigranes, logos et textes des images",
-    "removeFakeTransparency": "Convertit les faux arrière-plans transparents (grille gris-blanc) des outils IA comme Lovart, Midjourney en vrai PNG transparent",
-    "compress": "Compresse les images et convertit les formats, prend en charge WebP, PNG, JPEG",
-    "resize": "Ajuste précisément les dimensions de l'image, prend en charge le maintien du ratio"
+    "aiRemoveBg": "La suppression de fond alimentée par l'IA identifie et élimine automatiquement tout arrière-plan, générant ainsi un PNG transparent.",
+    "removeWatermark": "Suppression intelligente des filigranes par IA : Identifiez et éliminez automatiquement les filigranes, logos et textes des images.",
+    "removeFakeTransparency": "Convertissez les faux arrière-plans transparents (damier gris et blanc) exportés par des outils d'IA comme Lovart et Midjourney en véritables PNG transparents.",
+    "compress": "Compressez les images et convertissez les formats, en prenant en charge WebP, PNG et JPEG.",
+    "resize": "Ajustez précisément les dimensions de l'image tout en maintenant le ratio d'aspect."
   },
   "upload": {
     "title": "Télécharger l'image",
-    "dragDrop": "Cliquez ou glissez pour télécharger l'image",
-    "dragDropHint": "Prend en charge PNG, JPG, WebP, maximum 10 Mo",
-    "dropHere": "Glissez les images ici, ou cliquez pour sélectionner",
-    "batchHint": "Prend en charge PNG, JPG, WebP, traitement par lots disponible"
+    "dragDrop": "Cliquez ou faites glisser pour télécharger votre image.",
+    "dragDropHint": "Prend en charge les formats PNG, JPG et WebP, avec une taille de fichier maximale de 10 Mo.",
+    "dropHere": "Faites glisser et déposez votre image ici, ou cliquez pour sélectionner.",
+    "batchHint": "Prend en charge les formats PNG, JPG et WebP, avec des capacités de traitement par lots."
   },
   "process": {
-    "result": "Résultat",
-    "resultPlaceholder": "Le résultat sera affiché ici",
-    "processing": "Traitement...",
-    "aiProcessing": "IA en traitement...",
-    "processingHint": "Cela peut prendre quelques secondes",
-    "failed": "Échec du traitement",
+    "result": "Résultats du traitement",
+    "resultPlaceholder": "Les résultats seront affichés ici.",
+    "processing": "Traitement en cours...",
+    "aiProcessing": "L'IA est en cours de traitement...",
+    "processingHint": "Cela peut prendre quelques secondes.",
+    "failed": "Le traitement a échoué.",
     "download": "Télécharger",
     "removeBackground": "Supprimer l'arrière-plan",
     "removeWatermark": "Supprimer le filigrane"
   },
   "options": {
-    "removeText": "Supprimer aussi le texte",
+    "removeText": "Supprimer le texte simultanément",
     "yes": "Oui",
     "no": "Non",
     "outputFormat": "Format de sortie",
-    "compression": "Compression",
-    "highQuality": "Haute qualité",
-    "slightLoss": "Perte légère",
-    "poorQuality": "Qualité médiocre",
-    "pngLossless": "PNG sans perte, pas besoin de compression",
+    "compression": "Compression d'image",
+    "highQuality": "Haute Qualité",
+    "slightLoss": "Légère perte",
+    "poorQuality": "Qualité d'image faible",
+    "pngLossless": "PNG : Sans perte et sans compression requise.",
     "width": "Largeur",
     "height": "Hauteur",
-    "auto": "Auto",
-    "keepAspectRatio": "Conserver le ratio",
+    "auto": "Automatique",
+    "keepAspectRatio": "Conserver le rapport d'aspect",
     "px": "px"
   },
   "pending": {
-    "title": "Fichiers en attente",
-    "clear": "Effacer",
-    "processAll": "Tout traiter",
-    "processing": "Traitement...",
+    "title": "Fichiers en attente de traitement",
+    "clear": "Tout effacer",
+    "processAll": "Traiter Tout",
+    "processing": "Traitement en cours...",
     "process": "Traiter"
   },
   "results": {
-    "title": "Terminé",
-    "downloadAll": "Tout télécharger",
+    "title": "Traitement terminé.",
+    "downloadAll": "Télécharger tout",
     "download": "Télécharger",
-    "saved": "économisé",
-    "increased": "augmenté"
+    "saved": "Enregistré avec succès",
+    "increased": "Ajouté avec succès."
   },
   "language": {
     "select": "Sélectionner la langue"
+  ,
+  "errors": {
+    "fileTooLarge": "Fichier trop volumineux. La taille maximale est de 10 Mo."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "Fichier trop volumineux. La taille maximale est de 10 Mo."
   }
 }

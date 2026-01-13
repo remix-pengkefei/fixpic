@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { languages } from '../i18n'
 
@@ -11,6 +12,17 @@ interface HeaderProps {
 export function Header({ lang, showLanguageMenu, setShowLanguageMenu, onLanguageChange }: HeaderProps) {
   const { t, i18n } = useTranslation()
   const currentLang = languages.find(l => l.code === (lang || i18n.language)) || languages.find(l => l.code === 'en')!
+  const switcherRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (showLanguageMenu && switcherRef.current && !switcherRef.current.contains(e.target as Node)) {
+        setShowLanguageMenu(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [showLanguageMenu, setShowLanguageMenu])
 
   return (
     <header className="header">
@@ -22,7 +34,7 @@ export function Header({ lang, showLanguageMenu, setShowLanguageMenu, onLanguage
         <p className="tagline">{t('app.tagline')}</p>
       </div>
       <div className="header-right">
-        <div className="language-switcher">
+        <div className="language-switcher" ref={switcherRef}>
           <button
             className="language-btn"
             onClick={() => setShowLanguageMenu(!showLanguageMenu)}

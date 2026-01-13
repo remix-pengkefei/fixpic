@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Công cụ hình ảnh trực tuyến miễn phí | Xóa nền AI, watermark, nén ảnh",
-    "description": "Công cụ hình ảnh trực tuyến miễn phí: xóa nền AI, watermark, trong suốt giả, nén, thay đổi kích thước. Nhanh, miễn phí và bảo mật.",
+    "title": "FixPic - Công Cụ Hình Ảnh Trực Tuyến Miễn Phí | Xóa Nền AI, Xóa Watermark, Nén Hình Ảnh, Thay Đổi Kích Thước",
+    "description": "Công cụ Xử Lý Hình Ảnh Trực Tuyến Miễn Phí: Xóa Nền Thông Minh AI, Xóa Dấu Nước, Xóa Nền Trong Suốt Giả, Nén Hình Ảnh và Thay Đổi Kích Thước. Nhanh chóng, miễn phí và bảo mật thông tin cá nhân.",
     "tools": {
       "ai-remove-background": {
-        "title": "Xóa Nền AI - Tự Động Xóa Nền Ảnh | FixPic",
-        "description": "Công cụ xóa nền AI miễn phí. Tự động phát hiện và xóa mọi nền, tạo PNG trong suốt trong vài giây. Không cần đăng ký."
+        "title": "Công cụ Xóa Phông Nền AI - Xóa Phông Nền Hình Ảnh Tự Động Miễn Phí Trực Tuyến | FixPic",
+        "description": "Công cụ xóa nền miễn phí sử dụng trí tuệ nhân tạo, tự động nhận diện và loại bỏ mọi nền, tạo ra hình ảnh PNG trong suốt chỉ với một cú nhấp chuột. Không cần đăng ký - hãy bắt đầu sử dụng ngay bây giờ!"
       },
       "remove-watermark": {
-        "title": "Xóa Watermark AI - Xóa Watermark Miễn Phí | FixPic",
-        "description": "Công cụ xóa watermark AI miễn phí. Tự động phát hiện và xóa watermark, logo, chữ khỏi ảnh."
+        "title": "Công Cụ Xóa Dấu Nước AI - Xóa Dấu Nước Hình Ảnh Trực Tuyến Miễn Phí | FixPic",
+        "description": "Công cụ xóa watermark miễn phí sử dụng trí tuệ nhân tạo, tự động phát hiện và loại bỏ watermark, logo và văn bản khỏi hình ảnh. Trải nghiệm kết quả sạch chỉ trong vài giây."
       },
       "remove-fake-transparency": {
-        "title": "Xóa Trong Suốt Giả - Sửa Nền Ca Rô | FixPic",
-        "description": "Chuyển đổi nền trong suốt giả (ô ca rô xám trắng) từ công cụ AI như Midjourney, Lovart thành PNG trong suốt thực."
+        "title": "Xóa Độ Trong Suốt Giả - Sửa Chữa Nền Bảng Kiểm Tra Thành PNG Trong Suốt | FixPic",
+        "description": "Chuyển đổi các nền trong suốt giả (bảng caro xám và trắng) được xuất từ các công cụ AI như Midjourney và Lovart thành các tệp PNG trong suốt thực sự. Một công cụ trực tuyến miễn phí."
       },
       "compress": {
-        "title": "Nén Ảnh - Nén PNG, JPG, WebP Trực Tuyến Miễn Phí | FixPic",
-        "description": "Công cụ nén ảnh trực tuyến miễn phí. Giảm kích thước file không mất chất lượng. Hỗ trợ chuyển đổi PNG, JPG, WebP."
+        "title": "Nén Hình Ảnh - Nén Miễn Phí Trực Tuyến cho PNG, JPG, WebP | FixPic",
+        "description": "Công cụ nén hình ảnh trực tuyến miễn phí cho việc giảm kích thước tệp mà không mất chất lượng. Hỗ trợ chuyển đổi các định dạng PNG, JPG và WebP, giúp bạn sử dụng nhanh chóng và dễ dàng."
       },
       "resize": {
-        "title": "Thay Đổi Kích Thước Ảnh - Resize Ảnh Trực Tuyến Miễn Phí | FixPic",
-        "description": "Công cụ thay đổi kích thước ảnh trực tuyến miễn phí. Thay đổi kích thước chính xác giữ tỷ lệ. Hỗ trợ PNG, JPG, WebP."
-      }
-    }
+        "title": "Thay Đổi Kích Thước Ảnh Của Bạn - Công Cụ Thay Đổi Kích Thước Ảnh Trực Tuyến Miễn Phí | FixPic",
+        "description": "Công cụ chỉnh sửa kích thước hình ảnh trực tuyến miễn phí cho phép bạn điều chỉnh chính xác chiều rộng và chiều cao của hình ảnh trong khi vẫn giữ nguyên tỷ lệ khung hình. Hỗ trợ các định dạng PNG, JPG và WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
   },
   "app": {
-    "title": "FixPic",
-    "tagline": "Hộp công cụ hình ảnh AI cho nhà phát triển",
-    "footer": "FixPic - Xóa nền AI bởi Replicate, xóa watermark bởi Dewatermark.ai"
+    "title": "Sửa Ảnh",
+    "tagline": "Hộp Công Cụ Hình Ảnh của Nhà Phát Triển AI",
+    "footer": "FixPic - Xóa nền bằng AI được hỗ trợ bởi Replicate, hỗ trợ xóa watermark bởi Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "Xóa nền AI",
-    "removeWatermark": "Xóa watermark",
-    "removeFakeTransparency": "Xóa trong suốt giả",
+    "aiRemoveBg": "Xóa nền bằng AI",
+    "removeWatermark": "Xóa Dấu Nước",
+    "removeFakeTransparency": "Xóa Độ Trong Suốt",
     "compress": "Nén",
     "resize": "Thay đổi kích thước"
   },
   "descriptions": {
-    "aiRemoveBg": "Xóa nền thông minh bằng AI, tự động phát hiện và xóa mọi nền, tạo PNG trong suốt",
-    "removeWatermark": "Xóa watermark thông minh bằng AI, tự động phát hiện và xóa watermark, logo, chữ khỏi hình ảnh",
-    "removeFakeTransparency": "Chuyển đổi nền trong suốt giả (ô cờ xám-trắng) từ các công cụ AI như Lovart, Midjourney sang PNG trong suốt thực sự",
-    "compress": "Nén hình ảnh và chuyển đổi định dạng, hỗ trợ WebP, PNG, JPEG",
-    "resize": "Điều chỉnh chính xác kích thước hình ảnh, hỗ trợ giữ tỷ lệ"
+    "aiRemoveBg": "Công nghệ AI loại bỏ nền tự động nhận diện và loại bỏ mọi nền, tạo ra tệp PNG trong suốt.",
+    "removeWatermark": "Xóa watermark thông minh bằng AI: Tự động nhận diện và loại bỏ watermark, logo và văn bản khỏi hình ảnh.",
+    "removeFakeTransparency": "Chuyển đổi các nền giả trong suốt (bảng caro xám và trắng) được xuất ra bởi các công cụ AI như Lovart và Midjourney thành các tệp PNG trong suốt thực sự.",
+    "compress": "Nén hình ảnh và chuyển đổi định dạng, hỗ trợ WebP, PNG và JPEG.",
+    "resize": "Điều chỉnh kích thước hình ảnh một cách chính xác trong khi vẫn giữ nguyên tỷ lệ khung hình."
   },
   "upload": {
     "title": "Tải lên hình ảnh",
-    "dragDrop": "Nhấp hoặc kéo để tải lên hình ảnh",
-    "dragDropHint": "Hỗ trợ PNG, JPG, WebP, tối đa 10MB",
-    "dropHere": "Kéo hình ảnh vào đây, hoặc nhấp để chọn",
-    "batchHint": "Hỗ trợ PNG, JPG, WebP, xử lý hàng loạt có sẵn"
+    "dragDrop": "Nhấp hoặc kéo để tải lên hình ảnh của bạn.",
+    "dragDropHint": "Hỗ trợ định dạng PNG, JPG và WebP, với kích thước tệp tối đa là 10MB.",
+    "dropHere": "Kéo và thả hình ảnh của bạn vào đây, hoặc nhấp để chọn.",
+    "batchHint": "Hỗ trợ định dạng PNG, JPG và WebP, với khả năng xử lý hàng loạt."
   },
   "process": {
-    "result": "Kết quả",
-    "resultPlaceholder": "Kết quả sẽ được hiển thị ở đây",
+    "result": "Kết quả xử lý",
+    "resultPlaceholder": "Kết quả sẽ được hiển thị ở đây.",
     "processing": "Đang xử lý...",
     "aiProcessing": "AI đang xử lý...",
-    "processingHint": "Có thể mất vài giây",
-    "failed": "Xử lý thất bại",
+    "processingHint": "Điều này có thể mất vài giây.",
+    "failed": "Xử lý không thành công.",
     "download": "Tải xuống",
     "removeBackground": "Xóa nền",
     "removeWatermark": "Xóa watermark"
   },
   "options": {
-    "removeText": "Đồng thời xóa chữ",
-    "yes": "Có",
+    "removeText": "Xóa văn bản đồng thời",
+    "yes": "Có.",
     "no": "Không",
     "outputFormat": "Định dạng đầu ra",
-    "compression": "Nén",
+    "compression": "Nén Hình Ảnh",
     "highQuality": "Chất lượng cao",
-    "slightLoss": "Mất mát nhẹ",
-    "poorQuality": "Chất lượng kém",
-    "pngLossless": "PNG không mất dữ liệu, không cần nén",
+    "slightLoss": "Mất Mát Nhẹ",
+    "poorQuality": "Chất lượng hình ảnh thấp",
+    "pngLossless": "PNG: Không mất dữ liệu và không cần nén.",
     "width": "Chiều rộng",
     "height": "Chiều cao",
     "auto": "Tự động",
-    "keepAspectRatio": "Giữ tỷ lệ",
+    "keepAspectRatio": "Giữ Tỷ Lệ Khung Hình",
     "px": "px"
   },
   "pending": {
-    "title": "Tệp đang chờ",
-    "clear": "Xóa",
-    "processAll": "Xử lý tất cả",
+    "title": "Tệp đang chờ xử lý",
+    "clear": "Xóa tất cả",
+    "processAll": "Xử lý Tất cả",
     "processing": "Đang xử lý...",
     "process": "Xử lý"
   },
   "results": {
-    "title": "Hoàn thành",
-    "downloadAll": "Tải xuống tất cả",
-    "download": "Tải xuống",
-    "saved": "đã tiết kiệm",
-    "increased": "đã tăng"
+    "title": "Xử lý hoàn tất.",
+    "downloadAll": "Tải về tất cả",
+    "download": "Tải về",
+    "saved": "Lưu thành công",
+    "increased": "Thêm thành công."
   },
   "language": {
-    "select": "Chọn ngôn ngữ"
+    "select": "Chọn Ngôn Ngữ"
+  ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

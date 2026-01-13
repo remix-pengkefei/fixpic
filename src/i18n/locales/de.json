@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Kostenlose Online-Bildtools | KI Hintergrund entfernen, Wasserzeichen, komprimieren",
-    "description": "Kostenlose Online-Bildtools: KI-Hintergrundentfernung, Wasserzeichen entfernen, falsche Transparenz, komprimieren, Größe ändern. Schnell, kostenlos und privat.",
+    "title": "FixPic - Kostenloses Online-Bildtool | KI-Hintergrundentfernung, Wasserzeichenentfernung, Kompression, Größenänderung",
+    "description": "Kostenloses Online-Bildbearbeitungstool: KI-gestützte intelligente Hintergrundentfernung, Wasserzeichenentfernung, Entfernung von gefälschten transparenten Hintergründen, Bildkompression und Größenänderung. Schnell, kostenlos und datenschutzfreundlich.",
     "tools": {
       "ai-remove-background": {
-        "title": "AI Hintergrund Entferner - Bildhintergrund Automatisch Entfernen | FixPic",
-        "description": "Kostenloses AI-Hintergrundentfernungstool. Erkennt und entfernt automatisch jeden Hintergrund, erstellt transparente PNGs in Sekunden. Keine Anmeldung."
+        "title": "AI-Hintergrundentferner - Kostenlose Online-Automatische Bildhintergrundentfernung | FixPic",
+        "description": "Kostenloses KI-gestütztes Tool zur Hintergrundentfernung, das automatisch jeden Hintergrund erkennt und entfernt. Erstellen Sie mit nur einem Klick transparente PNG-Bilder. Keine Registrierung erforderlich – starten Sie sofort!"
       },
       "remove-watermark": {
-        "title": "AI Wasserzeichen Entferner - Wasserzeichen Kostenlos Entfernen | FixPic",
-        "description": "Kostenloses AI-Wasserzeichenentfernungstool. Erkennt und entfernt automatisch Wasserzeichen, Logos und Text aus Bildern."
+        "title": "AI-Wasserzeichenentferner - Kostenlose Online-Wasserzeichenentfernung für Bilder | FixPic",
+        "description": "Kostenloses KI-gestütztes Werkzeug zur Entfernung von Wasserzeichen, das automatisch Wasserzeichen, Logos und Texte aus Bildern erkennt und entfernt. Erleben Sie in nur wenigen Sekunden saubere Ergebnisse."
       },
       "remove-fake-transparency": {
-        "title": "Falsche Transparenz Entfernen - Schachbretthintergrund Korrigieren | FixPic",
-        "description": "Konvertiert falsche transparente Hintergründe (grau-weißes Schachbrett) von AI-Tools wie Midjourney, Lovart zu echtem transparentem PNG."
+        "title": "Entfernen Sie gefälschte Transparenz - Reparieren Sie den Schachbrett-Hintergrund zu transparentem PNG | FixPic",
+        "description": "Konvertieren Sie die gefälschten transparenten Hintergründe (grau-weiße Schachbrettmuster), die aus KI-Tools wie Midjourney und Lovart exportiert wurden, in echte transparente PNGs. Ein kostenloses Online-Tool."
       },
       "compress": {
-        "title": "Bildkompressor - PNG, JPG, WebP Online Kostenlos Komprimieren | FixPic",
-        "description": "Kostenloses Online-Bildkomprimierungstool. Reduziert Dateigröße ohne Qualitätsverlust. Unterstützt PNG, JPG, WebP Konvertierung."
+        "title": "Bildkompression - Kostenlose Online-Kompression für PNG, JPG, WebP | FixPic",
+        "description": "Kostenloses Online-Tool zur Bildkompression für verlustfreie Reduzierung der Dateigröße. Unterstützt die Konvertierung von PNG-, JPG- und WebP-Formaten und ist schnell und einfach zu bedienen."
       },
       "resize": {
-        "title": "Bildgrößenänderer - Bildgröße Online Kostenlos Ändern | FixPic",
-        "description": "Kostenloser Online-Bildgrößenänderer. Ändert Dimensionen präzise mit Seitenverhältniserhaltung. Unterstützt PNG, JPG, WebP."
-      }
-    }
+        "title": "Bilden Sie Ihre Bilder um – Kostenloser Online-Bildvergrößerer | FixPic",
+        "description": "Kostenloses Online-Tool zum Bildverkleinern, mit dem Sie die Breite und Höhe Ihrer Bilder präzise anpassen können, während das Seitenverhältnis beibehalten wird. Unterstützt die Formate PNG, JPG und WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "Datei zu groß. Maximale Größe ist 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "Datei zu groß. Maximale Größe ist 10MB."
+  }
+}
   },
   "app": {
     "title": "FixPic",
-    "tagline": "KI-Bildwerkzeugkasten für Entwickler",
-    "footer": "FixPic - KI-Hintergrundentfernung von Replicate, Wasserzeichenentfernung von Dewatermark.ai"
+    "tagline": "Bildwerkzeug für KI-Entwickler",
+    "footer": "FixPic - KI-gestützte Hintergrundentfernung powered by Replicate, Wasserzeichenentfernung unterstützt von Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "KI Hintergrund entfernen",
+    "aiRemoveBg": "KI-Hintergrundentfernung",
     "removeWatermark": "Wasserzeichen entfernen",
-    "removeFakeTransparency": "Falsche Transparenz entfernen",
+    "removeFakeTransparency": "Transparenz entfernen",
     "compress": "Komprimieren",
     "resize": "Größe ändern"
   },
   "descriptions": {
-    "aiRemoveBg": "Intelligente KI-Hintergrundentfernung, erkennt und entfernt automatisch jeden Hintergrund, erzeugt transparentes PNG",
-    "removeWatermark": "Intelligente KI-Wasserzeichenentfernung, erkennt und entfernt automatisch Wasserzeichen, Logos und Text aus Bildern",
-    "removeFakeTransparency": "Konvertiert falsche transparente Hintergründe (grau-weißes Schachbrett) von KI-Tools wie Lovart, Midjourney in echtes transparentes PNG",
-    "compress": "Komprimiert Bilder und konvertiert Formate, unterstützt WebP, PNG, JPEG",
-    "resize": "Passt Bildabmessungen präzise an, unterstützt Seitenverhältnis beibehalten"
+    "aiRemoveBg": "Die KI-gestützte Hintergrundentfernung erkennt und entfernt automatisch jeden Hintergrund und erstellt eine transparente PNG.",
+    "removeWatermark": "KI-gestützte Entfernung von Wasserzeichen: Automatisch Wasserzeichen, Logos und Texte aus Bildern erkennen und entfernen.",
+    "removeFakeTransparency": "Konvertieren Sie die gefälschten transparenten Hintergründe (grau-weißer Schachbrettmuster), die von KI-Tools wie Lovart und Midjourney exportiert werden, in echte transparente PNGs.",
+    "compress": "Bilder komprimieren und Formate konvertieren, unterstützt werden WebP, PNG und JPEG.",
+    "resize": "Passen Sie die Bildabmessungen präzise an und behalten Sie dabei das Seitenverhältnis bei."
   },
   "upload": {
     "title": "Bild hochladen",
-    "dragDrop": "Klicken oder ziehen zum Hochladen",
-    "dragDropHint": "Unterstützt PNG, JPG, WebP, maximal 10MB",
-    "dropHere": "Bilder hierher ziehen oder klicken zum Auswählen",
-    "batchHint": "Unterstützt PNG, JPG, WebP, Stapelverarbeitung verfügbar"
+    "dragDrop": "Klicken Sie hier oder ziehen Sie Ihr Bild hoch.",
+    "dragDropHint": "Unterstützt die Formate PNG, JPG und WebP mit einer maximalen Dateigröße von 10 MB.",
+    "dropHere": "Ziehen Sie Ihr Bild hierher oder klicken Sie, um auszuwählen.",
+    "batchHint": "Unterstützt die Formate PNG, JPG und WebP mit Batch-Verarbeitungsfunktionen."
   },
   "process": {
-    "result": "Ergebnis",
-    "resultPlaceholder": "Das Ergebnis wird hier angezeigt",
+    "result": "Verarbeitungsergebnisse",
+    "resultPlaceholder": "Die Ergebnisse werden hier angezeigt.",
     "processing": "Verarbeitung...",
-    "aiProcessing": "KI verarbeitet...",
-    "processingHint": "Dies kann einige Sekunden dauern",
-    "failed": "Verarbeitung fehlgeschlagen",
+    "aiProcessing": "KI wird verarbeitet...",
+    "processingHint": "Das kann ein paar Sekunden dauern.",
+    "failed": "Verarbeitung fehlgeschlagen.",
     "download": "Herunterladen",
     "removeBackground": "Hintergrund entfernen",
     "removeWatermark": "Wasserzeichen entfernen"
   },
   "options": {
-    "removeText": "Auch Text entfernen",
+    "removeText": "Text gleichzeitig entfernen",
     "yes": "Ja",
     "no": "Nein",
     "outputFormat": "Ausgabeformat",
-    "compression": "Kompression",
+    "compression": "Bildkompression",
     "highQuality": "Hohe Qualität",
     "slightLoss": "Leichter Verlust",
-    "poorQuality": "Schlechte Qualität",
-    "pngLossless": "PNG verlustfrei, keine Kompression nötig",
+    "poorQuality": "Niedrige Bildqualität",
+    "pngLossless": "PNG: Verlustfrei und keine Kompression erforderlich.",
     "width": "Breite",
     "height": "Höhe",
-    "auto": "Auto",
+    "auto": "Automatisch",
     "keepAspectRatio": "Seitenverhältnis beibehalten",
     "px": "px"
   },
   "pending": {
-    "title": "Ausstehende Dateien",
-    "clear": "Löschen",
+    "title": "Dateien, die auf die Verarbeitung warten",
+    "clear": "Alles löschen",
     "processAll": "Alle verarbeiten",
     "processing": "Verarbeitung...",
     "process": "Verarbeiten"
   },
   "results": {
-    "title": "Abgeschlossen",
+    "title": "Verarbeitung abgeschlossen.",
     "downloadAll": "Alle herunterladen",
     "download": "Herunterladen",
-    "saved": "gespart",
-    "increased": "erhöht"
+    "saved": "Erfolgreich gespeichert",
+    "increased": "Erfolgreich hinzugefügt."
   },
   "language": {
     "select": "Sprache auswählen"
+  ,
+  "errors": {
+    "fileTooLarge": "Datei zu groß. Maximale Größe ist 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "Datei zu groß. Maximale Größe ist 10MB."
   }
 }

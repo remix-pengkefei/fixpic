@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Strumenti immagine online gratuiti | Rimuovi sfondo IA, filigrana, comprimi",
-    "description": "Strumenti immagine online gratuiti: rimozione sfondo IA, filigrana, falsa trasparenza, compressione, ridimensionamento. Veloce, gratuito e privato.",
+    "title": "FixPic - Strumento Immagini Online Gratuito | Rimozione dello Sfondo con AI, Rimozione Filigrana, Compressione, Ridimensionamento",
+    "description": "Strumento di Elaborazione Immagini Online Gratuito: Rimozione Intelligente dello Sfondo con AI, Rimozione di Filigrane, Rimozione di Sfondi Trasparenti Fittizi, Compressione delle Immagini e Ridimensionamento. Veloce, gratuito e rispettoso della privacy.",
     "tools": {
       "ai-remove-background": {
-        "title": "Rimuovi Sfondo AI - Rimuovi Sfondo Immagine Automaticamente | FixPic",
-        "description": "Strumento gratuito per rimuovere sfondi con AI. Rileva e rimuove automaticamente qualsiasi sfondo, crea PNG trasparenti in secondi. Senza registrazione."
+        "title": "Rimuovi Sfondo AI - Rimozione Automatica Gratuita dello Sfondo Immagine Online | FixPic",
+        "description": "Strumento gratuito per la rimozione dello sfondo potenziato dall'IA che identifica e rimuove automaticamente qualsiasi sfondo, generando immagini PNG trasparenti con un solo clic. Nessuna registrazione richiesta: inizia a usarlo subito!"
       },
       "remove-watermark": {
-        "title": "Rimuovi Filigrana AI - Rimuovi Filigrana Gratis | FixPic",
-        "description": "Strumento gratuito per rimuovere filigrane con AI. Rileva e rimuove automaticamente filigrane, loghi e testo dalle immagini."
+        "title": "Rimuovi Filigrana AI - Rimozione Gratuita di Filigrane da Immagini Online | FixPic",
+        "description": "Strumento gratuito di rimozione dei watermark alimentato da intelligenza artificiale che rileva e rimuove automaticamente watermark, loghi e testi dalle immagini. Scopri risultati puliti in pochi secondi."
       },
       "remove-fake-transparency": {
-        "title": "Rimuovi Falsa Trasparenza - Correggi Sfondo a Scacchiera | FixPic",
-        "description": "Converte sfondi falsamente trasparenti (scacchiera grigio-bianca) da strumenti AI come Midjourney, Lovart in PNG realmente trasparente."
+        "title": "Rimuovi la Trasparenza Fittizia - Ripara lo Sfondo a Scacchiera in PNG Trasparente | FixPic",
+        "description": "Converti i falsi sfondi trasparenti (a scacchi grigi e bianchi) esportati da strumenti AI come Midjourney e Lovart in veri PNG trasparenti. Uno strumento online gratuito."
       },
       "compress": {
-        "title": "Compressore Immagini - Comprimi PNG, JPG, WebP Online Gratis | FixPic",
-        "description": "Strumento gratuito di compressione immagini online. Riduce dimensione file senza perdita di qualità. Supporta conversione PNG, JPG, WebP."
+        "title": "Compressione Immagini - Compressione Online Gratuita per PNG, JPG, WebP | FixPic",
+        "description": "Strumento di compressione immagini online gratuito per la riduzione senza perdita di qualità delle dimensioni dei file. Supporta la conversione dei formati PNG, JPG e WebP, rendendolo veloce e facile da usare."
       },
       "resize": {
-        "title": "Ridimensiona Immagini - Ridimensiona Immagini Online Gratis | FixPic",
-        "description": "Ridimensionatore immagini online gratuito. Cambia dimensioni precisamente mantenendo proporzioni. Supporta PNG, JPG, WebP."
-      }
-    }
+        "title": "Ridimensiona le tue Immagini - Strumento di Ridimensionamento Immagini Online Gratuito | FixPic",
+        "description": "Strumento online gratuito per il ridimensionamento delle immagini che ti consente di regolare con precisione la larghezza e l'altezza delle tue immagini mantenendo il rapporto d'aspetto. Supporta i formati PNG, JPG e WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "File troppo grande. La dimensione massima è 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File troppo grande. La dimensione massima è 10MB."
+  }
+}
   },
   "app": {
     "title": "FixPic",
-    "tagline": "Strumenti immagine IA per sviluppatori",
-    "footer": "FixPic - Rimozione sfondo IA da Replicate, rimozione filigrana da Dewatermark.ai"
+    "tagline": "Cassetta degli Attrezzi per Sviluppatori AI",
+    "footer": "FixPic - Rimozione dello sfondo con intelligenza artificiale supportata da Replicate, rimozione delle filigrane supportata da Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "Rimuovi sfondo IA",
-    "removeWatermark": "Rimuovi filigrana",
-    "removeFakeTransparency": "Rimuovi falsa trasparenza",
+    "aiRemoveBg": "Rimozione dello Sfondo con AI",
+    "removeWatermark": "Rimuovi Filigrana",
+    "removeFakeTransparency": "Rimuovi Trasparenza",
     "compress": "Comprimi",
     "resize": "Ridimensiona"
   },
   "descriptions": {
-    "aiRemoveBg": "Rimozione intelligente dello sfondo con IA, rileva e rimuove automaticamente qualsiasi sfondo, genera PNG trasparente",
-    "removeWatermark": "Rimozione intelligente della filigrana con IA, rileva e rimuove automaticamente filigrane, loghi e testo dalle immagini",
-    "removeFakeTransparency": "Converte sfondi di falsa trasparenza (griglia grigio-bianca) da strumenti IA come Lovart, Midjourney in vero PNG trasparente",
-    "compress": "Comprime le immagini e converte i formati, supporta WebP, PNG, JPEG",
-    "resize": "Regola precisamente le dimensioni dell'immagine, supporta il mantenimento delle proporzioni"
+    "aiRemoveBg": "La rimozione dello sfondo alimentata dall'IA identifica e elimina automaticamente qualsiasi sfondo, generando un PNG trasparente.",
+    "removeWatermark": "Rimozione Intelligente dei Filigrane con AI: Identifica ed elimina automaticamente filigrane, loghi e testi dalle immagini.",
+    "removeFakeTransparency": "Converti gli sfondi trasparenti fittizi (a scacchi grigi e bianchi) esportati da strumenti AI come Lovart e Midjourney in veri PNG trasparenti.",
+    "compress": "Comprimi le immagini e converti i formati, supportando WebP, PNG e JPEG.",
+    "resize": "Regola con precisione le dimensioni dell'immagine mantenendo il rapporto d'aspetto."
   },
   "upload": {
-    "title": "Carica immagine",
-    "dragDrop": "Clicca o trascina per caricare l'immagine",
-    "dragDropHint": "Supporta PNG, JPG, WebP, massimo 10MB",
-    "dropHere": "Trascina le immagini qui, o clicca per selezionare",
-    "batchHint": "Supporta PNG, JPG, WebP, elaborazione batch disponibile"
+    "title": "Carica Immagine",
+    "dragDrop": "Clicca o trascina per caricare la tua immagine.",
+    "dragDropHint": "Supporta i formati PNG, JPG e WebP, con una dimensione massima del file di 10 MB.",
+    "dropHere": "Trascina e rilascia la tua immagine qui, oppure clicca per selezionarla.",
+    "batchHint": "Supporta i formati PNG, JPG e WebP, con funzionalità di elaborazione in batch."
   },
   "process": {
-    "result": "Risultato",
-    "resultPlaceholder": "Il risultato sarà visualizzato qui",
-    "processing": "Elaborazione...",
-    "aiProcessing": "IA in elaborazione...",
-    "processingHint": "Potrebbe richiedere alcuni secondi",
-    "failed": "Elaborazione fallita",
+    "result": "Risultati del trattamento",
+    "resultPlaceholder": "I risultati verranno visualizzati qui.",
+    "processing": "Elaborazione in corso...",
+    "aiProcessing": "L'IA sta elaborando...",
+    "processingHint": "Questo potrebbe richiedere alcuni secondi.",
+    "failed": "Elaborazione non riuscita.",
     "download": "Scarica",
-    "removeBackground": "Rimuovi sfondo",
-    "removeWatermark": "Rimuovi filigrana"
+    "removeBackground": "Rimuovi Sfondo",
+    "removeWatermark": "Rimuovi Filigrana"
   },
   "options": {
-    "removeText": "Rimuovi anche il testo",
+    "removeText": "Rimuovi il testo contemporaneamente",
     "yes": "Sì",
     "no": "No",
-    "outputFormat": "Formato di output",
-    "compression": "Compressione",
-    "highQuality": "Alta qualità",
-    "slightLoss": "Perdita lieve",
-    "poorQuality": "Bassa qualità",
-    "pngLossless": "PNG senza perdita, nessuna compressione necessaria",
+    "outputFormat": "Formato di Output",
+    "compression": "Compressione delle Immagini",
+    "highQuality": "Alta Qualità",
+    "slightLoss": "Leggera Perdita",
+    "poorQuality": "Bassa qualità dell'immagine",
+    "pngLossless": "PNG: Senza perdita e senza compressione necessaria.",
     "width": "Larghezza",
     "height": "Altezza",
-    "auto": "Auto",
-    "keepAspectRatio": "Mantieni proporzioni",
+    "auto": "Automatico",
+    "keepAspectRatio": "Mantieni il rapporto d'aspetto",
     "px": "px"
   },
   "pending": {
-    "title": "File in attesa",
-    "clear": "Cancella",
-    "processAll": "Elabora tutto",
-    "processing": "Elaborazione...",
+    "title": "File in attesa di elaborazione",
+    "clear": "Cancella tutto",
+    "processAll": "Elimina tutto",
+    "processing": "Elaborazione in corso...",
     "process": "Elabora"
   },
   "results": {
-    "title": "Completato",
+    "title": "Elaborazione completata.",
     "downloadAll": "Scarica tutto",
     "download": "Scarica",
-    "saved": "risparmiato",
-    "increased": "aumentato"
+    "saved": "Salvato con successo",
+    "increased": "Aggiunto con successo."
   },
   "language": {
-    "select": "Seleziona lingua"
+    "select": "Seleziona Lingua"
+  ,
+  "errors": {
+    "fileTooLarge": "File troppo grande. La dimensione massima è 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File troppo grande. La dimensione massima è 10MB."
   }
 }

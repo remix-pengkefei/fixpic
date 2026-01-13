@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Ücretsiz Çevrimiçi Görüntü Araçları | AI Arka Plan Kaldır, Filigran, Sıkıştır",
-    "description": "Ücretsiz çevrimiçi görüntü araçları: AI arka plan kaldırma, filigran, sahte saydamlık, sıkıştırma, yeniden boyutlandırma. Hızlı, ücretsiz ve gizli.",
+    "title": "FixPic - Ücretsiz Çevrimiçi Görüntü Aracı | AI Arka Plan Kaldırma, Filigran Kaldırma, Sıkıştırma, Boyutlandırma",
+    "description": "Ücretsiz Çevrimiçi Görüntü İşleme Aracı: AI Akıllı Arka Plan Kaldırma, Filigran Kaldırma, Sahte Şeffaf Arka Plan Kaldırma, Görüntü Sıkıştırma ve Boyutlandırma. Hızlı, ücretsiz ve gizliliğe dost.",
     "tools": {
       "ai-remove-background": {
-        "title": "AI Arka Plan Kaldırıcı - Görsel Arka Planını Otomatik Kaldır | FixPic",
-        "description": "Ücretsiz AI arka plan kaldırma aracı. Her türlü arka planı otomatik algılayıp kaldırır, saniyeler içinde şeffaf PNG oluşturur. Kayıt gerektirmez."
+        "title": "AI Arka Plan Silici - Ücretsiz Çevrimiçi Otomatik Görüntü Arka Planı Kaldırma | FixPic",
+        "description": "Ücretsiz AI destekli arka plan kaldırma aracı, herhangi bir arka planı otomatik olarak tanımlayıp kaldırarak sadece bir tıklama ile şeffaf PNG görüntüleri oluşturur. Kayıt gerektirmez—hemen kullanmaya başlayın!"
       },
       "remove-watermark": {
-        "title": "AI Filigran Kaldırıcı - Filigranı Ücretsiz Kaldır | FixPic",
-        "description": "Ücretsiz AI filigran kaldırma aracı. Görsellerden filigran, logo ve metni otomatik algılayıp kaldırır."
+        "title": "AI Su İşareti Kaldırıcı - Ücretsiz Çevrimiçi Görüntü Su İşareti Kaldırma | FixPic",
+        "description": "Ücretsiz AI destekli filigran kaldırma aracı, otomatik olarak filigranları, logoları ve metinleri tespit edip kaldırır. Sadece birkaç saniye içinde temiz sonuçlar elde edin."
       },
       "remove-fake-transparency": {
-        "title": "Sahte Şeffaflığı Kaldır - Dama Tahtası Arka Planı Düzelt | FixPic",
-        "description": "Midjourney, Lovart gibi AI araçlarından gelen sahte şeffaf arka planları (gri-beyaz dama tahtası) gerçek şeffaf PNG'ye dönüştürür."
+        "title": "Sahte Şeffaflığı Kaldır - Kareli Arka Planı Şeffaf PNG Olarak Onarın | FixPic",
+        "description": "Midjourney ve Lovart gibi AI araçlarından dışa aktarılan sahte şeffaf arka planları (gri ve beyaz kareli) gerçek şeffaf PNG'lere dönüştürün. Ücretsiz bir çevrimiçi araç."
       },
       "compress": {
-        "title": "Görsel Sıkıştırıcı - PNG, JPG, WebP Çevrimiçi Ücretsiz Sıkıştır | FixPic",
-        "description": "Ücretsiz çevrimiçi görsel sıkıştırma aracı. Kalite kaybı olmadan dosya boyutunu küçültür. PNG, JPG, WebP dönüştürmeyi destekler."
+        "title": "Görüntü Sıkıştırma - PNG, JPG, WebP için Ücretsiz Çevrimiçi Sıkıştırma | FixPic",
+        "description": "Kaybı olmayan dosya boyutu küçültmesi için ücretsiz çevrimiçi görüntü sıkıştırma aracı. PNG, JPG ve WebP formatlarının dönüşümünü destekler, hızlı ve kolay bir kullanım sunar."
       },
       "resize": {
-        "title": "Görsel Boyutlandırıcı - Görsel Boyutunu Çevrimiçi Ücretsiz Değiştir | FixPic",
-        "description": "Ücretsiz çevrimiçi görsel boyutlandırıcı. En-boy oranını koruyarak boyutları hassas şekilde değiştirir. PNG, JPG, WebP destekler."
-      }
-    }
+        "title": "Görüntülerinizi Yeniden Boyutlandırın - Ücretsiz Çevrimiçi Görüntü Boyutlandırıcı | FixPic",
+        "description": "Görüntülerinizi tam olarak genişlik ve yükseklik ayarlamanıza olanak tanıyan, oranı koruyarak ücretsiz çevrimiçi görüntü boyutlandırma aracı. PNG, JPG ve WebP formatlarını destekler."
+      ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
   },
   "app": {
     "title": "FixPic",
-    "tagline": "Geliştiriciler için AI Görüntü Araç Kutusu",
-    "footer": "FixPic - AI arka plan kaldırma Replicate tarafından, filigran kaldırma Dewatermark.ai tarafından sağlanmaktadır"
+    "tagline": "AI Geliştirici'nin Görüntü Araç Kutusu",
+    "footer": "FixPic - Replicate tarafından desteklenen AI arka plan kaldırma, Dewatermark.ai tarafından desteklenen filigran kaldırma."
   },
   "tools": {
-    "aiRemoveBg": "AI Arka Plan Kaldır",
-    "removeWatermark": "Filigran Kaldır",
-    "removeFakeTransparency": "Sahte Saydamlık Kaldır",
-    "compress": "Sıkıştır",
-    "resize": "Yeniden Boyutlandır"
+    "aiRemoveBg": "Yapay Zeka Arka Plan Silme",
+    "removeWatermark": "Filigranı Kaldır",
+    "removeFakeTransparency": "Şeffaflığı Kaldır",
+    "compress": "Sıkıştırma",
+    "resize": "Boyutlandırma"
   },
   "descriptions": {
-    "aiRemoveBg": "AI ile akıllı arka plan kaldırma, herhangi bir arka planı otomatik algılar ve kaldırır, saydam PNG oluşturur",
-    "removeWatermark": "AI ile akıllı filigran kaldırma, görüntülerden filigranları, logoları ve metinleri otomatik algılar ve kaldırır",
-    "removeFakeTransparency": "Lovart, Midjourney gibi AI araçlarından sahte saydam arka planları (gri-beyaz dama tahtası) gerçek saydam PNG'ye dönüştürür",
-    "compress": "Görüntüleri sıkıştırır ve formatları dönüştürür, WebP, PNG, JPEG destekler",
-    "resize": "Görüntü boyutlarını hassas şekilde ayarlar, en boy oranını korumayı destekler"
+    "aiRemoveBg": "AI destekli arka plan kaldırma, arka planı otomatik olarak tanımlar ve ortadan kaldırır, şeffaf bir PNG dosyası oluşturur.",
+    "removeWatermark": "AI Akıllı Filigran Kaldırma: Görsellerden filigranları, logoları ve metinleri otomatik olarak tanıyın ve kaldırın.",
+    "removeFakeTransparency": "Lovart ve Midjourney gibi AI araçları tarafından dışa aktarılan sahte şeffaf arka planları (gri ve beyaz kareli desen) gerçek şeffaf PNG'lere dönüştürün.",
+    "compress": "Görüntüleri sıkıştırın ve formatları dönüştürün, WebP, PNG ve JPEG desteği ile.",
+    "resize": "Görüntü boyutlarını, en-boy oranını koruyarak hassas bir şekilde ayarlayın."
   },
   "upload": {
     "title": "Görüntü Yükle",
-    "dragDrop": "Görüntü yüklemek için tıklayın veya sürükleyin",
-    "dragDropHint": "PNG, JPG, WebP destekler, maksimum 10MB",
-    "dropHere": "Görüntüleri buraya sürükleyin veya seçmek için tıklayın",
-    "batchHint": "PNG, JPG, WebP destekler, toplu işleme mevcuttur"
+    "dragDrop": "Görüntünüzü yüklemek için tıklayın veya sürükleyin.",
+    "dragDropHint": "PNG, JPG ve WebP formatlarını destekler, maksimum dosya boyutu 10MB'dır.",
+    "dropHere": "Görselinizi buraya sürükleyip bırakın veya seçmek için tıklayın.",
+    "batchHint": "PNG, JPG ve WebP formatlarını destekler, toplu işleme yetenekleri sunar."
   },
   "process": {
-    "result": "Sonuç",
-    "resultPlaceholder": "Sonuç burada gösterilecek",
+    "result": "İşleme Sonuçları",
+    "resultPlaceholder": "Sonuçlar burada görüntülenecek.",
     "processing": "İşleniyor...",
-    "aiProcessing": "AI işliyor...",
-    "processingHint": "Bu birkaç saniye sürebilir",
-    "failed": "İşlem başarısız",
+    "aiProcessing": "Yapay zeka işleniyor...",
+    "processingHint": "Bu birkaç saniye sürebilir.",
+    "failed": "İşlem başarısız oldu.",
     "download": "İndir",
     "removeBackground": "Arka Planı Kaldır",
     "removeWatermark": "Filigranı Kaldır"
   },
   "options": {
-    "removeText": "Metni de kaldır",
+    "removeText": "Metni Aynı Anda Kaldırın",
     "yes": "Evet",
     "no": "Hayır",
     "outputFormat": "Çıktı Formatı",
-    "compression": "Sıkıştırma",
-    "highQuality": "Yüksek kalite",
-    "slightLoss": "Hafif kayıp",
-    "poorQuality": "Düşük kalite",
-    "pngLossless": "PNG kayıpsız, sıkıştırma gerekli değil",
+    "compression": "Görüntü Sıkıştırma",
+    "highQuality": "Yüksek Kalite",
+    "slightLoss": "Hafif Kaybı",
+    "poorQuality": "Düşük görüntü kalitesi",
+    "pngLossless": "PNG: Kayıpsız ve sıkıştırma gerektirmeyen bir format.",
     "width": "Genişlik",
     "height": "Yükseklik",
     "auto": "Otomatik",
-    "keepAspectRatio": "Oranı Koru",
+    "keepAspectRatio": "Oranı Koruyun",
     "px": "px"
   },
   "pending": {
-    "title": "Bekleyen Dosyalar",
-    "clear": "Temizle",
-    "processAll": "Tümünü İşle",
+    "title": "İşlem Bekleyen Dosyalar",
+    "clear": "Tümünü Temizle",
+    "processAll": "Hepsini İşle",
     "processing": "İşleniyor...",
-    "process": "İşle"
+    "process": "İşlem"
   },
   "results": {
-    "title": "Tamamlandı",
-    "downloadAll": "Tümünü İndir",
+    "title": "İşlem tamamlandı.",
+    "downloadAll": "Hepsini İndir",
     "download": "İndir",
-    "saved": "tasarruf",
-    "increased": "artış"
+    "saved": "Başarıyla Kaydedildi",
+    "increased": "Başarıyla eklendi."
   },
   "language": {
     "select": "Dil Seçin"
+  ,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "File too large. Maximum size is 10MB."
   }
 }

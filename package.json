@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "generate:articles": "tsx scripts/generate-articles.ts",
     "translate:articles": "tsx scripts/translate-articles.ts",
-    "generate:sitemap": "tsx scripts/generate-sitemap.ts"
+    "generate:sitemap": "tsx scripts/generate-sitemap.ts",
+    "translate:ui": "tsx scripts/translate-ui.ts",
+    "translate:blog": "tsx scripts/translate-blog.ts"
   },
   "dependencies": {
     "@sentry/react": "^10.32.1",
@@ -33,6 +35,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "openai": "^6.16.0",
     "tsx": "^4.21.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",

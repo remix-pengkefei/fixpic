@@ -1,98 +1,114 @@
 {
   "seo": {
     "title": "FixPic - 무료 온라인 이미지 도구 | AI 배경 제거, 워터마크 제거, 압축, 크기 조정",
-    "description": "무료 온라인 이미지 도구: AI 배경 제거, 워터마크 제거, 가짜 투명 제거, 이미지 압축, 크기 조정. 빠르고 무료이며 개인정보 보호.",
+    "description": "무료 온라인 이미지 처리 도구: AI 스마트 배경 제거, 워터마크 제거, 가짜 투명 배경 제거, 이미지 압축 및 크기 조정. 빠르고 무료이며, 개인 정보 보호를 고려한 서비스입니다.",
     "tools": {
       "ai-remove-background": {
-        "title": "AI 배경 제거 - 이미지 배경 자동 제거 | FixPic",
-        "description": "무료 AI 배경 제거 도구. 모든 배경을 자동 감지 및 제거하여 투명 PNG를 몇 초 만에 생성. 가입 불필요."
+        "title": "AI 배경 제거기 - 무료 온라인 자동 이미지 배경 제거 | FixPic",
+        "description": "AI 기반의 무료 배경 제거 도구로, 자동으로 배경을 인식하고 제거하여 단 한 번의 클릭으로 투명한 PNG 이미지를 생성합니다. 회원가입 필요 없이 지금 바로 사용해 보세요!"
       },
       "remove-watermark": {
-        "title": "AI 워터마크 제거 - 이미지 워터마크 무료 제거 | FixPic",
-        "description": "무료 AI 워터마크 제거 도구. 이미지에서 워터마크, 로고, 텍스트를 자동 감지 및 제거. 깨끗한 결과."
+        "title": "AI 워터마크 제거기 - 무료 온라인 이미지 워터마크 제거 | FixPic",
+        "description": "자동으로 워터마크, 로고, 텍스트를 감지하고 제거하는 무료 AI 기반 워터마크 제거 도구입니다. 단 몇 초 만에 깨끗한 결과를 경험해 보세요."
       },
       "remove-fake-transparency": {
-        "title": "가짜 투명 제거 - 체커보드 배경 수정 | FixPic",
-        "description": "Midjourney, Lovart 등 AI 도구에서 출력된 가짜 투명 배경(회백 체커보드)을 실제 투명 PNG로 변환."
+        "title": "가짜 투명도 제거 - 체크무늬 배경을 투명 PNG로 복원 | FixPic",
+        "description": "Midjourney 및 Lovart와 같은 AI 도구에서 내보낸 가짜 투명 배경(회색과 흰색 체크무늬)을 진정한 투명 PNG로 변환하세요. 무료 온라인 도구입니다."
       },
       "compress": {
-        "title": "이미지 압축 - PNG, JPG, WebP 온라인 압축 | FixPic",
-        "description": "무료 온라인 이미지 압축 도구. 품질 손실 없이 파일 크기 축소. PNG, JPG, WebP 변환 지원."
+        "title": "이미지 압축 - PNG, JPG, WebP를 위한 무료 온라인 압축 | FixPic",
+        "description": "손실 없는 파일 크기 축소를 위한 무료 온라인 이미지 압축 도구입니다. PNG, JPG 및 WebP 형식의 변환을 지원하며, 빠르고 쉽게 사용할 수 있습니다."
       },
       "resize": {
-        "title": "이미지 크기 조정 - 온라인 이미지 리사이즈 | FixPic",
-        "description": "무료 온라인 이미지 리사이저. 비율 유지하며 정확한 크기 조정. PNG, JPG, WebP 지원."
-      }
-    }
+        "title": "이미지 크기 조정 - 무료 온라인 이미지 리사이저 | FixPic",
+        "description": "폭을 정확하게 조정하면서 이미지의 비율을 유지할 수 있는 무료 온라인 이미지 크기 조정 도구입니다. PNG, JPG 및 WebP 형식을 지원합니다."
+      ,
+  "errors": {
+    "fileTooLarge": "파일이 너무 큽니다. 최대 10MB까지 지원됩니다."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "파일이 너무 큽니다. 최대 10MB까지 지원됩니다."
+  }
+}
   },
   "app": {
-    "title": "FixPic",
-    "tagline": "AI 개발자를 위한 이미지 도구 상자",
-    "footer": "FixPic - AI 배경 제거는 Replicate, 워터마크 제거는 Dewatermark.ai 제공"
+    "title": "픽스픽",
+    "tagline": "AI 개발자를 위한 이미지 툴박스",
+    "footer": "FixPic - Replicate의 AI 배경 제거 기능과 Dewatermark.ai의 워터마크 제거 지원."
   },
   "tools": {
     "aiRemoveBg": "AI 배경 제거",
-    "removeWatermark": "워터마크 제거",
-    "removeFakeTransparency": "가짜 투명 제거",
-    "compress": "압축",
+    "removeWatermark": "워터마크 제거하기",
+    "removeFakeTransparency": "투명도 제거",
+    "compress": "압축하기",
     "resize": "크기 조정"
   },
   "descriptions": {
-    "aiRemoveBg": "AI 스마트 배경 제거, 모든 배경을 자동 감지하고 제거, 투명 PNG 생성",
-    "removeWatermark": "AI 스마트 워터마크 제거, 이미지의 워터마크, 로고, 텍스트를 자동 감지하고 제거",
-    "removeFakeTransparency": "Lovart, Midjourney 등 AI 도구에서 내보낸 가짜 투명 배경(회백색 체커보드)을 실제 투명 PNG로 변환",
-    "compress": "이미지 압축 및 형식 변환, WebP, PNG, JPEG 지원",
-    "resize": "이미지 크기 정밀 조정, 종횡비 유지 지원"
+    "aiRemoveBg": "AI 기반 배경 제거 기능이 자동으로 배경을 식별하고 제거하여 투명한 PNG 파일을 생성합니다.",
+    "removeWatermark": "AI 스마트 워터마크 제거: 이미지에서 워터마크, 로고 및 텍스트를 자동으로 식별하고 제거합니다.",
+    "removeFakeTransparency": "Lovart 및 Midjourney와 같은 AI 도구에서 내보낸 가짜 투명 배경(회색과 흰색 체크무늬)을 진정한 투명 PNG로 변환하세요.",
+    "compress": "이미지를 압축하고 형식을 변환하세요. WebP, PNG, JPEG 형식을 지원합니다.",
+    "resize": "비율을 유지하면서 이미지 크기를 정확하게 조정하세요."
   },
   "upload": {
     "title": "이미지 업로드",
-    "dragDrop": "클릭하거나 드래그하여 이미지 업로드",
-    "dragDropHint": "PNG, JPG, WebP 지원, 최대 10MB",
-    "dropHere": "여기에 이미지를 드래그하거나 클릭하여 선택",
-    "batchHint": "PNG, JPG, WebP 지원, 일괄 처리 가능"
+    "dragDrop": "이미지를 업로드하려면 클릭하거나 드래그하세요.",
+    "dragDropHint": "PNG, JPG, 및 WebP 형식을 지원하며, 최대 파일 크기는 10MB입니다.",
+    "dropHere": "여기에 이미지를 드래그 앤 드롭 하거나 클릭하여 선택하세요.",
+    "batchHint": "PNG, JPG, WebP 형식을 지원하며, 일괄 처리 기능을 제공합니다."
   },
   "process": {
     "result": "처리 결과",
-    "resultPlaceholder": "처리 결과가 여기에 표시됩니다",
+    "resultPlaceholder": "결과는 여기에서 표시됩니다.",
     "processing": "처리 중...",
-    "aiProcessing": "AI 처리 중...",
-    "processingHint": "몇 초 정도 걸릴 수 있습니다",
-    "failed": "처리 실패",
+    "aiProcessing": "AI가 처리 중입니다...",
+    "processingHint": "잠시만 기다려 주세요.",
+    "failed": "처리 실패.",
     "download": "다운로드",
     "removeBackground": "배경 제거",
-    "removeWatermark": "워터마크 제거"
+    "removeWatermark": "워터마크 제거하기"
   },
   "options": {
-    "removeText": "텍스트도 제거",
-    "yes": "예",
-    "no": "아니오",
+    "removeText": "텍스트를 동시에 제거하기",
+    "yes": "네",
+    "no": "아니요",
     "outputFormat": "출력 형식",
     "compression": "이미지 압축",
     "highQuality": "고품질",
     "slightLoss": "약간의 손실",
-    "poorQuality": "저품질",
-    "pngLossless": "PNG는 무손실, 압축 불필요",
+    "poorQuality": "저화질 이미지",
+    "pngLossless": "PNG: 무손실 포맷으로 압축이 필요 없습니다.",
     "width": "너비",
     "height": "높이",
-    "auto": "자동",
+    "auto": "자동으로",
     "keepAspectRatio": "비율 유지",
-    "px": "px"
+    "px": "픽셀"
   },
   "pending": {
-    "title": "대기 중인 파일",
-    "clear": "지우기",
-    "processAll": "전체 처리",
+    "title": "처리 대기 중인 파일",
+    "clear": "모두 지우기",
+    "processAll": "모두 처리하기",
     "processing": "처리 중...",
-    "process": "처리"
+    "process": "처리하기"
   },
   "results": {
-    "title": "처리 완료",
-    "downloadAll": "전체 다운로드",
+    "title": "처리 완료.",
+    "downloadAll": "모두 다운로드",
     "download": "다운로드",
-    "saved": "절약",
-    "increased": "증가"
+    "saved": "저장되었습니다.",
+    "increased": "성공적으로 추가되었습니다."
   },
   "language": {
     "select": "언어 선택"
+  ,
+  "errors": {
+    "fileTooLarge": "파일이 너무 큽니다. 최대 10MB까지 지원됩니다."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "파일이 너무 큽니다. 최대 10MB까지 지원됩니다."
   }
 }

@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - Ferramentas de imagem online grátis | Remover fundo IA, tirar marca d'água, comprimir",
-    "description": "Ferramentas de imagem online grátis: remover fundo com IA, tirar marca d'água, remover falsa transparência, comprimir, redimensionar. Rápido, grátis e privado.",
+    "title": "FixPic - Ferramenta de Imagem Online Gratuita | Remoção de Fundo com IA, Remoção de Marca d'Água, Compressão, Redimensionamento",
+    "description": "Ferramenta de Processamento de Imagens Online Gratuita: Remoção Inteligente de Fundo com IA, Remoção de Marca d'Água, Remoção de Fundo Transparente Falso, Compressão de Imagens e Redimensionamento. Rápido, gratuito e respeitando sua privacidade.",
     "tools": {
       "ai-remove-background": {
-        "title": "Removedor de Fundo AI - Remover Fundo de Imagem Automaticamente | FixPic",
-        "description": "Ferramenta gratuita de remoção de fundo com IA. Detecta e remove automaticamente qualquer fundo, cria PNGs transparentes em segundos. Sem cadastro."
+        "title": "Remoção de Fundo com IA - Ferramenta Online Gratuita para Remoção Automática de Fundo de Imagens | FixPic",
+        "description": "Ferramenta gratuita de remoção de fundo com tecnologia de IA que identifica e remove automaticamente qualquer fundo, gerando imagens PNG transparentes com apenas um clique. Não é necessário registro—comece a usar agora mesmo!"
       },
       "remove-watermark": {
-        "title": "Removedor de Marca d'Água AI - Remover Marca d'Água Grátis | FixPic",
-        "description": "Ferramenta gratuita de remoção de marca d'água com IA. Detecta e remove automaticamente marcas d'água, logos e texto de imagens."
+        "title": "Remover Marca d'Água com IA - Remoção de Marca d'Água de Imagens Online Grátis | FixPic",
+        "description": "Ferramenta gratuita de remoção de marcas d'água com tecnologia de IA que detecta e remove automaticamente marcas d'água, logotipos e textos de imagens. Experimente resultados limpos em apenas alguns segundos."
       },
       "remove-fake-transparency": {
-        "title": "Remover Falsa Transparência - Corrigir Fundo Xadrez | FixPic",
-        "description": "Converte fundos falsos transparentes (xadrez cinza-branco) de ferramentas AI como Midjourney, Lovart para PNG realmente transparente."
+        "title": "Remover Transparência Falsa - Reparar Fundo em Checkerboard para PNG Transparente | FixPic",
+        "description": "Converta os fundos transparentes falsos (xadrez cinza e branco) exportados de ferramentas de IA como Midjourney e Lovart em PNGs verdadeiramente transparentes. Uma ferramenta online gratuita."
       },
       "compress": {
-        "title": "Compressor de Imagens - Comprimir PNG, JPG, WebP Online Grátis | FixPic",
-        "description": "Ferramenta gratuita de compressão de imagens online. Reduz o tamanho do arquivo sem perder qualidade. Suporta conversão PNG, JPG, WebP."
+        "title": "Compressão de Imagem - Compressão Online Gratuita para PNG, JPG, WebP | FixPic",
+        "description": "Ferramenta online gratuita de compressão de imagens para redução sem perda de qualidade do tamanho do arquivo. Suporta conversão dos formatos PNG, JPG e WebP, tornando o uso rápido e fácil."
       },
       "resize": {
-        "title": "Redimensionar Imagens - Alterar Tamanho de Imagem Online Grátis | FixPic",
-        "description": "Redimensionador de imagens online gratuito. Altera dimensões precisamente mantendo proporção. Suporta PNG, JPG, WebP."
-      }
-    }
+        "title": "Redimensione Suas Imagens - Redimensionador de Imagens Online Gratuito | FixPic",
+        "description": "Ferramenta online gratuita de redimensionamento de imagens que permite ajustar com precisão a largura e a altura das suas imagens, mantendo a proporção. Suporta os formatos PNG, JPG e WebP."
+      ,
+  "errors": {
+    "fileTooLarge": "Arquivo muito grande. O tamanho máximo é 10MB."
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "Arquivo muito grande. O tamanho máximo é 10MB."
+  }
+}
   },
   "app": {
-    "title": "FixPic",
-    "tagline": "Caixa de ferramentas de imagem com IA para desenvolvedores",
-    "footer": "FixPic - Remoção de fundo com IA por Replicate, remoção de marca d'água por Dewatermark.ai"
+    "title": "CorrigirImagem",
+    "tagline": "Caixa de Ferramentas de Imagem para Desenvolvedores de IA",
+    "footer": "FixPic - Remoção de fundo com IA, impulsionada pela Replicate, remoção de marcas d'água suportada pela Dewatermark.ai."
   },
   "tools": {
-    "aiRemoveBg": "Remover fundo IA",
-    "removeWatermark": "Remover marca d'água",
-    "removeFakeTransparency": "Remover falsa transparência",
+    "aiRemoveBg": "Remoção de Fundo com IA",
+    "removeWatermark": "Remover Marca d'Água",
+    "removeFakeTransparency": "Remover Transparência",
     "compress": "Comprimir",
     "resize": "Redimensionar"
   },
   "descriptions": {
-    "aiRemoveBg": "Remoção inteligente de fundo com IA, detecta e remove automaticamente qualquer fundo, gera PNG transparente",
-    "removeWatermark": "Remoção inteligente de marca d'água com IA, detecta e remove automaticamente marcas d'água, logotipos e texto das imagens",
-    "removeFakeTransparency": "Converte fundos de falsa transparência (grade cinza-branca) de ferramentas de IA como Lovart, Midjourney para PNG verdadeiramente transparente",
-    "compress": "Comprime imagens e converte formatos, suporta WebP, PNG, JPEG",
-    "resize": "Ajusta precisamente as dimensões da imagem, suporta manter proporção"
+    "aiRemoveBg": "A remoção de fundo com tecnologia de IA identifica e elimina automaticamente qualquer fundo, gerando um PNG transparente.",
+    "removeWatermark": "Remoção Inteligente de Marcas D'água com IA: Identifique e elimine automaticamente marcas d'água, logotipos e textos de imagens.",
+    "removeFakeTransparency": "Converta os fundos falsamente transparentes (xadrez cinza e branco) exportados por ferramentas de IA como Lovart e Midjourney em PNGs verdadeiramente transparentes.",
+    "compress": "Comprimir imagens e converter formatos, suportando WebP, PNG e JPEG.",
+    "resize": "Ajuste precisamente as dimensões da imagem enquanto mantém a proporção."
   },
   "upload": {
-    "title": "Enviar imagem",
-    "dragDrop": "Clique ou arraste para enviar imagem",
-    "dragDropHint": "Suporta PNG, JPG, WebP, máximo 10MB",
-    "dropHere": "Arraste imagens aqui, ou clique para selecionar",
-    "batchHint": "Suporta PNG, JPG, WebP, processamento em lote disponível"
+    "title": "Carregar Imagem",
+    "dragDrop": "Clique ou arraste para fazer o upload da sua imagem.",
+    "dragDropHint": "Suporta os formatos PNG, JPG e WebP, com um tamanho máximo de arquivo de 10MB.",
+    "dropHere": "Arraste e solte sua imagem aqui, ou clique para selecionar.",
+    "batchHint": "Suporta os formatos PNG, JPG e WebP, com recursos de processamento em lote."
   },
   "process": {
-    "result": "Resultado",
-    "resultPlaceholder": "O resultado será exibido aqui",
+    "result": "Resultados do Processamento",
+    "resultPlaceholder": "Os resultados serão exibidos aqui.",
     "processing": "Processando...",
-    "aiProcessing": "IA processando...",
-    "processingHint": "Isso pode levar alguns segundos",
-    "failed": "Processamento falhou",
+    "aiProcessing": "A IA está processando...",
+    "processingHint": "Isso pode levar alguns segundos.",
+    "failed": "Processamento falhou.",
     "download": "Baixar",
-    "removeBackground": "Remover fundo",
-    "removeWatermark": "Remover marca d'água"
+    "removeBackground": "Remover Fundo",
+    "removeWatermark": "Remover Marca d'Água"
   },
   "options": {
-    "removeText": "Também remover texto",
+    "removeText": "Remover Texto Simultaneamente",
     "yes": "Sim",
     "no": "Não",
-    "outputFormat": "Formato de saída",
-    "compression": "Compressão",
-    "highQuality": "Alta qualidade",
-    "slightLoss": "Perda leve",
-    "poorQuality": "Baixa qualidade",
-    "pngLossless": "PNG sem perda, não precisa de compressão",
+    "outputFormat": "Formato de Saída",
+    "compression": "Compressão de Imagem",
+    "highQuality": "Alta Qualidade",
+    "slightLoss": "Perda Leve",
+    "poorQuality": "Baixa qualidade da imagem",
+    "pngLossless": "PNG: Sem perda de qualidade e sem necessidade de compressão.",
     "width": "Largura",
     "height": "Altura",
-    "auto": "Auto",
-    "keepAspectRatio": "Manter proporção",
+    "auto": "Automático",
+    "keepAspectRatio": "Manter Proporção",
     "px": "px"
   },
   "pending": {
-    "title": "Arquivos pendentes",
-    "clear": "Limpar",
-    "processAll": "Processar tudo",
+    "title": "Arquivos Pendentes de Processamento",
+    "clear": "Limpar Tudo",
+    "processAll": "Processar Tudo",
     "processing": "Processando...",
     "process": "Processar"
   },
   "results": {
-    "title": "Concluído",
-    "downloadAll": "Baixar tudo",
+    "title": "Processamento concluído.",
+    "downloadAll": "Baixar Todos",
     "download": "Baixar",
-    "saved": "economizado",
-    "increased": "aumentado"
+    "saved": "Salvo com Sucesso",
+    "increased": "Adicionado com sucesso."
   },
   "language": {
-    "select": "Selecionar idioma"
+    "select": "Selecionar Idioma"
+  ,
+  "errors": {
+    "fileTooLarge": "Arquivo muito grande. O tamanho máximo é 10MB."
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "Arquivo muito grande. O tamanho máximo é 10MB."
   }
 }

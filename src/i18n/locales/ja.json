@@ -1,98 +1,114 @@
 {
   "seo": {
-    "title": "FixPic - 無料オンライン画像ツール | AI背景除去、透かし除去、圧縮、リサイズ",
-    "description": "無料オンライン画像ツール：AI背景除去、透かし除去、偽透明除去、画像圧縮、サイズ変更。高速、無料、プライバシー保護。",
+    "title": "FixPic - 無料オンライン画像ツール | AIによる背景削除、ウォーターマーク削除、圧縮、サイズ変更",
+    "description": "無料のオンライン画像処理ツール：AIによるスマート背景除去、ウォーターマーク除去、フェイク透明背景除去、画像圧縮、リサイズ。迅速で無料、プライバシーにも配慮しています。",
     "tools": {
       "ai-remove-background": {
-        "title": "AI背景除去 - 画像の背景を自動で削除 | FixPic",
-        "description": "無料のAI背景除去ツール。あらゆる背景を自動検出・削除し、透明PNGを数秒で作成。登録不要。"
+        "title": "AI背景削除ツール - 無料のオンライン自動画像背景削除 | FixPic",
+        "description": "無料のAI搭載背景除去ツールで、背景を自動的に識別して削除し、ワンクリックで透明なPNG画像を生成します。登録は不要ですぐに使い始められます！"
       },
       "remove-watermark": {
-        "title": "AI透かし除去 - 画像の透かしを無料で削除 | FixPic",
-        "description": "無料のAI透かし除去ツール。画像から透かし、ロゴ、テキストを自動検出・削除。数秒できれいな結果。"
+        "title": "AIウォーターマーク除去 - 無料オンライン画像ウォーターマーク除去 | FixPic",
+        "description": "AI搭載の無料ウォーターマーク除去ツール。画像からウォーターマーク、ロゴ、テキストを自動的に検出し、削除します。数秒でクリーンな結果を体験してください。"
       },
       "remove-fake-transparency": {
-        "title": "偽透明除去 - チェッカーボード背景を修正 | FixPic",
-        "description": "Midjourney、Lovartなどのツールから出力された偽透明背景（グレー白のチェッカーボード）を本物の透明PNGに変換。"
+        "title": "フェイク透明度を除去 - チェッカーボード背景を透明PNGに修復 | FixPic",
+        "description": "MidjourneyやLovartなどのAIツールからエクスポートされた偽の透明背景（グレーと白のチェッカーボード）を、真の透明PNGに変換します。無料のオンラインツールです。"
       },
       "compress": {
-        "title": "画像圧縮 - PNG、JPG、WebPをオンラインで圧縮 | FixPic",
-        "description": "無料のオンライン画像圧縮ツール。品質を落とさずファイルサイズを削減。PNG、JPG、WebP変換対応。"
+        "title": "画像圧縮 - PNG、JPG、WebPの無料オンライン圧縮 | FixPic",
+        "description": "ファイルサイズをロスレスで圧縮できる無料のオンライン画像圧縮ツールです。PNG、JPG、WebP形式の変換をサポートしており、迅速かつ簡単にご利用いただけます。"
       },
       "resize": {
-        "title": "画像リサイズ - オンラインで画像サイズを変更 | FixPic",
-        "description": "無料のオンライン画像リサイザー。アスペクト比を維持しながら正確にサイズ変更。PNG、JPG、WebP対応。"
-      }
-    }
+        "title": "画像をリサイズ - 無料のオンライン画像リサイズツール | FixPic",
+        "description": "幅と高さを正確に調整しながらアスペクト比を維持できる無料のオンライン画像リサイズツールです。PNG、JPG、WebP形式に対応しています。"
+      ,
+  "errors": {
+    "fileTooLarge": "ファイルが大きすぎます。最大10MBまでです。"
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "ファイルが大きすぎます。最大10MBまでです。"
+  }
+}
   },
   "app": {
-    "title": "FixPic",
-    "tagline": "AI 開発者向け画像ツールボックス",
-    "footer": "FixPic - AI 背景除去は Replicate、透かし除去は Dewatermark.ai を使用"
+    "title": "フィックスピック",
+    "tagline": "AI開発者の画像ツールボックス",
+    "footer": "FixPic - ReplicateによるAI背景除去機能、Dewatermark.aiによるウォーターマーク除去をサポート。"
   },
   "tools": {
     "aiRemoveBg": "AI 背景除去",
-    "removeWatermark": "透かし除去",
-    "removeFakeTransparency": "疑似透過除去",
-    "compress": "圧縮",
+    "removeWatermark": "透かしを削除する",
+    "removeFakeTransparency": "透明度を削除する",
+    "compress": "圧縮する",
     "resize": "サイズ変更"
   },
   "descriptions": {
-    "aiRemoveBg": "AI スマート背景除去、あらゆる背景を自動検出して除去、透明 PNG を生成",
-    "removeWatermark": "AI スマート透かし除去、画像内の透かし、ロゴ、テキストを自動検出して除去",
-    "removeFakeTransparency": "Lovart、Midjourney などの AI ツールからエクスポートされた疑似透明背景（グレー白のチェッカーボード）を本物の透明 PNG に変換",
-    "compress": "画像を圧縮してフォーマット変換、WebP、PNG、JPEG をサポート",
-    "resize": "画像サイズを正確に調整、アスペクト比維持をサポート"
+    "aiRemoveBg": "AIを活用した背景除去機能は、背景を自動的に識別し排除し、透過PNGを生成します。",
+    "removeWatermark": "AIスマートウォーターマーク除去：画像からウォーターマーク、ロゴ、テキストを自動的に識別し、削除します。",
+    "removeFakeTransparency": "LovartやMidjourneyなどのAIツールからエクスポートされた擬似透明背景（グレーと白のチェッカーボード）を、真の透明PNGに変換します。",
+    "compress": "画像を圧縮し、WebP、PNG、JPEGフォーマットに変換します。",
+    "resize": "アスペクト比を維持しながら、画像の寸法を正確に調整します。"
   },
   "upload": {
     "title": "画像をアップロード",
-    "dragDrop": "クリックまたはドラッグして画像をアップロード",
-    "dragDropHint": "PNG、JPG、WebP をサポート、最大 10MB",
-    "dropHere": "ここに画像をドラッグ、またはクリックして選択",
-    "batchHint": "PNG、JPG、WebP をサポート、一括処理可能"
+    "dragDrop": "画像をアップロードするには、クリックするかドラッグしてください。",
+    "dragDropHint": "PNG、JPG、WebP形式に対応しており、最大ファイルサイズは10MBです。",
+    "dropHere": "画像をここにドラッグ＆ドロップするか、クリックして選択してください。",
+    "batchHint": "PNG、JPG、WebP形式に対応しており、バッチ処理機能も備えています。"
   },
   "process": {
     "result": "処理結果",
-    "resultPlaceholder": "処理結果がここに表示されます",
+    "resultPlaceholder": "結果はここに表示されます。",
     "processing": "処理中...",
-    "aiProcessing": "AI 処理中...",
-    "processingHint": "数秒かかる場合があります",
-    "failed": "処理に失敗しました",
+    "aiProcessing": "AIが処理中です...",
+    "processingHint": "数秒お待ちください。",
+    "failed": "処理に失敗しました。",
     "download": "ダウンロード",
-    "removeBackground": "背景を除去",
-    "removeWatermark": "透かしを除去"
+    "removeBackground": "背景を削除する",
+    "removeWatermark": "透かしを削除する"
   },
   "options": {
-    "removeText": "テキストも除去",
+    "removeText": "テキストを同時に削除する",
     "yes": "はい",
     "no": "いいえ",
-    "outputFormat": "出力フォーマット",
+    "outputFormat": "出力形式",
     "compression": "画像圧縮",
     "highQuality": "高品質",
-    "slightLoss": "わずかな劣化",
-    "poorQuality": "低品質",
-    "pngLossless": "PNG は可逆圧縮、圧縮不要",
+    "slightLoss": "わずかな損失",
+    "poorQuality": "画像品質が低い",
+    "pngLossless": "PNG: ロスレスで圧縮不要。",
     "width": "幅",
     "height": "高さ",
-    "auto": "自動",
-    "keepAspectRatio": "アスペクト比を維持",
-    "px": "px"
+    "auto": "自動化",
+    "keepAspectRatio": "アスペクト比を維持する",
+    "px": "ピクセル"
   },
   "pending": {
-    "title": "保留中のファイル",
-    "clear": "クリア",
-    "processAll": "すべて処理",
+    "title": "処理待ちのファイル",
+    "clear": "すべてクリア",
+    "processAll": "すべて処理する",
     "processing": "処理中...",
     "process": "処理"
   },
   "results": {
-    "title": "処理完了",
+    "title": "処理が完了しました。",
     "downloadAll": "すべてダウンロード",
     "download": "ダウンロード",
-    "saved": "節約",
-    "increased": "増加"
+    "saved": "保存が成功しました。",
+    "increased": "追加が成功しました。"
   },
   "language": {
-    "select": "言語を選択"
+    "select": "言語を選択してください"
+  ,
+  "errors": {
+    "fileTooLarge": "ファイルが大きすぎます。最大10MBまでです。"
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "ファイルが大きすぎます。最大10MBまでです。"
   }
 }

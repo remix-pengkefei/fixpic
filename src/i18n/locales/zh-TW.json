@@ -1,71 +1,79 @@
 {
   "seo": {
-    "title": "FixPic - 免費線上圖片工具 | AI去背、去浮水印、壓縮、調整尺寸",
-    "description": "免費線上圖片處理工具：AI智慧去背、去浮水印、去假透明背景、圖片壓縮、調整尺寸。快速、免費、保護隱私。",
+    "title": "FixPic - 免費在線圖片工具 | AI抠圖、去水印、壓縮、調整尺寸",
+    "description": "免費在線圖片處理工具：AI智能抠圖、去水印、去假透明背景、圖片壓縮、調整尺寸。快速、免費、保護隱私。",
     "tools": {
       "ai-remove-background": {
-        "title": "AI去背 - 免費線上自動移除圖片背景 | FixPic",
-        "description": "免費AI智能去背工具，自動識別並移除任意背景，一鍵生成透明PNG圖片。無需註冊，即開即用。"
+        "title": "AI抠圖 - 免費線上自動去除圖片背景 | FixPic",
+        "description": "免費AI智能抠圖工具，自動識別並移除任意背景，一鍵生成透明PNG圖片。無需註冊，即開即用。"
       },
       "remove-watermark": {
-        "title": "AI去浮水印 - 免費線上移除圖片浮水印 | FixPic",
-        "description": "免費AI智能去浮水印工具，自動識別並去除圖片中的浮水印、Logo、文字。效果乾淨，秒級完成。"
+        "title": "AI去水印 - 免費線上去除圖片水印 | FixPic",
+        "description": "免費AI智能去水印工具，自動識別並去除圖片中的水印、Logo、文字。效果乾淨，秒級完成。"
       },
       "remove-fake-transparency": {
         "title": "去假透明 - 修復棋盤格背景轉透明PNG | FixPic",
-        "description": "將Midjourney、Lovart等AI工具匯出的假透明背景（灰白棋盤格）轉換為真正的透明PNG。免費線上工具。"
+        "description": "將Midjourney、Lovart等AI工具導出的假透明背景（灰白棋盤格）轉換為真正的透明PNG。免費的線上工具。"
       },
       "compress": {
-        "title": "圖片壓縮 - 免費線上壓縮PNG、JPG、WebP | FixPic",
+        "title": "圖片壓縮 - 免費在線壓縮PNG、JPG、WebP | FixPic",
         "description": "免費線上圖片壓縮工具，無損壓縮減小檔案大小。支援PNG、JPG、WebP格式轉換，快速簡單。"
       },
       "resize": {
         "title": "調整圖片尺寸 - 免費線上修改圖片大小 | FixPic",
-        "description": "免費線上圖片尺寸調整工具，精確修改圖片寬高，支援保持寬高比。支援PNG、JPG、WebP格式。"
-      }
-    }
+        "description": "免費在線圖片尺寸調整工具，精確修改圖片寬高，支持保持寬高比。支持PNG、JPG、WebP格式。"
+      ,
+  "errors": {
+    "fileTooLarge": "檔案過大，最大支援 10MB"
+  }
+}
+    ,
+  "errors": {
+    "fileTooLarge": "檔案過大，最大支援 10MB"
+  }
+}
   },
   "app": {
-    "title": "FixPic",
+    "title": "修圖助手",
     "tagline": "AI 開發者的圖片工具箱",
-    "footer": "FixPic - AI 去背由 Replicate 提供支援，去浮水印由 Dewatermark.ai 提供支援"
+    "footer": "FixPic - AI 抠圖由 Replicate 提供支持，去水印由 Dewatermark.ai 提供支持"
   },
   "tools": {
-    "aiRemoveBg": "AI 去背",
-    "removeWatermark": "去浮水印",
-    "removeFakeTransparency": "去假透明",
+    "aiRemoveBg": "AI 抠圖",
+    "removeWatermark": "去除水印",
+    "removeFakeTransparency": "去除假透明",
     "compress": "壓縮",
     "resize": "調整尺寸"
   },
   "descriptions": {
-    "aiRemoveBg": "AI 智慧去背，自動識別並移除任意背景，產生透明 PNG",
-    "removeWatermark": "AI 智慧去浮水印，自動識別並去除圖片中的浮水印、Logo、文字",
-    "removeFakeTransparency": "將 Lovart、Midjourney 等 AI 工具匯出的假透明背景（灰白棋盤格）轉換為真正的透明 PNG",
-    "compress": "壓縮圖片並轉換格式，支援 WebP、PNG、JPEG",
+    "aiRemoveBg": "AI 智能抠圖，自動識別並移除任意背景，生成透明 PNG",
+    "removeWatermark": "AI 智能去水印，自動識別並去除圖片中的水印、標誌、文字",
+    "removeFakeTransparency": "將 Lovart、Midjourney 等 AI 工具導出的假透明背景（灰白棋盤格）轉換為真正的透明 PNG。",
+    "compress": "壓縮圖片並轉換格式，支持 WebP、PNG、JPEG",
     "resize": "精確調整圖片尺寸，支援保持寬高比"
   },
   "upload": {
     "title": "上傳圖片",
     "dragDrop": "點擊或拖曳上傳圖片",
-    "dragDropHint": "支援 PNG、JPG、WebP，最大 10MB",
-    "dropHere": "拖曳圖片到這裡，或點擊選擇",
-    "batchHint": "支援 PNG、JPG、WebP，可批次處理"
+    "dragDropHint": "支持 PNG、JPG、WebP 格式，最大檔案大小 10MB",
+    "dropHere": "將圖片拖放到這裡，或點擊選擇",
+    "batchHint": "支持 PNG、JPG、WebP 格式，並可進行批量處理。"
   },
   "process": {
     "result": "處理結果",
     "resultPlaceholder": "處理結果將顯示在這裡",
     "processing": "處理中...",
-    "aiProcessing": "AI 正在處理...",
+    "aiProcessing": "AI 正在處理中...",
     "processingHint": "這可能需要幾秒鐘",
     "failed": "處理失敗",
     "download": "下載",
     "removeBackground": "移除背景",
-    "removeWatermark": "去除浮水印"
+    "removeWatermark": "去除水印"
   },
   "options": {
     "removeText": "同時去除文字",
     "yes": "是",
-    "no": "否",
+    "no": "不",
     "outputFormat": "輸出格式",
     "compression": "圖片壓縮",
     "highQuality": "高品質",
@@ -76,7 +84,7 @@
     "height": "高度",
     "auto": "自動",
     "keepAspectRatio": "保持比例",
-    "px": "px"
+    "px": "像素"
   },
   "pending": {
     "title": "待處理檔案",
@@ -94,5 +102,13 @@
   },
   "language": {
     "select": "選擇語言"
+  ,
+  "errors": {
+    "fileTooLarge": "檔案過大，最大支援 10MB"
+  }
+}
+,
+  "errors": {
+    "fileTooLarge": "檔案過大，最大支援 10MB"
   }
 }
